@@ -6,11 +6,31 @@ using System.Threading.Tasks;
 
 namespace CSharp_Training
 {
-    class Program
+    class Tutorial1
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            Console.WriteLine("Hello World");
+            int i, j, r;
+            r = 6;
+            for (i =0; i <= r; i++)
+            {
+                for (j = 1; j <= r - i; j++)
+                  Console.Write(" ");
+                  for (j = 1; j <= 2 * i - 1; j++)
+                  Console.Write("*");
+                  Console.Write("\n");
+                
+            }
+            for (i = r-1; i >=1; i--)
+            {
+                for (j = 1; j <= r - i; j++)
+                  Console.Write(" ");
+                for (j = 1; j <= 2 * i - 1; j++)
+                  Console.Write("*");
+                  Console.Write("\n");
+
+            }
+            Console.ReadLine();
         }
     }
 }

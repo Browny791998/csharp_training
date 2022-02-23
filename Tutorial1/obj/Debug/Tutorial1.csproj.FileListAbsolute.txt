@@ -1,0 +1,7 @@
+D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial1\bin\Debug\Tutorial1.exe.config
+D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial1\bin\Debug\Tutorial1.exe
+D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial1\bin\Debug\Tutorial1.pdb
+D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial1\obj\Debug\Tutorial1.csprojAssemblyReference.cache
+D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial1\obj\Debug\Tutorial1.csproj.CoreCompileInputs.cache
+D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial1\obj\Debug\Tutorial1.exe
+D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial1\obj\Debug\Tutorial1.pdb
