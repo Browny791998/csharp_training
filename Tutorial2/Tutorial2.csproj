@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0AA1305D-9768-4099-ABB1-620B30B71BFD}</ProjectGuid>
+    <ProjectGuid>{D2BF1452-BD90-4B04-8F2D-3DE032A15F6C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>CSharp_Training</RootNamespace>
-    <AssemblyName>CSharp_Training</AssemblyName>
+    <RootNamespace>Tutorial2</RootNamespace>
+    <AssemblyName>Tutorial2</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="program.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

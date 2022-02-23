@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp_Training", "CSharp_Training\CSharp_Training.csproj", "{0AA1305D-9768-4099-ABB1-620B30B71BFD}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutorial1", "Tutorial1\Tutorial1.csproj", "{6EA87062-6971-4935-8BF0-39458B786958}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutorial2", "Tutorial2\Tutorial2.csproj", "{D2BF1452-BD90-4B04-8F2D-3DE032A15F6C}"
+>>>>>>> feature/tutorial-2
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +21,17 @@ Global
 		{0AA1305D-9768-4099-ABB1-620B30B71BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AA1305D-9768-4099-ABB1-620B30B71BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AA1305D-9768-4099-ABB1-620B30B71BFD}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 		{6EA87062-6971-4935-8BF0-39458B786958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6EA87062-6971-4935-8BF0-39458B786958}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EA87062-6971-4935-8BF0-39458B786958}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EA87062-6971-4935-8BF0-39458B786958}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{D2BF1452-BD90-4B04-8F2D-3DE032A15F6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2BF1452-BD90-4B04-8F2D-3DE032A15F6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2BF1452-BD90-4B04-8F2D-3DE032A15F6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2BF1452-BD90-4B04-8F2D-3DE032A15F6C}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> feature/tutorial-2
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
