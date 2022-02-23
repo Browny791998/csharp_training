@@ -4,11 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharp_Training
+namespace Tutorial3
 {
-    class program
+    class Program
     {
-        public static void Main()
+        /// <summary>
+        /// Main
+        /// calculating two numbers
+        /// </summary>
+        /// <param name="args"></param>
+        static void Main(string[] args)
         {
             int first, second, result;
             string opt;
@@ -47,8 +52,7 @@ namespace CSharp_Training
                     Console.WriteLine("Please choose only from opiton");
                     break;
             }
-
-            Console.ReadLine();
+         Console.ReadLine();
         }
     }
 }
