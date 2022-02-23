@@ -58,9 +58,7 @@ namespace Tutorial8
             }
             else
             {
-                lblMessage.Visible = true;
-                lblMessage.CssClass = "alert alert-danger";
-                lblMessage.Text = "Please fill name";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Please fill name')", true);
             }
         }
     }

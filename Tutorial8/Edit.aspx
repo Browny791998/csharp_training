@@ -26,17 +26,8 @@
 
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-md-2 col-md-offset-1">
+                        <div class="col-md-2 col-md-offset-2">
                             <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-success" OnClick="btnUpdate_Click" />
-                        </div>
-
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
-                            <asp:Label ID="lblMessage" runat="server" CssClass="alert alert-success" Visible="False"></asp:Label>
-
                         </div>
 
                     </div>

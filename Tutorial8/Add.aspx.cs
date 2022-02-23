@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -19,6 +20,7 @@ namespace Tutorial8
                 GetData();
             }
         }
+
         /// <summary>
         /// Retrieving all data
         /// </summary>
@@ -27,7 +29,10 @@ namespace Tutorial8
             SqlConnection con = new SqlConnection(constring);
             SqlCommand cmd = new SqlCommand("SELECT * from tbl_Cat", con);
             con.Open();
-            gvPet.DataSource = cmd.ExecuteReader();
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            gvPet.DataSource = ds;
             gvPet.DataBind();
             con.Close();
         }
@@ -37,25 +42,47 @@ namespace Tutorial8
         /// </summary>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (txtName.Text != "")
+            if (!string.IsNullOrWhiteSpace(txtName.Text))
             {
-                SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("INSERT INTO tbl_Cat VALUES(@name)", con);
-                cmd.Parameters.AddWithValue("name", txtName.Text);
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-                lblMessage.Visible = true;
-                lblMessage.Text = "Added successfully";
-                txtName.Text = "";
-                GetData();
+                if (!DataExist())
+                {
+                    SqlConnection con = new SqlConnection(constring);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO tbl_Cat VALUES(@name)", con);
+                    cmd.Parameters.AddWithValue("name", txtName.Text);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Added successfully')", true);
+                    txtName.Text = "";
+                    GetData();
+                }
+                else
+                {
+                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Data already exists')", true);
+                }
             }
             else
             {
-                lblMessage.Visible = true;
-                lblMessage.CssClass = "alert alert-danger";
-                lblMessage.Text = "Please fill name";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Please fill name')", true);
             }
+        }
+
+        /// <summary>
+        /// checking data exist or not
+        /// </summary>
+        /// <returns></returns>
+        private bool DataExist()
+        {
+            SqlConnection con = new SqlConnection(constring);
+            SqlCommand cmd = new SqlCommand("SELECT * from tbl_Cat WHERE name=@name ", con);
+            cmd.Parameters.AddWithValue("name", txtName.Text);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -70,9 +97,17 @@ namespace Tutorial8
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
-            lblMessage.Visible = true;
-            lblMessage.Text = "Deleted successfully";
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Deleted successfully')", true);
             GetData();
+        }
+
+        /// <summary>
+        /// pagination
+        /// </summary>
+        protected void gvPet_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvPet.PageIndex = e.NewPageIndex;
+            this.GetData();
         }
     }
 }
