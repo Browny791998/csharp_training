@@ -4,3 +4,4 @@ D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial3\bin\Debug\Tutorial3.pdb
 D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial3\obj\Debug\Tutorial3.csproj.CoreCompileInputs.cache
 D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial3\obj\Debug\Tutorial3.exe
 D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial3\obj\Debug\Tutorial3.pdb
+D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial3\obj\Debug\Tutorial3.csprojAssemblyReference.cache
