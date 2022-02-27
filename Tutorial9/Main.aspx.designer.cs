@@ -51,6 +51,15 @@ namespace Tutorial9
         protected global::System.Web.UI.WebControls.Button btnText;
 
         /// <summary>
+        /// btnDoc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDoc;
+
+        /// <summary>
         /// gvFile control.
         /// </summary>
         /// <remarks>

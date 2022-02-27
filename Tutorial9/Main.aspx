@@ -9,9 +9,10 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Button ID="btnExcel" runat="server" Text="Fetching data from Excel" OnClick="btnExcel_Click" />
-            <asp:Button ID="btnCSV" runat="server" OnClick="btnCSV_Click" Text="Fetching data from CSV file" />
-            <asp:Button ID="btnText" runat="server" OnClick="btnText_Click" Text="Fetching data from Text file" />
+            <asp:Button ID="btnExcel" runat="server" Text="Fetching data from Excel" OnClick="btnExcel_Click" BackColor="#99FFCC" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" Height="50px" Width="300px" style="cursor:pointer"/><br /><br /><br />
+            <asp:Button ID="btnCSV" runat="server" OnClick="btnCSV_Click" Text="Fetching data from CSV file" BackColor="#99FFCC" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" Height="50px" Width="300px" style="cursor:pointer" /><br /><br /><br />
+            <asp:Button ID="btnText" runat="server" OnClick="btnText_Click" Text="Fetching data from Text file" BackColor="#99FFCC" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" Height="50px" Width="300px" style="cursor:pointer"/><br /><br /><br />
+            <asp:Button ID="btnDoc" runat="server" OnClick="btnDoc_Click" Text="Fetching data from Document" BackColor="#99FFCC" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" Height="50px" Width="300px" style="cursor:pointer"/>
             <br />
             <br />
             <asp:GridView ID="gvFile" runat="server" CellPadding="3" GridLines="Horizontal" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px">
