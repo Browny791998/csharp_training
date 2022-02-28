@@ -72,3 +72,9 @@ D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial8\obj\Debug\Tutorial8.csp
 D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial8\obj\Debug\Tutorial8.csproj.CopyComplete
 D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial8\obj\Debug\Tutorial8.dll
 D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial8\obj\Debug\Tutorial8.pdb
+D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial8\bin\BusinessLogic.dll
+D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial8\bin\BusinessObject.dll
+D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial8\bin\DataAccess.dll
+D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial8\bin\BusinessLogic.pdb
+D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial8\bin\BusinessObject.pdb
+D:\Webproject\SCMTraining\Day1\csharp_training\Tutorial8\bin\DataAccess.pdb

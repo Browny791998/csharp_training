@@ -7,12 +7,18 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using BusinessObject;
+using DataAccess;
+using BusinessLogic;
 namespace Tutorial8
 {
     public partial class Add : System.Web.UI.Page
     {
         string constring = ConfigurationManager.ConnectionStrings["userDB"].ConnectionString;
+        PetBOL objBOL = new PetBOL();
+        PetBLL objBLL = new PetBLL();
+        int result;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -26,15 +32,8 @@ namespace Tutorial8
         /// </summary>
         private void GetData()
         {
-            SqlConnection con = new SqlConnection(constring);
-            SqlCommand cmd = new SqlCommand("SELECT * from tbl_Cat", con);
-            con.Open();
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(ds);
-            gvPet.DataSource = ds;
+            gvPet.DataSource = objBLL.BindGrid();
             gvPet.DataBind();
-            con.Close();
         }
 
         /// <summary>
@@ -46,15 +45,18 @@ namespace Tutorial8
             {
                 if (!DataExist())
                 {
-                    SqlConnection con = new SqlConnection(constring);
-                    SqlCommand cmd = new SqlCommand("INSERT INTO tbl_Cat VALUES(@name)", con);
-                    cmd.Parameters.AddWithValue("name", txtName.Text);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Added successfully')", true);
-                    txtName.Text = "";
-                    GetData();
+                    objBOL.Name = txtName.Text;
+                    result = objBLL.Insert(objBOL);
+                    if (result > 0)
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('added successfully')", true);
+                        txtName.Text = "";
+                        GetData();
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('added failed')", true);
+                    }
                 }
                 else
                 {
@@ -91,14 +93,16 @@ namespace Tutorial8
         protected void gvPet_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int id = Convert.ToInt32(gvPet.DataKeys[e.RowIndex].Value);
-            SqlConnection con = new SqlConnection(constring);
-            SqlCommand cmd = new SqlCommand("DELETE FROM tbl_Cat WHERE id=@id", con);
-            cmd.Parameters.AddWithValue("id", id);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Deleted successfully')", true);
-            GetData();
+            result = objBLL.Delete(id);
+            if (result > 0)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Deleted successfully')", true);
+                GetData();
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Failed Deleting')", true);
+            }
         }
 
         /// <summary>

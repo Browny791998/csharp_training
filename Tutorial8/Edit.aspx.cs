@@ -6,12 +6,19 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BusinessObject;
+using DataAccess;
+using BusinessLogic;
 
 namespace Tutorial8
 {
     public partial class Edit : System.Web.UI.Page
     {
         string constring = ConfigurationManager.ConnectionStrings["userDB"].ConnectionString;
+        PetBOL objBOL = new PetBOL();
+        PetBLL objBLL = new PetBLL();
+        int result;
+
 
         /// <summary>
         /// getting id from add page
@@ -21,12 +28,7 @@ namespace Tutorial8
             if (!IsPostBack)
             {
                 int id = Convert.ToInt32(Request.QueryString["id"]);
-                SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("SELECT * from tbl_Cat WHERE id=@id", con);
-                cmd.Parameters.AddWithValue("id", id);
-                con.Open();
-
-                SqlDataReader dr = cmd.ExecuteReader();
+                SqlDataReader dr = objBLL.Read(id);
                 while (dr.Read())
                 {
                     string petid = dr["id"].ToString();
@@ -34,7 +36,6 @@ namespace Tutorial8
                     txtName.Text = name;
                     Lblpetid.Text = petid;
                 }
-                con.Close();
             }
         }
 
@@ -47,14 +48,16 @@ namespace Tutorial8
             {
                 int id = Convert.ToInt32(Lblpetid.Text);
                 string name = txtName.Text;
-                SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("UPDATE tbl_Cat SET name=@name WHERE id=@id", con);
-                cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@name", name);
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-                Response.Redirect("Add.aspx");
+                objBOL.Name = name;
+                result = objBLL.Update(objBOL, id);
+                if (result > 0)
+                {
+                    Response.Redirect("Add.aspx");
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Failed Updating')", true);
+                }
             }
             else
             {
