@@ -19,13 +19,19 @@ namespace Tutorial7
         }
 
         string constring = ConfigurationManager.ConnectionStrings["userDB"].ConnectionString;
+
+        /// <summary>
+        /// Changing new password
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtNewPass.Text) && !string.IsNullOrEmpty(txtConfirmPass.Text))
             {
                 if (txtNewPass.Text == txtConfirmPass.Text)
                 {
-                    //sendEmail();
+                    SendEmail();
                     string email = Session["Email"].ToString();
                     SqlConnection con = new SqlConnection(constring);
                     SqlCommand cmd = new SqlCommand("Update tbl_User Set Password=@Password,Status=0 Where Name=@Name", con);
@@ -40,8 +46,6 @@ namespace Tutorial7
                 {
                     LtlMessage.Text = "confirm password must be same with new password";
                 }
-
-
             }
             else
             {
@@ -49,15 +53,22 @@ namespace Tutorial7
             }
         }
 
-        private void sendEmail()
+
+        /// <summary>
+        /// Sending Email
+        /// </summary>
+        private void SendEmail()
         {
             try
             {
-                string to = "yehtetaung791998@gmail.com"; //To address
+                string to = Session["Email"].ToString(); //To address
                 string from = "yehtetaung791998@gmail.com"; //From address
                 MailMessage message = new MailMessage(from, to);
-
-                string mailbody = "Congratulation!Resetting password is successed";
+                string mailbody = "<center><h1>Resetting Password</h1></center>";
+                mailbody += "<p>Dear Sir,</p><br>";
+                mailbody += "<p style='padding-left:30px;'>Congratulation</p>";
+                mailbody += "<p style='padding-left:30px;'>Your resetting password is successful</p>";
+                mailbody += "<p style='padding-left:100px;'>From Company</p>";
                 message.Subject = "Resetting password";
                 message.Body = mailbody;
                 message.BodyEncoding = Encoding.UTF8;
