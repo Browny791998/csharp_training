@@ -13,6 +13,7 @@ namespace SampleTaskList.Views.Movie
         Models.Movie.Movie moviemodel = new Models.Movie.Movie();
         Services.Movie.MovieService movieservice = new Services.Movie.MovieService();
         DataTable da = new DataTable();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,30 +26,52 @@ namespace SampleTaskList.Views.Movie
         private void InsertData()
         {
            moviemodel.MOVIE = txtMovie.Text;
-
         }
         #endregion
 
+        /// <summary>
+        /// creating movie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            InsertData();
-            bool success = Services.Movie.MovieService.Insert(moviemodel);
-            if (success)
+            da = Services.Movie.MovieService.GetData(txtMovie.Text);
+            if (da.Rows.Count > 0)
             {
-                Response.Redirect("~/Views/Movie/MovieList", true);
-
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Data already existed')", true);
             }
             else
             {
-                Response.Write("added failed");
+                InsertData();
+                bool success = Services.Movie.MovieService.Insert(moviemodel);
+                if (success)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Created successfully')", true);
+                    txtMovie.Text = string.Empty;
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Creating failed')", true);
+                }
             }
         }
 
+        /// <summary>
+        /// clear form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnClear_Click(object sender, EventArgs e)
         {
             txtMovie.Text = string.Empty;
         }
 
+        /// <summary>
+        /// back to list page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnBack_Click(object sender, EventArgs e)
         {
             Response.Redirect("MovieList.aspx");

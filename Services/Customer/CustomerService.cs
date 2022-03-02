@@ -14,7 +14,6 @@ namespace Services.Customer
         #region Insert/Update/Delete
         /// <summary>
         /// Insert Data
-        /// <param name="post"></param>
         /// </summary>
         public static bool Insert(Models.Customer.Customer customer)
         {
@@ -31,7 +30,6 @@ namespace Services.Customer
 
         /// <summary>
         /// Update Data
-        /// <param name="post"></param>
         /// </summary>
         public static bool Update(Models.Customer.Customer customer)
         {
@@ -47,7 +45,6 @@ namespace Services.Customer
 
         /// <summary>
         /// Delete Data
-        /// <param name="post"></param>
         /// </summary>
         public static bool Delete(Models.Customer.Customer customer)
         {
@@ -66,13 +63,12 @@ namespace Services.Customer
         #region Get Data      
         /// <summary>
         /// Get Data
-        /// <param name="id"></param>
         /// </summary>
-        public static DataTable GetData(int id)
+        public static DataTable GetData(string name,string address)
         {
             try
             {
-                return DAOs.Salutation.SalutationDao.GetData(id);
+                return DAOs.Customer.CustomerDao.GetData(name,address);
             }
             catch (Exception ex)
             {
@@ -97,7 +93,6 @@ namespace Services.Customer
 
         /// <summary>
         /// Get Search Data
-        /// <param name="str"></param>
         /// </summary>
         public static DataTable GetSearchData(string str)
         {
@@ -111,6 +106,9 @@ namespace Services.Customer
             }
         }
 
+        /// <summary>
+        /// Read Data
+        /// </summary>
         public static SqlDataReader ReadData(int id)
         {
             try

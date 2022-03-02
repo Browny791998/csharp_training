@@ -16,7 +16,6 @@ namespace DAOs.Salutation
         /// <summary>
         /// Insert Data
         /// </summary>
-        /// <param name="post"></param>
         ///<returns></returns>
         public static bool Insert(Models.Salutation.Salutation salutation)
         {
@@ -39,7 +38,6 @@ namespace DAOs.Salutation
 
         /// <summary>
         /// Update Data
-        /// <paramref name="post"/>
         /// </summary>
         /// <returns></returns>
         public static bool Update(Models.Salutation.Salutation salutation)
@@ -61,7 +59,6 @@ namespace DAOs.Salutation
         /// <summary>
         /// Delete Data
         /// </summary>
-        /// <param name="post"></param>
         /// <returns></returns>
         public static bool Delete(Models.Salutation.Salutation salutation)
         {
@@ -84,13 +81,12 @@ namespace DAOs.Salutation
         /// <summary>
         /// Get Data
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
-        public static DataTable GetData(int id)
+        public static DataTable GetData(string salutation)
         {
             try
             {
-                return Common.HelperDao.GetData("Select Post.ID,Post.Title,Post.Description,[User].Name,convert(varchar,  Post.Created_At, 111)As PostedDate from Post Inner Join [User] on Post.Created_User_ID =[User].Created_User_ID where Post.Status=1 and Post.Created_User_ID='" + id + "'", CommandType.Text);
+                return Common.HelperDao.GetData("Select id,salutation from tbl_salutation where salutation='" + salutation + "'", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -106,7 +102,7 @@ namespace DAOs.Salutation
         {
             try
             {
-                return Common.HelperDao.GetData("Select id,salutation from tbl_salutation", CommandType.Text);
+              return Common.HelperDao.GetData("Select id,salutation from tbl_salutation", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -117,7 +113,6 @@ namespace DAOs.Salutation
         /// <summary>
         /// Get Search Data
         /// </summary>
-        /// <param name="str"></param>
         /// <returns></returns>
         public static DataTable GetSearchData(string str)
         {
@@ -138,6 +133,10 @@ namespace DAOs.Salutation
             }
         }
 
+        /// <summary>
+        /// Read Data
+        /// </summary>
+        /// <returns></returns>
         public static SqlDataReader ReadData(int id)
         {
             try

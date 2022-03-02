@@ -18,13 +18,13 @@ namespace Models.Salutation
 
         #region Constructor and Destructor
         /// <summary>
-        ///Constructor and Destructor for User Variables 
+        ///Constructor and Destructor for Salutation Variables 
         /// </summary>
         public void PostData()
         {
             _id = 0;
             _salutation = String.Empty;
-         }
+        }
 
         public void PostData(int id, string salutation)
         {

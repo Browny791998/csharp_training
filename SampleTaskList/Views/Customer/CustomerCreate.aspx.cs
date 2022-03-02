@@ -12,6 +12,7 @@ namespace SampleTaskList.Views.Customer
     {
         Models.Customer.Customer customermodel = new Models.Customer.Customer();
         DataTable da = new DataTable();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -34,6 +35,9 @@ namespace SampleTaskList.Views.Customer
         #endregion
 
 
+        /// <summary>
+        /// binding salutation
+        /// </summary>
         public void LoadSalutation()
         {
             da = Services.Salutation.SalutationService.GetAllData();
@@ -43,30 +47,51 @@ namespace SampleTaskList.Views.Customer
                 ddlSalutation.DataValueField = "id";
                 ddlSalutation.DataTextField = "salutation";
                 ddlSalutation.DataBind();
-             
             }
         }
 
+        /// <summary>
+        /// creating customer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            InsertData();
-            bool success = Services.Customer.CustomerService.Insert(customermodel);
-            if (success)
+            da = Services.Customer.CustomerService.GetData(txtName.Text,txtAddress.Text);
+            if (da.Rows.Count > 0)
             {
-                Response.Redirect("~/Views/Customer/CustomerList", true);
-
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Data already existed')", true);
             }
             else
             {
-                Response.Write("added failed");
+                InsertData();
+                bool success = Services.Customer.CustomerService.Insert(customermodel);
+                if (success)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Created successfully')", true);
+                    txtName.Text = string.Empty;
+                    txtAddress.Text = string.Empty;
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Creeating failed')", true);
+                }
             }
         }
 
+        /// <summary>
+        /// back to list page
+        /// </summary>
         protected void btnBack_Click(object sender, EventArgs e)
         {
             Response.Redirect("CustomerList.aspx");
         }
 
+        /// <summary>
+        /// clear form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnClear_Click(object sender, EventArgs e)
         {
             ddlSalutation.SelectedIndex = -1;

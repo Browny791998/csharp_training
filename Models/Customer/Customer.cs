@@ -10,7 +10,7 @@ namespace Models.Customer
     {
         #region Local variable and Constant Declaration
         /// <summary>
-        /// Salutation Variables
+        /// Customer Variables
         /// </summary>		
         private int _id;
         private int _salutationId;
@@ -20,7 +20,7 @@ namespace Models.Customer
 
         #region Constructor and Destructor
         /// <summary>
-        ///Constructor and Destructor for User Variables 
+        ///Constructor and Destructor for Customer Variables 
         /// </summary>
         public void PostData()
         {
@@ -28,8 +28,7 @@ namespace Models.Customer
             _salutationId = 0;
             _fullname = String.Empty;
             _address = String.Empty;
-
-        }
+         }
 
         public void PostData(int id,int salutationId,string fullname,string address)
         {
@@ -91,9 +90,9 @@ namespace Models.Customer
         }
 
         /// <summary>
-        /// Gets or sets the <b>FullName</b> attribute value.
+        /// Gets or sets the <b>Address</b> attribute value.
         /// </summary>
-        /// <value>The <b>FullName</b> attribute value.</value>
+        /// <value>The <b>Address</b> attribute value.</value>
         public string Address
         {
             get

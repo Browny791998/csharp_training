@@ -13,5 +13,12 @@ namespace SampleTaskList.Views.Common.Layouts
         {
 
         }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.RemoveAll();
+            Session.Abandon();
+            Response.Redirect("~/Views/User/Login.aspx");
+        }
     }
 }

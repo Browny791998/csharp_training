@@ -13,7 +13,6 @@ namespace Services.Movie
         #region Insert/Update/Delete
         /// <summary>
         /// Insert Data
-        /// <param name="movie"></param>
         /// </summary>
         public static bool Insert(Models.Movie.Movie movie)
         {
@@ -30,7 +29,6 @@ namespace Services.Movie
 
         /// <summary>
         /// Update Data
-        /// <param name="movie"></param>
         /// </summary>
         public static bool Update(Models.Movie.Movie movie)
         {
@@ -46,7 +44,6 @@ namespace Services.Movie
 
         /// <summary>
         /// Delete Data
-        /// <param name="customer"></param>
         /// </summary>
         public static bool Delete(Models.Movie.Movie movie)
         {
@@ -65,13 +62,12 @@ namespace Services.Movie
         #region Get Data      
         /// <summary>
         /// Get Data
-        /// <param name="id"></param>
         /// </summary>
-        public static DataTable GetData(int id)
+        public static DataTable GetData(string movie)
         {
             try
             {
-                return DAOs.Movie.MovieDao.GetData(id);
+                return DAOs.Movie.MovieDao.GetData(movie);
             }
             catch (Exception ex)
             {
@@ -96,7 +92,6 @@ namespace Services.Movie
 
         /// <summary>
         /// Get Search Data
-        /// <param name="str"></param>
         /// </summary>
         public static DataTable GetSearchData(string str)
         {
@@ -110,6 +105,9 @@ namespace Services.Movie
             }
         }
 
+        /// <summary>
+        /// Read Data
+        /// </summary>
         public static SqlDataReader ReadData(int id)
         {
             try

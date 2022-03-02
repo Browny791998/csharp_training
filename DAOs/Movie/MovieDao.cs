@@ -14,7 +14,6 @@ namespace DAOs.Movie
         /// <summary>
         /// Insert Data
         /// </summary>
-        /// <param name="post"></param>
         ///<returns></returns>
         public static bool Insert(Models.Movie.Movie movie)
         {
@@ -59,7 +58,6 @@ namespace DAOs.Movie
         /// <summary>
         /// Delete Data
         /// </summary>
-        /// <param name="post"></param>
         /// <returns></returns>
         public static bool Delete(Models.Movie.Movie movie)
         {
@@ -82,13 +80,12 @@ namespace DAOs.Movie
         /// <summary>
         /// Get Data
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
-        public static DataTable GetData(int id)
+        public static DataTable GetData(string movie)
         {
             try
             {
-                return Common.HelperDao.GetData("Select Post.ID,Post.Title,Post.Description,[User].Name,convert(varchar,  Post.Created_At, 111)As PostedDate from Post Inner Join [User] on Post.Created_User_ID =[User].Created_User_ID where Post.Status=1 and Post.Created_User_ID='" + id + "'", CommandType.Text);
+                return Common.HelperDao.GetData("Select movie from tbl_movie where movie='" + movie + "'", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -115,7 +112,6 @@ namespace DAOs.Movie
         /// <summary>
         /// Get Search Data
         /// </summary>
-        /// <param name="str"></param>
         /// <returns></returns>
         public static DataTable GetSearchData(string str)
         {
@@ -136,6 +132,10 @@ namespace DAOs.Movie
             }
         }
 
+        /// <summary>
+        /// Read Data
+        /// </summary>
+        /// <returns></returns>
         public static SqlDataReader ReadData(int id)
         {
             try

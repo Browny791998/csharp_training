@@ -18,7 +18,7 @@ namespace Models.Movie
 
         #region Constructor and Destructor
         /// <summary>
-        ///Constructor and Destructor for User Variables 
+        ///Constructor and Destructor for Movie Variables 
         /// </summary>
         public void PostData()
         {

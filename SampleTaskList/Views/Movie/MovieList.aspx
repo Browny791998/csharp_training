@@ -2,6 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="jumbotron">
+       <h1>Movie List</h1>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-3">
@@ -17,7 +20,7 @@
         <br />
         <div class="row">
             <div class="col-md-9">
-                <asp:GridView ID="grvMovie" runat="server" CssClass="table table-striped table-hover pt-5" AutoGenerateColumns="false" DataKeyNames="id" OnRowDeleting="grvMovie_RowDeleting" OnRowUpdating="grvMovie_RowUpdating">
+                <asp:GridView ID="grvMovie" runat="server" CssClass="table table-striped table-hover pt-5" AutoGenerateColumns="false" DataKeyNames="id" OnRowDeleting="grvMovie_RowDeleting" OnRowUpdating="grvMovie_RowUpdating" AllowPaging="True" PageSize="5" OnPageIndexChanging="grvMovie_PageIndexChanging">
                     <Columns>
             <asp:TemplateField>
               <HeaderTemplate>
@@ -44,7 +47,7 @@
              
             </asp:TemplateField>
           </Columns>
-
+            <PagerStyle   Font-Bold="True" Font-Size="Large" HorizontalAlign="Center" VerticalAlign="Middle" CssClass="page" />
                 </asp:GridView>
             </div>
         </div>

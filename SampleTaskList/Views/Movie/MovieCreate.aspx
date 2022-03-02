@@ -10,10 +10,11 @@
   <div class="form-group">
     <label for="exampleInputPassword1">Movie</label>
       <asp:TextBox ID="txtMovie" runat="server" CssClass="form-control"></asp:TextBox>
+      <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtMovie" ErrorMessage="Please fill movie name" ForeColor="Red"></asp:RequiredFieldValidator>
   </div>
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click"/>
         <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click"  CssClass="btn btn-info"/>
-          <asp:Button ID="btnBack" runat="server" Text="Back" OnClick="btnBack_Click"  CssClass="btn btn-info"/>
+          <asp:Button ID="btnBack" runat="server" Text="Back" OnClick="btnBack_Click"  CssClass="btn btn-info" CausesValidation="False"/>
      </div>
         </div>
     </div>

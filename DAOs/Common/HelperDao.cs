@@ -69,9 +69,7 @@ namespace DAOs.Common
                 tblResult = null;
                 throw ex;
             }
-          
-
-        }
+         }
 
         /// <summary>
         /// Update Data
@@ -182,7 +180,6 @@ namespace DAOs.Common
         /// </summary>
         public static DataTable GetData(string commandText, CommandType commandType)
         {
-
             var cn = new SqlConnection();
             cn.ConnectionString = dbConnectionString;
             cn.Open();
@@ -212,8 +209,7 @@ namespace DAOs.Common
             cn.ConnectionString = dbConnectionString;
             cn.Open();
             var cmd = new SqlCommand(commandText, cn);
-          
-            try
+           try
             {
                SqlDataReader dr = cmd.ExecuteReader();
                 return dr;
@@ -223,8 +219,6 @@ namespace DAOs.Common
                 tblResult = null;
                 throw ex;
             }
-
-            
         }
         #endregion
     }

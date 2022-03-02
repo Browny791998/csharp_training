@@ -126,10 +126,9 @@
     <Content Include="Resources\css\lib\font-awesome.css" />
     <Content Include="Resources\css\lib\font-awesome.min.css" />
     <Content Include="Resources\css\style.css" />
-    <Content Include="Resources\js\lib\bootstrap.min.js" />
     <Content Include="Resources\js\lib\jquery.js" />
     <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Resources\js\lib\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -161,12 +160,16 @@
     <Content Include="Views\Customer\CustomerCreate.aspx" />
     <Content Include="Views\Customer\CustomerEdit.aspx" />
     <Content Include="Views\Customer\CustomerList.aspx" />
+    <Content Include="Views\MovieRenting\MovieRentingCreate.aspx" />
+    <Content Include="Views\MovieRenting\MovieRentingEdit.aspx" />
+    <Content Include="Views\MovieRenting\MovieRentingList.aspx" />
     <Content Include="Views\Movie\MovieCreate.aspx" />
     <Content Include="Views\Movie\MovieEdit.aspx" />
     <Content Include="Views\Movie\MovieList.aspx" />
     <Content Include="Views\Salutation\SalutationCreate.aspx" />
     <Content Include="Views\Salutation\SalutationEdit.aspx" />
     <Content Include="Views\Salutation\SalutationList.aspx" />
+    <Content Include="Views\User\Login.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -235,6 +238,27 @@
     <Compile Include="Views\Customer\CustomerList.aspx.designer.cs">
       <DependentUpon>CustomerList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\MovieRenting\MovieRentingCreate.aspx.cs">
+      <DependentUpon>MovieRentingCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MovieRenting\MovieRentingCreate.aspx.designer.cs">
+      <DependentUpon>MovieRentingCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MovieRenting\MovieRentingEdit.aspx.cs">
+      <DependentUpon>MovieRentingEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MovieRenting\MovieRentingEdit.aspx.designer.cs">
+      <DependentUpon>MovieRentingEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MovieRenting\MovieRentingList.aspx.cs">
+      <DependentUpon>MovieRentingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MovieRenting\MovieRentingList.aspx.designer.cs">
+      <DependentUpon>MovieRentingList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Movie\MovieCreate.aspx.cs">
       <DependentUpon>MovieCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -276,6 +300,13 @@
     </Compile>
     <Compile Include="Views\Salutation\SalutationList.aspx.designer.cs">
       <DependentUpon>SalutationList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\User\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="jumbotron">
+       <h1>Customer List</h1>
+    </div>
      <div class="container">
         <div class="row">
 
@@ -18,7 +21,7 @@
         <br />
          <div class="row">
             <div class="col-md-9">
-                <asp:GridView ID="grvCustomer" runat="server" CssClass="table table-striped table-hover pt-5" AutoGenerateColumns="false" DataKeyNames="id" OnRowUpdating="grvCustomer_RowUpdating" OnRowDeleting="grvCustomer_RowDeleting">
+                <asp:GridView ID="grvCustomer" runat="server" CssClass="table table-striped table-hover pt-5" AutoGenerateColumns="false" DataKeyNames="id" OnRowUpdating="grvCustomer_RowUpdating" OnRowDeleting="grvCustomer_RowDeleting" AllowPaging="True" OnPageIndexChanging="grvCustomer_PageIndexChanging" PageSize="5">
                     <Columns>
             <asp:TemplateField>
               <HeaderTemplate>
@@ -61,7 +64,7 @@
              
             </asp:TemplateField>
           </Columns>
-
+ <PagerStyle   Font-Bold="True" Font-Size="Large" HorizontalAlign="Center" VerticalAlign="Middle" CssClass="page" />
                 </asp:GridView>
             </div>
         </div>

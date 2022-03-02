@@ -12,8 +12,8 @@ namespace SampleTaskList.Views.Movie
     public partial class MovieEdit : System.Web.UI.Page
     {
         Models.Movie.Movie moviemodel = new Models.Movie.Movie();
-
         DataTable da = new DataTable();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -39,29 +39,43 @@ namespace SampleTaskList.Views.Movie
         {
             moviemodel.ID = Convert.ToInt32(hfMovie.Value);
             moviemodel.MOVIE= txtMovie.Text;
-
-        }
+         }
         #endregion
 
+        /// <summary>
+        /// editing movie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             UpdateData();
             bool IsUpdate = Services.Movie.MovieService.Update(moviemodel);
             if (IsUpdate)
             {
-                Response.Write("Updated successfully");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Updated successfully')", true);
             }
             else
             {
-                Response.Write("Updating failed");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Updating failed')", true);
             }
         }
 
+        /// <summary>
+        /// clear form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnClear_Click(object sender, EventArgs e)
         {
             txtMovie.Text = string.Empty;
         }
 
+        /// <summary>
+        /// back to list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btn_Back(object sender, EventArgs e)
         {
             Response.Redirect("MovieList.aspx");

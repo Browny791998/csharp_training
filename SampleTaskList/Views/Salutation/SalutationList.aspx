@@ -1,8 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layouts/Main.Master" AutoEventWireup="true" CodeBehind="SalutationList.aspx.cs" Inherits="SampleTaskList.Views.Salutation.SalutationCreate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-       <link href="<%=Page.ResolveUrl("~/Resources/css/lib/font-awesome.css")%>" rel="stylesheet">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <div class="jumbotron">
+       <h1>Salutation List</h1>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-3">
@@ -18,7 +21,7 @@
         <br />
         <div class="row">
             <div class="col-md-9">
-                <asp:GridView ID="grvSalutation" runat="server" CssClass="table table-striped table-hover pt-5" AutoGenerateColumns="false" DataKeyNames="id" OnRowDeleting="grvSalutation_RowDeleting" OnRowUpdating="grvSalutation_RowUpdating">
+                <asp:GridView ID="grvSalutation" runat="server" CssClass="table table-striped table-hover pt-5" AutoGenerateColumns="false" DataKeyNames="id" OnRowDeleting="grvSalutation_RowDeleting" OnRowUpdating="grvSalutation_RowUpdating" AllowPaging="True" OnPageIndexChanging="grvSalutation_PageIndexChanging" PageSize="5">
                     <Columns>
             <asp:TemplateField>
               <HeaderTemplate>
@@ -45,7 +48,7 @@
              
             </asp:TemplateField>
           </Columns>
-
+                    <PagerStyle   Font-Bold="True" Font-Size="Large" HorizontalAlign="Center" VerticalAlign="Middle" CssClass="page" />
                 </asp:GridView>
             </div>
         </div>

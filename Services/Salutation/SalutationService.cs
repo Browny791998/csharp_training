@@ -14,7 +14,6 @@ namespace Services.Salutation
         #region Insert/Update/Delete
         /// <summary>
         /// Insert Data
-        /// <param name="post"></param>
         /// </summary>
         public static bool Insert(Models.Salutation.Salutation salutation)
         {
@@ -31,7 +30,6 @@ namespace Services.Salutation
 
         /// <summary>
         /// Update Data
-        /// <param name="post"></param>
         /// </summary>
         public static bool Update(Models.Salutation.Salutation salutation)
         {
@@ -47,7 +45,6 @@ namespace Services.Salutation
 
         /// <summary>
         /// Delete Data
-        /// <param name="post"></param>
         /// </summary>
         public static bool Delete(Models.Salutation.Salutation salutation)
         {
@@ -66,13 +63,12 @@ namespace Services.Salutation
         #region Get Data      
         /// <summary>
         /// Get Data
-        /// <param name="id"></param>
         /// </summary>
-        public static DataTable GetData(int id)
+        public static DataTable GetData(string salutation)
         {
             try
             {
-                return DAOs.Salutation.SalutationDao.GetData(id);
+                return DAOs.Salutation.SalutationDao.GetData(salutation);
             }
             catch (Exception ex)
             {
@@ -97,7 +93,6 @@ namespace Services.Salutation
 
         /// <summary>
         /// Get Search Data
-        /// <param name="str"></param>
         /// </summary>
         public static DataTable GetSearchData(string str)
         {
@@ -111,6 +106,9 @@ namespace Services.Salutation
             }
         }
 
+        /// <summary>
+        /// Read Data
+        /// </summary>
         public static SqlDataReader ReadData(int id)
         {
             try

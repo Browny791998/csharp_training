@@ -13,8 +13,13 @@ namespace SampleTaskList.Views.Movie
         Models.Movie.Movie moviemodel = new Models.Movie.Movie();
         Services.Movie.MovieService movieservice = new Services.Movie.MovieService();
         DataTable da = new DataTable();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["email"] == null)
+            {
+                Response.Redirect("~/Views/User/Login.aspx");
+            }
             if (!Page.IsPostBack)
             {
                 GetData();
@@ -42,11 +47,21 @@ namespace SampleTaskList.Views.Movie
 
         #endregion
 
+        /// <summary>
+        /// go to add page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             Response.Redirect("MovieCreate.aspx");
         }
 
+        /// <summary>
+        /// search movie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSearch_Click(object sender, EventArgs e)
         {
              da = Services.Movie.MovieService.GetSearchData(txtSearch.Text);
@@ -62,6 +77,11 @@ namespace SampleTaskList.Views.Movie
             }
         }
 
+        /// <summary>
+        /// deleting movie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void grvMovie_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int id = Convert.ToInt32(grvMovie.DataKeys[e.RowIndex].Value);
@@ -69,19 +89,35 @@ namespace SampleTaskList.Views.Movie
             bool IsDelete = Services.Movie.MovieService.Delete(moviemodel);
             if (IsDelete)
             {
-                Response.Write("Deleting suuccessfully");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Deleted successfully')", true);
                 GetData();
             }
             else
             {
-                Response.Write("Deleting failed");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Deleting failed')", true);
             }
         }
 
+        /// <summary>
+        /// go to update page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void grvMovie_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             int id = Convert.ToInt32(grvMovie.DataKeys[e.RowIndex].Value);
             Response.Redirect("MovieEdit.aspx?id=" + id);
+        }
+
+        /// <summary>
+        /// paging
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void grvMovie_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grvMovie.PageIndex = e.NewPageIndex;
+            this.GetData();
         }
     }
 }

@@ -15,7 +15,6 @@ namespace DAOs.Customer
         /// <summary>
         /// Insert Data
         /// </summary>
-        /// <param name="post"></param>
         ///<returns></returns>
         public static bool Insert(Models.Customer.Customer customer)
         {
@@ -40,7 +39,6 @@ namespace DAOs.Customer
 
         /// <summary>
         /// Update Data
-        /// <paramref name="post"/>
         /// </summary>
         /// <returns></returns>
         public static bool Update(Models.Customer.Customer customer)
@@ -64,7 +62,6 @@ namespace DAOs.Customer
         /// <summary>
         /// Delete Data
         /// </summary>
-        /// <param name="post"></param>
         /// <returns></returns>
         public static bool Delete(Models.Customer.Customer customer)
         {
@@ -86,13 +83,12 @@ namespace DAOs.Customer
         /// <summary>
         /// Get Data
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
-        public static DataTable GetData(int id)
+        public static DataTable GetData(string name,string address)
         {
             try
             {
-                return Common.HelperDao.GetData("Select Post.ID,Post.Title,Post.Description,[User].Name,convert(varchar,  Post.Created_At, 111)As PostedDate from Post Inner Join [User] on Post.Created_User_ID =[User].Created_User_ID where Post.Status=1 and Post.Created_User_ID='" + id + "'", CommandType.Text);
+                return Common.HelperDao.GetData("Select full_name,address from tbl_customer where full_name='" + name + "' and address='"+address+"'", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -119,7 +115,6 @@ namespace DAOs.Customer
         /// <summary>
         /// Get Search Data
         /// </summary>
-        /// <param name="str"></param>
         /// <returns></returns>
         public static DataTable GetSearchData(string str)
         {
@@ -140,6 +135,10 @@ namespace DAOs.Customer
             }
         }
 
+        /// <summary>
+        ///Read Data
+        /// </summary>
+        /// <returns></returns>
         public static SqlDataReader ReadData(int id)
         {
             try

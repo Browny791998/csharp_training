@@ -13,6 +13,7 @@ namespace SampleTaskList.Views.Customer
     {
         DataTable da = new DataTable();
         Models.Customer.Customer customermodel = new Models.Customer.Customer();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -34,6 +35,9 @@ namespace SampleTaskList.Views.Customer
             }
         }
 
+        /// <summary>
+        /// binging salutation
+        /// </summary>
         public void LoadSalutation()
         {
             da = Services.Salutation.SalutationService.GetAllData();
@@ -43,8 +47,7 @@ namespace SampleTaskList.Views.Customer
                 ddlSalutation.DataValueField = "id";
                 ddlSalutation.DataTextField = "salutation";
                 ddlSalutation.DataBind();
-
-            }
+             }
         }
 
         #region UpdateData
@@ -60,20 +63,30 @@ namespace SampleTaskList.Views.Customer
         }
         #endregion
 
+        /// <summary>
+        /// updating customer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             UpdateData();
             bool IsUpdate = Services.Customer.CustomerService.Update(customermodel);
             if (IsUpdate)
             {
-                Response.Write("Updated successfully");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Updated successfully')", true);
             }
             else
             {
-                Response.Write("Updating failed");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Updating failed')", true);
             }
         }
 
+        /// <summary>
+        /// clear form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnClear_Click(object sender, EventArgs e)
         {
             ddlSalutation.SelectedIndex = -1;
@@ -81,6 +94,11 @@ namespace SampleTaskList.Views.Customer
             txtName.Text = string.Empty;
         }
 
+        /// <summary>
+        /// back to list page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnBack_Click(object sender, EventArgs e)
         {
             Response.Redirect("CustomerList.aspx");
