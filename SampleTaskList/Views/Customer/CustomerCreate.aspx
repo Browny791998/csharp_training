@@ -4,7 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div class="container">
         <div class="row">
-            <h1>Add Customer</h1>
+            <asp:HiddenField ID="hfCustomer" runat="server" />
+            <h1>
+                <asp:Label ID="lblCustomer" runat="server" Text="Label"></asp:Label></h1>
             <asp:Label ID="LblMessage" runat="server" Text="Label" Visible="False"></asp:Label>
     <div class="col-md-6">
   <div class="form-group">
@@ -22,7 +24,7 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtAddress" ErrorMessage="Please fill address" ForeColor="Red"></asp:RequiredFieldValidator>
   </div>
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click" />
-        <asp:Button ID="btnClear" runat="server" Text="Clear"  CssClass="btn btn-info" OnClick="btnClear_Click"/>
+        <asp:Button ID="btnClear" runat="server" Text="Clear"  CssClass="btn btn-info" OnClick="btnClear_Click" CausesValidation="False"/>
           <asp:Button ID="btnBack" runat="server" Text="Back"  CssClass="btn btn-info" OnClick="btnBack_Click" CausesValidation="False"/>
      </div>
         </div>

@@ -11,6 +11,7 @@
   
      
      <link href="<%=Page.ResolveUrl("~/Resources/css/lib/bootstrap.min.css")%>" rel="stylesheet">
+    <link href="<%=Page.ResolveUrl("~/Resources/css/style.css")%>" rel="stylesheet">
      <style>
       .page a,.page span{
     display: block;
@@ -18,11 +19,15 @@
     padding: 0.3em 0.5em;
     margin-right: 3px;
     margin-bottom: 5px;
+ }
+         .auto-style1 {
+             margin-top: 6px;
+         }
  </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-dark bg-primary">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -32,18 +37,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Movie Renting Website</a>
+          <img src="../../../Resources/image/movierent.png" alt="logo" height="80px" width="80px" class="movielogo"/>
+          
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="navbarlink collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a runat="server" href="../../Customer/CustomerList.aspx">Customer</a></li>
-       <li><a runat="server" href="../../Movie/MovieList.aspx">Movie</a></li>
-          <li><a runat="server" href="../../Salutation/SalutationList.aspx">Salutation</a></li>
-           <li><a runat="server" href="../../MovieRenting/MovieRentingList.aspx">Movie Renting List</a></li>
+        <li><a class="nav-link" runat="server" href="../../Customer/CustomerList.aspx">Customer</a></li>
+       <li><a class="nav-link" runat="server" href="../../Movie/MovieList.aspx">Movie</a></li>
+          <li><a class="nav-link" runat="server" href="../../Salutation/SalutationList.aspx">Salutation</a></li>
+           <li><a class="nav-link" runat="server" href="../../MovieRenting/MovieRentingList.aspx">Movie Renting List</a></li>
             <li>
-                <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click">Logout</asp:LinkButton></li>
+                <asp:LinkButton ID="btnLogout" runat="server" class="nav-link" OnClick="btnLogout_Click">Logout</asp:LinkButton></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

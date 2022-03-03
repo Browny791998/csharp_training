@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,10 +16,38 @@ namespace SampleTaskList.Views.MovieRenting
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["label"] != null)
             {
-                LoadMovie();
-                LoadCustomer();
+                string label = Session["label"].ToString();
+                if (label == "add")
+                {
+                    lblMovierent.Text = "Add MovieRenting";
+                    if (!IsPostBack)
+                    {
+                        LoadMovie();
+                        LoadCustomer();
+                    }
+                }
+                else if (label == "update")
+                {
+                    lblMovierent.Text = "Update MovieRenting";
+                    if (!IsPostBack)
+                    {
+                        LoadMovie();
+                        LoadCustomer();
+                        int id = Convert.ToInt32(Request.QueryString["id"]);
+                        SqlDataReader dr = Services.MovieRenting.MovieRentService.ReadData(id);
+                        while (dr.Read())
+                        {
+                            string ID = dr["id"].ToString();
+                            int movie_id = Convert.ToInt32(dr["movie_id"].ToString());
+                            int customer_id = Convert.ToInt32(dr["customer_id"].ToString());
+                            hfMovieRent.Value = ID;
+                            ddlMovie.SelectedValue = movie_id.ToString();
+                            ddlCustomer.SelectedValue = customer_id.ToString();
+                        }
+                    }
+                }
             }
         }
 
@@ -28,6 +57,19 @@ namespace SampleTaskList.Views.MovieRenting
         /// </summary>
         private void InsertData()
         {
+            movierentmodel.MovieID = Convert.ToInt32(ddlMovie.SelectedValue);
+            movierentmodel.CustomerID = Convert.ToInt32(ddlCustomer.SelectedValue);
+        }
+        #endregion
+
+
+        #region UpdateData
+        /// <summary>
+        /// UpdateData
+        /// </summary>
+        private void UpdateData()
+        {
+            movierentmodel.ID = Convert.ToInt32(hfMovieRent.Value);
             movierentmodel.MovieID = Convert.ToInt32(ddlMovie.SelectedValue);
             movierentmodel.CustomerID = Convert.ToInt32(ddlCustomer.SelectedValue);
         }
@@ -70,22 +112,38 @@ namespace SampleTaskList.Views.MovieRenting
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            da = Services.MovieRenting.MovieRentService.GetData(Convert.ToInt32(ddlMovie.SelectedValue), Convert.ToInt32(ddlCustomer.SelectedValue));
-            if (da.Rows.Count > 0)
+            if (hfMovieRent.Value == "")
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Data already existed')", true);
-            }
-            else
-            {
-                InsertData();
-                bool success = Services.MovieRenting.MovieRentService.Insert(movierentmodel);
-                if (success)
+                da = Services.MovieRenting.MovieRentService.GetData(Convert.ToInt32(ddlMovie.SelectedValue), Convert.ToInt32(ddlCustomer.SelectedValue));
+                if (da.Rows.Count > 0)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Created successfully')", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Data already existed')", true);
                 }
                 else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Creating failed')", true);
+                    InsertData();
+                    bool success = Services.MovieRenting.MovieRentService.Insert(movierentmodel);
+                    if (success)
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Created successfully')", true);
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Creating failed')", true);
+                    }
+                }
+            }
+            else
+            {
+                UpdateData();
+                bool IsUpdate = Services.MovieRenting.MovieRentService.Update(movierentmodel);
+                if (IsUpdate)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Updated successfully')", true);
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Updating failed')", true);
                 }
             }
         }

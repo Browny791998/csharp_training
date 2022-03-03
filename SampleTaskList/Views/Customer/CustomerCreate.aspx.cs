@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,9 +16,38 @@ namespace SampleTaskList.Views.Customer
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["label"] != null)
             {
-                LoadSalutation();
+                string label = Session["label"].ToString();
+                if (label == "add")
+                {
+                    lblCustomer.Text = "Add Customer";
+                    if (!IsPostBack)
+                    {
+                        LoadSalutation();
+                    }
+                }
+                else if (label == "update")
+                {
+                    lblCustomer.Text = "Update Customer";
+                    if (!IsPostBack)
+                    {
+                        LoadSalutation();
+                        int id = Convert.ToInt32(Request.QueryString["id"]);
+                        SqlDataReader dr = Services.Customer.CustomerService.ReadData(id);
+                        while (dr.Read())
+                        {
+                            string ID = dr["id"].ToString();
+                            int salutation_id = Convert.ToInt32(dr["salutation_id"].ToString());
+                            string name = dr["full_name"].ToString();
+                            string address = dr["address"].ToString();
+                            hfCustomer.Value = ID;
+                            txtName.Text = name;
+                            txtAddress.Text = address;
+                            ddlSalutation.SelectedValue = salutation_id.ToString(); ;
+                        }
+                    }
+                }
             }
         }
 
@@ -34,6 +64,18 @@ namespace SampleTaskList.Views.Customer
         }
         #endregion
 
+        #region UpdateData
+        /// <summary>
+        /// UpdateData
+        /// </summary>
+        private void UpdateData()
+        {
+            customermodel.ID = Convert.ToInt32(hfCustomer.Value);
+            customermodel.SalutationID = Convert.ToInt32(ddlSalutation.SelectedValue);
+            customermodel.FullName = txtName.Text;
+            customermodel.Address = txtAddress.Text;
+        }
+        #endregion
 
         /// <summary>
         /// binding salutation
@@ -57,27 +99,43 @@ namespace SampleTaskList.Views.Customer
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            da = Services.Customer.CustomerService.GetData(txtName.Text,txtAddress.Text);
-            if (da.Rows.Count > 0)
+            if (hfCustomer.Value == "")
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Data already existed')", true);
-            }
-            else
-            {
-                InsertData();
-                bool success = Services.Customer.CustomerService.Insert(customermodel);
-                if (success)
+                da = Services.Customer.CustomerService.GetData(txtName.Text, txtAddress.Text);
+                if (da.Rows.Count > 0)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Created successfully')", true);
-                    txtName.Text = string.Empty;
-                    txtAddress.Text = string.Empty;
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Data already existed')", true);
                 }
                 else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Creeating failed')", true);
+                    InsertData();
+                    bool success = Services.Customer.CustomerService.Insert(customermodel);
+                    if (success)
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Created successfully')", true);
+                        txtName.Text = string.Empty;
+                        txtAddress.Text = string.Empty;
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Creeating failed')", true);
+                    }
                 }
             }
-        }
+            else
+            {
+                UpdateData();
+                bool IsUpdate = Services.Customer.CustomerService.Update(customermodel);
+                if (IsUpdate)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Updated successfully')", true);
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Updating failed')", true);
+                }
+            }
+         }
 
         /// <summary>
         /// back to list page

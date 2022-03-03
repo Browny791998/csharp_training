@@ -15,6 +15,24 @@ namespace SampleTaskList.Views.Customer
     {
 
         /// <summary>
+        /// hfCustomer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfCustomer;
+
+        /// <summary>
+        /// lblCustomer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCustomer;
+
+        /// <summary>
         /// LblMessage control.
         /// </summary>
         /// <remarks>

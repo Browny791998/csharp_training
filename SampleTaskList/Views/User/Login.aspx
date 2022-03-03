@@ -6,11 +6,12 @@
 <head runat="server">
     <title></title>
     <link href="../../Resources/css/lib/bootstrap.min.css" rel="stylesheet" />
+ 
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-3 col-md-offset-4">
                 <h1 class="text-center text-primary">User Login</h1>
                   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
@@ -23,6 +24,7 @@
                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" CssClass="btn btn-primary" />
             </div>
         </div>
+       
       
     </form>
 </body>

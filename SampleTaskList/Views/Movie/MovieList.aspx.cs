@@ -54,6 +54,7 @@ namespace SampleTaskList.Views.Movie
         /// <param name="e"></param>
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            Session["label"] = "add";
             Response.Redirect("MovieCreate.aspx");
         }
 
@@ -105,8 +106,9 @@ namespace SampleTaskList.Views.Movie
         /// <param name="e"></param>
         protected void grvMovie_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            Session["label"] = "update";
             int id = Convert.ToInt32(grvMovie.DataKeys[e.RowIndex].Value);
-            Response.Redirect("MovieEdit.aspx?id=" + id);
+            Response.Redirect("MovieCreate.aspx?id=" + id);
         }
 
         /// <summary>

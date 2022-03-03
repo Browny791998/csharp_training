@@ -33,6 +33,7 @@ namespace SampleTaskList.Views.Customer
         /// <param name="e"></param>
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            Session["label"] = "add";
             Response.Redirect("CustomerCreate.aspx");
         }
 
@@ -64,8 +65,9 @@ namespace SampleTaskList.Views.Customer
         /// <param name="e"></param>
         protected void grvCustomer_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            Session["label"] = "update";
             int id = Convert.ToInt32(grvCustomer.DataKeys[e.RowIndex].Value);
-            Response.Redirect("CustomerEdit.aspx?id=" + id);
+            Response.Redirect("CustomerCreate.aspx?id=" + id);
         }
 
         /// <summary>
