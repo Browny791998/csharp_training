@@ -14,6 +14,12 @@ namespace SampleTaskList.Views.Customer
         Services.Customer.CustomerService customerservice = new Services.Customer.CustomerService();
         DataTable da = new DataTable();
 
+        #region binding data
+        /// <summary>
+        /// binding data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -25,17 +31,9 @@ namespace SampleTaskList.Views.Customer
                 GetData();
             }
         }
+        #endregion
 
-        /// <summary>
-        /// go to add page
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-            Session["label"] = "add";
-            Response.Redirect("CustomerCreate.aspx");
-        }
+       
 
         #region Get Data
         /// <summary>
@@ -57,6 +55,18 @@ namespace SampleTaskList.Views.Customer
         }
 
         #endregion
+
+        #region customer add,update,delete
+        /// <summary>
+        /// go to add page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            Session["label"] = "add";
+            Response.Redirect("CustomerCreate.aspx");
+        }
 
         /// <summary>
         /// go to update page
@@ -82,15 +92,18 @@ namespace SampleTaskList.Views.Customer
             bool IsDelete = Services.Customer.CustomerService.Delete(customermodel);
             if (IsDelete)
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Deleted successfully')", true);
+                Session["alert"] = "Deleted successfully";
                 GetData();
             }
             else
             {
-           ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Deleting failed')", true);
+                Session["alert"] = "Deleting failed";
             }
         }
 
+        #endregion
+
+        #region search customer
         /// <summary>
         /// search customer
         /// </summary>
@@ -111,6 +124,9 @@ namespace SampleTaskList.Views.Customer
             }
         }
 
+        #endregion
+
+        #region paging
         /// <summary>
         /// paging
         /// </summary>
@@ -121,5 +137,6 @@ namespace SampleTaskList.Views.Customer
             grvCustomer.PageIndex = e.NewPageIndex;
             this.GetData();
         }
+        #endregion
     }
 }

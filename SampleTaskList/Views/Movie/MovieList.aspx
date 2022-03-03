@@ -3,8 +3,27 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
   
+    
+  
+
+
        <h1 class="text-center text-warning">Movie List</h1>
     <div class="list-sec container">
+        <%if (Session["alert"] != null)
+            { 
+                Lblalert.Visible = true;
+                Lblalert.Text = Session["alert"].ToString();%>
+          <div class="row">
+        <div class="col-md-6 col-md-offset-2">
+        <div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <asp:Label ID="Lblalert" runat="server" Text="Label" Visible="False"></asp:Label>
+</div>
+    </div>
+    </div>
+        <%
+                Session.Remove("alert");
+            } %>
         <div class="row">
             <div class="col-md-3">
              <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="btn btn-primary" OnClick="btnAdd_Click"/>
@@ -70,7 +89,7 @@
 
           </Columns>
                     <HeaderStyle BackColor="#6699FF" ForeColor="Black" />
-            <PagerStyle   Font-Bold="True" Font-Size="Large" HorizontalAlign="Center" VerticalAlign="Middle" CssClass="page" />
+            <PagerStyle   Font-Bold="True" Font-Size="Large" HorizontalAlign="Center" VerticalAlign="Middle" CssClass="pagination-ys" />
                 </asp:GridView>
             </div>
         </div>

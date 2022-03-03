@@ -11,7 +11,7 @@
     <div class="col-md-6">
   <div class="form-group">
     <label for="exampleInputPassword1">Movie</label>
-      <asp:TextBox ID="txtMovie" runat="server" CssClass="form-control"></asp:TextBox>
+     <span class="fill">*</span> <asp:TextBox ID="txtMovie" runat="server" CssClass="form-control"></asp:TextBox>
       <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtMovie" ErrorMessage="Please fill movie name" ForeColor="Red"></asp:RequiredFieldValidator>
   </div>
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click"/>

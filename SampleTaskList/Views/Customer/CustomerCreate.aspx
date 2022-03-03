@@ -11,16 +11,16 @@
     <div class="col-md-6">
   <div class="form-group">
     <label for="exampleInputPassword1">Salutation</label>
-       <asp:DropDownList ID="ddlSalutation" runat="server" CssClass="form-control"></asp:DropDownList>
+     <span class="fill">*</span>  <asp:DropDownList ID="ddlSalutation" runat="server" CssClass="form-control"></asp:DropDownList>
   </div>
         <div class="form-group">
     <label for="exampleInputPassword1">Full Name</label>
-      <asp:TextBox ID="txtName" runat="server" CssClass="form-control"></asp:TextBox>
+     <span class="fill">*</span> <asp:TextBox ID="txtName" runat="server" CssClass="form-control"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtName" ErrorMessage="Please fill name" ForeColor="Red"></asp:RequiredFieldValidator>
   </div>
         <div class="form-group">
     <label for="exampleInputPassword1">Address</label>
-      <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control"></asp:TextBox>
+   <span class="fill">*</span>   <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtAddress" ErrorMessage="Please fill address" ForeColor="Red"></asp:RequiredFieldValidator>
   </div>
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click" />

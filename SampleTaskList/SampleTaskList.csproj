@@ -159,16 +159,12 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Customer\CustomerCreate.aspx" />
-    <Content Include="Views\Customer\CustomerEdit.aspx" />
     <Content Include="Views\Customer\CustomerList.aspx" />
     <Content Include="Views\MovieRenting\MovieRentingCreate.aspx" />
-    <Content Include="Views\MovieRenting\MovieRentingEdit.aspx" />
     <Content Include="Views\MovieRenting\MovieRentingList.aspx" />
     <Content Include="Views\Movie\MovieCreate.aspx" />
-    <Content Include="Views\Movie\MovieEdit.aspx" />
     <Content Include="Views\Movie\MovieList.aspx" />
     <Content Include="Views\Salutation\SalutationCreate.aspx" />
-    <Content Include="Views\Salutation\SalutationEdit.aspx" />
     <Content Include="Views\Salutation\SalutationList.aspx" />
     <Content Include="Views\User\Login.aspx" />
     <Content Include="Web.config" />
@@ -225,13 +221,6 @@
     <Compile Include="Views\Customer\CustomerCreate.aspx.designer.cs">
       <DependentUpon>CustomerCreate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Customer\CustomerEdit.aspx.cs">
-      <DependentUpon>CustomerEdit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Customer\CustomerEdit.aspx.designer.cs">
-      <DependentUpon>CustomerEdit.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\Customer\CustomerList.aspx.cs">
       <DependentUpon>CustomerList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -245,13 +234,6 @@
     </Compile>
     <Compile Include="Views\MovieRenting\MovieRentingCreate.aspx.designer.cs">
       <DependentUpon>MovieRentingCreate.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MovieRenting\MovieRentingEdit.aspx.cs">
-      <DependentUpon>MovieRentingEdit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\MovieRenting\MovieRentingEdit.aspx.designer.cs">
-      <DependentUpon>MovieRentingEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\MovieRenting\MovieRentingList.aspx.cs">
       <DependentUpon>MovieRentingList.aspx</DependentUpon>
@@ -267,13 +249,6 @@
     <Compile Include="Views\Movie\MovieCreate.aspx.designer.cs">
       <DependentUpon>MovieCreate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Movie\MovieEdit.aspx.cs">
-      <DependentUpon>MovieEdit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Movie\MovieEdit.aspx.designer.cs">
-      <DependentUpon>MovieEdit.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\Movie\MovieList.aspx.cs">
       <DependentUpon>MovieList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -287,13 +262,6 @@
     </Compile>
     <Compile Include="Views\Salutation\SalutationCreate.aspx.designer.cs">
       <DependentUpon>SalutationCreate.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Salutation\SalutationEdit.aspx.cs">
-      <DependentUpon>SalutationEdit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Salutation\SalutationEdit.aspx.designer.cs">
-      <DependentUpon>SalutationEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Salutation\SalutationList.aspx.cs">
       <DependentUpon>SalutationList.aspx</DependentUpon>

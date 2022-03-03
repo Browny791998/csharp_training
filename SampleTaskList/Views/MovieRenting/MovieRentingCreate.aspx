@@ -11,11 +11,11 @@
     <div class="col-md-6">
   <div class="form-group">
     <label for="exampleInputPassword1">Movie</label>
-       <asp:DropDownList ID="ddlMovie" runat="server" CssClass="form-control"></asp:DropDownList>
+        <span class="fill">*</span> <asp:DropDownList ID="ddlMovie" runat="server" CssClass="form-control"></asp:DropDownList>
   </div>
         <div class="form-group">
     <label for="exampleInputPassword1">Customer</label>
-       <asp:DropDownList ID="ddlCustomer" runat="server" CssClass="form-control"></asp:DropDownList>
+       <span class="fill">*</span>  <asp:DropDownList ID="ddlCustomer" runat="server" CssClass="form-control"></asp:DropDownList>
   </div>
         
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click" />

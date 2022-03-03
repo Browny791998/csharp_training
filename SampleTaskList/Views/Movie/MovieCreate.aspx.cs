@@ -15,6 +15,12 @@ namespace SampleTaskList.Views.Movie
         Services.Movie.MovieService movieservice = new Services.Movie.MovieService();
         DataTable da = new DataTable();
 
+        #region binding data and getting data
+        /// <summary>
+        /// binding data and getting data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["label"] != null)
@@ -43,6 +49,7 @@ namespace SampleTaskList.Views.Movie
                 }
             }
         }
+        #endregion
 
         #region InsertData
         /// <summary>
@@ -65,8 +72,9 @@ namespace SampleTaskList.Views.Movie
         }
         #endregion
 
+        #region creating and updating movie
         /// <summary>
-        /// creating movie
+        /// creating and updating movie
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -77,7 +85,8 @@ namespace SampleTaskList.Views.Movie
                 da = Services.Movie.MovieService.GetData(txtMovie.Text);
                 if (da.Rows.Count > 0)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Data already existed')", true);
+                    Session["alert"] = "Data already existed";
+                    Response.Redirect("MovieList.aspx");
                 }
                 else
                 {
@@ -85,12 +94,14 @@ namespace SampleTaskList.Views.Movie
                     bool success = Services.Movie.MovieService.Insert(moviemodel);
                     if (success)
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Created successfully')", true);
+                        Session["alert"] = "Created successfully";
+                        Response.Redirect("MovieList.aspx");
                         txtMovie.Text = string.Empty;
                     }
                     else
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Creating failed')", true);
+                        Session["alert"] = "Creating failed";
+                        Response.Redirect("MovieList.aspx");
                     }
                 }
             }
@@ -100,15 +111,19 @@ namespace SampleTaskList.Views.Movie
                 bool IsUpdate = Services.Movie.MovieService.Update(moviemodel);
                 if (IsUpdate)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Updated successfully')", true);
+                    Session["alert"] = "Updated successfully";
+                    Response.Redirect("MovieList.aspx");
                 }
                 else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Updating failed')", true);
+                    Session["alert"] = "Updating failed";
+                    Response.Redirect("MovieList.aspx");
                 }
             }
         }
+        #endregion
 
+        #region clear and back
         /// <summary>
         /// clear form
         /// </summary>
@@ -128,5 +143,7 @@ namespace SampleTaskList.Views.Movie
         {
             Response.Redirect("MovieList.aspx");
         }
+
+        #endregion
     }
 }

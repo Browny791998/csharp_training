@@ -14,6 +14,12 @@ namespace SampleTaskList.Views.MovieRenting
         Services.MovieRenting.MovieRentService movierentservice = new Services.MovieRenting.MovieRentService();
         DataTable da = new DataTable();
 
+        #region bind data
+        /// <summary>
+        /// bind data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -25,17 +31,9 @@ namespace SampleTaskList.Views.MovieRenting
                 GetData();
             }
         }
+        #endregion
 
-        /// <summary>
-        /// go to creat page
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-            Session["label"] = "add";
-            Response.Redirect("MovieRentingCreate.aspx");
-        }
+        
 
         #region Get Data
         /// <summary>
@@ -58,6 +56,7 @@ namespace SampleTaskList.Views.MovieRenting
 
         #endregion
 
+        #region search movierent
         /// <summary>
         /// search movierent
         /// </summary>
@@ -77,6 +76,19 @@ namespace SampleTaskList.Views.MovieRenting
                 grvMovieRent.DataSource = null;
             }
         }
+        #endregion
+
+        #region movierent add,update,delete
+        /// <summary>
+        /// go to creat page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            Session["label"] = "add";
+            Response.Redirect("MovieRentingCreate.aspx");
+        }
 
         /// <summary>
         /// delet movierent
@@ -90,12 +102,12 @@ namespace SampleTaskList.Views.MovieRenting
             bool IsDelete = Services.MovieRenting.MovieRentService.Delete(movierentmodel);
             if (IsDelete)
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Deleted successfully')", true);
+                Session["alert"] = "Deleted successfully";
                 GetData();
             }
             else
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Deleting failed')", true);
+                Session["alert"] = "Deleting failed";
             }
         }
 
@@ -111,6 +123,10 @@ namespace SampleTaskList.Views.MovieRenting
             Response.Redirect("MovieRentingCreate.aspx?id=" + id);
         }
 
+        #endregion
+
+
+        #region paging
         /// <summary>
         /// paging
         /// </summary>
@@ -121,5 +137,6 @@ namespace SampleTaskList.Views.MovieRenting
             grvMovieRent.PageIndex = e.NewPageIndex;
             this.GetData();
         }
+        #endregion
     }
 }

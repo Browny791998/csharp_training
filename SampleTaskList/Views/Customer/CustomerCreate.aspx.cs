@@ -14,6 +14,12 @@ namespace SampleTaskList.Views.Customer
         Models.Customer.Customer customermodel = new Models.Customer.Customer();
         DataTable da = new DataTable();
 
+        #region binding data and getting data
+        /// <summary>
+        /// binding data and getting data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["label"] != null)
@@ -50,7 +56,7 @@ namespace SampleTaskList.Views.Customer
                 }
             }
         }
-
+        #endregion
 
         #region InsertData
         /// <summary>
@@ -77,6 +83,7 @@ namespace SampleTaskList.Views.Customer
         }
         #endregion
 
+        #region binding salutation
         /// <summary>
         /// binding salutation
         /// </summary>
@@ -91,9 +98,11 @@ namespace SampleTaskList.Views.Customer
                 ddlSalutation.DataBind();
             }
         }
+        #endregion
 
+        #region creating and updating customer
         /// <summary>
-        /// creating customer
+        /// creating and updating customer
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -104,7 +113,8 @@ namespace SampleTaskList.Views.Customer
                 da = Services.Customer.CustomerService.GetData(txtName.Text, txtAddress.Text);
                 if (da.Rows.Count > 0)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Data already existed')", true);
+                    Session["alert"] = "Data already exist";
+                    Response.Redirect("CustomerList.aspx");
                 }
                 else
                 {
@@ -112,13 +122,15 @@ namespace SampleTaskList.Views.Customer
                     bool success = Services.Customer.CustomerService.Insert(customermodel);
                     if (success)
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Created successfully')", true);
+                        Session["alert"] = "Created successfully";
+                        Response.Redirect("CustomerList.aspx");
                         txtName.Text = string.Empty;
                         txtAddress.Text = string.Empty;
                     }
                     else
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Creeating failed')", true);
+                        Session["alert"] = "Creating failed";
+                        Response.Redirect("CustomerList.aspx");
                     }
                 }
             }
@@ -128,15 +140,19 @@ namespace SampleTaskList.Views.Customer
                 bool IsUpdate = Services.Customer.CustomerService.Update(customermodel);
                 if (IsUpdate)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Updated successfully')", true);
+                    Session["alert"] = "Updated successfully";
+                    Response.Redirect("CustomerList.aspx");
                 }
                 else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Updating failed')", true);
+                    Session["alert"] = "Updating failed";
+                    Response.Redirect("CustomerList.aspx");
                 }
             }
          }
+        #endregion
 
+        #region back and clear
         /// <summary>
         /// back to list page
         /// </summary>
@@ -156,5 +172,6 @@ namespace SampleTaskList.Views.Customer
             txtAddress.Text = string.Empty;
             txtName.Text = string.Empty;
         }
+        #endregion
     }
 }

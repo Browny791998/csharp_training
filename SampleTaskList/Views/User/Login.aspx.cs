@@ -18,6 +18,7 @@ namespace SampleTaskList.Views.User
 
         }
 
+        #region checkuser
         /// <summary>
         /// Login user
         /// </summary>
@@ -38,5 +39,7 @@ namespace SampleTaskList.Views.User
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Email or Password is Invalid')", true);
             }
         }
+
+        #endregion
     }
 }

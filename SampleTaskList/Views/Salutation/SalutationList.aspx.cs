@@ -15,6 +15,12 @@ namespace SampleTaskList.Views.Salutation
         Services.Salutation.SalutationService salutationservice = new Services.Salutation.SalutationService();
         DataTable da = new DataTable();
 
+        #region bind data
+        /// <summary>
+        /// bind data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -26,6 +32,7 @@ namespace SampleTaskList.Views.Salutation
                 GetData();
             }
         }
+        #endregion
 
         #region Get Data
         /// <summary>
@@ -49,6 +56,7 @@ namespace SampleTaskList.Views.Salutation
         #endregion
 
 
+        #region Salutation Add,Update,Delete
         /// <summary>
         /// Add Salutation
         /// </summary>
@@ -58,27 +66,6 @@ namespace SampleTaskList.Views.Salutation
         {
             Session["label"] = "add";
             Response.Redirect("SalutationCreate.aspx");
-        }
-
-        /// <summary>
-        /// delete salutation
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void grvSalutation_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            int id = Convert.ToInt32(grvSalutation.DataKeys[e.RowIndex].Value);
-            salutationmodel.ID = id;
-            bool IsDelete = Services.Salutation.SalutationService.Delete(salutationmodel);
-            if (IsDelete)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Deleted successfully')", true);
-                GetData();
-            }
-            else
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Deleting failed')", true);
-            }
         }
 
         /// <summary>
@@ -93,6 +80,31 @@ namespace SampleTaskList.Views.Salutation
             Response.Redirect("SalutationCreate.aspx?id=" + id);
         }
 
+        /// <summary>
+        /// delete salutation
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void grvSalutation_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int id = Convert.ToInt32(grvSalutation.DataKeys[e.RowIndex].Value);
+            salutationmodel.ID = id;
+            bool IsDelete = Services.Salutation.SalutationService.Delete(salutationmodel);
+            if (IsDelete)
+            {
+                Session["alert"] = "Delete successfully";
+                GetData();
+            }
+            else
+            {
+                Session["alert"] = "Deleting failed";
+            }
+        }
+
+        #endregion
+
+
+        #region search salutation
         /// <summary>
         /// Search salutation
         /// </summary>
@@ -113,6 +125,9 @@ namespace SampleTaskList.Views.Salutation
             }
         }
 
+        #endregion
+
+        #region paging
         /// <summary>
         /// Paging
         /// </summary>
@@ -123,5 +138,6 @@ namespace SampleTaskList.Views.Salutation
            grvSalutation.PageIndex = e.NewPageIndex;
             this.GetData();
         }
+        #endregion
     }
 }

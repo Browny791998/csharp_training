@@ -14,6 +14,12 @@ namespace SampleTaskList.Views.MovieRenting
         Models.MovieRenting.MovieRent movierentmodel = new Models.MovieRenting.MovieRent();
         DataTable da = new DataTable();
 
+        #region data binding and getting data
+        /// <summary>
+        /// Data binding and get data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["label"] != null)
@@ -50,6 +56,7 @@ namespace SampleTaskList.Views.MovieRenting
                 }
             }
         }
+        #endregion
 
         #region InsertData
         /// <summary>
@@ -75,6 +82,7 @@ namespace SampleTaskList.Views.MovieRenting
         }
         #endregion
 
+        #region binding movie and customer
         /// <summary>
         /// binding movie list
         /// </summary>
@@ -104,9 +112,11 @@ namespace SampleTaskList.Views.MovieRenting
                 ddlCustomer.DataBind();
              }
         }
+        #endregion
 
+        #region adding and updating
         /// <summary>
-        /// adding movie rent
+        /// adding and updating movie rent
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -117,7 +127,8 @@ namespace SampleTaskList.Views.MovieRenting
                 da = Services.MovieRenting.MovieRentService.GetData(Convert.ToInt32(ddlMovie.SelectedValue), Convert.ToInt32(ddlCustomer.SelectedValue));
                 if (da.Rows.Count > 0)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Data already existed')", true);
+                    Session["alert"] = "Data already existed";
+                    Response.Redirect("MovieRentingList.aspx");
                 }
                 else
                 {
@@ -125,11 +136,13 @@ namespace SampleTaskList.Views.MovieRenting
                     bool success = Services.MovieRenting.MovieRentService.Insert(movierentmodel);
                     if (success)
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Created successfully')", true);
+                        Session["alert"] = "Created successfully";
+                        Response.Redirect("MovieRentingList.aspx");
                     }
                     else
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Creating failed')", true);
+                        Session["alert"] = "Creating failed";
+                        Response.Redirect("MovieRentingList.aspx");
                     }
                 }
             }
@@ -139,15 +152,19 @@ namespace SampleTaskList.Views.MovieRenting
                 bool IsUpdate = Services.MovieRenting.MovieRentService.Update(movierentmodel);
                 if (IsUpdate)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Updated successfully')", true);
+                    Session["alert"] = "Updated successfully";
+                    Response.Redirect("MovieRentingList.aspx");
                 }
                 else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Updating failed')", true);
+                    Session["alert"] = "Updating failed";
+                    Response.Redirect("MovieRentingList.aspx");
                 }
             }
         }
+        #endregion
 
+        #region clear and back
         /// <summary>
         /// clear form
         /// </summary>
@@ -168,5 +185,6 @@ namespace SampleTaskList.Views.MovieRenting
         {
             Response.Redirect("MovieRentingList.aspx");
         }
+        #endregion
     }
 }

@@ -15,6 +15,13 @@ namespace SampleTaskList.Views.Salutation
         Services.Salutation.SalutationService salutationservice = new Services.Salutation.SalutationService();
         DataTable da = new DataTable();
 
+        #region load Data
+
+        /// <summary>
+        /// Load Data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["label"] != null)
@@ -43,6 +50,7 @@ namespace SampleTaskList.Views.Salutation
                 }
             }
         }
+        #endregion
 
         #region InsertData
         /// <summary>
@@ -67,8 +75,9 @@ namespace SampleTaskList.Views.Salutation
         }
         #endregion
 
+        #region salutation create,update
         /// <summary>
-        /// Creating Salutation
+        /// Creating and Updating Salutation
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -79,7 +88,8 @@ namespace SampleTaskList.Views.Salutation
                 da = Services.Salutation.SalutationService.GetData(txtSalutation.Text);
                 if (da.Rows.Count > 0)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Data already existed')", true);
+                    Session["alert"] = "Data already existed";
+                    Response.Redirect("SalutationList.aspx");
                 }
                 else
                 {
@@ -87,12 +97,14 @@ namespace SampleTaskList.Views.Salutation
                     bool success = Services.Salutation.SalutationService.Insert(salutationmodel);
                     if (success)
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Created successfully')", true);
+                        Session["alert"] = "Created successfully";
+                        Response.Redirect("SalutationList.aspx");
                         txtSalutation.Text = string.Empty;
                     }
                     else
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Creating Failed')", true);
+                        Session["alert"] = "Creating failed";
+                        Response.Redirect("SalutationList.aspx");
                     }
                 }
 
@@ -103,15 +115,20 @@ namespace SampleTaskList.Views.Salutation
                 bool IsUpdate = Services.Salutation.SalutationService.Update(salutationmodel);
                 if (IsUpdate)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Updated successfully')", true);
+                    Session["alert"] = "Updated successfully";
+                    Response.Redirect("SalutationList.aspx");
                 }
                 else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMesage", "alert('Updating failed')", true);
+                    Session["alert"] = "Updating failed";
+                    Response.Redirect("SalutationList.aspx");
                 }
             }
         }
 
+        #endregion
+
+        #region clear and back
         /// <summary>
         /// clear form
         /// </summary>
@@ -131,5 +148,7 @@ namespace SampleTaskList.Views.Salutation
         {
             Response.Redirect("SalutationList.aspx");
         }
+
+        #endregion
     }
 }
