@@ -33,6 +33,7 @@ namespace SampleTaskList.Views.MovieRenting
         /// <param name="e"></param>
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            Session["label"] = "add";
             Response.Redirect("MovieRentingCreate.aspx");
         }
 
@@ -105,8 +106,9 @@ namespace SampleTaskList.Views.MovieRenting
         /// <param name="e"></param>
         protected void grvMovieRent_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            Session["label"] = "update";
             int id = Convert.ToInt32(grvMovieRent.DataKeys[e.RowIndex].Value);
-            Response.Redirect("MovieRentingEdit.aspx?id=" + id);
+            Response.Redirect("MovieRentingCreate.aspx?id=" + id);
         }
 
         /// <summary>

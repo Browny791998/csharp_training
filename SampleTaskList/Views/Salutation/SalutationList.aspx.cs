@@ -56,6 +56,7 @@ namespace SampleTaskList.Views.Salutation
         /// <param name="e"></param>
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            Session["label"] = "add";
             Response.Redirect("SalutationCreate.aspx");
         }
 
@@ -87,8 +88,9 @@ namespace SampleTaskList.Views.Salutation
         /// <param name="e"></param>
         protected void grvSalutation_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            Session["label"] = "update";
             int id = Convert.ToInt32(grvSalutation.DataKeys[e.RowIndex].Value);
-            Response.Redirect("SalutationEdit.aspx?id=" + id);
+            Response.Redirect("SalutationCreate.aspx?id=" + id);
         }
 
         /// <summary>

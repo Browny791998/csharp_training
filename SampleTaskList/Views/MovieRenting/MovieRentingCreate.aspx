@@ -4,7 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div class="container">
         <div class="row">
-            <h1>Add MovieRenting</h1>
+            <h1>
+                <asp:HiddenField ID="hfMovieRent" runat="server" />
+                <asp:Label ID="lblMovierent" runat="server" Text="Label"></asp:Label></h1>
             <asp:Label ID="LblMessage" runat="server" Text="Label" Visible="False"></asp:Label>
     <div class="col-md-6">
   <div class="form-group">
