@@ -74,6 +74,7 @@ namespace SampleTaskList.Views.MovieRenting
             else
             {
                 grvMovieRent.DataSource = null;
+                grvMovieRent.DataBind();
             }
         }
         #endregion
@@ -103,11 +104,13 @@ namespace SampleTaskList.Views.MovieRenting
             if (IsDelete)
             {
                 Session["alert"] = "Deleted successfully";
+                Session["alert-type"] = "success";
                 GetData();
             }
             else
             {
                 Session["alert"] = "Deleting failed";
+                Session["alert-type"] = "danger";
             }
         }
 

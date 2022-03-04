@@ -7,11 +7,6 @@
     <title></title>
     <link href="../../Resources/css/lib/bootstrap.min.css" rel="stylesheet" />
     <link href="../../Resources/css/style.css" rel="stylesheet" />
-    <style>
-        body{
-            background-color:aquamarine;
-        }
-    </style>
 </head>
 
 <body >

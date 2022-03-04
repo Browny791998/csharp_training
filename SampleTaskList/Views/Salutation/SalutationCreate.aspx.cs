@@ -89,6 +89,7 @@ namespace SampleTaskList.Views.Salutation
                 if (da.Rows.Count > 0)
                 {
                     Session["alert"] = "Data already existed";
+                    Session["alert-type"] = "warning";
                     Response.Redirect("SalutationList.aspx");
                 }
                 else
@@ -98,30 +99,43 @@ namespace SampleTaskList.Views.Salutation
                     if (success)
                     {
                         Session["alert"] = "Created successfully";
+                        Session["alert-type"] = "success";
                         Response.Redirect("SalutationList.aspx");
                         txtSalutation.Text = string.Empty;
                     }
                     else
                     {
                         Session["alert"] = "Creating failed";
+                        Session["alert-type"] = "danger";
                         Response.Redirect("SalutationList.aspx");
                     }
                 }
-
             }
             else
             {
-                UpdateData();
-                bool IsUpdate = Services.Salutation.SalutationService.Update(salutationmodel);
-                if (IsUpdate)
+                da = Services.Salutation.SalutationService.GetData(txtSalutation.Text);
+                if (da.Rows.Count > 0)
                 {
-                    Session["alert"] = "Updated successfully";
+                    Session["alert"] = "Data already existed";
+                    Session["alert-type"] = "warning";
                     Response.Redirect("SalutationList.aspx");
                 }
                 else
                 {
-                    Session["alert"] = "Updating failed";
-                    Response.Redirect("SalutationList.aspx");
+                    UpdateData();
+                    bool IsUpdate = Services.Salutation.SalutationService.Update(salutationmodel);
+                    if (IsUpdate)
+                    {
+                        Session["alert"] = "Updated successfully";
+                        Session["alert-type"] = "success";
+                        Response.Redirect("SalutationList.aspx");
+                    }
+                    else
+                    {
+                        Session["alert"] = "Updating failed";
+                        Session["alert-type"] = "danger";
+                        Response.Redirect("SalutationList.aspx");
+                    }
                 }
             }
         }

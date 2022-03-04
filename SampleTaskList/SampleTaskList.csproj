@@ -127,6 +127,7 @@
     <Content Include="Resources\css\lib\font-awesome.min.css" />
     <Content Include="Resources\css\style.css" />
     <Content Include="Resources\image\movierent.png" />
+    <Content Include="Resources\js\common.js" />
     <Content Include="Resources\js\lib\jquery.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Resources\js\lib\bootstrap.min.js" />

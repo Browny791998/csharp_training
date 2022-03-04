@@ -93,11 +93,13 @@ namespace SampleTaskList.Views.Salutation
             if (IsDelete)
             {
                 Session["alert"] = "Delete successfully";
+                Session["alert-type"] = "success";
                 GetData();
             }
             else
             {
                 Session["alert"] = "Deleting failed";
+                Session["alert-type"] = "danger";
             }
         }
 
@@ -122,6 +124,7 @@ namespace SampleTaskList.Views.Salutation
             else
             {
                 grvSalutation.DataSource = null;
+                grvSalutation.DataBind();
             }
         }
 

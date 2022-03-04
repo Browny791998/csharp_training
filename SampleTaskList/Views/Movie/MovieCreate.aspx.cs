@@ -86,6 +86,7 @@ namespace SampleTaskList.Views.Movie
                 if (da.Rows.Count > 0)
                 {
                     Session["alert"] = "Data already existed";
+                    Session["alert-type"] = "warning";
                     Response.Redirect("MovieList.aspx");
                 }
                 else
@@ -95,29 +96,43 @@ namespace SampleTaskList.Views.Movie
                     if (success)
                     {
                         Session["alert"] = "Created successfully";
+                        Session["alert-type"] = "success";
                         Response.Redirect("MovieList.aspx");
                         txtMovie.Text = string.Empty;
                     }
                     else
                     {
                         Session["alert"] = "Creating failed";
+                        Session["alert-type"] = "danger";
                         Response.Redirect("MovieList.aspx");
                     }
                 }
             }
             else
             {
-                UpdateData();
-                bool IsUpdate = Services.Movie.MovieService.Update(moviemodel);
-                if (IsUpdate)
+                da = Services.Movie.MovieService.GetData(txtMovie.Text);
+                if (da.Rows.Count > 0)
                 {
-                    Session["alert"] = "Updated successfully";
+                    Session["alert"] = "Data already existed";
+                    Session["alert-type"] = "warning";
                     Response.Redirect("MovieList.aspx");
                 }
                 else
                 {
-                    Session["alert"] = "Updating failed";
-                    Response.Redirect("MovieList.aspx");
+                    UpdateData();
+                    bool IsUpdate = Services.Movie.MovieService.Update(moviemodel);
+                    if (IsUpdate)
+                    {
+                        Session["alert"] = "Updated successfully";
+                        Session["alert-type"] = "success";
+                        Response.Redirect("MovieList.aspx");
+                    }
+                    else
+                    {
+                        Session["alert"] = "Updating failed";
+                        Session["alert-type"] = "danger";
+                        Response.Redirect("MovieList.aspx");
+                    }
                 }
             }
         }

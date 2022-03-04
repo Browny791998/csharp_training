@@ -1,30 +1,34 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layouts/Main.Master" AutoEventWireup="true" CodeBehind="MovieRentingList.aspx.cs" Inherits="SampleTaskList.Views.MovieRenting.MovieRentingList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
     <h1 class="text-center text-warning">MovieRenting List</h1>
     <div class="list-sec container">
-          <%if (Session["alert"] != null)
-            { 
+           <%if (Session["alert"] != null && Session["alert-type"] != null )
+            {
                 Lblalert.Visible = true;
-                Lblalert.Text = Session["alert"].ToString();%>
-          <div class="row">
+                Lblalert.Text = Session["alert"].ToString();
+                string type = Session["alert-type"].ToString();
+               %>
+        <div class="AlertMessage">
+        <div class="row">
         <div class="col-md-6 col-md-offset-2">
-        <div class="alert alert-warning alert-dismissible" role="alert">
+        <div class="alert alert-<% Response.Write(type); %> alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <asp:Label ID="Lblalert" runat="server" Text="Label" Visible="False"></asp:Label>
+</div>
     </div>
     </div>
-    </div>
+            </div>
         <%
-        Session.Remove("alert");
+                Session.Remove("alert");
+                Session.Remove("alert-type");
             } %>
         <div class="row">
 
-            <div class="col-md-3">
-             <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="btn btn-primary" OnClick="btnAdd_Click"/>
-            </div>
-             <div class="col-md-5">
+             <div class="col-md-5 col-md-offset-2">
                 <div class="form-group row">
     <label for="txtSearch" class="col-sm-4 col-form-label text-info">Customer Name</label>
     <div class="col-sm-6">
@@ -35,11 +39,15 @@
     </div>
   </div>
             </div>
+            
+            <div class="col-md-3">
+             <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="btn btn-primary" OnClick="btnAdd_Click"/>
+            </div>
         </div>
         <br />
          <div class="row">
-            <div class="col-md-9">
-                <asp:GridView ID="grvMovieRent" runat="server" CssClass="table table-striped table-hover pt-5" AutoGenerateColumns="False" DataKeyNames="id" OnRowDeleting="grvMovieRent_RowDeleting" OnRowUpdating="grvMovieRent_RowUpdating" AllowPaging="True" OnPageIndexChanging="grvMovieRent_PageIndexChanging" PageSize="5">
+            <div class="col-md-9 col-md-offset-1">
+                <asp:GridView ID="grvMovieRent" runat="server" CssClass="table table-striped table-hover pt-5" AutoGenerateColumns="False" DataKeyNames="id" OnRowDeleting="grvMovieRent_RowDeleting" OnRowUpdating="grvMovieRent_RowUpdating" AllowPaging="True" OnPageIndexChanging="grvMovieRent_PageIndexChanging" ShowHeaderWhenEmpty="true" PageSize="5">
                     <Columns>
             <asp:TemplateField>
               <HeaderTemplate>
@@ -49,6 +57,7 @@
                 <asp:Label ID="lblRowNumber" Text='<%# Container.DataItemIndex + 1 %>' runat="server" />
               </ItemTemplate>
                 <HeaderStyle HorizontalAlign="Center" />
+                <ItemStyle Width="5px" />
             </asp:TemplateField>
             <asp:TemplateField>
               <HeaderTemplate>
@@ -57,6 +66,7 @@
               <ItemTemplate>
                 <%#HttpUtility.HtmlEncode(Eval("salutation"))%>
               </ItemTemplate>
+                <ItemStyle Width="5px" />
             </asp:TemplateField>
               <asp:TemplateField>
               <HeaderTemplate>
@@ -65,6 +75,7 @@
               <ItemTemplate>
                 <%#HttpUtility.HtmlEncode(Eval("full_name"))%>
               </ItemTemplate>
+                  <ItemStyle Width="100px" />
             </asp:TemplateField>
                <asp:TemplateField>
               <HeaderTemplate>
@@ -73,14 +84,16 @@
               <ItemTemplate>
                 <%#HttpUtility.HtmlEncode(Eval("address"))%>
               </ItemTemplate>
+                   <ItemStyle Width="200px" />
             </asp:TemplateField>
              <asp:TemplateField>
               <HeaderTemplate>
-                  <asp:Label ID="Label5" runat="server" Text="Label">Movie</asp:Label>  
+                  <asp:Label ID="Label5" runat="server" Text="Label">Movie Name</asp:Label>  
               </HeaderTemplate>
               <ItemTemplate>
                 <%#HttpUtility.HtmlEncode(Eval("movie"))%>
               </ItemTemplate>
+                 <ItemStyle Width="100px" />
             </asp:TemplateField>
             <asp:TemplateField ItemStyle-Width="50px" ItemStyle-CssClass="text-center table-options"  HeaderStyle-CssClass="text-center">
               <ItemTemplate>
@@ -90,7 +103,7 @@
              
 <HeaderStyle CssClass="text-center"></HeaderStyle>
 
-<ItemStyle CssClass="text-center table-options" Width="50px"></ItemStyle>
+<ItemStyle CssClass="text-center table-options" Width="30px"></ItemStyle>
              
             </asp:TemplateField>
                         <asp:TemplateField ItemStyle-Width="50px" ItemStyle-CssClass="text-center table-options"  HeaderStyle-CssClass="text-center">
@@ -101,11 +114,12 @@
 
 <HeaderStyle CssClass="text-center"></HeaderStyle>
 
-<ItemStyle CssClass="text-center table-options" Width="50px"></ItemStyle>
+<ItemStyle CssClass="text-center table-options" Width="30px"></ItemStyle>
                         </asp:TemplateField>
           </Columns>
+                    <EmptyDataTemplate>No Record Available</EmptyDataTemplate> 
                      <HeaderStyle BackColor="#6699FF" />
-                     <PagerStyle   Font-Bold="True" Font-Size="Large" HorizontalAlign="Center" VerticalAlign="Middle" CssClass="pagination-ys" />
+                     <PagerStyle   Font-Bold="True" Font-Size="Large" HorizontalAlign="Center" VerticalAlign="Middle" CssClass="pagination-ys" BackColor="White" BorderColor="White" />
                 </asp:GridView>
             </div>
         </div>

@@ -114,6 +114,7 @@ namespace SampleTaskList.Views.Customer
                 if (da.Rows.Count > 0)
                 {
                     Session["alert"] = "Data already exist";
+                    Session["alert-type"] = "warning";
                     Response.Redirect("CustomerList.aspx");
                 }
                 else
@@ -123,6 +124,7 @@ namespace SampleTaskList.Views.Customer
                     if (success)
                     {
                         Session["alert"] = "Created successfully";
+                        Session["alert-type"] = "success";
                         Response.Redirect("CustomerList.aspx");
                         txtName.Text = string.Empty;
                         txtAddress.Text = string.Empty;
@@ -130,23 +132,36 @@ namespace SampleTaskList.Views.Customer
                     else
                     {
                         Session["alert"] = "Creating failed";
+                        Session["alert-type"] = "danger";
                         Response.Redirect("CustomerList.aspx");
                     }
                 }
             }
             else
             {
-                UpdateData();
-                bool IsUpdate = Services.Customer.CustomerService.Update(customermodel);
-                if (IsUpdate)
+                da = Services.Customer.CustomerService.GetData(txtName.Text, txtAddress.Text);
+                if (da.Rows.Count > 0)
                 {
-                    Session["alert"] = "Updated successfully";
+                    Session["alert"] = "Data already exist";
+                    Session["alert-type"] = "warning";
                     Response.Redirect("CustomerList.aspx");
                 }
                 else
                 {
-                    Session["alert"] = "Updating failed";
-                    Response.Redirect("CustomerList.aspx");
+                    UpdateData();
+                    bool IsUpdate = Services.Customer.CustomerService.Update(customermodel);
+                    if (IsUpdate)
+                    {
+                        Session["alert"] = "Updated successfully";
+                        Session["alert-type"] = "success";
+                        Response.Redirect("CustomerList.aspx");
+                    }
+                    else
+                    {
+                        Session["alert"] = "Updating failed";
+                        Session["alert-type"] = "danger";
+                        Response.Redirect("CustomerList.aspx");
+                    }
                 }
             }
          }
