@@ -12,7 +12,7 @@
                 Lblalert.Text = Session["alert"].ToString();
                 string type = Session["alert-type"].ToString();
                %>
-        <div class="AlertMessage">
+        <div class="AlertMessage" id="AlertMsg">
         <div class="row">
         <div class="col-md-6 col-md-offset-2">
         <div class="alert alert-<% Response.Write(type); %> alert-dismissible" role="alert">

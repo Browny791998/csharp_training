@@ -3,6 +3,7 @@
   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+   
   <h1 class="text-center text-warning">Movie List</h1>
     <div class="list-sec container">
         <%if (Session["alert"] != null && Session["alert-type"] != null )
@@ -11,7 +12,7 @@
                 Lblalert.Text = Session["alert"].ToString();
                 string type = Session["alert-type"].ToString();
                %>
-        <div class="AlertMessage">
+        <div class="AlertMessage" id="AlertMsg">
         <div class="row">
         <div class="col-md-6 col-md-offset-2">
         <div class="alert alert-<% Response.Write(type); %> alert-dismissible" role="alert">
@@ -26,7 +27,7 @@
                 Session.Remove("alert-type");
             } %>
    <div class="row">
-            
+           
              <div class="col-md-5 col-md-offset-3">
                 <div class="form-group row">
     <label for="txtSearch" class="col-sm-4 col-form-label text-info">Movie Name</label>
