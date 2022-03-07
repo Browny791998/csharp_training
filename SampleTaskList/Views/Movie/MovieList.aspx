@@ -28,7 +28,7 @@
             } %>
    <div class="row">
            
-             <div class="col-md-5 col-md-offset-3">
+             <div class="col-md-5 col-md-offset-1">
                 <div class="form-group row">
     <label for="txtSearch" class="col-sm-4 col-form-label text-info">Movie Name</label>
     <div class="col-sm-6">
@@ -41,6 +41,7 @@
                  </div>
               <div class="col-md-3">
              <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="btn btn-primary" OnClick="btnAdd_Click"/>
+                   <asp:Button ID="btnImport" runat="server" Text="Import from Excel File" CssClass="btn btn-danger" OnClick="btnImport_Click"/>
             </div>
   </div>
         <br />
