@@ -34,6 +34,7 @@ namespace SampleTaskList.Views.Movie
             {
                 GetData();
             }
+           
         }
         #endregion
 
@@ -49,11 +50,15 @@ namespace SampleTaskList.Views.Movie
                 grvMovie.DataSource = da;
                 grvMovie.DataBind();
                 grvMovie.Visible = true;
+                
             }
             else
             {
                 grvMovie.DataSource = null;
+                grvMovie.DataBind();
             }
+            grvMovie.UseAccessibleHeader = true;
+            grvMovie.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
         #endregion
@@ -79,6 +84,8 @@ namespace SampleTaskList.Views.Movie
                 grvMovie.DataSource = null;
                 grvMovie.DataBind();
             }
+            grvMovie.UseAccessibleHeader = true;
+            grvMovie.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
         #endregion
 
@@ -184,6 +191,11 @@ namespace SampleTaskList.Views.Movie
                         {
                             insertdataintosql(movie);
                         }
+                        else
+                        {
+                            Session["alert"] = "Data Inserted fail";
+                            Session["alert-type"] = "danger";
+                        }
                     }
                     oconn.Close();
 
@@ -260,5 +272,11 @@ namespace SampleTaskList.Views.Movie
         }
 
         #endregion
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = string.Empty;
+            GetData();
+        }
     }
 }

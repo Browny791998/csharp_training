@@ -83,6 +83,7 @@ namespace SampleTaskList.Views.Movie
             if (hfMovie.Value == "")
             {
                 da = Services.Movie.MovieService.GetData(txtMovie.Text);
+
                 if (da.Rows.Count > 0)
                 {
                     Session["alert"] = "Data already existed";

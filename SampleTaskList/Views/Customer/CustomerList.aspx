@@ -41,12 +41,13 @@
             </div>
             <div class="col-md-3">
              <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="btn btn-primary" OnClick="btnAdd_Click"/>
+                <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" OnClick="btnClear_Click" />
             </div>
         </div>
         <br />
          <div class="row">
             <div class="col-md-9 col-md-offset-1">
-                <asp:GridView ID="grvCustomer" runat="server" CssClass="table table-striped table-hover pt-5" AutoGenerateColumns="False" DataKeyNames="id" OnRowUpdating="grvCustomer_RowUpdating" OnRowDeleting="grvCustomer_RowDeleting" AllowPaging="True" OnPageIndexChanging="grvCustomer_PageIndexChanging" PageSize="5"
+                <asp:GridView ID="grvCustomer" runat="server" CssClass="gvCustomer table table-striped table-hover pt-5" AutoGenerateColumns="False" DataKeyNames="id" OnRowUpdating="grvCustomer_RowUpdating" OnRowDeleting="grvCustomer_RowDeleting"  OnPageIndexChanging="grvCustomer_PageIndexChanging" PageSize="5"
                     ShowHeaderWhenEmpty="true">
                     <Columns>
             <asp:TemplateField ItemStyle-Width="5%">

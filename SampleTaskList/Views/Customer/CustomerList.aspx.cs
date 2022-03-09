@@ -51,7 +51,10 @@ namespace SampleTaskList.Views.Customer
             else
             {
                 grvCustomer.DataSource = null;
+                grvCustomer.DataBind();
             }
+            grvCustomer.UseAccessibleHeader = true;
+          grvCustomer.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
         #endregion
@@ -125,6 +128,8 @@ namespace SampleTaskList.Views.Customer
                 grvCustomer.DataSource = null;
                 grvCustomer.DataBind();
             }
+            grvCustomer.UseAccessibleHeader = true;
+            grvCustomer.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
         #endregion
@@ -141,5 +146,11 @@ namespace SampleTaskList.Views.Customer
             this.GetData();
         }
         #endregion
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = string.Empty;
+            GetData();
+        }
     }
 }

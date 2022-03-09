@@ -85,7 +85,7 @@ namespace DAOs.Movie
         {
             try
             {
-                return Common.HelperDao.GetData("Select movie from tbl_movie where movie='" + movie + "'", CommandType.Text);
+                return Common.HelperDao.GetData("Select movie from tbl_movie where movie COLLATE Latin1_General_CS_AS='" + movie + "'", CommandType.Text);
             }
             catch (Exception ex)
             {

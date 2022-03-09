@@ -203,6 +203,8 @@ namespace DAOs.Common
             return tblResult;
         }
 
+        
+
         public static SqlDataReader ReadData(string commandText, CommandType commandType)
         {
             var cn = new SqlConnection();

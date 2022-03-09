@@ -52,7 +52,11 @@ namespace SampleTaskList.Views.MovieRenting
             else
             {
                 grvMovieRent.DataSource = null;
+                grvMovieRent.DataBind();
             }
+
+            grvMovieRent.UseAccessibleHeader = true;
+            grvMovieRent.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
         #endregion
@@ -77,6 +81,8 @@ namespace SampleTaskList.Views.MovieRenting
                 grvMovieRent.DataSource = null;
                 grvMovieRent.DataBind();
             }
+            grvMovieRent.UseAccessibleHeader = true;
+            grvMovieRent.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
         #endregion
 
@@ -170,7 +176,7 @@ namespace SampleTaskList.Views.MovieRenting
             Strwriter.Write("<BR><BR><BR>");
             Strwriter.Write("<Table border='2' bgColor='#ffffff' borderColor='#000000' cellSpacing='0' cellPadding='0' style='font-size:15.0pt; font-family:TimesNewRoman; background:white;'> <TR>");
              int dtcolumncount = table.Columns.Count;
-            for (int j = 0; j < dtcolumncount; j++)
+            for (int j = 1; j < dtcolumncount; j++)
             {
                 Strwriter.Write("<Td style='background:aquamarine;'>");
                 Strwriter.Write("<B>");
@@ -182,12 +188,12 @@ namespace SampleTaskList.Views.MovieRenting
             foreach (DataRow row in table.Rows)
             {
                 Strwriter.Write("<TR>");
-                for (int i = 0; i < table.Columns.Count; i++)
+                for (int i = 1; i < table.Columns.Count; i++)
                 {
-                    Strwriter.Write("<Td>");
-                    Strwriter.Write(row[i].ToString());
-                    Strwriter.Write("</Td>");
-                }
+                       Strwriter.Write("<Td>");
+                        Strwriter.Write(row[i].ToString());
+                        Strwriter.Write("</Td>");
+                 }
                 Strwriter.Write("</TR>");
             }
             Strwriter.Write("</Table>");
@@ -198,5 +204,11 @@ namespace SampleTaskList.Views.MovieRenting
         }
 
         #endregion
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = string.Empty;
+            GetData();
+        }
     }
 }

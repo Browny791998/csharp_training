@@ -50,7 +50,10 @@ namespace SampleTaskList.Views.Salutation
             else
             {
                 grvSalutation.DataSource = null;
+                grvSalutation.DataBind();
             }
+            grvSalutation.UseAccessibleHeader = true;
+            grvSalutation.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
         #endregion
@@ -126,6 +129,8 @@ namespace SampleTaskList.Views.Salutation
                 grvSalutation.DataSource = null;
                 grvSalutation.DataBind();
             }
+            grvSalutation.UseAccessibleHeader = true;
+            grvSalutation.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
         #endregion
@@ -142,5 +147,11 @@ namespace SampleTaskList.Views.Salutation
             this.GetData();
         }
         #endregion
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = string.Empty;
+            GetData();
+        }
     }
 }
