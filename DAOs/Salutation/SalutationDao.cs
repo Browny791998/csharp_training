@@ -124,7 +124,7 @@ namespace DAOs.Salutation
                 }
                 else
                 {
-                    return Common.HelperDao.GetData("Select id,salutation from tbl_salutation where salutation ='" + str + "'", CommandType.Text);
+                    return Common.HelperDao.GetData("Select id,salutation from tbl_salutation where salutation LIKE '%" + str + "%'", CommandType.Text);
                 }
             }
             catch (Exception ex)

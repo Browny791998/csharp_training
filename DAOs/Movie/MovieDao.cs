@@ -123,7 +123,8 @@ namespace DAOs.Movie
                 }
                 else
                 {
-                    return Common.HelperDao.GetData("Select id,movie from tbl_movie where movie ='" + str + "'", CommandType.Text);
+                    //return Common.HelperDao.GetData("Select id,movie from tbl_movie where movie LIKE '" + str + "'", CommandType.Text);
+                    return Common.HelperDao.GetData("Select id,movie from tbl_movie where movie LIKE '%" + str + "%'", CommandType.Text);
                 }
             }
             catch (Exception ex)

@@ -159,9 +159,18 @@ namespace SampleTaskList.Views.MovieRenting
         protected void btnExport_Click(object sender, EventArgs e)
         {
             da = Services.MovieRenting.MovieRentService.GetSearchData(txtSearch.Text);
-            string filename = Path.Combine(Server.MapPath("~/Download"), DateTime.Now.ToString("dd-MM-yyyy-hh-mm-ss") + "Movierentlist.xls");
-            ExportToExcel(da,filename);
-        }
+            if (Directory.Exists("~/Download"))
+            {
+                string filename = Path.Combine(Server.MapPath("~/Download"), DateTime.Now.ToString("dd-MM-yyyy-hh-mm-ss") + "Movierentlist.xls");
+                ExportToExcel(da, filename);
+            }
+            else
+            {
+                Directory.CreateDirectory(Server.MapPath("~/Download"));
+                string filename = Path.Combine(Server.MapPath("~/Download"), DateTime.Now.ToString("dd-MM-yyyy-hh-mm-ss") + "Movierentlist.xls");
+                ExportToExcel(da, filename);
+            }
+          }
 
         /// <summary>
         /// export to excel
@@ -201,6 +210,7 @@ namespace SampleTaskList.Views.MovieRenting
             Strwriter.Close();
             Session["alert"] = "successfully exported";
             Session["alert-type"] = "success";
+            GetData();
         }
 
         #endregion
@@ -209,6 +219,24 @@ namespace SampleTaskList.Views.MovieRenting
         {
             txtSearch.Text = string.Empty;
             GetData();
+        }
+
+        protected void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            da = Services.MovieRenting.MovieRentService.GetSearchData(txtSearch.Text);
+            if (da.Rows.Count > 0)
+            {
+                grvMovieRent.DataSource = da;
+                grvMovieRent.DataBind();
+                grvMovieRent.Visible = true;
+            }
+            else
+            {
+                grvMovieRent.DataSource = null;
+                grvMovieRent.DataBind();
+            }
+            grvMovieRent.UseAccessibleHeader = true;
+            grvMovieRent.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
     }
 }

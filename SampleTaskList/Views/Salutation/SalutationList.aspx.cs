@@ -153,5 +153,23 @@ namespace SampleTaskList.Views.Salutation
             txtSearch.Text = string.Empty;
             GetData();
         }
+
+        protected void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            da = Services.Salutation.SalutationService.GetSearchData(txtSearch.Text);
+            if (da.Rows.Count > 0)
+            {
+                grvSalutation.DataSource = da;
+                grvSalutation.DataBind();
+                grvSalutation.Visible = true;
+            }
+            else
+            {
+                grvSalutation.DataSource = null;
+                grvSalutation.DataBind();
+            }
+            grvSalutation.UseAccessibleHeader = true;
+            grvSalutation.HeaderRow.TableSection = TableRowSection.TableHeader;
+        }
     }
 }

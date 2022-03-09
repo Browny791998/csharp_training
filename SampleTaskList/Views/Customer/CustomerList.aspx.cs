@@ -152,5 +152,23 @@ namespace SampleTaskList.Views.Customer
             txtSearch.Text = string.Empty;
             GetData();
         }
+
+        protected void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            da = Services.Customer.CustomerService.GetSearchData(txtSearch.Text);
+            if (da.Rows.Count > 0)
+            {
+                grvCustomer.DataSource = da;
+                grvCustomer.DataBind();
+                grvCustomer.Visible = true;
+            }
+            else
+            {
+                grvCustomer.DataSource = null;
+                grvCustomer.DataBind();
+            }
+            grvCustomer.UseAccessibleHeader = true;
+            grvCustomer.HeaderRow.TableSection = TableRowSection.TableHeader;
+        }
     }
 }
