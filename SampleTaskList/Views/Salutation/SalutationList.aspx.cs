@@ -168,7 +168,8 @@ namespace SampleTaskList.Views.Salutation
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-            txtSearch.Text = string.Empty;
+          txtSearch.Text = string.Empty;
+            this.GetData();
         }
     }
 }

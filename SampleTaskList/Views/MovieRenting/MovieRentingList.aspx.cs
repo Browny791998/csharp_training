@@ -220,7 +220,7 @@ namespace SampleTaskList.Views.MovieRenting
         protected void btnClear_Click(object sender, EventArgs e)
         {
             txtSearch.Text = string.Empty;
-            GetData();
+            this.GetData();
         }
 
         protected void txtSearch_TextChanged(object sender, EventArgs e)

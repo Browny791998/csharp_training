@@ -40,7 +40,7 @@
                  </div>
               <div class="col-md-3">
              <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="clearbtn btn btn-primary" OnClick="btnAdd_Click"/>
-                   <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" OnClick="btnClear_Click" />
+                   <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" OnClick="btnClear_Click"/>
                   
             </div>
   </div>
