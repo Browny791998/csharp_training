@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -238,5 +240,76 @@ namespace SampleTaskList.Views.MovieRenting
             grvMovieRent.UseAccessibleHeader = true;
             grvMovieRent.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
+
+        #region sendEmail
+        /// <summary>
+        /// Sending Email
+        /// </summary>
+        /// <param name="file"></param>
+        private void sendEmail(string file)
+        {
+            try
+            {
+                MailMessage message = new MailMessage();
+                message.From = new MailAddress("yehtetaung791998@gmail.com");
+                string ccaddress = "yehtetaung791998@gmail.com,donotbelievepeople@gmail.com";
+                for (int i = 0; i < ccaddress.Split(',').Length; i++)
+                {
+                    message.CC.Add(new MailAddress(ccaddress.Split(',')[i]));
+                }
+                message.To.Add(new MailAddress("yehtetaung791998@gmail.com"));
+                string mailbody = "<center><h1>Movie Renting</h1></center>";
+                mailbody += "<p><h3>Hi Guy,</h3></p>";
+                mailbody += "<p>Thank you for renting our movies.Here is your rented movie list.</p>";
+                mailbody += "<p>Please tell us if you are inconvenient.</p>";
+                mailbody += "<p>We look forward to hearing from you</p>";
+                mailbody += "<p>Best regards,<p>";
+                mailbody += "<p><h4>Movie Renting company🎬</h4></p>";
+                message.Subject = "Movie Renting List";
+                message.Body = mailbody;
+                message.BodyEncoding = Encoding.UTF8;
+                message.IsBodyHtml = true;
+                message.Attachments.Add(new Attachment(file));
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587); //Gmail smtp
+                System.Net.NetworkCredential basicCredential1 = new
+                System.Net.NetworkCredential("yehtetaung791998@gmail.com", "yourpassword");
+                client.EnableSsl = true;
+                client.UseDefaultCredentials = false;
+                client.Credentials = basicCredential1;
+                client.Send(message);
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// send mail event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnSendMail_Click(object sender, EventArgs e)
+        {
+            da = Services.MovieRenting.MovieRentService.GetSearchData(txtSearch.Text);
+            if (Directory.Exists("~/Download"))
+            {
+                string filename = Path.Combine(Server.MapPath("~/Download"), DateTime.Now.ToString("dd-MM-yyyy-hh-mm-ss") + "Movierentlist.xls");
+                ExportToExcel(da, filename);
+                sendEmail(filename);
+                Session["alert"] = "Sending email successful";
+                Session["alert-type"] = "success";
+            }
+            else
+            {
+                Directory.CreateDirectory(Server.MapPath("~/Download"));
+                string filename = Path.Combine(Server.MapPath("~/Download"), DateTime.Now.ToString("dd-MM-yyyy-hh-mm-ss") + "Movierentlist.xls");
+                ExportToExcel(da, filename);
+                sendEmail(filename);
+                Session["alert"] = "Sending email successful";
+                Session["alert-type"] = "success";
+            }
+        }
+        #endregion
     }
 }

@@ -43,7 +43,8 @@
             <div class="col-md-5">
              <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="btn btn-primary" OnClick="btnAdd_Click"/>
                  <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" OnClick="btnClear_Click"/>
-                <asp:Button ID="btnExport" runat="server" Text="Export to Excel" CssClass="btn btn-danger" OnClick="btnExport_Click"/>  
+                <asp:Button ID="btnExport" runat="server" Text="Export to Excel" CssClass="btn btn-danger" OnClick="btnExport_Click"/> 
+                <asp:Button ID="btnSendMail" runat="server" Text="Send Mail" CssClass="btn btn-info" OnClick="btnSendMail_Click"/>
             </div>
         </div>
         <br />

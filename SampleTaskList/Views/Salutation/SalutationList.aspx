@@ -31,16 +31,17 @@
                 <div class="form-group row">
     <label for="txtSearch" class="col-sm-4 col-form-label text-info">Salutation Name</label>
     <div class="col-sm-6">
-    <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" AutoPostBack="True" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
+    <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
     </div>
      <div class="col-sm-2">
-    <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
+    <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="searchbox btn btn-primary" OnClick="btnSearch_Click" />
     </div>
                     </div>
                  </div>
               <div class="col-md-3">
-             <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="btn btn-primary" OnClick="btnAdd_Click"/>
-                   <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" OnClick="btnClear_Click"/>
+             <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="clearbtn btn btn-primary" OnClick="btnAdd_Click"/>
+                   <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" OnClick="btnClear_Click" />
+                  
             </div>
   </div>
   

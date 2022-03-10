@@ -148,12 +148,6 @@ namespace SampleTaskList.Views.Salutation
         }
         #endregion
 
-        protected void btnClear_Click(object sender, EventArgs e)
-        {
-            txtSearch.Text = string.Empty;
-            GetData();
-        }
-
         protected void txtSearch_TextChanged(object sender, EventArgs e)
         {
             da = Services.Salutation.SalutationService.GetSearchData(txtSearch.Text);
@@ -170,6 +164,11 @@ namespace SampleTaskList.Views.Salutation
             }
             grvSalutation.UseAccessibleHeader = true;
             grvSalutation.HeaderRow.TableSection = TableRowSection.TableHeader;
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = string.Empty;
         }
     }
 }

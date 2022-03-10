@@ -105,14 +105,18 @@
            $(function () {
                $(".gvSalutation,.gvCustomer,.gvMovie,.gvMovierent").DataTable(
                    {
+                       "dom": '<"top"i>rt<"bottom"flp><"clear">',
                        searching: false,
                        bLengthChange: true,
                        lengthMenu: [[5, 10, -1], [5, 10, "All"]],
                        bFilter: true,
                        bSort: true,
-                       bPaginate: true
+                       bPaginate: true,
+                       bInfo:false
                    });
            });
+          
+
        </script>
 </body>
 </html>
