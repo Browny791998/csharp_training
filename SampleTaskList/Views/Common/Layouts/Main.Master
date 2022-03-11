@@ -44,6 +44,20 @@
     background-color:white;
     padding:10px;
 }
+  .searchlabel{
+    font-size:16px;
+}
+
+ .dataTables_length{ font-size:17px;margin-top:13px;font-weight:normal;}
+ .dataTables_length select{width:45px;height:40px;text-align:center;}
+ .dataTables_wrapper .dataTables_paginate .paginate_button, .dataTables_wrapper .dataTables_paginate .paginate_button {
+  display: inline-block;
+  font-size:17px;
+  font-weight:bolder;
+  margin-top:8px;
+}
+
+
   </style>
     
 </head>
@@ -103,8 +117,12 @@
            setTimeout("HideLabel();", 3000);
 
            $(function () {
-               $(".gvSalutation,.gvCustomer,.gvMovie,.gvMovierent").DataTable(
+               $(".gvCustomer").DataTable(
                    {
+                       'columnDefs': [{
+                           'targets': [4, 5],
+                           'orderable': false,
+                       }],
                        "dom": '<"top"i>rt<"bottom"flp><"clear">',
                        searching: false,
                        bLengthChange: true,
@@ -112,8 +130,52 @@
                        bFilter: true,
                        bSort: true,
                        bPaginate: true,
-                       bInfo:false
+                       bInfo: false,
+                       language: {
+                           lengthMenu: "<span style='padding-right:15px'>Page Size</span>_MENU_"
+                       }
+
                    });
+               $(".gvSalutation,.gvMovie").DataTable(
+                   {
+                       'columnDefs': [{
+                           'targets': [2, 3],
+                           'orderable': false,
+                       }],
+                       "dom": '<"top"i>rt<"bottom"flp><"clear">',
+                       searching: false,
+                       bLengthChange: true,
+                       lengthMenu: [[5, 10, -1], [5, 10, "All"]],
+                       bFilter: true,
+                       bSort: true,
+                       bPaginate: true,
+                       bInfo: false,
+                       language: {
+                           lengthMenu: "Page Size _MENU_"
+                       }
+                   });
+
+               $(".gvMovierent").DataTable(
+                   {
+                       'columnDefs': [{
+                           'targets': [5, 6],
+                           'orderable': false,
+                       }],
+                       "dom": '<"top"i>rt<"bottom"flp><"clear">',
+                       searching: false,
+                       bLengthChange: true,
+                       lengthMenu: [[5, 10, -1], [5, 10, "All"]],
+                       bFilter: true,
+                       bSort: true,
+                       bPaginate: true,
+                       bInfo: false,
+                       language: {
+                           lengthMenu: "Page Size _MENU_"
+                       }
+                   });
+
+              
+
            });
           
 

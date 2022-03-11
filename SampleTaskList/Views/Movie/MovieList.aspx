@@ -4,8 +4,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-   
     <h1 class="text-center text-warning">Movie List</h1>
     <div class="list-sec container">
         <%if (Session["alert"] != null && Session["alert-type"] != null )
@@ -32,7 +30,7 @@
            
              <div class="col-md-5 col-md-offset-1">
                 <div class="form-group row">
-    <label for="txtSearch" class="col-sm-4 col-form-label text-info">Movie Name</label>
+    <label for="txtSearch" class="searchlabel col-sm-4 col-form-label">Movie Name</label>
     <div class="col-sm-6">
     <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
     </div>
@@ -64,7 +62,7 @@
 <ItemStyle Width="5px" HorizontalAlign="Center"></ItemStyle>
             </asp:TemplateField>
             <asp:TemplateField ItemStyle-Width="35%">
-              <HeaderTemplate>
+              <HeaderTemplate >
                   <asp:Label ID="Label2" runat="server" Text="Label">Movie Name</asp:Label>
               </HeaderTemplate>
               <ItemTemplate>

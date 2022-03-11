@@ -50,7 +50,6 @@ namespace SampleTaskList.Views.Movie
                 grvMovie.DataSource = da;
                 grvMovie.DataBind();
                 grvMovie.Visible = true;
-                
             }
             else
             {
@@ -108,7 +107,20 @@ namespace SampleTaskList.Views.Movie
         /// <param name="e"></param>
         protected void grvMovie_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int mid;
             int id = Convert.ToInt32(grvMovie.DataKeys[e.RowIndex].Value);
+            da = Services.MovieRenting.MovieRentService.GetAllData();
+            for (int j = 0; j < da.Rows.Count; j++)
+            {
+                mid = Convert.ToInt32(da.Rows[j]["movie_id"]);
+                if (mid == id)
+                {
+                    Session["alert"] = "Data Exist You can't delete this";
+                    Session["alert-type"] = "warning";
+                    GetData();
+                    return;
+                }
+            }
             moviemodel.ID = id;
             bool IsDelete = Services.Movie.MovieService.Delete(moviemodel);
             if (IsDelete)
@@ -308,5 +320,7 @@ namespace SampleTaskList.Views.Movie
             grvMovie.UseAccessibleHeader = true;
             grvMovie.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
+
+     
     }
 }

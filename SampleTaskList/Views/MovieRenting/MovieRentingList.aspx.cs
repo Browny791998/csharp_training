@@ -187,7 +187,7 @@ namespace SampleTaskList.Views.MovieRenting
             Strwriter.Write("<BR><BR><BR>");
             Strwriter.Write("<Table border='2' bgColor='#ffffff' borderColor='#000000' cellSpacing='0' cellPadding='0' style='font-size:15.0pt; font-family:TimesNewRoman; background:white;'> <TR>");
              int dtcolumncount = table.Columns.Count;
-            for (int j = 1; j < dtcolumncount; j++)
+            for (int j = 1; j < dtcolumncount-2; j++)
             {
                 Strwriter.Write("<Td style='background:aquamarine;'>");
                 Strwriter.Write("<B>");
@@ -199,7 +199,7 @@ namespace SampleTaskList.Views.MovieRenting
             foreach (DataRow row in table.Rows)
             {
                 Strwriter.Write("<TR>");
-                for (int i = 1; i < table.Columns.Count; i++)
+                for (int i = 1; i < table.Columns.Count-2; i++)
                 {
                        Strwriter.Write("<Td>");
                         Strwriter.Write(row[i].ToString());

@@ -30,7 +30,7 @@
 
         <div class="col-md-5 col-md-offset-1">
                 <div class="form-group row">
-    <label for="txtSearch" class="col-sm-4 col-form-label text-info">Customer Name</label>
+    <label for="txtSearch" class="searchlabel col-sm-4 col-form-label">Customer Name</label>
     <div class="col-sm-6">
     <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
     </div>
@@ -48,7 +48,7 @@
          <div class="row">
             <div class="col-md-9 col-md-offset-1">
                 <asp:GridView ID="grvCustomer" runat="server" CssClass="gvCustomer table table-striped table-hover pt-5" AutoGenerateColumns="False" DataKeyNames="id" OnRowUpdating="grvCustomer_RowUpdating" OnRowDeleting="grvCustomer_RowDeleting"  OnPageIndexChanging="grvCustomer_PageIndexChanging" PageSize="5"
-                    ShowHeaderWhenEmpty="true">
+                    ShowHeaderWhenEmpty="True">
                     <Columns>
             <asp:TemplateField ItemStyle-Width="5%">
               <HeaderTemplate>
@@ -68,7 +68,7 @@
                 <%#HttpUtility.HtmlEncode(Eval("salutation"))%>
               </ItemTemplate>
 
-<ItemStyle Width="20px"></ItemStyle>
+<ItemStyle Width="10px"></ItemStyle>
             </asp:TemplateField>
               <asp:TemplateField ItemStyle-Width="20%">
               <HeaderTemplate>
@@ -78,7 +78,7 @@
                 <%#HttpUtility.HtmlEncode(Eval("full_name"))%>
               </ItemTemplate>
 
-<ItemStyle Width="100px"></ItemStyle>
+<ItemStyle Width="250px"></ItemStyle>
             </asp:TemplateField>
                <asp:TemplateField ItemStyle-Width="30%">
               <HeaderTemplate>
@@ -88,7 +88,7 @@
                 <%#HttpUtility.HtmlEncode(Eval("address"))%>
               </ItemTemplate>
 
-<ItemStyle Width="200px"></ItemStyle>
+<ItemStyle Width="230px"></ItemStyle>
             </asp:TemplateField>
             <asp:TemplateField ItemStyle-Width="10%" ItemStyle-CssClass="text-center table-options" HeaderStyle-CssClass="text-center">
               <ItemTemplate>

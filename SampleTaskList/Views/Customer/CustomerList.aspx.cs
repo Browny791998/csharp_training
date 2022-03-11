@@ -90,7 +90,20 @@ namespace SampleTaskList.Views.Customer
         /// <param name="e"></param>
         protected void grvCustomer_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int mid;
             int id = Convert.ToInt32(grvCustomer.DataKeys[e.RowIndex].Value);
+            da = Services.MovieRenting.MovieRentService.GetAllData();
+            for (int j = 0; j < da.Rows.Count; j++)
+            {
+                mid = Convert.ToInt32(da.Rows[j]["customer_id"]);
+                if (mid == id)
+                {
+                    Session["alert"] = "Data Exist You can't delete this";
+                    Session["alert-type"] = "warning";
+                    GetData();
+                    return;
+                }
+            }
             customermodel.ID = id;
             bool IsDelete = Services.Customer.CustomerService.Delete(customermodel);
             if (IsDelete)

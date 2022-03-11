@@ -13,6 +13,7 @@ namespace SampleTaskList.Views.Salutation
 
         Models.Salutation.Salutation salutationmodel = new Models.Salutation.Salutation();
         Services.Salutation.SalutationService salutationservice = new Services.Salutation.SalutationService();
+      
         DataTable da = new DataTable();
 
         #region bind data
@@ -90,7 +91,20 @@ namespace SampleTaskList.Views.Salutation
         /// <param name="e"></param>
         protected void grvSalutation_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int sid;
             int id = Convert.ToInt32(grvSalutation.DataKeys[e.RowIndex].Value);
+            da = Services.Customer.CustomerService.GetAllData();
+            for(int j = 0; j < da.Rows.Count; j++)
+            {
+                sid = Convert.ToInt32(da.Rows[j]["salutation_id"]);
+                if (sid == id)
+                {
+                    Session["alert"] = "Data Exist You can't delet this";
+                    Session["alert-type"] = "warning";
+                    GetData();
+                    return;
+                }
+            }
             salutationmodel.ID = id;
             bool IsDelete = Services.Salutation.SalutationService.Delete(salutationmodel);
             if (IsDelete)

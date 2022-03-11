@@ -30,7 +30,7 @@
 
              <div class="col-md-5 col-md-offset-1">
                 <div class="form-group row">
-     <label for="txtSearch" class="col-sm-4 col-form-label text-info">Customer Name</label>
+     <label for="txtSearch" class="searchlabel col-sm-4 col-form-label">Customer Name</label>
     <div class="col-sm-6">
     <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
     </div>
