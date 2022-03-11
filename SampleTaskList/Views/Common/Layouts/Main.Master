@@ -151,7 +151,7 @@
                        bPaginate: true,
                        bInfo: false,
                        language: {
-                           lengthMenu: "Page Size _MENU_"
+                           lengthMenu: "<span style='padding-right:15px'>Page Size</span>_MENU_"
                        }
                    });
 
@@ -170,12 +170,9 @@
                        bPaginate: true,
                        bInfo: false,
                        language: {
-                           lengthMenu: "Page Size _MENU_"
+                           lengthMenu: "<span style='padding-right:15px'>Page Size</span>_MENU_"
                        }
                    });
-
-              
-
            });
           
 
