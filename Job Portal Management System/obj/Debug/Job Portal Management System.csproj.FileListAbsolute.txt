@@ -72,3 +72,9 @@ D:\Webproject\SCMTraining\Day1\csharp_training\Job Portal Management System\obj\
 D:\Webproject\SCMTraining\Day1\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.csproj.CopyComplete
 D:\Webproject\SCMTraining\Day1\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.dll
 D:\Webproject\SCMTraining\Day1\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.pdb
+D:\Webproject\SCMTraining\Day1\csharp_training\Job Portal Management System\bin\JobPortal_DAOs.dll
+D:\Webproject\SCMTraining\Day1\csharp_training\Job Portal Management System\bin\JobPortal_Models.dll
+D:\Webproject\SCMTraining\Day1\csharp_training\Job Portal Management System\bin\JobPortal_Services.dll
+D:\Webproject\SCMTraining\Day1\csharp_training\Job Portal Management System\bin\JobPortal_DAOs.pdb
+D:\Webproject\SCMTraining\Day1\csharp_training\Job Portal Management System\bin\JobPortal_Models.pdb
+D:\Webproject\SCMTraining\Day1\csharp_training\Job Portal Management System\bin\JobPortal_Services.pdb

@@ -1,0 +1,11 @@
+D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Services\bin\Debug\JobPortal_Services.dll
+D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Services\bin\Debug\JobPortal_Services.pdb
+D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Services\bin\Debug\JobPortal_DAOs.dll
+D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Services\bin\Debug\JobPortal_Models.dll
+D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Services\bin\Debug\JobPortal_DAOs.pdb
+D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Services\bin\Debug\JobPortal_Models.pdb
+D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Services\obj\Debug\JobPortal_Services.csprojAssemblyReference.cache
+D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Services\obj\Debug\JobPortal_Services.csproj.CoreCompileInputs.cache
+D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Services\obj\Debug\JobPortal_Services.csproj.CopyComplete
+D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Services\obj\Debug\JobPortal_Services.dll
+D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Services\obj\Debug\JobPortal_Services.pdb

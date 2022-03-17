@@ -1,0 +1,6 @@
+D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Models\bin\Debug\JobPortal_Models.dll
+D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Models\bin\Debug\JobPortal_Models.pdb
+D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.csprojAssemblyReference.cache
+D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.csproj.CoreCompileInputs.cache
+D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.dll
+D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.pdb
