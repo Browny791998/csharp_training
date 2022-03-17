@@ -1,0 +1,82 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Job_Portal_Management_System.Views.Common.Layout.Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../../../Resources/css/style.css" rel="stylesheet" />
+    <link href="../../../Resources/css/lib/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+     <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+ <nav class="navbar navbar-expand-lg navbar-light bg-info py-md-4 ">
+  <a class="navbar-brand text-white" href="#">Brilliant JOB</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+       
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+    <ul class="navbar-nav d-flex">
+      <li class="nav-item active mr-3">
+        <a class="nav-link font-weight-bolder text-white" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item mr-3">
+        <a class="nav-link font-weight-bolder text-white" href="#">Find Jobs</a>
+      </li>
+      <li class="nav-item mr-3">
+        <a class="nav-link font-weight-bolder text-white" href="#">Register</a>
+      </li>
+        <li class="nav-item mr-3">
+           <%if (Session["email"] == null)
+               { %>
+             
+             <a class="nav-link font-weight-bolder text-white" href="#">Login</a>
+        <% }
+                                              else
+                                              { %>
+            <a class="nav-link font-weight-bolder text-white" href="#">Logout</a>
+            <%} %>
+      </li>
+        <%if (Session["email"] != null )
+               { %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle font-weight-bolder text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              
+       <% Response.Write(Session["email"]);%>
+          
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        
+             <%if (Session["role"] != null && Session["role"].ToString() == "employee" )
+               { %>
+            <a class="dropdown-item" href="CompanyAccount.aspx">Manage Company Account</a>
+          <a class="dropdown-item" href="#">Created Jobs</a>
+             <a class="dropdown-item" href="#">Something else here</a>
+              <%} %>
+         
+        </div>
+      </li>
+         <%} %>
+    </ul>
+  </div>
+</nav>
+                </div>
+            </div>
+        </div>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+    <script src="../../../Resources/js/lib/jquery.js"></script>
+    <script src="../../../Resources/js/lib/popper.min.js"></script>
+    <script src="../../../Resources/js/lib/bootstrap.min.js"></script>
+</body>
+</html>
