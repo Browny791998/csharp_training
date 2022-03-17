@@ -122,6 +122,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Profile\2.jpg" />
     <Content Include="Resources\css\lib\bootstrap-grid.css.map" />
     <Content Include="Resources\css\lib\bootstrap-grid.min.css.map" />
     <Content Include="Resources\css\lib\bootstrap-reboot.css.map" />
@@ -1997,6 +1998,9 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\AdminHome.aspx" />
     <Content Include="Views\Home.aspx" />
+    <Content Include="Views\JobSeeker\JobSeekerEdit.aspx" />
+    <Content Include="Views\JobSeeker\JobSeekerProfile.aspx" />
+    <Content Include="Views\JobSeeker\RegisterJobSeeker.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -2066,11 +2070,33 @@
     <Compile Include="Views\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\JobSeeker\JobSeekerEdit.aspx.cs">
+      <DependentUpon>JobSeekerEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\JobSeeker\JobSeekerEdit.aspx.designer.cs">
+      <DependentUpon>JobSeekerEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JobSeeker\JobSeekerProfile.aspx.cs">
+      <DependentUpon>JobSeekerProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\JobSeeker\JobSeekerProfile.aspx.designer.cs">
+      <DependentUpon>JobSeekerProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JobSeeker\RegisterJobSeeker.aspx.cs">
+      <DependentUpon>RegisterJobSeeker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JobSeeker\RegisterJobSeeker.aspx.designer.cs">
+      <DependentUpon>RegisterJobSeeker.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="CV\" />
     <Folder Include="Download\" />
     <Folder Include="Upload\" />
+    <Folder Include="Views\Company\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
