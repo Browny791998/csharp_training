@@ -19,7 +19,8 @@ namespace Job_Portal_Management_System.Views.Company
         }
         public void GetAcc()
         {
-            da = JobPortal_Services.Company.CompanyService.GetAllData();
+            int id = Convert.ToInt32(Session["id"]);
+            da = JobPortal_Services.Company.CompanyService.GetAllData(id);
            rptCompany.DataSource = da;
             rptCompany.DataBind();
         }

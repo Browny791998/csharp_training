@@ -95,7 +95,7 @@ namespace JobPortal_DAOs.JobSeeker
         {
             try
             {
-                return Common.HelperDao.GetData("Select email from tbl_jobseeker where email COLLATE Latin1_General_CS_AS='" + email + "'", CommandType.Text);
+                return Common.HelperDao.GetData("Select id,email,name,password,role from tbl_jobseeker where email COLLATE Latin1_General_CS_AS='" + email + "'", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -107,11 +107,11 @@ namespace JobPortal_DAOs.JobSeeker
         /// Get All Data
         /// </summary>
         /// <returns></returns>
-        public static DataTable GetAllData()
+        public static DataTable GetAllData(int id)
         {
             try
             {
-       return Common.HelperDao.GetData("Select id,name,address,mobile,gender,CONVERT(varchar,dob,3) as dob,skill,experience,degree,degree_name,cvform,profile,email,password,detail,role,active,created_date,updated_date from tbl_jobseeker Where id=7", CommandType.Text);
+       return Common.HelperDao.GetData("Select id,name,address,mobile,gender,CONVERT(varchar,dob,3) as dob,skill,experience,degree,degree_name,cvform,profile,email,password,detail,role,active,created_date,updated_date from tbl_jobseeker Where id='"+id+"'", CommandType.Text);
             }
             catch (Exception ex)
             {

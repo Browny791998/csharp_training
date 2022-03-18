@@ -28,11 +28,20 @@
       <li class="nav-item mr-3">
         <a class="nav-link font-weight-bolder text-white" href="#">Find Jobs</a>
       </li>
-      <li class="nav-item mr-3">
-        <a class="nav-link font-weight-bolder text-white" href="#">Register</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle font-weight-bolder text-white" href="#" id="navbarDropdownRegisterLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              
+      Register
+          
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownRegisterLink">
+        
+            <a class="dropdown-item" href="../../../Views/Company/RegisterCompany.aspx">Register as Company</a>
+          <a class="dropdown-item" href="../../../Views/JobSeeker/RegisterJobSeeker.aspx">Register as Job Seeker</a>
+          </div>
       </li>
         <li class="nav-item mr-3">
-           <%if (Session["email"] == null)
+           <%if (Session["name"] == null)
                { %>
              
              <a class="nav-link font-weight-bolder text-white" href="#">Login</a>
@@ -42,26 +51,29 @@
             <a class="nav-link font-weight-bolder text-white" href="#">Logout</a>
             <%} %>
       </li>
-        <%if (Session["email"] != null )
+        <%if (Session["name"] != null )
                { %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle font-weight-bolder text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               
-       <% Response.Write(Session["email"]);%>
+       <% Response.Write(Session["name"]);%>
           
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         
-             <%if (Session["role"] != null && Session["role"].ToString() == "employee" )
+             <%if (Session["role"] != null && Session["role"].ToString() == "Company" )
                { %>
-            <a class="dropdown-item" href="CompanyAccount.aspx">Manage Company Account</a>
-          <a class="dropdown-item" href="#">Created Jobs</a>
-             <a class="dropdown-item" href="#">Something else here</a>
-              <%} %>
+            <a class="dropdown-item" href="../../../Views/Company/CompanyAccount.aspx">Manage Company Account</a>
+          <a class="dropdown-item" href="../../../Views/Job/CreateJob.aspx">Created Jobs</a>
          
+              <%}
+                  else if(Session["role"] != null && Session["role"].ToString() == "Job Seeker" ){%>
+         <a class="dropdown-item" href="../../../Views/JobSeeker/JobSeekerProfile.aspx">My Account</a>
+          
         </div>
       </li>
-         <%} %>
+         <%}
+             } %>
     </ul>
   </div>
 </nav>

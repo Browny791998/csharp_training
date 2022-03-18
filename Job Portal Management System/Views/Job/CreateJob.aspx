@@ -24,7 +24,19 @@
                 Session.Remove("alert-type");
             } %>
 
+     <%if(Request.QueryString["action"]=="update" )
+         {%>
+        <h1 class="text-center text-info ml-5">Edit Your Job Offer</h1>
+   
+   
+     <%
+           
+         }
+         else
+         {
+             %>
          <h1 class="text-center text-info ml-5">Create Your Job Offer</h1>
+     <%} %>
         <div class="row">
               <div class="col-md-5 mt-5 offset-md-4">
                    <div class="form-group">
@@ -95,8 +107,20 @@
             <asp:TextBox ID="txtDetail" runat="server" CssClass="form-control"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtDetail" ForeColor="Red">Detail can&#39;t be blank</asp:RequiredFieldValidator>
           </div>
+                   <%if (Request.QueryString["action"] == "update")
+                       {%>
+                  <div class="form-group">
+                      <div class="custom-control custom-switch">
+                   <input type="checkbox" class="custom-control-input" id="customSwitch1" runat="server" ClientIDMode="Static">
+  <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+                </div>
+                  </div>
+                 
+                  <%} %>
+                
+
                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-info" OnClick="btnSubmit_Click"  />
-            <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning"/>
+            <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" CausesValidation="False" OnClick="btnClear_Click"/>
                   </div>
         </div>
 

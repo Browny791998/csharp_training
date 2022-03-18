@@ -16,7 +16,11 @@ namespace Job_Portal_Management_System.Views.Job
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetData();
+            if (!IsPostBack)
+            {
+                GetData();
+            }
+           
         }
 
         #region Get Data
@@ -58,6 +62,39 @@ namespace Job_Portal_Management_System.Views.Job
                 Session["alert"] = "Delete failed";
                 Session["alert-type"] = "danger";
             }
+        }
+
+        protected void grvJob_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+           
+            int id = Convert.ToInt32(grvJob.DataKeys[e.RowIndex].Value);
+            Response.Redirect("CreateJob.aspx?id=" + id +"&action=update");
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            da = JobPortal_Services.Job.JobService.GetSearchData(txtSearch.Text);
+            if (da.Rows.Count > 0)
+            {
+                grvJob.DataSource = da;
+               grvJob.DataBind();
+                grvJob.Visible = true;
+            }
+            else
+            {
+               grvJob.DataSource = null;
+                grvJob.DataBind();
+            }
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CreateJob.aspx");
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = string.Empty;
         }
     }
 }

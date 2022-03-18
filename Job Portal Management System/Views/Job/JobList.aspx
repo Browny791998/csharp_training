@@ -36,16 +36,16 @@
       
         </div>
         <div class="col-md-4">
-             <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-info" />
-             <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="btn btn-info" />
-             <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-info" />
+             <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-info" OnClick="btnSearch_Click" />
+             <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="btn btn-info" OnClick="btnAdd_Click" />
+             <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-info" OnClick="btnClear_Click" />
         </div>
       
      
   </div>
     <div class="row mt-5">
         <div class="col-md-12">
-            <asp:GridView ID="grvJob" ShowHeaderWhenEmpty="true" runat="server" CssClass="table table-striped"  DataKeyNames="id" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDeleting="grvJob_RowDeleting">
+            <asp:GridView ID="grvJob" ShowHeaderWhenEmpty="true" runat="server" CssClass="table table-striped"  DataKeyNames="id" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDeleting="grvJob_RowDeleting" OnRowUpdating="grvJob_RowUpdating">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField >

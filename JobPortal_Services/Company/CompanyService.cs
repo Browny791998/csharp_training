@@ -64,11 +64,11 @@ namespace JobPortal_Services.Company
         /// <summary>
         /// Get All Data
         /// </summary>
-        public static DataTable GetAllData()
+        public static DataTable GetAllData(int id)
         {
             try
             {
-                return JobPortal_DAOs.Company.CompanyDao.GetAllData();
+                return JobPortal_DAOs.Company.CompanyDao.GetAllData(id);
             }
             catch (Exception ex)
             {

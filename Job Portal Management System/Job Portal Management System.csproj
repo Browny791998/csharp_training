@@ -2005,7 +2005,9 @@
     <Content Include="Views\JobSeeker\JobSeekerProfile.aspx" />
     <Content Include="Views\JobSeeker\RegisterJobSeeker.aspx" />
     <Content Include="Views\Job\CreateJob.aspx" />
+    <Content Include="Views\Job\FindJob.aspx" />
     <Content Include="Views\Job\JobList.aspx" />
+    <Content Include="Views\Login.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -2130,12 +2132,26 @@
     <Compile Include="Views\Job\CreateJob.aspx.designer.cs">
       <DependentUpon>CreateJob.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Job\FindJob.aspx.cs">
+      <DependentUpon>FindJob.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Job\FindJob.aspx.designer.cs">
+      <DependentUpon>FindJob.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Job\JobList.aspx.cs">
       <DependentUpon>JobList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Job\JobList.aspx.designer.cs">
       <DependentUpon>JobList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -30,11 +30,11 @@ namespace JobPortal_Services.Job
         /// <summary>
         /// Update Data
         /// </summary>
-        public static bool Update(JobPortal_Models.Company.Company company)
+        public static bool Update(JobPortal_Models.Job.Job job)
         {
             try
             {
-                return JobPortal_DAOs.Company.CompanyDao.Update(company);
+                return JobPortal_DAOs.Job.JobDao.Update(job);
             }
             catch (Exception ex)
             {
@@ -94,17 +94,17 @@ namespace JobPortal_Services.Job
         /// <summary>
         /// Get Search Data
         /// </summary>
-        //public static DataTable GetSearchData(string str)
-        //{
-        //    try
-        //    {
-        //        return DAOs.Movie.MovieDao.GetSearchData(str);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        public static DataTable GetSearchData(string str)
+        {
+            try
+            {
+                return JobPortal_DAOs.Job.JobDao.GetSearchData(str);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         /// <summary>
         /// Read Data
@@ -113,7 +113,7 @@ namespace JobPortal_Services.Job
         {
             try
             {
-                return JobPortal_DAOs.Company.CompanyDao.ReadData(id);
+                return JobPortal_DAOs.Job.JobDao.ReadData(id);
             }
             catch (Exception ex)
             {

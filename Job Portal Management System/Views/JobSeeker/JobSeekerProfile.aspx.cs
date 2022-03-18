@@ -20,7 +20,8 @@ namespace Job_Portal_Management_System.Views.JobSeeker
 
         public void GetAcc()
         {
-            da = JobPortal_Services.JobSeeker.JobSeekerService.GetAllData();
+            int id = Convert.ToInt32(Session["id"]);
+            da = JobPortal_Services.JobSeeker.JobSeekerService.GetAllData(id);
             rptJobseeker.DataSource = da;
            rptJobseeker.DataBind();
         }

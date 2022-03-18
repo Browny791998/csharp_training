@@ -50,21 +50,25 @@ namespace JobPortal_DAOs.Job
         /// <paramref name="post"/>
         /// </summary>
         /// <returns></returns>
-        public static bool Update(JobPortal_Models.Company.Company company)
+        public static bool Update(JobPortal_Models.Job.Job job)
         {
             try
             {
-                var arr = new object[10];
-                arr[0] = company.Name;
-                arr[1] = company.CountryID;
-                arr[2] = company.Address;
-                arr[3] = company.ContactPerson;
-                arr[4] = company.Mobile;
-                arr[5] = company.Website;
-                arr[6] = company.Detail;
-                arr[7] = company.UpdatedDate;
-                arr[8] = company.ID;
-                Common.HelperDao.Update("Update tbl_company set name=@1,country_id=@2,address=@3,contact_person=@4,mobile=@5,website=@6,detail=@7,updated_at=@8 where id=@9", arr);
+                var arr = new object[14];
+                arr[0] = job.Title;
+                arr[1] = job.Degree;
+                arr[2] = job.Skill;
+                arr[3] = job.Experience;
+                arr[4] = job.Vacancy;
+                arr[5] = job.Company_id;
+                arr[6] = job.Position_id;
+                arr[7] = job.Jobnature_id;
+                arr[8] = job.Salary;
+                arr[9] = job.Detail;
+                arr[10] = job.UpdatedDate;
+                arr[11] = job.Active;
+                arr[12] = job.ID;
+                Common.HelperDao.Update("Update tbl_job set title=@1,degree=@2,skill=@3,experience=@4,vacancy=@5,company_id=@6,position_id=@7,job_nature_id=@8,salary=@9,detail=@10,updated_at=@11,active=@12 where id=@13", arr);
                 return true;
             }
             catch (Exception ex)
@@ -131,25 +135,24 @@ namespace JobPortal_DAOs.Job
         /// Get Search Data
         /// </summary>
         /// <returns></returns>
-        //public static DataTable GetSearchData(string str)
-        //{
-        //    try
-        //    {
-        //        if (str == "")
-        //        {
-        //            return Common.HelperDao.GetData("Select id,movie from tbl_movie", CommandType.Text);
-        //        }
-        //        else
-        //        {
-        //            //return Common.HelperDao.GetData("Select id,movie from tbl_movie where movie LIKE '" + str + "'", CommandType.Text);
-        //            return Common.HelperDao.GetData("Select id,movie from tbl_movie where movie LIKE '%" + str + "%'", CommandType.Text);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        public static DataTable GetSearchData(string str)
+        {
+            try
+            {
+                if (str == "")
+                {
+                    return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,salary,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id Where tbl_job.company_id=1", CommandType.Text);
+                }
+                else
+                {
+                    return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,salary,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id Where tbl_job.company_id=1 and title LIKE '%" + str + "%'", CommandType.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         /// <summary>
         /// Read Data
@@ -159,7 +162,7 @@ namespace JobPortal_DAOs.Job
         {
             try
             {
-                return Common.HelperDao.ReadData("Select tbl_company.id,name,country_id,country,address,contact_person,mobile,email,password,website,role,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_company join tbl_country on tbl_country.id=tbl_company.country_id where tbl_company.id='" + id + "'", CommandType.Text);
+                return Common.HelperDao.ReadData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,salary,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id Where tbl_job.id='" + id + "'", CommandType.Text);
             }
             catch (Exception ex)
             {

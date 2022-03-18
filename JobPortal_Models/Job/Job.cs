@@ -23,6 +23,7 @@ namespace JobPortal_Models.Job
         private int _jobnatureid;
         private int _salary;
         private string _detail;
+        private Int16 _active;
         private DateTime _createddate;
         private DateTime _updatedddate;
         #endregion
@@ -44,11 +45,12 @@ namespace JobPortal_Models.Job
             _jobnatureid = 0;
             _salary = 0;
             _detail = string.Empty;
+            _active = 0;
             _createddate = DateTime.Now;
             _updatedddate = DateTime.Now;
         }
 
-        public void PostData(int id, string title,string degree,string skill,string experience, int vacancy, int company_id,int position_id,int jobnature_id,int salary, string detail, DateTime createddate, DateTime updateddate)
+        public void PostData(int id, string title,string degree,string skill,string experience, int vacancy, int company_id,int position_id,int jobnature_id,int salary, string detail,Int16 active, DateTime createddate, DateTime updateddate)
         {
             _id = id;
             _title = title;
@@ -243,6 +245,22 @@ namespace JobPortal_Models.Job
             set
             {
                 _detail = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the <b>_movie</b> attribute value.
+        /// </summary>
+        /// <value>The <b>_movie</b> attribute value.</value>
+        public Int16 Active
+        {
+            get
+            {
+                return _active;
+            }
+            set
+            {
+                _active = value;
             }
         }
 

@@ -84,7 +84,7 @@ namespace JobPortal_DAOs.Company
         {
             try
             {
-                return Common.HelperDao.GetData("Select email from tbl_company where email COLLATE Latin1_General_CS_AS='" + email + "'", CommandType.Text);
+                return Common.HelperDao.GetData("Select id,name,email,password,role from tbl_company where email COLLATE Latin1_General_CS_AS='" + email + "'", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -96,11 +96,11 @@ namespace JobPortal_DAOs.Company
         /// Get All Data
         /// </summary>
         /// <returns></returns>
-        public static DataTable GetAllData()
+        public static DataTable GetAllData(int id)
         {
             try
             {
-                return Common.HelperDao.GetData("Select tbl_company.id,name,country_id,country,address,contact_person,mobile,email,password,website,role,detail,active,created_at,updated_at from tbl_company join tbl_country on tbl_country.id=tbl_company.country_id Where tbl_company.id=2", CommandType.Text);
+                return Common.HelperDao.GetData("Select tbl_company.id,name,country_id,country,address,contact_person,mobile,email,password,website,role,detail,active,created_at,updated_at from tbl_company join tbl_country on tbl_country.id=tbl_company.country_id Where tbl_company.id='"+id+"'", CommandType.Text);
             }
             catch (Exception ex)
             {
