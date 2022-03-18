@@ -111,7 +111,7 @@ namespace JobPortal_DAOs.JobSeeker
         {
             try
             {
-       return Common.HelperDao.GetData("Select id,name,address,mobile,gender,CONVERT(varchar,dob,3) as dob,skill,experience,degree,degree_name,cvform,profile,email,password,detail,role,active,created_date,updated_date from tbl_jobseeker Where id=5", CommandType.Text);
+       return Common.HelperDao.GetData("Select id,name,address,mobile,gender,CONVERT(varchar,dob,3) as dob,skill,experience,degree,degree_name,cvform,profile,email,password,detail,role,active,created_date,updated_date from tbl_jobseeker Where id=7", CommandType.Text);
             }
             catch (Exception ex)
             {

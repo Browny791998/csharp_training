@@ -92,6 +92,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 {
                     Session["alert"] = "Successfully registered";
                     Session["alert-type"] = "success";
+                    ClearFields();
                 }
                 else
                 {
@@ -100,6 +101,29 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 }
             }
            
+        }
+
+        public void ClearFields()
+        {
+            txtName.Text = string.Empty;
+            txtAddress.Text = string.Empty;
+            txtMobile.Text = string.Empty;
+            ddlgender.SelectedIndex = -1;
+            txtDate.Text = string.Empty;
+            lbSkill.SelectedIndex = -1;
+            txtExperience.Text = string.Empty;
+            ddlDegree.SelectedIndex = -1;
+            txtDegree.Text = string.Empty;
+            fuCV.Attributes.Clear();
+            fuProfile.Attributes.Clear();
+            txtEmail.Text = string.Empty;
+            txtPassword.Text = string.Empty;
+            txtDetail.Text = string.Empty;
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearFields();
         }
     }
 }

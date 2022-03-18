@@ -27,7 +27,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            Session["action"] = "update";
+            
             var btn = (Button)sender;
             var item = (RepeaterItem)btn.NamingContainer;
             var IdValue = ((Label)item.FindControl("jobseekerId")).Text;

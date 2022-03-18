@@ -1997,10 +1997,15 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\AdminHome.aspx" />
+    <Content Include="Views\Company\CompanyAccount.aspx" />
+    <Content Include="Views\Company\CompanyEdit.aspx" />
+    <Content Include="Views\Company\RegisterCompany.aspx" />
     <Content Include="Views\Home.aspx" />
     <Content Include="Views\JobSeeker\JobSeekerEdit.aspx" />
     <Content Include="Views\JobSeeker\JobSeekerProfile.aspx" />
     <Content Include="Views\JobSeeker\RegisterJobSeeker.aspx" />
+    <Content Include="Views\Job\CreateJob.aspx" />
+    <Content Include="Views\Job\JobList.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -2056,12 +2061,40 @@
     <Compile Include="Views\Common\Layout\AdminDashboard.Master.designer.cs">
       <DependentUpon>AdminDashboard.Master</DependentUpon>
     </Compile>
+    <Compile Include="Views\Common\Layout\CompanyDashboard.Master.cs">
+      <DependentUpon>CompanyDashboard.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Common\Layout\CompanyDashboard.Master.designer.cs">
+      <DependentUpon>CompanyDashboard.Master</DependentUpon>
+    </Compile>
     <Compile Include="Views\Common\Layout\Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Common\Layout\Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Company\CompanyAccount.aspx.cs">
+      <DependentUpon>CompanyAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Company\CompanyAccount.aspx.designer.cs">
+      <DependentUpon>CompanyAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Company\CompanyEdit.aspx.cs">
+      <DependentUpon>CompanyEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Company\CompanyEdit.aspx.designer.cs">
+      <DependentUpon>CompanyEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Company\RegisterCompany.aspx.cs">
+      <DependentUpon>RegisterCompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Company\RegisterCompany.aspx.designer.cs">
+      <DependentUpon>RegisterCompany.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -2090,18 +2123,33 @@
     <Compile Include="Views\JobSeeker\RegisterJobSeeker.aspx.designer.cs">
       <DependentUpon>RegisterJobSeeker.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Job\CreateJob.aspx.cs">
+      <DependentUpon>CreateJob.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Job\CreateJob.aspx.designer.cs">
+      <DependentUpon>CreateJob.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Job\JobList.aspx.cs">
+      <DependentUpon>JobList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Job\JobList.aspx.designer.cs">
+      <DependentUpon>JobList.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="CV\" />
     <Folder Include="Download\" />
+    <Folder Include="ScriptFile\" />
     <Folder Include="Upload\" />
-    <Folder Include="Views\Company\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Views\Common\Layout\CompanyDashboard.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -76,6 +76,7 @@
   </div>
 
             <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-info" OnClick="btnRegister_Click" />
+            <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" OnClick="btnClear_Click"/>
         </div>
     <div class="col-md-5 mt-5">
          <div class="form-group">
