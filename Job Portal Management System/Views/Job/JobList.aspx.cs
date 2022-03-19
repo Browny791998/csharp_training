@@ -29,7 +29,8 @@ namespace Job_Portal_Management_System.Views.Job
         /// </summary>
         public void GetData()
         {
-            da = JobPortal_Services.Job.JobService.GetAllData();
+            int companyID = Convert.ToInt32(Session["id"]);
+            da = JobPortal_Services.Job.JobService.GetAllData(companyID);
             if (da.Rows.Count > 0)
             {
                 grvJob.DataSource = da;
@@ -99,6 +100,7 @@ namespace Job_Portal_Management_System.Views.Job
         protected void btnClear_Click(object sender, EventArgs e)
         {
             txtSearch.Text = string.Empty;
+            this.GetData();
         }
 
         protected void grvJob_PageIndexChanging(object sender, GridViewPageEventArgs e)

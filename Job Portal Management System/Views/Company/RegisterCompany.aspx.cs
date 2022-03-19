@@ -29,7 +29,7 @@ namespace Job_Portal_Management_System.Views.Company
            companymodel.ContactPerson = txtContactPerson.Text;
            companymodel.Mobile = Convert.ToInt32(txtMobile.Text);
             companymodel.Email = txtEmail.Text;
-            companymodel.Password = txtPassword.Text;
+            companymodel.Password = EncryptPassword(txtPassword.Text);
             companymodel.Website = txtWebsite.Text;
             companymodel.Detail = txtDetail.Text;
             companymodel.Role = "Company";
@@ -77,6 +77,13 @@ namespace Job_Portal_Management_System.Views.Company
             txtWebsite.Text = string.Empty;
             txtDetail.Text = string.Empty;
           
+        }
+
+        public string EncryptPassword(string passEncrypted)
+        {
+            byte[] b = System.Text.ASCIIEncoding.ASCII.GetBytes(passEncrypted);
+            string encrypted = Convert.ToBase64String(b);
+            return encrypted;
         }
     }
 }

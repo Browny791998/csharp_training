@@ -12,11 +12,12 @@
     <link href="../../../Resources/css/lib/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-     <div class="container">
+     <div class="container bg-light">
             <div class="row">
                 <div class="col-md-12">
- <nav class="navbar navbar-expand-lg navbar-light bg-info py-md-4 ">
-  <a class="navbar-brand text-white" href="#">Brilliant JOB</a>
+ <nav class="navbar navbar-expand-lg navbar-light bg-info py-md-4">
+  <a class="navbar-brand text-white" href="#">
+      Brilliant Job </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -24,14 +25,14 @@
   <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
     <ul class="navbar-nav d-flex">
       <li class="nav-item active mr-3">
-        <a class="nav-link font-weight-bolder text-white" href="#">Home <span class="sr-only">(current)</span></a>
+           <asp:HyperLink ID="HyperLink2" runat="server" CssClass="nav-link font-weight-bolder text-white" NavigateUrl="~/Views/Home.aspx"><i class="fa-solid fa-house"></i> Home</asp:HyperLink>
       </li>
       <li class="nav-item mr-3">
-        <a class="nav-link font-weight-bolder text-white" href="#">Find Jobs</a>
+        <a class="nav-link font-weight-bolder text-white" href="../../../Views/Job/FindJob.aspx"><i class="fa-solid fa-magnifying-glass"></i> Find Jobs</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle font-weight-bolder text-white" href="#" id="navbarDropdownRegisterLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              
+        <i class="fa-solid fa-id-card"></i>       
       Register
           
         </a>
@@ -45,11 +46,11 @@
            <%if (Session["name"] == null)
                { %>
              
-             <a class="nav-link font-weight-bolder text-white" href="#">Login</a>
+            <asp:HyperLink ID="HyperLink1" runat="server" CssClass="nav-link font-weight-bolder text-white" NavigateUrl="~/Views/Login.aspx"><i class="fa-solid fa-right-to-bracket"></i> Login</asp:HyperLink>
         <% }
                                               else
                                               { %>
-            <a class="nav-link font-weight-bolder text-white" href="#">Logout</a>
+            <a class="nav-link font-weight-bolder text-white" href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
             <%} %>
       </li>
         <%if (Session["name"] != null )
@@ -91,31 +92,7 @@
     <script src="../../../Resources/js/lib/jquery.js"></script>
     <script src="../../../Resources/js/lib/popper.min.js"></script>
     <script src="../../../Resources/js/lib/bootstrap.min.js"></script>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
-  <script type="text/javascript">
-      $(function () {
-          $("[id*=rptJoblist]").DataTable(
-              {
-                  'columnDefs': [{
-                      'targets': [10, 11],
-                      'orderable': false,
-                  }],
-                  "dom": '<"top"i>rt<"bottom"flp><"clear">',
-                  searching: false,
-                  bLengthChange: true,
-                  lengthMenu: [[5, 10, -1], [5, 10, "All"]],
-                  bFilter: true,
-                  bSort: true,
-                  bPaginate: true,
-                  bInfo: false,
-                  language: {
-                      lengthMenu: "<span style='padding-right:15px'>Page Size</span>_MENU_"
-                  }
+    
 
-              });
-      });
-  </script>
 </body>
 </html>

@@ -24,7 +24,7 @@ namespace Job_Portal_Management_System.Views
                 da = JobPortal_Services.JobSeeker.JobSeekerService.GetData(txtEmail.Text);
                 if (da.Rows.Count > 0)
                 {
-                    if(txtPassword.Text == da.Rows[0]["password"].ToString())
+                    if(txtPassword.Text == DecryptPassword(da.Rows[0]["password"].ToString()))
                     {
                         Session["email"] =da.Rows[0]["email"];
                         Session["name"] = da.Rows[0]["name"];
@@ -34,12 +34,14 @@ namespace Job_Portal_Management_System.Views
                     }
                     else
                     {
-                        Response.Write("Password is incorrect");
+                        Session["alert"] = "Incorrect Password";
+                        Session["alert-type"] = "danger";
                     }
                 }
                 else
                 {
-                    Response.Write("Email is incorrect");
+                    Session["alert"] = "Incorrect Email";
+                    Session["alert-type"] = "danger";
                 }
             }
             else if (ddlRole.SelectedValue == "Company")
@@ -47,7 +49,7 @@ namespace Job_Portal_Management_System.Views
                 da = JobPortal_Services.Company.CompanyService.GetData(txtEmail.Text);
                 if (da.Rows.Count > 0)
                 {
-                    if (txtPassword.Text == da.Rows[0]["password"].ToString())
+                    if (txtPassword.Text == DecryptPassword(da.Rows[0]["password"].ToString()))
                     {
                         Session["email"] = da.Rows[0]["email"];
                         Session["name"] = da.Rows[0]["name"];
@@ -57,14 +59,32 @@ namespace Job_Portal_Management_System.Views
                     }
                     else
                     {
-                        Response.Write("Password is incorrect");
+                        Session["alert"] = "Incorrect Password";
+                        Session["alert-type"] = "danger";
                     }
                 }
                 else
                 {
-                    Response.Write("Email is incorrect");
+                    Session["alert"] = "Incorrect Email";
+                    Session["alert-type"] = "danger";
                 }
             }
+        }
+
+        public string DecryptPassword(string passDecrypted)
+        {
+            byte[] b;
+            string decrypted;
+            try
+            {
+                b = Convert.FromBase64String(passDecrypted);
+                decrypted = System.Text.ASCIIEncoding.ASCII.GetString(b);
+            }
+            catch(FormatException fe)
+            {
+                decrypted = "";
+            }
+            return decrypted;
         }
     }
 }

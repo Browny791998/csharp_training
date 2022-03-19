@@ -11,7 +11,7 @@
                %>
         <div class="AlertMessage" id="AlertMsg">
         <div class="row">
-        <div class="col-md-6 col-md-offset-2 fixed-top">
+        <div class="col-md-6 col-md-offset-2">
         <div class="alert alert-<% Response.Write(type); %> alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <asp:Label ID="Lblalert" runat="server" Text="Label" Visible="False"></asp:Label>

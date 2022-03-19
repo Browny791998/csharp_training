@@ -54,7 +54,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             string image = "~/Profile/" + Path.GetFileName(fuProfile.FileName);
             jobseekermodel.Profile = image;
             jobseekermodel.Email = txtEmail.Text;
-            jobseekermodel.Password = txtPassword.Text;
+            jobseekermodel.Password = EncryptPassword(txtPassword.Text);
             jobseekermodel.Detail = txtDetail.Text;
             jobseekermodel.Role = "Job Seeker";
             jobseekermodel.CreatedDate = DateTime.Now;
@@ -124,6 +124,13 @@ namespace Job_Portal_Management_System.Views.JobSeeker
         protected void btnClear_Click(object sender, EventArgs e)
         {
             ClearFields();
+        }
+
+        public string EncryptPassword(string passEncrypted)
+        {
+            byte[] b = System.Text.ASCIIEncoding.ASCII.GetBytes(passEncrypted);
+            string encrypted = Convert.ToBase64String(b);
+            return encrypted;
         }
     }
 }

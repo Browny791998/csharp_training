@@ -103,11 +103,11 @@ namespace JobPortal_DAOs.Job
         /// Get Data
         /// </summary>
         /// <returns></returns>
-        public static DataTable GetData(string email)
+        public static DataTable GetData(int JobID)
         {
             try
             {
-                return Common.HelperDao.GetData("Select email from tbl_company where email COLLATE Latin1_General_CS_AS='" + email + "'", CommandType.Text);
+                return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,name,country,position_id,position,job_nature_id,job_nature,salary,tbl_job.detail,tbl_job.active,CONVERT(varchar,tbl_job.created_at,3) as created_at,tbl_job.updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_company on tbl_company.id=tbl_job.company_id join tbl_country on tbl_country.id = tbl_company.country_id Where tbl_job.id='" + JobID+"'", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -119,11 +119,11 @@ namespace JobPortal_DAOs.Job
         /// Get All Data
         /// </summary>
         /// <returns></returns>
-        public static DataTable GetAllData()
+        public static DataTable GetAllData(int companyId)
         {
             try
             {
-                return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,salary,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id Where tbl_job.company_id=1", CommandType.Text);
+                return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,salary,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id Where tbl_job.company_id='"+companyId+"'", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -140,7 +140,23 @@ namespace JobPortal_DAOs.Job
         {
             try
             {
-                return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,name,position_id,position,job_nature_id,job_nature,salary,tbl_job.detail,tbl_job.active,tbl_job.created_at,tbl_job.updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_company on tbl_company.id=tbl_job.company_id Where tbl_job.active=1", CommandType.Text);
+                return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,name,country,position_id,position,job_nature_id,job_nature,salary,tbl_job.detail,tbl_job.active,tbl_job.created_at,tbl_job.updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_company on tbl_company.id=tbl_job.company_id join tbl_country on tbl_country.id = tbl_company.country_id Where tbl_job.active = 1", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Get All Data
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable FilterJob(int countryID,int positionID,int jobtypeID)
+        {
+            try
+            {
+                return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,name,country,tbl_company.country_id,position,job_nature_id,job_nature,salary,tbl_job.detail,tbl_job.active,tbl_job.created_at,tbl_job.updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_company on tbl_company.id=tbl_job.company_id join tbl_country on tbl_country.id = tbl_company.country_id Where tbl_job.active = 1 and country_id='"+countryID+"' and position_id='"+positionID+"' and job_nature_id='"+jobtypeID+"'", CommandType.Text);
             }
             catch (Exception ex)
             {

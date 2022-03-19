@@ -74,7 +74,7 @@ namespace Job_Portal_Management_System.Views.Job
             jobmodel.Skill = strskill.Remove(strskill.Length - 1);
             jobmodel.Experience = txtExperience.Text;
             jobmodel.Vacancy = Convert.ToInt32(txtVacancy.Text);
-            jobmodel.Company_id = 1;
+            jobmodel.Company_id = Convert.ToInt32(Session["id"]);
             jobmodel.Position_id =Convert.ToInt32(ddlPosition.SelectedValue);
             jobmodel.Jobnature_id = Convert.ToInt32(ddlJobtype.SelectedValue);
             jobmodel.Salary = Convert.ToInt32(txtSalary.Text);
@@ -104,7 +104,7 @@ namespace Job_Portal_Management_System.Views.Job
             jobmodel.Skill = strskill.Remove(strskill.Length - 1);
             jobmodel.Experience = txtExperience.Text;
             jobmodel.Vacancy = Convert.ToInt32(txtVacancy.Text);
-            jobmodel.Company_id = 1;
+            jobmodel.Company_id = Convert.ToInt32(Session["id"]);
             jobmodel.Position_id = Convert.ToInt32(ddlPosition.SelectedValue);
             jobmodel.Jobnature_id = Convert.ToInt32(ddlJobtype.SelectedValue);
             jobmodel.Salary = Convert.ToInt32(txtSalary.Text);
@@ -175,6 +175,7 @@ namespace Job_Portal_Management_System.Views.Job
         protected void btnClear_Click(object sender, EventArgs e)
         {
             ClearFields();
+
         }
     }
 }

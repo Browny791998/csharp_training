@@ -64,11 +64,11 @@ namespace JobPortal_Services.Job
         /// <summary>
         /// Get Data
         /// </summary>
-        public static DataTable GetData(string email)
+        public static DataTable GetData(int JobID)
         {
             try
             {
-                return JobPortal_DAOs.Company.CompanyDao.GetData(email);
+                return JobPortal_DAOs.Job.JobDao.GetData(JobID);
             }
             catch (Exception ex)
             {
@@ -79,11 +79,11 @@ namespace JobPortal_Services.Job
         /// <summary>
         /// Get All Data
         /// </summary>
-        public static DataTable GetAllData()
+        public static DataTable GetAllData(int companyId)
         {
             try
             {
-                return JobPortal_DAOs.Job.JobDao.GetAllData();
+                return JobPortal_DAOs.Job.JobDao.GetAllData(companyId);
             }
             catch (Exception ex)
             {
@@ -99,6 +99,20 @@ namespace JobPortal_Services.Job
             try
             {
                 return JobPortal_DAOs.Job.JobDao.GetActiveData();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
+        /// Get All Data
+        /// </summary>
+        public static DataTable FilterJob(int countryID, int positionID, int jobtypeID)
+        {
+            try
+            {
+                return JobPortal_DAOs.Job.JobDao.FilterJob(countryID,positionID,jobtypeID);
             }
             catch (Exception ex)
             {

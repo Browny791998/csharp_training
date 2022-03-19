@@ -3,6 +3,26 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
+         <%if (Session["alert"] != null && Session["alert-type"] != null )
+            {
+                Lblalert.Visible = true;
+                Lblalert.Text = Session["alert"].ToString();
+                string type = Session["alert-type"].ToString();
+               %>
+        <div class="AlertMessage" id="AlertMsg">
+        <div class="row">
+        <div class="col-md-6 col-md-offset-2">
+        <div class="alert alert-<% Response.Write(type); %> alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <asp:Label ID="Lblalert" runat="server" Text="Label" Visible="False"></asp:Label>
+</div>
+    </div>
+    </div>
+            </div>
+        <%
+                Session.Remove("alert");
+                Session.Remove("alert-type");
+            } %>
       <div class="row">
           <div class="col-md-6 offset-md-3 card p-5 mt-3 shadow rounded-sm">
               <h2>Login Form</h2>

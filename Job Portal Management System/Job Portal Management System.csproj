@@ -1899,6 +1899,7 @@
     <Content Include="Resources\css\lib\fontawesome-free-6.0.0-beta3-web\svgs\solid\yen-sign.svg" />
     <Content Include="Resources\css\lib\fontawesome-free-6.0.0-beta3-web\svgs\solid\yin-yang.svg" />
     <Content Include="Resources\css\lib\fontawesome-free-6.0.0-beta3-web\svgs\solid\z.svg" />
+    <Content Include="Resources\images\about.jpg" />
     <Content Include="Resources\js\lib\bootstrap.bundle.js.map" />
     <Content Include="Resources\js\lib\bootstrap.bundle.min.js.map" />
     <Content Include="Resources\js\lib\bootstrap.js.map" />
@@ -2006,6 +2007,7 @@
     <Content Include="Views\JobSeeker\RegisterJobSeeker.aspx" />
     <Content Include="Views\Job\CreateJob.aspx" />
     <Content Include="Views\Job\FindJob.aspx" />
+    <Content Include="Views\Job\JobDetail.aspx" />
     <Content Include="Views\Job\JobList.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Web.config" />
@@ -2138,6 +2140,13 @@
     </Compile>
     <Compile Include="Views\Job\FindJob.aspx.designer.cs">
       <DependentUpon>FindJob.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Job\JobDetail.aspx.cs">
+      <DependentUpon>JobDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Job\JobDetail.aspx.designer.cs">
+      <DependentUpon>JobDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Job\JobList.aspx.cs">
       <DependentUpon>JobList.aspx</DependentUpon>

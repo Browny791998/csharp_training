@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/Main.Master" AutoEventWireup="true" CodeBehind="FindJob.aspx.cs" Inherits="Job_Portal_Management_System.Views.Job.FindJob" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/Main.Master" AutoEventWireup="true" CodeBehind="FindJob.aspx.cs" Inherits="Job_Portal_Management_System.Views.Job.FindJob" EnableEventValidation="false"%>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server" >
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
@@ -37,7 +37,7 @@
                </div>
                 <div class="row mb-2">
                    <div class="col-md-5">
-             <p class="ml-5">Job Type</p>
+             <p class="ml-5">Type</p>
                    </div>
                    <div class="col-md-7">
                <asp:DropDownList ID="ddlJobtype" runat="server" CssClass="form-control bg-info text-white font-weight-bold">
@@ -54,7 +54,12 @@
 
               <div class="row">
                   <div class="col-md-12">
-                       <button class="btn btn-secondary btn-block">Filter</button>
+                      <asp:Button ID="btnFilter" runat="server" Text="Filter" CssClass="btn btn-secondary btn-block" OnClick="btnFilter_Click"/>
+                   </div>
+              </div>
+                <div class="row mt-3">
+                  <div class="col-md-12">
+                      <asp:Button ID="btnViewAllJob" runat="server" Text="All" CssClass="btn btn-danger btn-block" OnClick="btnViewAllJob_Click"/>
                    </div>
               </div>
                    
@@ -66,16 +71,21 @@
                <asp:Repeater ID="rptJoblist" runat="server">
                    <ItemTemplate>
                          <div class="col-md-12 mt-2">
-                   <div class="card">
-  <div class="card-header">
-      <%# Eval("name") %>
+                   <div class="card shadow-sm">
+  <div class="card-header bg-info text-white font-weight-bold">
+     <i class="fa-solid fa-building"></i>  <%# Eval("name") %>
   </div>
   <div class="card-body">
+      <asp:Label ID="jobId" runat="server" Text='<%# Eval("id") %>' Visible="false"></asp:Label>
+      <asp:Label ID="companyId" runat="server" Text='<%# Eval("company_id") %>' Visible="false"></asp:Label>
     <h5 class="card-title"><%# Eval("title") %><span class="badge badge-success ml-3"><%# Eval("job_nature") %></span></h5>
+       <p class="card-text float-right">Country - <%# Eval("country") %></p>
+         <p class="card-text">Vacancy - <%# Eval("vacancy") %></p>
       <p class="card-text">Position - <%# Eval("position") %></p>
        <p class="card-text">Skill - <%# Eval("skill") %></p>
       <p>Salary - <%# Eval("salary") %></p>
-    <a href="#" class="btn btn-info">View</a>
+      <asp:Button ID="btnView" runat="server" Text="View" CssClass="btn btn-info" OnClick="btnView_Click"/>
+   
   </div>
 </div>
                </div>
