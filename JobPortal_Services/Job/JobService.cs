@@ -92,6 +92,21 @@ namespace JobPortal_Services.Job
         }
 
         /// <summary>
+        /// Get All Data
+        /// </summary>
+        public static DataTable GetActiveData()
+        {
+            try
+            {
+                return JobPortal_DAOs.Job.JobDao.GetActiveData();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
         /// Get Search Data
         /// </summary>
         public static DataTable GetSearchData(string str)

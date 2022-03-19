@@ -5,5 +5,44 @@
 body {
    
 }
+.AlertMessage {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 60px;
+    left: 20px;
+    animation: fadeInDown 0.8s;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dataTables_length {
+    font-size: 17px;
+    margin-top: 13px;
+    font-weight: normal;
+}
+
+    .dataTables_length select {
+        width: 45px;
+        height: 40px;
+        text-align: center;
+    }
+
+.dataTables_wrapper .dataTables_paginate .paginate_button, .dataTables_wrapper .dataTables_paginate .paginate_button {
+    display: inline-block;
+    font-size: 17px;
+    font-weight: bolder;
+    margin-top: 8px;
+}
 
 

@@ -11,6 +11,8 @@
     <link href="../../../Resources/css/lib/fontawesome-free-6.0.0-beta3-web/css/all.min.css" rel="stylesheet" />
     <link href="../../../Resources/css/sb-admin-2.min.css" rel="stylesheet" />
     <link href="../../../Resources/css/lib/bootstrap.min.css" rel="stylesheet" />
+   
+   
 </head>
 <body>
     <form id="form1" runat="server">
@@ -190,8 +192,36 @@
     </div>
         
     </form>
-     <script src="../../../Resources/js/lib/jquery.js"></script>
+     
+   <script src="../../../Resources/js/lib/jquery.js"></script>
     <script src="../../../Resources/js/lib/popper.min.js"></script>
     <script src="../../../Resources/js/lib/bootstrap.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
+  <script type="text/javascript">
+      $(function () {
+          $(".gvJob").DataTable(
+              {
+                  'columnDefs': [{
+                      'targets': [10, 11],
+                      'orderable': false,
+                  }],
+                  "dom": '<"top"i>rt<"bottom"flp><"clear">',
+                  searching: false,
+                  bLengthChange: true,
+                  lengthMenu: [[5, 10, -1], [5, 10, "All"]],
+                  bFilter: true,
+                  bSort: true,
+                  bPaginate: true,
+                  bInfo: false,
+                  language: {
+                      lengthMenu: "<span style='padding-right:15px'>Page Size</span>_MENU_"
+                  }
+
+              });
+      });
+  </script>
+    
 </body>
 </html>

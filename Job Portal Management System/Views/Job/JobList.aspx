@@ -28,8 +28,8 @@
             } %>
      <h1 class="text-center text-info">Your Job List</h1>
     <div class="row mt-5 ml-5">
-        <div class="col-md-1">
-            <label for="txtSearch">Job Title</label>
+        <div class="col-md-2">
+            <label for="txtSearch" class="text-dark font-weight-bold float-md-right">Job Title</label>
             </div>
         <div class="col-md-3">
       <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control"></asp:TextBox>
@@ -45,7 +45,7 @@
   </div>
     <div class="row mt-5">
         <div class="col-md-12">
-            <asp:GridView ID="grvJob" ShowHeaderWhenEmpty="true" runat="server" CssClass="table table-striped"  DataKeyNames="id" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDeleting="grvJob_RowDeleting" OnRowUpdating="grvJob_RowUpdating">
+            <asp:GridView ID="grvJob" runat="server"  CssClass="gvJob table table-striped table-hover" ShowHeaderWhenEmpty="true"   DataKeyNames="id" PageSize="5" AllowPaging="false" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="Both" OnRowDeleting="grvJob_RowDeleting" OnRowUpdating="grvJob_RowUpdating" OnPageIndexChanging="grvJob_PageIndexChanging">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField >
@@ -101,9 +101,12 @@
                 <SortedAscendingHeaderStyle BackColor="#6D95E1" />
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
-
+                 <PagerStyle Font-Bold="True" Font-Size="Large" HorizontalAlign="Center" VerticalAlign="Middle" CssClass="pagination-ys" BackColor="White" BorderColor="White" />
             </asp:GridView>
+
+
+           
         </div>
     </div>
-
+    
 </asp:Content>

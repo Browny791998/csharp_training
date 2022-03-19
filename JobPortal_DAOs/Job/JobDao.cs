@@ -131,6 +131,23 @@ namespace JobPortal_DAOs.Job
             }
         }
 
+
+        /// <summary>
+        /// Get All Data
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetActiveData()
+        {
+            try
+            {
+                return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,salary,detail,active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id Where tbl_job.active=1", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         /// <summary>
         /// Get Search Data
         /// </summary>

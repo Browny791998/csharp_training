@@ -42,6 +42,8 @@ namespace Job_Portal_Management_System.Views.Job
                 grvJob.DataSource = null;
                 grvJob.DataBind();
             }
+            grvJob.UseAccessibleHeader = true;
+            grvJob.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
         #endregion
@@ -85,6 +87,8 @@ namespace Job_Portal_Management_System.Views.Job
                grvJob.DataSource = null;
                 grvJob.DataBind();
             }
+            grvJob.UseAccessibleHeader = true;
+            grvJob.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -95,6 +99,12 @@ namespace Job_Portal_Management_System.Views.Job
         protected void btnClear_Click(object sender, EventArgs e)
         {
             txtSearch.Text = string.Empty;
+        }
+
+        protected void grvJob_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grvJob.PageIndex = e.NewPageIndex;
+            this.GetData();
         }
     }
 }
