@@ -140,7 +140,7 @@ namespace JobPortal_DAOs.Job
         {
             try
             {
-                return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,salary,detail,active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id Where tbl_job.active=1", CommandType.Text);
+                return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,name,position_id,position,job_nature_id,job_nature,salary,tbl_job.detail,tbl_job.active,tbl_job.created_at,tbl_job.updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_company on tbl_company.id=tbl_job.company_id Where tbl_job.active=1", CommandType.Text);
             }
             catch (Exception ex)
             {
