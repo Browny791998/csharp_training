@@ -27,6 +27,20 @@ namespace JobPortal_Services.JobOffer
             }
         }
 
+        /// <summary>
+        /// Update Data
+        /// </summary>
+        public static bool Accept(JobPortal_Models.JobOffer.JobOffer joboffer)
+        {
+            try
+            {
+                return JobPortal_DAOs.JobOffer.JobOfferDao.Accept(joboffer);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         ///// <summary>
         ///// Update Data
         ///// </summary>
@@ -82,7 +96,7 @@ namespace JobPortal_Services.JobOffer
         {
             try
             {
-                return JobPortal_DAOs.Job.JobDao.GetAllData(companyId);
+                return JobPortal_DAOs.JobOffer.JobOfferDao.GetAllData(companyId);
             }
             catch (Exception ex)
             {

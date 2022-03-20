@@ -26,7 +26,7 @@
 
      <%if(Request.QueryString["action"]=="update" )
          {%>
-        <h1 class="text-center text-info ml-5">Edit Your Job Offer</h1>
+        <h1 class="text-center text-info ml-5">Edit Your Job</h1>
    
    
      <%
@@ -35,7 +35,7 @@
          else
          {
              %>
-         <h1 class="text-center text-info ml-5">Create Your Job Offer</h1>
+         <h1 class="text-center text-info ml-5">Create Your Job</h1>
      <%} %>
         <div class="row">
               <div class="col-md-5 mt-5 offset-md-4">

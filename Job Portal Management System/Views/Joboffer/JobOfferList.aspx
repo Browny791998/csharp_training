@@ -1,12 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/CompanyDashboard.Master" AutoEventWireup="true" CodeBehind="JobList.aspx.cs" Inherits="Job_Portal_Management_System.Views.Job.JobList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/CompanyDashboard.Master" AutoEventWireup="true" CodeBehind="JobOfferList.aspx.cs" Inherits="Job_Portal_Management_System.Views.Joboffer.JobOfferList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   
-
-
-   
-    <%if (Session["alert"] != null && Session["alert-type"] != null )
+     <%if (Session["alert"] != null && Session["alert-type"] != null )
             {
                 Lblalert.Visible = true;
                 Lblalert.Text = Session["alert"].ToString();
@@ -26,7 +22,7 @@
                 Session.Remove("alert");
                 Session.Remove("alert-type");
             } %>
-     <h1 class="text-center text-info">Your Job List</h1>
+     <h1 class="text-center text-info">Your Job Applier List</h1>
     <div class="row mt-5 ml-5">
         <div class="col-md-2">
             <label for="txtSearch" class="text-dark font-weight-bold float-md-right">Job Title</label>
@@ -36,16 +32,16 @@
       
         </div>
         <div class="col-md-4">
-             <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-info" OnClick="btnSearch_Click" />
-             <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="btn btn-info" OnClick="btnAdd_Click" />
-             <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-info" OnClick="btnClear_Click" />
+             <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-info" />
+             
+             <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-info"  />
         </div>
       
      
   </div>
     <div class="row mt-5">
         <div class="col-md-12">
-            <asp:GridView ID="grvJob" runat="server"  CssClass="gvJob table table-striped table-hover" ShowHeaderWhenEmpty="true"   DataKeyNames="id" PageSize="5" AllowPaging="false" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="Both" OnRowDeleting="grvJob_RowDeleting" OnRowUpdating="grvJob_RowUpdating" OnPageIndexChanging="grvJob_PageIndexChanging">
+            <asp:GridView ID="grvJobOffer" runat="server"  CssClass="gvJob table table-striped table-hover" ShowHeaderWhenEmpty="True"   DataKeyNames="id" PageSize="5" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" OnRowCommand="grvJobOffer_RowCommand">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField >
@@ -58,37 +54,32 @@
 
 <ItemStyle Width="5px" HorizontalAlign="Center"></ItemStyle>
             </asp:TemplateField>
-                    <asp:BoundField DataField="title" HeaderText="Title" />
-                    <asp:BoundField DataField="degree" HeaderText="Degree" />
-                    <asp:BoundField DataField="skill" HeaderText="Skill" />
-                    <asp:BoundField DataField="experience" HeaderText="Experience" />
+                   
+
+                   
+                    <asp:BoundField DataField="title" HeaderText="Job Title" />
                     <asp:BoundField DataField="vacancy" HeaderText="Vacancy" />
-                    <asp:BoundField DataField="position" HeaderText="Position" />
-                    <asp:BoundField DataField="job_nature" HeaderText="Job Type" />
-                    <asp:BoundField DataField="salary" HeaderText="Salary" />
-                    <asp:BoundField DataField="active" HeaderText="Status" />
+                    <asp:BoundField DataField="name" HeaderText="Applier" />
+                    <asp:BoundField DataField="Accept" HeaderText="Status" />
+                   <asp:TemplateField HeaderText="Resume">
+                       <ItemTemplate>
+                           <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# DataBinder.Eval(Container,"DataItem.cvform","../../{0}") %>'><i class="fas fa-download"></i> Download</asp:HyperLink>
+                       </ItemTemplate>
+                   </asp:TemplateField>
 
-                      <asp:TemplateField ItemStyle-CssClass="text-center table-options" HeaderStyle-CssClass="text-center">
-              <ItemTemplate>
-                <asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Update" Text="Update" CssClass="btn btn-success"></asp:LinkButton>
-                    
-              </ItemTemplate>
-             
-<HeaderStyle CssClass="text-center"></HeaderStyle>
+                     <asp:TemplateField HeaderText="Accept" Visible="false">
+                        <ItemTemplate>
+                            <asp:Label ID="lbljobseekerId" runat="server" Text='<%# Eval("job_seeker_id") %>'></asp:Label>      
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="">
+                        <ItemTemplate>
+                            <asp:Button ID="btnAccept" runat="server" CommandName="Accept" CssClass="btn btn-success" Text="Accept" CommandArgument="<%#Container.DataItemIndex %>" />
+                            <asp:Button ID="btnReject" runat="server" CommandName="Reject" CssClass="btn btn-danger" Text="Reject" CommandArgument="<%#Container.DataItemIndex %>" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
 
-<ItemStyle CssClass="text-center table-options"></ItemStyle>
-             
-            </asp:TemplateField>
-                      <asp:TemplateField  ItemStyle-CssClass="text-center table-options"  HeaderStyle-CssClass="text-center">
-                          <ItemTemplate>
-                              
-               <asp:LinkButton OnClientClick="return confirm('Are you sure to delete');" ID="btnDelete"  runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" CssClass="btn btn-danger"></asp:LinkButton>
-                          </ItemTemplate>
-
-<HeaderStyle CssClass="text-center"></HeaderStyle>
-
-<ItemStyle CssClass="text-center table-options" ></ItemStyle>
-                      </asp:TemplateField>
+                   
                 </Columns>
                  <EmptyDataTemplate>No Record Available</EmptyDataTemplate> 
                 <EditRowStyle BackColor="#2461BF" />
@@ -109,5 +100,4 @@
         </div>
     </div>
       
-    
 </asp:Content>
