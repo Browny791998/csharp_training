@@ -36,15 +36,15 @@ namespace Job_Portal_Management_System.Views.Job
                 grvJob.DataSource = da;
                 grvJob.DataBind();
                 grvJob.Visible = true;
-
+                grvJob.UseAccessibleHeader = true;
+                grvJob.HeaderRow.TableSection = TableRowSection.TableHeader;
             }
             else
             {
                 grvJob.DataSource = null;
                 grvJob.DataBind();
             }
-            grvJob.UseAccessibleHeader = true;
-            grvJob.HeaderRow.TableSection = TableRowSection.TableHeader;
+           
         }
 
         #endregion
@@ -76,7 +76,7 @@ namespace Job_Portal_Management_System.Views.Job
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            da = JobPortal_Services.Job.JobService.GetSearchData(txtSearch.Text);
+            da = JobPortal_Services.Job.JobService.GetSearchData(txtSearch.Text,Convert.ToInt32(Session["id"]));
             if (da.Rows.Count > 0)
             {
                 grvJob.DataSource = da;

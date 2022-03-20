@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,6 +57,69 @@ namespace JobPortal_Services.JobOffer
         //    }
         //}
 
+        #endregion
+
+        #region Get Data      
+        /// <summary>
+        /// Get Data
+        /// </summary>
+        public static DataTable GetData(int JobID)
+        {
+            try
+            {
+                return JobPortal_DAOs.Job.JobDao.GetData(JobID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Get All Data
+        /// </summary>
+        public static DataTable GetAllData(int companyId)
+        {
+            try
+            {
+                return JobPortal_DAOs.Job.JobDao.GetAllData(companyId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        /// <summary>
+        /// Get Search Data
+        /// </summary>
+        public static DataTable GetJobandSeeker(int JobID, int JobSeekerID)
+        {
+            try
+            {
+                return JobPortal_DAOs.JobOffer.JobOfferDao.GetJobandSeeker(JobID,JobSeekerID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Read Data
+        /// </summary>
+        public static SqlDataReader ReadData(int id)
+        {
+            try
+            {
+                return JobPortal_DAOs.Job.JobDao.ReadData(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion
     }
 }

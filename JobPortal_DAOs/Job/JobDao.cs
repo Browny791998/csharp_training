@@ -168,13 +168,13 @@ namespace JobPortal_DAOs.Job
         /// Get Search Data
         /// </summary>
         /// <returns></returns>
-        public static DataTable GetSearchData(string str)
+        public static DataTable GetSearchData(string str,int companyId)
         {
             try
             {
                 if (str == "")
                 {
-                    return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,salary,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id Where tbl_job.company_id=1", CommandType.Text);
+                    return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,salary,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id Where tbl_job.company_id='"+companyId+"'", CommandType.Text);
                 }
                 else
                 {

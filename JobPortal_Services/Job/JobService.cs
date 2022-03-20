@@ -123,11 +123,11 @@ namespace JobPortal_Services.Job
         /// <summary>
         /// Get Search Data
         /// </summary>
-        public static DataTable GetSearchData(string str)
+        public static DataTable GetSearchData(string str,int companyID)
         {
             try
             {
-                return JobPortal_DAOs.Job.JobDao.GetSearchData(str);
+                return JobPortal_DAOs.Job.JobDao.GetSearchData(str,companyID);
             }
             catch (Exception ex)
             {

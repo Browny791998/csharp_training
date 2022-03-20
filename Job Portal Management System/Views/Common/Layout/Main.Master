@@ -12,6 +12,7 @@
     <link href="../../../Resources/css/lib/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
+    <form id="form1" runat="server">
      <div class="container bg-info">
             <div class="row">
                 <div class="col-md-12">
@@ -48,11 +49,14 @@
              
             <asp:HyperLink ID="HyperLink1" runat="server" CssClass="nav-link font-weight-bolder text-white" NavigateUrl="~/Views/Login.aspx"><i class="fa-solid fa-right-to-bracket"></i> Login</asp:HyperLink>
         <% }
-                                              else
-                                              { %>
-            <a class="nav-link font-weight-bolder text-white" href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    else
+    {
+                %>
+        <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click"
+            class="nav-link text-white font-weight-bold"><i class="fa-solid fa-right-from-bracket"></i>  Logout</asp:LinkButton>
             <%} %>
       </li>
+        
         <%if (Session["name"] != null )
                { %>
       <li class="nav-item dropdown">
@@ -71,23 +75,27 @@
               <%}
                   else if(Session["role"] != null && Session["role"].ToString() == "Job Seeker" ){%>
          <a class="dropdown-item" href="../../../Views/JobSeeker/JobSeekerProfile.aspx">My Account</a>
-          
+            
         </div>
+          
       </li>
          <%}
              } %>
+       
+            
+       
     </ul>
   </div>
 </nav>
                 </div>
             </div>
         </div>
-    <form id="form1" runat="server">
+    
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-    </form>
+    
 
     <div class="container bg-info">
          <footer class="bg-info p-5">
@@ -104,6 +112,6 @@
       }
       setTimeout("HideLabel();", 3000);
   </script>
-
+    </form>
 </body>
 </html>
