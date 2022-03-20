@@ -3,6 +3,26 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <div class="container">
+           <%if (Session["alert"] != null && Session["alert-type"] != null )
+            {
+                Lblalert.Visible = true;
+                Lblalert.Text = Session["alert"].ToString();
+                string type = Session["alert-type"].ToString();
+               %>
+        <div class="AlertMessage" id="AlertMsg">
+        <div class="row">
+        <div class="col-md-6 col-md-offset-2">
+        <div class="alert alert-<% Response.Write(type); %> alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <asp:Label ID="Lblalert" runat="server" Text="Label" Visible="False"></asp:Label>
+</div>
+    </div>
+    </div>
+            </div>
+        <%
+                Session.Remove("alert");
+                Session.Remove("alert-type");
+            } %>
         <div class="row">
             <asp:Repeater ID="rptJob" runat="server">
                 <ItemTemplate>
@@ -10,9 +30,9 @@
                 <div class="card p-5 mt-3 shadow-sm">
                      <h1 class="text-primary"> <%# Eval("title") %></h1>
                 <div class="d-flex flex-row justify-content-between mt-3">
-                    <p> <%# Eval("name") %></p>
-                     <p> <%# Eval("country") %></p>
-                    <p> <%# Eval("salary") %>/month</p>
+                    <p><i class="fas fa-building"></i>  <%# Eval("name") %></p>
+                     <p><i class="fas fa-map-marker-alt"></i>  <%# Eval("country") %></p>
+                    <p><i class="fas fa-money-bill-wave"></i>  <%# Eval("salary") %>/month</p>
                 </div>
                 </div>
 
@@ -52,7 +72,7 @@
                        <div class="d-flex flex-row justify-content-between">
                              <p>Salary:</p><p><%# Eval("salary") %></p>
                         </div>
-                       <button class="btn btn-warning text-white font-weight-bolder">Apply</button>
+                        <asp:Button ID="btnApply" CssClass="btn btn-warning text-white font-weight-bolder" runat="server" Text="Apply" OnClick="btnApply_Click"/>
                     </div>
                    
                 </div>
@@ -69,6 +89,9 @@
                         </div>
                       <div class="d-flex flex-row justify-content-between">
                            <p>Address:</p><p><%# Eval("address") %></p>
+                        </div>
+                       <div class="d-flex flex-row justify-content-between">
+                            <p>CEO:</p><p><%# Eval("contact_person") %></p>
                         </div>
                        <div class="d-flex flex-row justify-content-between">
                             <p>Website:</p><p><%# Eval("website") %></p>

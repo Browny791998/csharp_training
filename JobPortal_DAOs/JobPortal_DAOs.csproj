@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Common\HelperDao.cs" />
     <Compile Include="Company\CompanyDao.cs" />
+    <Compile Include="JobOffer\JobOfferDao.cs" />
     <Compile Include="JobSeeker\JobSeekerDao.cs" />
     <Compile Include="Job\JobDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

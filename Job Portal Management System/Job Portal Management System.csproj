@@ -1900,6 +1900,7 @@
     <Content Include="Resources\css\lib\fontawesome-free-6.0.0-beta3-web\svgs\solid\yin-yang.svg" />
     <Content Include="Resources\css\lib\fontawesome-free-6.0.0-beta3-web\svgs\solid\z.svg" />
     <Content Include="Resources\images\about.jpg" />
+    <Content Include="Resources\images\job.gif" />
     <Content Include="Resources\js\lib\bootstrap.bundle.js.map" />
     <Content Include="Resources\js\lib\bootstrap.bundle.min.js.map" />
     <Content Include="Resources\js\lib\bootstrap.js.map" />

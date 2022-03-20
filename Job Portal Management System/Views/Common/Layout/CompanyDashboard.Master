@@ -196,6 +196,11 @@
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
   <script type="text/javascript">
+      function HideLabel() {
+          document.getElementById("AlertMsg").style.display = "none";
+      }
+      setTimeout("HideLabel();", 3000);
+
       $(function () {
           $(".gvJob").DataTable(
               {

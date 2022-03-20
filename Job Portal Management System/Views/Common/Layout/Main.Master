@@ -12,7 +12,7 @@
     <link href="../../../Resources/css/lib/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-     <div class="container bg-light">
+     <div class="container bg-info">
             <div class="row">
                 <div class="col-md-12">
  <nav class="navbar navbar-expand-lg navbar-light bg-info py-md-4">
@@ -89,10 +89,21 @@
         </div>
     </form>
 
+    <div class="container bg-info">
+         <footer class="bg-info p-5">
+            <h5 class="text-center">Copyright © <%=DateTime.Now.Year%> Brilliant Job Myanmar Co,Ltd.All rights reserved.</h5>
+        </footer>
+    </div>
+   
     <script src="../../../Resources/js/lib/jquery.js"></script>
     <script src="../../../Resources/js/lib/popper.min.js"></script>
     <script src="../../../Resources/js/lib/bootstrap.min.js"></script>
-  
+  <script>
+      function HideLabel() {
+          document.getElementById("AlertMsg").style.display = "none";
+      }
+      setTimeout("HideLabel();", 3000);
+  </script>
 
 </body>
 </html>

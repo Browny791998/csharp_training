@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="container bg-light bg-info">
+    <div class="container bg-light bg-info pb-5">
           <%--carousel start--%>
        <div class="row">
            <div class="col-md-12">
@@ -15,21 +15,21 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="../Resources/images/slide1.jpg" class="d-block w-100" height="460px" alt="...">
+      <img src="../Resources/images/slide1.jpg" class="d-block w-100" height="500" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h1 class="display-3 text-info font-weight-normal">Brilliant Job</h1>
         <p class="font-weight-bold text-dark">Don't waste your time.Find the job match with you.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="../Resources/images/slide2.jpg" class="d-block w-100" height="460px" alt="...">
+      <img src="../Resources/images/slide2.jpg" class="d-block w-100" height="500" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h1 class="display-4 text-info font-weight-normal">Best Job Searching Website</h1>
         <p class="font-weight-bold text-dark">Trust Us.You will find the best job ever</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="../Resources/images/slide3.jpg" class="d-block w-100" height="460px" alt="...">
+      <img src="../Resources/images/slide3.jpg" class="d-block w-100" height="500" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <button class="btn btn-info">Register Now</button>
         <p class="font-weight-bold text-dark">If you need the best employer.let's join us ,we will help you</p>
@@ -50,11 +50,11 @@
         <%--carousel end--%>
             
          <%--About Our Site--%>
-            <h1 class="text-center mt-5 text-warning">About Our Wesite</h1>
+            <h1 class="text-center mt-5 text-warning">About Our Website</h1>
 
         <div class="row mt-5">
             <div class="col-md-5">
-                <img src="../Resources/images/slide1.jpg" width="400" height="250" class="img-thumbnail"/>
+                <img src="../Resources/images/job.gif" width="400" height="250" class="img-thumbnail"/>
             </div>
             <div class="col-md-7">
                 <p style="line-height:2.3;" class="text-black-50">

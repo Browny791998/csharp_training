@@ -10,6 +10,7 @@ namespace Job_Portal_Management_System.Views.Job
 {
     public partial class JobDetail : System.Web.UI.Page
     {
+         
         DataTable da = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,6 +34,23 @@ namespace Job_Portal_Management_System.Views.Job
             da = JobPortal_Services.Company.CompanyService.GetAllData(companyid);
             rptcompany.DataSource = da;
             rptcompany.DataBind();
+        }
+
+        protected void btnApply_Click(object sender, EventArgs e)
+        {
+            if (Session["email"] == null)
+            {
+                Response.Redirect("~/Views/Login.aspx");
+            }
+            else if (Session["role"].ToString() == "Company")
+            {
+                Session["alert"] = "Only Job Seeker can apply the job";
+                Session["alert-type"] = "warning";
+            }
+            else
+            {
+
+            }
         }
     }
 }
