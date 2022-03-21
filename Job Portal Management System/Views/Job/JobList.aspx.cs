@@ -16,6 +16,10 @@ namespace Job_Portal_Management_System.Views.Job
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["email"] == null)
+            {
+                Response.Redirect("~/Views/Login.aspx");
+            }
             if (!IsPostBack)
             {
                 GetData();

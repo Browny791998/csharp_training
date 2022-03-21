@@ -15,6 +15,10 @@ namespace Job_Portal_Management_System.Views.Company
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["email"] == null)
+            {
+                Response.Redirect("~/Views/Login.aspx");
+            }
             GetAcc();
         }
         public void GetAcc()

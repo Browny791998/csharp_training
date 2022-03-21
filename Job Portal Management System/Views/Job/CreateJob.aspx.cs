@@ -16,7 +16,11 @@ namespace Job_Portal_Management_System.Views.Job
         DataTable da = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Request.QueryString["action"]=="update" )
+            if (Session["email"] == null)
+            {
+                Response.Redirect("~/Views/Login.aspx");
+            }
+            if (Request.QueryString["action"]=="update" )
             {
                 if (!IsPostBack)
                 {
@@ -42,6 +46,7 @@ namespace Job_Portal_Management_System.Views.Job
                         txtVacancy.Text = dr["vacancy"].ToString();
                         ddlPosition.SelectedValue = dr["position_id"].ToString();
                         ddlJobtype.SelectedValue = dr["job_nature_id"].ToString();
+                        ddlSpecialization.SelectedValue = dr["specialization_id"].ToString();
                         txtSalary.Text = dr["salary"].ToString();
                         txtDetail.Text = dr["detail"].ToString();
                         string active = dr["active"].ToString();
@@ -77,6 +82,7 @@ namespace Job_Portal_Management_System.Views.Job
             jobmodel.Company_id = Convert.ToInt32(Session["id"]);
             jobmodel.Position_id =Convert.ToInt32(ddlPosition.SelectedValue);
             jobmodel.Jobnature_id = Convert.ToInt32(ddlJobtype.SelectedValue);
+            jobmodel.Specialization_id = Convert.ToInt32(ddlSpecialization.SelectedValue);
             jobmodel.Salary = Convert.ToInt32(txtSalary.Text);
             jobmodel.Detail = txtDetail.Text;    
             jobmodel.CreatedDate = DateTime.Now;
@@ -107,8 +113,9 @@ namespace Job_Portal_Management_System.Views.Job
             jobmodel.Company_id = Convert.ToInt32(Session["id"]);
             jobmodel.Position_id = Convert.ToInt32(ddlPosition.SelectedValue);
             jobmodel.Jobnature_id = Convert.ToInt32(ddlJobtype.SelectedValue);
+            jobmodel.Specialization_id= Convert.ToInt32(ddlSpecialization.SelectedValue);
             jobmodel.Salary = Convert.ToInt32(txtSalary.Text);
-            jobmodel.Detail = txtDetail.Text;
+            jobmodel.Detail = txtDetail.Text;           
             if (customSwitch1.Checked)
             {
                 jobmodel.Active = 1;
@@ -167,6 +174,7 @@ namespace Job_Portal_Management_System.Views.Job
             txtVacancy.Text = string.Empty;
             ddlPosition.SelectedIndex = -1;
             ddlJobtype.SelectedIndex = -1;
+            ddlSpecialization.SelectedIndex = -1;
             txtSalary.Text = string.Empty;
             txtDetail.Text = string.Empty;
 

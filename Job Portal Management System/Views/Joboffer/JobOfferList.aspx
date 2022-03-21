@@ -32,16 +32,16 @@
       
         </div>
         <div class="col-md-4">
-             <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-info" />
+             <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-info" OnClick="btnSearch_Click" />
              
-             <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-info"  />
+             <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-info" OnClick="btnClear_Click"  />
         </div>
       
      
   </div>
     <div class="row mt-5">
         <div class="col-md-12">
-            <asp:GridView ID="grvJobOffer" runat="server"  CssClass="gvJob table table-striped table-hover" ShowHeaderWhenEmpty="True"   DataKeyNames="id" PageSize="5" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" OnRowCommand="grvJobOffer_RowCommand">
+            <asp:GridView ID="grvJobOffer" runat="server"  CssClass="gvJobOffer table table-striped table-hover" ShowHeaderWhenEmpty="True" PageSize="5"  DataKeyNames="id"  AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" OnRowCommand="grvJobOffer_RowCommand" OnPageIndexChanging="grvJobOffer_PageIndexChanging">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField >
@@ -56,7 +56,7 @@
             </asp:TemplateField>
                    
 
-                   
+                  <%-- <asp:ButtonField CommandName="Detail" ControlStyle-CssClass="btn btn-info" ButtonType="Button" Text="Detail" HeaderText="Detailed View"/>--%>
                     <asp:BoundField DataField="title" HeaderText="Job Title" />
                     <asp:BoundField DataField="vacancy" HeaderText="Vacancy" />
                     <asp:BoundField DataField="name" HeaderText="Applier" />
@@ -78,6 +78,9 @@
                             <asp:Button ID="btnReject" runat="server" CommandName="Reject" CssClass="btn btn-danger" Text="Reject" CommandArgument="<%#Container.DataItemIndex %>" />
                         </ItemTemplate>
                     </asp:TemplateField>
+                  
+                  
+                    
 
                    
                 </Columns>
@@ -95,9 +98,40 @@
                  <PagerStyle Font-Bold="True" Font-Size="Large" HorizontalAlign="Center" VerticalAlign="Middle" CssClass="pagination-ys" BackColor="White" BorderColor="White" />
             </asp:GridView>
 
+           <!-- Modal -->
+<%--<div class="modal hide fade" id="currentdetail" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+              <ContentTemplate>
+                  <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px">
+                      <Fields>
+                          <asp:BoundField/>
 
+                      </Fields>
+                  </asp:DetailsView>
+              </ContentTemplate>
+          </asp:UpdatePanel>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>--%>
+ <!-- Modal -->
            
         </div>
     </div>
-      
+
+    
+    
 </asp:Content>

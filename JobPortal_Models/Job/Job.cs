@@ -21,6 +21,7 @@ namespace JobPortal_Models.Job
         private int _companyid;
         private int _positionid;
         private int _jobnatureid;
+        private int _specializationid;
         private int _salary;
         private string _detail;
         private Int16 _active;
@@ -43,6 +44,7 @@ namespace JobPortal_Models.Job
             _companyid = 0;
             _positionid = 0;
             _jobnatureid = 0;
+            _specializationid = 0;
             _salary = 0;
             _detail = string.Empty;
             _active = 0;
@@ -50,7 +52,7 @@ namespace JobPortal_Models.Job
             _updatedddate = DateTime.Now;
         }
 
-        public void PostData(int id, string title,string degree,string skill,string experience, int vacancy, int company_id,int position_id,int jobnature_id,int salary, string detail,Int16 active, DateTime createddate, DateTime updateddate)
+        public void PostData(int id, string title,string degree,string skill,string experience, int vacancy, int company_id,int position_id,int jobnature_id,int specialization_id,int salary, string detail,Int16 active, DateTime createddate, DateTime updateddate)
         {
             _id = id;
             _title = title;
@@ -61,6 +63,7 @@ namespace JobPortal_Models.Job
             _companyid = company_id;
             _positionid= position_id;
             _jobnatureid =jobnature_id;
+            _specializationid = specialization_id;
             _salary = salary;
             _detail = detail;
             _createddate = createddate;
@@ -213,6 +216,22 @@ namespace JobPortal_Models.Job
             set
             {
                 _jobnatureid = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the <b>_movie</b> attribute value.
+        /// </summary>
+        /// <value>The <b>_movie</b> attribute value.</value>
+        public int Specialization_id
+        {
+            get
+            {
+                return _specializationid;
+            }
+            set
+            {
+                _specializationid = value;
             }
         }
 

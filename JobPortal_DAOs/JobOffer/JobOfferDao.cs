@@ -149,17 +149,17 @@ namespace JobPortal_DAOs.JobOffer
         /// Get Search Data
         /// </summary>
         /// <returns></returns>
-        public static DataTable GetSearchData(string str)
+        public static DataTable GetSearchData(string str, int companyId)
         {
             try
             {
                 if (str == "")
                 {
-                    return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,salary,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id Where tbl_job.company_id=1", CommandType.Text);
+                    return Common.HelperDao.GetData("Select tbl_joboffer.id,job_id,job_seeker_id,tbl_joboffer.company_id,applied_date,(CASE WHEN is_accept= 1 THEN 'Accepted' When is_accept= 0 THEN 'Rejected' ELSE 'Applying' END)as Accept,title,name,cvform,vacancy,email,mobile,tbl_job.active from tbl_joboffer join tbl_job on tbl_job.id = tbl_joboffer.job_id join tbl_jobseeker on tbl_jobseeker.id = tbl_joboffer.job_seeker_id Where tbl_job.active=1 and tbl_joboffer.company_id='" + companyId + "'", CommandType.Text);
                 }
                 else
                 {
-                    return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,salary,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id Where tbl_job.company_id=1 and title LIKE '%" + str + "%'", CommandType.Text);
+                    return Common.HelperDao.GetData("Select tbl_joboffer.id,job_id,job_seeker_id,tbl_joboffer.company_id,applied_date,(CASE WHEN is_accept= 1 THEN 'Accepted' When is_accept= 0 THEN 'Rejected' ELSE 'Applying' END)as Accept,title,name,cvform,vacancy,email,mobile,tbl_job.active from tbl_joboffer join tbl_job on tbl_job.id = tbl_joboffer.job_id join tbl_jobseeker on tbl_jobseeker.id = tbl_joboffer.job_seeker_id Where tbl_job.active=1 and tbl_joboffer.company_id='" + companyId + "' and title LIKE '%" + str + "%'", CommandType.Text);
                 }
             }
             catch (Exception ex)

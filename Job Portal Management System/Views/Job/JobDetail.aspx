@@ -72,6 +72,9 @@
                        <div class="d-flex flex-row justify-content-between">
                              <p>Salary:</p><p><%# Eval("salary") %></p>
                         </div>
+                         <div class="d-flex flex-row justify-content-between">
+                             <p>Specialization:</p><p><%# Eval("specialization") %></p>
+                        </div>
                         <asp:Button ID="btnApply" CssClass="btn btn-warning text-white font-weight-bolder" runat="server" Text="Apply" OnClick="btnApply_Click"/>
                     </div>
                    

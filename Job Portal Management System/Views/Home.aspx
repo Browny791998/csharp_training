@@ -6,7 +6,7 @@
     <div class="container bg-light bg-info pb-5">
           <%--carousel start--%>
        <div class="row">
-           <div class="col-md-12">
+           <div class="col-md-12 p-0">
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>

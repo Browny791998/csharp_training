@@ -16,6 +16,10 @@ namespace Job_Portal_Management_System.Views.Joboffer
         DataTable da = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["email"] == null)
+            {
+                Response.Redirect("~/Views/Login.aspx");
+            }
             if (!IsPostBack)
             {
                 GetData();
@@ -57,10 +61,10 @@ namespace Job_Portal_Management_System.Views.Joboffer
             int jobseekerID = Convert.ToInt32((row.FindControl("lbljobseekerId") as Label).Text);
             if (e.CommandName == "Accept")
             {
-            
+
                 joboffermodel.JobSeekerID = jobseekerID;
                 joboffermodel.IsAccept = 1;
-               bool IsAccept = JobPortal_Services.JobOffer.JobOfferService.Accept(joboffermodel);
+                bool IsAccept = JobPortal_Services.JobOffer.JobOfferService.Accept(joboffermodel);
                 if (IsAccept)
                 {
                     Session["alert"] = "You accept this applier";
@@ -72,7 +76,8 @@ namespace Job_Portal_Management_System.Views.Joboffer
                     Session["alert"] = "fail to accept";
                     Session["alert-type"] = "danger";
                 }
-            }else if(e.CommandName == "Reject")
+            }
+            else if (e.CommandName == "Reject")
             {
                 joboffermodel.JobSeekerID = jobseekerID;
                 joboffermodel.IsAccept = 0;
@@ -89,6 +94,38 @@ namespace Job_Portal_Management_System.Views.Joboffer
                     Session["alert-type"] = "danger";
                 }
             }
+           
+            }
+
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            da = JobPortal_Services.JobOffer.JobOfferService.GetSearchData(txtSearch.Text, Convert.ToInt32(Session["id"]));
+            if (da.Rows.Count > 0)
+            {
+                grvJobOffer.DataSource = da;
+                grvJobOffer.DataBind();
+                grvJobOffer.Visible = true;
+            }
+            else
+            {
+                grvJobOffer.DataSource = null;
+                grvJobOffer.DataBind();
+            }
+            grvJobOffer.UseAccessibleHeader = true;
+            grvJobOffer.HeaderRow.TableSection = TableRowSection.TableHeader;
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = string.Empty;
+            this.GetData();
+        }
+
+        protected void grvJobOffer_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grvJobOffer.PageIndex = e.NewPageIndex;
+            this.GetData();
         }
     }
 }

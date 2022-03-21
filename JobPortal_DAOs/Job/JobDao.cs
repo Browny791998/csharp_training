@@ -19,7 +19,7 @@ namespace JobPortal_DAOs.Job
         {
             try
             {
-                var arr = new object[13];
+                var arr = new object[14];
                 arr[0] = job.Title;
                 arr[1] = job.Degree;
                 arr[2] = job.Skill;
@@ -28,11 +28,12 @@ namespace JobPortal_DAOs.Job
                 arr[5] = job.Company_id;
                 arr[6] = job.Position_id;
                 arr[7] = job.Jobnature_id;
-                arr[8] = job.Salary;
-                arr[9] = job.Detail;
-                arr[10] = job.CreatedDate;
-                arr[11] = job.UpdatedDate;
-                bool num = Common.HelperDao.Insert(arr, "title,degree,skill,experience,vacancy,company_id,position_id,job_nature_id,salary,detail,created_at,updated_at", "tbl_job");
+                arr[8] = job.Specialization_id;
+                arr[9] = job.Salary;
+                arr[10] = job.Detail;
+                arr[11] = job.CreatedDate;
+                arr[12] = job.UpdatedDate;
+                bool num = Common.HelperDao.Insert(arr, "title,degree,skill,experience,vacancy,company_id,position_id,job_nature_id,specialization_id,salary,detail,created_at,updated_at", "tbl_job");
                 if (num)
                 {
                     return true;
@@ -54,7 +55,7 @@ namespace JobPortal_DAOs.Job
         {
             try
             {
-                var arr = new object[14];
+                var arr = new object[15];
                 arr[0] = job.Title;
                 arr[1] = job.Degree;
                 arr[2] = job.Skill;
@@ -63,12 +64,13 @@ namespace JobPortal_DAOs.Job
                 arr[5] = job.Company_id;
                 arr[6] = job.Position_id;
                 arr[7] = job.Jobnature_id;
-                arr[8] = job.Salary;
-                arr[9] = job.Detail;
-                arr[10] = job.UpdatedDate;
-                arr[11] = job.Active;
-                arr[12] = job.ID;
-                Common.HelperDao.Update("Update tbl_job set title=@1,degree=@2,skill=@3,experience=@4,vacancy=@5,company_id=@6,position_id=@7,job_nature_id=@8,salary=@9,detail=@10,updated_at=@11,active=@12 where id=@13", arr);
+                arr[8] = job.Specialization_id;
+                arr[9] = job.Salary;
+                arr[10] = job.Detail;
+                arr[11] = job.UpdatedDate;
+                arr[12] = job.Active;
+                arr[13] = job.ID;
+                Common.HelperDao.Update("Update tbl_job set title=@1,degree=@2,skill=@3,experience=@4,vacancy=@5,company_id=@6,position_id=@7,job_nature_id=@8,specialization_id=@9,salary=@10,detail=@11,updated_at=@12,active=@13 where id=@14", arr);
                 return true;
             }
             catch (Exception ex)
@@ -107,7 +109,7 @@ namespace JobPortal_DAOs.Job
         {
             try
             {
-                return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,name,country,position_id,position,job_nature_id,job_nature,salary,tbl_job.detail,tbl_job.active,CONVERT(varchar,tbl_job.created_at,3) as created_at,tbl_job.updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_company on tbl_company.id=tbl_job.company_id join tbl_country on tbl_country.id = tbl_company.country_id Where tbl_job.id='" + JobID+"'", CommandType.Text);
+                return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,name,country,position_id,position,job_nature_id,job_nature,specialization_id,specialization,salary,tbl_job.detail,tbl_job.active,CONVERT(varchar,tbl_job.created_at,3) as created_at,tbl_job.updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_specialization on tbl_job.specialization_id = tbl_specialization.id join tbl_company on tbl_company.id=tbl_job.company_id join tbl_country on tbl_country.id = tbl_company.country_id Where tbl_job.id='" + JobID+"'", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -123,7 +125,7 @@ namespace JobPortal_DAOs.Job
         {
             try
             {
-                return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,salary,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id Where tbl_job.company_id='"+companyId+"'", CommandType.Text);
+                return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,specialization_id,specialization,salary,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_specialization on tbl_job.specialization_id = tbl_specialization.id Where tbl_job.company_id='" + companyId+"'", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -140,7 +142,7 @@ namespace JobPortal_DAOs.Job
         {
             try
             {
-                return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,name,country,position_id,position,job_nature_id,job_nature,salary,tbl_job.detail,tbl_job.active,tbl_job.created_at,tbl_job.updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_company on tbl_company.id=tbl_job.company_id join tbl_country on tbl_country.id = tbl_company.country_id Where tbl_job.active = 1", CommandType.Text);
+                return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,name,country,position_id,position,job_nature_id,job_nature,specialization_id,specialization,salary,tbl_job.detail,tbl_job.active,tbl_job.created_at,tbl_job.updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_specialization on tbl_job.specialization_id = tbl_specialization.id join tbl_company on tbl_company.id=tbl_job.company_id join tbl_country on tbl_country.id = tbl_company.country_id Where tbl_job.active = 1", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -156,7 +158,7 @@ namespace JobPortal_DAOs.Job
         {
             try
             {
-                return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,name,country,tbl_company.country_id,position,job_nature_id,job_nature,salary,tbl_job.detail,tbl_job.active,tbl_job.created_at,tbl_job.updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_company on tbl_company.id=tbl_job.company_id join tbl_country on tbl_country.id = tbl_company.country_id Where tbl_job.active = 1 and country_id='"+countryID+"' and position_id='"+positionID+"' and job_nature_id='"+jobtypeID+"'", CommandType.Text);
+                return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,name,country,tbl_company.country_id,position,job_nature_id,job_nature,specialization_id,specialization,salary,tbl_job.detail,tbl_job.active,tbl_job.created_at,tbl_job.updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_specialization on tbl_job.specialization_id = tbl_specialization.id join tbl_company on tbl_company.id=tbl_job.company_id join tbl_country on tbl_country.id = tbl_company.country_id Where tbl_job.active = 1 and country_id='" + countryID+"' and position_id='"+positionID+"' and job_nature_id='"+jobtypeID+"'", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -174,11 +176,11 @@ namespace JobPortal_DAOs.Job
             {
                 if (str == "")
                 {
-                    return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,salary,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id Where tbl_job.company_id='"+companyId+"'", CommandType.Text);
+                    return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,specialization_id,specialization,salary,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_specialization on tbl_job.specialization_id = tbl_specialization.id Where tbl_job.company_id='" + companyId+"'", CommandType.Text);
                 }
                 else
                 {
-                    return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,salary,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id Where tbl_job.company_id=1 and title LIKE '%" + str + "%'", CommandType.Text);
+                    return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,specialization_id,specialization,salary,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_specialization on tbl_job.specialization_id = tbl_specialization.id Where tbl_job.company_id=1 and title LIKE '%" + str + "%'", CommandType.Text);
                 }
             }
             catch (Exception ex)
@@ -195,7 +197,7 @@ namespace JobPortal_DAOs.Job
         {
             try
             {
-                return Common.HelperDao.ReadData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,salary,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id Where tbl_job.id='" + id + "'", CommandType.Text);
+                return Common.HelperDao.ReadData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,position_id,position,job_nature_id,job_nature,specialization_id,specialization,salary,detail,(CASE WHEN active = 1 THEN 'Active' ELSE 'Inactive' END)as active,created_at,updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_specialization on tbl_job.specialization_id = tbl_specialization.id Where tbl_job.id = '" + id + "'", CommandType.Text);
             }
             catch (Exception ex)
             {

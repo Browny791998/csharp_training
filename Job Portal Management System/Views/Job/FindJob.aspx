@@ -74,6 +74,7 @@
                    <div class="card shadow-sm">
   <div class="card-header bg-info text-white font-weight-bold">
      <i class="fa-solid fa-building"></i>  <%# Eval("name") %>
+      <p class="float-right"> <%# Eval("specialization") %></p>
   </div>
   <div class="card-body">
       <asp:Label ID="jobId" runat="server" Text='<%# Eval("id") %>' Visible="false"></asp:Label>

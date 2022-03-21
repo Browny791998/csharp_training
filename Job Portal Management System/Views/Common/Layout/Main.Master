@@ -16,9 +16,9 @@
      <div class="container bg-info">
             <div class="row">
                 <div class="col-md-12">
- <nav class="navbar navbar-expand-lg navbar-light bg-info py-md-4">
-  <a class="navbar-brand text-white" href="#">
-      Brilliant Job </a>
+ <nav class="navbar navbar-expand-lg navbar-light py-md-2">
+  <a class="navbar-brand" href="#">
+      <img src="../../../Resources/images/Brilliant%20Job-logos_black.png" width="100" height="70"/>  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

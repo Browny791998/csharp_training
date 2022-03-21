@@ -121,6 +121,21 @@ namespace JobPortal_Services.JobOffer
         }
 
         /// <summary>
+        /// Get Search Data
+        /// </summary>
+        public static DataTable GetSearchData(string str, int companyID)
+        {
+            try
+            {
+                return JobPortal_DAOs.JobOffer.JobOfferDao.GetSearchData(str, companyID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
         /// Read Data
         /// </summary>
         public static SqlDataReader ReadData(int id)
