@@ -23,6 +23,7 @@ namespace Job_Portal_Management_System.Views.Joboffer
             if (!IsPostBack)
             {
                 GetData();
+               
             }
         }
 
@@ -93,9 +94,13 @@ namespace Job_Portal_Management_System.Views.Joboffer
                     Session["alert"] = "fail to reject";
                     Session["alert-type"] = "danger";
                 }
+            }else if(e.CommandName == "Detail")
+            {
+                Response.Redirect("ApplierDetail.aspx?applierID="+ jobseekerID);
             }
-           
+            
             }
+       
 
 
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -127,5 +132,7 @@ namespace Job_Portal_Management_System.Views.Joboffer
             grvJobOffer.PageIndex = e.NewPageIndex;
             this.GetData();
         }
+
+        
     }
 }

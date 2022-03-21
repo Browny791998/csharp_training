@@ -41,6 +41,7 @@
   </div>
     <div class="row mt-5">
         <div class="col-md-12">
+          
             <asp:GridView ID="grvJobOffer" runat="server"  CssClass="gvJobOffer table table-striped table-hover" ShowHeaderWhenEmpty="True" PageSize="5"  DataKeyNames="id"  AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" OnRowCommand="grvJobOffer_RowCommand" OnPageIndexChanging="grvJobOffer_PageIndexChanging">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
@@ -54,12 +55,16 @@
 
 <ItemStyle Width="5px" HorizontalAlign="Center"></ItemStyle>
             </asp:TemplateField>
-                   
+           <asp:TemplateField HeaderText="">
+                        <ItemTemplate>
+                            <asp:Button ID="btnDetail" runat="server" CommandName="Detail" CssClass="btn btn-success" Text="Detail" CommandArgument="<%#Container.DataItemIndex %>" />
+                           
+                        </ItemTemplate>
+                    </asp:TemplateField>
 
-                  <%-- <asp:ButtonField CommandName="Detail" ControlStyle-CssClass="btn btn-info" ButtonType="Button" Text="Detail" HeaderText="Detailed View"/>--%>
-                    <asp:BoundField DataField="title" HeaderText="Job Title" />
+          <asp:BoundField DataField="title" HeaderText="Job Title" />
                     <asp:BoundField DataField="vacancy" HeaderText="Vacancy" />
-                    <asp:BoundField DataField="name" HeaderText="Applier" />
+                     <asp:BoundField DataField="name" HeaderText="Applier" />
                     <asp:BoundField DataField="Accept" HeaderText="Status" />
                    <asp:TemplateField HeaderText="Resume">
                        <ItemTemplate>
@@ -79,11 +84,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                   
-                  
-                    
-
-                   
-                </Columns>
+                    </Columns>
                  <EmptyDataTemplate>No Record Available</EmptyDataTemplate> 
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -98,40 +99,8 @@
                  <PagerStyle Font-Bold="True" Font-Size="Large" HorizontalAlign="Center" VerticalAlign="Middle" CssClass="pagination-ys" BackColor="White" BorderColor="White" />
             </asp:GridView>
 
-           <!-- Modal -->
-<%--<div class="modal hide fade" id="currentdetail" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-              <ContentTemplate>
-                  <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px">
-                      <Fields>
-                          <asp:BoundField/>
-
-                      </Fields>
-                  </asp:DetailsView>
-              </ContentTemplate>
-          </asp:UpdatePanel>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
   </div>
-</div>--%>
- <!-- Modal -->
-           
-        </div>
     </div>
 
-    
     
 </asp:Content>

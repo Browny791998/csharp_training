@@ -2005,6 +2005,7 @@
     <Content Include="Views\Company\CompanyEdit.aspx" />
     <Content Include="Views\Company\RegisterCompany.aspx" />
     <Content Include="Views\Home.aspx" />
+    <Content Include="Views\Joboffer\ApplierDetail.aspx" />
     <Content Include="Views\Joboffer\JobOfferList.aspx" />
     <Content Include="Views\JobSeeker\JobSeekerEdit.aspx" />
     <Content Include="Views\JobSeeker\JobSeekerProfile.aspx" />
@@ -2110,6 +2111,13 @@
     </Compile>
     <Compile Include="Views\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Joboffer\ApplierDetail.aspx.cs">
+      <DependentUpon>ApplierDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Joboffer\ApplierDetail.aspx.designer.cs">
+      <DependentUpon>ApplierDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Joboffer\JobOfferList.aspx.cs">
       <DependentUpon>JobOfferList.aspx</DependentUpon>

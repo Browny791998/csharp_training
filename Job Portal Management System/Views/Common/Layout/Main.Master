@@ -48,13 +48,8 @@
                { %>
              
             <asp:HyperLink ID="HyperLink1" runat="server" CssClass="nav-link font-weight-bolder text-white" NavigateUrl="~/Views/Login.aspx"><i class="fa-solid fa-right-to-bracket"></i> Login</asp:HyperLink>
-        <% }
-    else
-    {
-                %>
-        <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click"
-            class="nav-link text-white font-weight-bold"><i class="fa-solid fa-right-from-bracket"></i>  Logout</asp:LinkButton>
-            <%} %>
+        <% }%>
+   
       </li>
         
         <%if (Session["name"] != null )
@@ -75,12 +70,17 @@
               <%}
                   else if(Session["role"] != null && Session["role"].ToString() == "Job Seeker" ){%>
          <a class="dropdown-item" href="../../../Views/JobSeeker/JobSeekerProfile.aspx">My Account</a>
-            
+             <%} %>
+            <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click"
+            class="dropdown-item"> Logout</asp:LinkButton>
+            <%-- <a class="dropdown-item" href="../../../Views/JobSeeker/JobSeekerProfile.aspx">Logout</a>--%>
         </div>
           
+          
+           
       </li>
-         <%}
-             } %>
+        
+            <% } %>
        
             
        

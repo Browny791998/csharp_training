@@ -14,8 +14,15 @@ namespace Job_Portal_Management_System.Views
         DataTable da = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
+            if (!IsPostBack)
+            {
+                if (Request.Cookies["Email"] != null && Request.Cookies["Password"] != null)
+                {
+                    txtEmail.Text = Request.Cookies["Email"].Value;
+                    txtPassword.Attributes["value"] = Request.Cookies["Password"].Value;
+                }
+            }
+         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -26,6 +33,19 @@ namespace Job_Portal_Management_System.Views
                 {
                     if(txtPassword.Text == DecryptPassword(da.Rows[0]["password"].ToString()))
                     {
+                        if (chkMe.Checked)
+                        {
+                            Response.Cookies["Email"].Expires = DateTime.Now.AddDays(30);
+                            Response.Cookies["Password"].Expires = DateTime.Now.AddDays(30);
+                        }
+                        else
+                        {
+                            Response.Cookies["Email"].Expires = DateTime.Now.AddDays(-1);
+                            Response.Cookies["Password"].Expires = DateTime.Now.AddDays(-1);
+                        }
+                        Response.Cookies["Email"].Value = txtEmail.Text.Trim();
+                        Response.Cookies["Password"].Value = txtPassword.Text.Trim();
+
                         Session["email"] =da.Rows[0]["email"];
                         Session["name"] = da.Rows[0]["name"];
                         Session["role"] = da.Rows[0]["role"];
