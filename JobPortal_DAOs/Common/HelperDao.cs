@@ -1,26 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JobPortal_DAOs.Common
 {
     public class HelperDao
     {
         #region DB Connection
+
         /// <summary>
-        /// Database Connection 
+        /// Database Connection
         /// </summary>
-        static string dbConnectionString = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+        private static string dbConnectionString = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+
         public static DataTable tblResult;
         public static string sInsertItem = String.Empty;
-        #endregion
+
+        #endregion DB Connection
 
         #region Insert/Delete/Update(Common)
+
         /// <summary>
         /// Insert Data
         /// <paramref name="arr"/>
@@ -169,9 +169,11 @@ namespace JobPortal_DAOs.Common
                 conn.Dispose();
             }
         }
-        #endregion
+
+        #endregion Insert/Delete/Update(Common)
 
         #region Get Data
+
         /// <summary>
         /// Get Data
         /// <paramref name="commandText"/>
@@ -202,8 +204,6 @@ namespace JobPortal_DAOs.Common
             return tblResult;
         }
 
-
-
         public static SqlDataReader ReadData(string commandText, CommandType commandType)
         {
             var cn = new SqlConnection();
@@ -221,6 +221,7 @@ namespace JobPortal_DAOs.Common
                 throw ex;
             }
         }
-        #endregion
+
+        #endregion Get Data
     }
 }

@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>JobPortal_DAOs</RootNamespace>
     <AssemblyName>JobPortal_DAOs</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,7 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\HelperDao.cs" />
+    <Compile Include="Country\CountryDaos.cs" />
+    <Compile Include="Jobnature\JobnatureDaos.cs" />
+    <Compile Include="Position\PositionDaos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Skill\SkillDaos.cs" />
+    <Compile Include="Specialization\SpecializationDaos.cs" />
+    <Compile Include="User\UserDaos.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JobPortal_Models\JobPortal_Models.csproj">

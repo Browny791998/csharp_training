@@ -78,3 +78,243 @@ D:\Webproject\SCMTraining\Day1\csharp_training\Job Portal Management System\bin\
 D:\Webproject\SCMTraining\Day1\csharp_training\Job Portal Management System\bin\JobPortal_DAOs.pdb
 D:\Webproject\SCMTraining\Day1\csharp_training\Job Portal Management System\bin\JobPortal_Models.pdb
 D:\Webproject\SCMTraining\Day1\csharp_training\Job Portal Management System\bin\JobPortal_Services.pdb
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\Job Portal Management System.dll.config
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\Job Portal Management System.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\Job Portal Management System.pdb
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\csc.exe
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\csc.exe.config
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\csc.rsp
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\csi.exe
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\csi.exe.config
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\csi.rsp
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.AppContext.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Collections.Immutable.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Console.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Globalization.Calendars.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.IO.Compression.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.IO.FileSystem.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Net.Http.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Net.Sockets.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Reflection.Metadata.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.ValueTuple.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Xml.XPath.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\vbc.exe
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\vbc.exe.config
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\vbc.rsp
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\VBCSCompiler.exe
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\roslyn\VBCSCompiler.exe.config
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\Antlr3.Runtime.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\AspNet.ScriptManager.bootstrap.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\AspNet.ScriptManager.jQuery.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\JobPortal_DAOs.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\JobPortal_Models.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\JobPortal_Services.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\Microsoft.AspNet.FriendlyUrls.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\Microsoft.ScriptManager.MSAjax.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\Microsoft.ScriptManager.WebForms.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\Microsoft.Web.Infrastructure.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\Newtonsoft.Json.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\System.Web.Optimization.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\WebGrease.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\JobPortal_DAOs.pdb
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\JobPortal_Models.pdb
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\JobPortal_Services.pdb
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\System.Web.Optimization.xml
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\Newtonsoft.Json.xml
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\Antlr3.Runtime.pdb
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\Microsoft.AspNet.FriendlyUrls.xml
+D:\Job Portal Management System\csharp_training\Job Portal Management System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Job Portal Management System\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.csproj.AssemblyReference.cache
+D:\Job Portal Management System\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.csproj.CoreCompileInputs.cache
+D:\Job Portal Management System\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.csproj.CopyComplete
+D:\Job Portal Management System\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.dll
+D:\Job Portal Management System\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.pdb
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\Job Portal Management System.dll.config
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\Job Portal Management System.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\Job Portal Management System.pdb
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\csc.exe
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\csc.exe.config
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\csc.rsp
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\csi.exe
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\csi.exe.config
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\csi.rsp
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.Managed.Core.targets
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.AppContext.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Collections.Immutable.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Console.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Globalization.Calendars.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.IO.Compression.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.IO.FileSystem.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Net.Http.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Net.Sockets.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Reflection.Metadata.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.ValueTuple.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Xml.XmlDocument.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Xml.XPath.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\vbc.exe
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\vbc.exe.config
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\vbc.rsp
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\VBCSCompiler.exe
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\roslyn\VBCSCompiler.exe.config
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\Antlr3.Runtime.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\AspNet.ScriptManager.bootstrap.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\AspNet.ScriptManager.jQuery.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\JobPortal_DAOs.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\JobPortal_Models.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\JobPortal_Services.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\Microsoft.AspNet.FriendlyUrls.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\Microsoft.ScriptManager.MSAjax.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\Microsoft.ScriptManager.WebForms.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\Microsoft.Web.Infrastructure.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\Newtonsoft.Json.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\System.Web.Optimization.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\WebGrease.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\JobPortal_DAOs.pdb
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\JobPortal_Models.pdb
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\JobPortal_Services.pdb
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\System.Web.Optimization.xml
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\Newtonsoft.Json.xml
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\Antlr3.Runtime.pdb
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\Microsoft.AspNet.FriendlyUrls.xml
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.csproj.AssemblyReference.cache
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.csproj.CoreCompileInputs.cache
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.csproj.CopyComplete
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.pdb
+D:\1732022\csharp_training\Job Portal Management System\bin\Job Portal Management System.dll.config
+D:\1732022\csharp_training\Job Portal Management System\bin\Job Portal Management System.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\Job Portal Management System.pdb
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\csc.exe
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\csc.exe.config
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\csc.rsp
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\csi.exe
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\csi.exe.config
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\csi.rsp
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.Managed.Core.targets
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.AppContext.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Collections.Immutable.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Console.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Globalization.Calendars.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.IO.Compression.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.IO.FileSystem.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Net.Http.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Net.Sockets.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Reflection.Metadata.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.ValueTuple.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Xml.XmlDocument.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Xml.XPath.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\vbc.exe
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\vbc.exe.config
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\vbc.rsp
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\VBCSCompiler.exe
+D:\1732022\csharp_training\Job Portal Management System\bin\roslyn\VBCSCompiler.exe.config
+D:\1732022\csharp_training\Job Portal Management System\bin\Antlr3.Runtime.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\AspNet.ScriptManager.bootstrap.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\AspNet.ScriptManager.jQuery.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\JobPortal_DAOs.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\JobPortal_Models.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\JobPortal_Services.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\Microsoft.AspNet.FriendlyUrls.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\Microsoft.ScriptManager.MSAjax.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\Microsoft.ScriptManager.WebForms.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\Microsoft.Web.Infrastructure.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\Newtonsoft.Json.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\System.Web.Optimization.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\WebGrease.dll
+D:\1732022\csharp_training\Job Portal Management System\bin\JobPortal_DAOs.pdb
+D:\1732022\csharp_training\Job Portal Management System\bin\JobPortal_Models.pdb
+D:\1732022\csharp_training\Job Portal Management System\bin\JobPortal_Services.pdb
+D:\1732022\csharp_training\Job Portal Management System\bin\System.Web.Optimization.xml
+D:\1732022\csharp_training\Job Portal Management System\bin\Newtonsoft.Json.xml
+D:\1732022\csharp_training\Job Portal Management System\bin\Antlr3.Runtime.pdb
+D:\1732022\csharp_training\Job Portal Management System\bin\Microsoft.AspNet.FriendlyUrls.xml
+D:\1732022\csharp_training\Job Portal Management System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\1732022\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.csproj.AssemblyReference.cache
+D:\1732022\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.csproj.CoreCompileInputs.cache
+D:\1732022\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.csproj.CopyComplete
+D:\1732022\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.dll
+D:\1732022\csharp_training\Job Portal Management System\obj\Debug\Job Portal Management System.pdb

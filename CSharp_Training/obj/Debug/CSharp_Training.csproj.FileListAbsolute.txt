@@ -5,3 +5,10 @@ D:\Webproject\SCMTraining\Day1\csharp_training\CSharp_Training\obj\Debug\CSharp_
 D:\Webproject\SCMTraining\Day1\csharp_training\CSharp_Training\obj\Debug\CSharp_Training.csproj.CoreCompileInputs.cache
 D:\Webproject\SCMTraining\Day1\csharp_training\CSharp_Training\obj\Debug\CSharp_Training.exe
 D:\Webproject\SCMTraining\Day1\csharp_training\CSharp_Training\obj\Debug\CSharp_Training.pdb
+D:\Job Portal Management System\csharp_training\CSharp_Training\bin\Debug\CSharp_Training.exe.config
+D:\Job Portal Management System\csharp_training\CSharp_Training\bin\Debug\CSharp_Training.exe
+D:\Job Portal Management System\csharp_training\CSharp_Training\bin\Debug\CSharp_Training.pdb
+D:\Job Portal Management System\csharp_training\CSharp_Training\obj\Debug\CSharp_Training.csproj.AssemblyReference.cache
+D:\Job Portal Management System\csharp_training\CSharp_Training\obj\Debug\CSharp_Training.csproj.CoreCompileInputs.cache
+D:\Job Portal Management System\csharp_training\CSharp_Training\obj\Debug\CSharp_Training.exe
+D:\Job Portal Management System\csharp_training\CSharp_Training\obj\Debug\CSharp_Training.pdb
