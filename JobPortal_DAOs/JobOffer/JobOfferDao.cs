@@ -53,7 +53,7 @@ namespace JobPortal_DAOs.JobOffer
             }
         }
 
-       
+
 
         /// <summary>
         /// Update Data
@@ -91,20 +91,20 @@ namespace JobPortal_DAOs.JobOffer
         /// Delete Data
         /// </summary>
         /// <returns></returns>
-        //public static bool Delete(JobPortal_Models.Job.Job job)
-        //{
-        //    try
-        //    {
-        //        var arr = new object[2];
-        //        arr[0] = job.ID;
-        //        Common.HelperDao.Delete("Delete from tbl_job where id=@1", arr);
-        //        return true;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        public static bool Delete(JobPortal_Models.JobOffer.JobOffer joboffer)
+        {
+            try
+            {
+                var arr = new object[2];
+                arr[0] = joboffer.ID;
+                Common.HelperDao.Delete("Delete from tbl_joboffer where id=@1", arr);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         #endregion
 
@@ -141,8 +141,22 @@ namespace JobPortal_DAOs.JobOffer
             }
         }
 
+        /// <summary>
+        /// Get All Data
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetJobByJobseeker(int JobSeekerId)
+        {
+            try
+            {
+                return Common.HelperDao.GetData("Select tbl_joboffer.id,job_id,job_seeker_id,tbl_joboffer.company_id,applied_date,(CASE WHEN is_accept= 1 THEN 'Accepted' When is_accept= 0 THEN 'Rejected' ELSE 'Applying' END)as Accept,title,tbl_company.name,cvform,vacancy,tbl_company.email,tbl_company.mobile,country,position,job_nature,specialization,tbl_job.active from tbl_joboffer join tbl_job on tbl_job.id = tbl_joboffer.job_id join tbl_jobseeker on tbl_jobseeker.id = tbl_joboffer.job_seeker_id join tbl_company on tbl_company.id = tbl_joboffer.company_id join tbl_country on tbl_country.id = tbl_company.country_id join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_specialization on tbl_specialization.id = tbl_job.specialization_id Where tbl_job.active = 1 and tbl_joboffer.job_seeker_id = '" + JobSeekerId+ "'", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
-       
 
 
         /// <summary>
@@ -167,6 +181,25 @@ namespace JobPortal_DAOs.JobOffer
                 throw ex;
             }
         }
+
+
+        /// <summary>
+        /// Get Search Data
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetSearchAcceptData(int status, int companyId)
+        {
+            try
+            {
+              return Common.HelperDao.GetData("Select tbl_joboffer.id,job_id,job_seeker_id,tbl_joboffer.company_id,applied_date,(CASE WHEN is_accept= 1 THEN 'Accepted' When is_accept= 0 THEN 'Rejected' ELSE 'Applying' END)as Accept,title,name,cvform,vacancy,email,mobile,tbl_job.active from tbl_joboffer join tbl_job on tbl_job.id = tbl_joboffer.job_id join tbl_jobseeker on tbl_jobseeker.id = tbl_joboffer.job_seeker_id Where tbl_job.active=1 and tbl_joboffer.company_id='" + companyId + "' and is_accept='"+status+"'", CommandType.Text);
+             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        
 
         /// <summary>
         /// Read Data

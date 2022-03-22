@@ -59,17 +59,17 @@ namespace JobPortal_Services.JobOffer
         /// <summary>
         /// Delete Data
         /// </summary>
-        //public static bool Delete(JobPortal_Models.Job.Job job)
-        //{
-        //    try
-        //    {
-        //        return JobPortal_DAOs.Job.JobDao.Delete(job);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        public static bool Delete(JobPortal_Models.JobOffer.JobOffer joboffer)
+        {
+            try
+            {
+                return JobPortal_DAOs.JobOffer.JobOfferDao.Delete(joboffer);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         #endregion
 
@@ -123,6 +123,21 @@ namespace JobPortal_Services.JobOffer
         /// <summary>
         /// Get Search Data
         /// </summary>
+        public static DataTable GetJobByJobseeker(int JobSeekerID)
+        {
+            try
+            {
+                return JobPortal_DAOs.JobOffer.JobOfferDao.GetJobByJobseeker(JobSeekerID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Get Search Data
+        /// </summary>
         public static DataTable GetSearchData(string str, int companyID)
         {
             try
@@ -134,6 +149,23 @@ namespace JobPortal_Services.JobOffer
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Get Search Data
+        /// </summary>
+        public static DataTable GetSearchAcceptData(int status, int companyID)
+        {
+            try
+            {
+                return JobPortal_DAOs.JobOffer.JobOfferDao.GetSearchAcceptData(status, companyID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
         /// <summary>
         /// Read Data

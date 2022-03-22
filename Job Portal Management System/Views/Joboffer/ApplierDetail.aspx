@@ -44,7 +44,14 @@
             <div class="row d-flex flex-row justify-content-center mb-2">
             <h3 class="col-md-3">Detail: </h3><p class="col-md-5"><%# Eval("detail") %></p>
                  </div>
-          
+          <div class="row d-flex flex-row justify-content-center mb-2">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <asp:Button ID="btnBack" CssClass="btn btn-info" runat="server" Text="Back" OnClick="btnBack_Click"/>
+                  
+                </div>
+            
+                 </div>
 
                </div>
                    </ItemTemplate>

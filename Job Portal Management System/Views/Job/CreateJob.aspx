@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
- <div class="container">
+ <div class="container mb-5">
          <%if (Session["alert"] != null && Session["alert-type"] != null )
             {
                 Lblalert.Visible = true;
@@ -47,10 +47,11 @@
 
                    <div class="form-group">
     <label for="ddlDegree">Degree</label>
+ 
        <asp:DropDownList ID="ddlDegree" runat="server" CssClass="form-control">
-           <asp:ListItem>Graduate</asp:ListItem>
-           <asp:ListItem>Under Graduate</asp:ListItem>
-           <asp:ListItem>Graduate &amp; Under Graduate</asp:ListItem>
+           <asp:ListItem Value="1">Graduate</asp:ListItem>
+           <asp:ListItem Value="2">Under Graduate</asp:ListItem>
+           <asp:ListItem Value="3">Graduate &amp; Under Graduate</asp:ListItem>
                        </asp:DropDownList>
        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlDegree" ForeColor="Red">Please Choose Degree</asp:RequiredFieldValidator>
   </div>

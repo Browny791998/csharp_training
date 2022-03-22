@@ -30,7 +30,11 @@ namespace Job_Portal_Management_System.Views.Joboffer
             da = JobPortal_Services.JobSeeker.JobSeekerService.GetAllData(id);
             rptApplier.DataSource = da;
             rptApplier.DataBind();
+        }
 
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("JobOfferList.aspx");
         }
     }
 }

@@ -35,6 +35,13 @@
              <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-info" OnClick="btnSearch_Click" />
              
              <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-info" OnClick="btnClear_Click"  />
+
+            
+
+        </div>
+        <div class="col-md-2">
+            Accept: <asp:RadioButton ID="rdoAccept" runat="server" GroupName="Accept" CssClass="custom-radio" AutoPostBack="True" OnCheckedChanged="rdoAccept_CheckedChanged" />
+            Reject: <asp:RadioButton ID="rdoReject" runat="server" GroupName="Accept" CssClass="custom-radio" OnCheckedChanged="rdoReject_CheckedChanged"  AutoPostBack="True"/>
         </div>
       
      
@@ -42,7 +49,7 @@
     <div class="row mt-5">
         <div class="col-md-12">
           
-            <asp:GridView ID="grvJobOffer" runat="server"  CssClass="gvJobOffer table table-striped table-hover" ShowHeaderWhenEmpty="True" PageSize="5"  DataKeyNames="id"  AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" OnRowCommand="grvJobOffer_RowCommand" OnPageIndexChanging="grvJobOffer_PageIndexChanging">
+            <asp:GridView ID="grvJobOffer" runat="server"  CssClass="gvJobOffer table table-striped table-hover" ShowHeaderWhenEmpty="True" PageSize="5"  DataKeyNames="id"  AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" OnRowCommand="grvJobOffer_RowCommand" OnPageIndexChanging="grvJobOffer_PageIndexChanging" OnRowDataBound="grvJobOffer_RowDataBound">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField >

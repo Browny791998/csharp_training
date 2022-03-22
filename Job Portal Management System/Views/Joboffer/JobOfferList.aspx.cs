@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -23,7 +24,7 @@ namespace Job_Portal_Management_System.Views.Joboffer
             if (!IsPostBack)
             {
                 GetData();
-               
+
             }
         }
 
@@ -94,17 +95,20 @@ namespace Job_Portal_Management_System.Views.Joboffer
                     Session["alert"] = "fail to reject";
                     Session["alert-type"] = "danger";
                 }
-            }else if(e.CommandName == "Detail")
+            }
+            else if (e.CommandName == "Detail")
             {
-                Response.Redirect("ApplierDetail.aspx?applierID="+ jobseekerID);
+                Response.Redirect("ApplierDetail.aspx?applierID=" + jobseekerID);
             }
-            
-            }
-       
+
+        }
+
 
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            rdoAccept.Checked = false;
+            rdoReject.Checked = false;
             da = JobPortal_Services.JobOffer.JobOfferService.GetSearchData(txtSearch.Text, Convert.ToInt32(Session["id"]));
             if (da.Rows.Count > 0)
             {
@@ -133,6 +137,60 @@ namespace Job_Portal_Management_System.Views.Joboffer
             this.GetData();
         }
 
-        
+        protected void grvJobOffer_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                DataRowView drv = e.Row.DataItem as DataRowView;
+                if (drv["Accept"].ToString().Equals("Accepted"))
+                {
+                    e.Row.BackColor = System.Drawing.Color.PaleGreen;
+                }
+                else if(drv["Accept"].ToString().Equals("Rejected"))
+                {
+                    e.Row.BackColor = System.Drawing.Color.Tomato;
+                }
+                else
+                {
+                    e.Row.BackColor = System.Drawing.Color.Orange;
+                }
+            }
+        }
+
+        protected void rdoAccept_CheckedChanged(object sender, EventArgs e)
+        {
+            da = JobPortal_Services.JobOffer.JobOfferService.GetSearchAcceptData(1, Convert.ToInt32(Session["id"]));
+            if (da.Rows.Count > 0)
+            {
+                grvJobOffer.DataSource = da;
+                grvJobOffer.DataBind();
+                grvJobOffer.Visible = true;
+            }
+            else
+            {
+                grvJobOffer.DataSource = null;
+                grvJobOffer.DataBind();
+            }
+            grvJobOffer.UseAccessibleHeader = true;
+            grvJobOffer.HeaderRow.TableSection = TableRowSection.TableHeader;
+        }
+
+        protected void rdoReject_CheckedChanged(object sender, EventArgs e)
+        {
+            da = JobPortal_Services.JobOffer.JobOfferService.GetSearchAcceptData(0, Convert.ToInt32(Session["id"]));
+            if (da.Rows.Count > 0)
+            {
+                grvJobOffer.DataSource = da;
+                grvJobOffer.DataBind();
+                grvJobOffer.Visible = true;
+            }
+            else
+            {
+                grvJobOffer.DataSource = null;
+                grvJobOffer.DataBind();
+            }
+            grvJobOffer.UseAccessibleHeader = true;
+            grvJobOffer.HeaderRow.TableSection = TableRowSection.TableHeader;
+        }
     }
 }
