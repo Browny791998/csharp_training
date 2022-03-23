@@ -17,6 +17,7 @@ namespace Job_Portal_Management_System.Views.User
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
         }
 
         #endregion variable declaration
@@ -32,11 +33,15 @@ namespace Job_Portal_Management_System.Views.User
         {
             string email = txtEmail.Text;
             string password = txtPassword.Text;
+            string name;
             da = JobPortal_Services.User.UserServices.GetData(email, password);
             if (da.Rows.Count > 0)
             {
+                name = da.Rows[0]["name"].ToString();
+                Session["name"] = name;
                 Session["email"] = txtEmail.Text;
-                Response.Redirect("~/Views/Country/CountryList");
+                Response.Write(Session["name"]);
+                Response.Redirect("~/Views/User/AdminHome");
             }
             else
             {

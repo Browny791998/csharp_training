@@ -74,7 +74,7 @@
              <%} %>
             <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click"
             class="dropdown-item"> Logout</asp:LinkButton>
-            <%-- <a class="dropdown-item" href="../../../Views/JobSeeker/JobSeekerProfile.aspx">Logout</a>--%>
+          
         </div>
           
           

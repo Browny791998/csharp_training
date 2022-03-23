@@ -28,22 +28,13 @@
 
         <div class="row">
 
-            <%--<div class="col-md-7 col-md-offset-2">
-                <div class="form-group row">
-                    <label for="txtSearch" class="searchlabel col-sm-4 col-form-label">Country Name</label>
-                    <div class="col-sm-6">
-                    </div>
-                    <div class="col-sm-2">
-                    </div>
-                </div>
-            </div>--%>
-            <div class="col-md-4">
-                <asp:Button ID="btnAdd" runat="server" Text="Add Skill" CssClass="btn btn-primary" OnClick="btnAdd_Click" />
-            </div>
-            <div class="col-md-8 ">
-                <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning float-right" OnClick="btnClear_Click" />
-                <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary float-right mr-3" OnClick="btnSearch_Click" />
-                <asp:TextBox ID="txtSearch" runat="server" placeholder="Search By Skill" Style="padding: 5px 35px 5px 13px; outline: none;" CssClass="float-right mr-3" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
+          <div class="col-md-10 offset-md-3">
+                
+                <asp:Label ID="Label2" runat="server" CssClass="font-weight-bold" Text="Label">Skill</asp:Label>
+                  <asp:TextBox ID="txtSearch" runat="server" Style="padding: 5px 35px 5px 13px; outline: none;" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
+               <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
+                    <asp:Button ID="btnAdd" runat="server" Text="Add Skill" CssClass="btn btn-primary" OnClick="btnAdd_Click" />
+                 <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" OnClick="btnClear_Click" />
             </div>
         </div>
         <br />

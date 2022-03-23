@@ -16,6 +16,10 @@ namespace Job_Portal_Management_System.Views.User
         DataTable da = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["email"] == null)
+            {
+                Response.Redirect("~/Views/User/Login.aspx");
+            }
             if (!IsPostBack)
             {
                 GetData();

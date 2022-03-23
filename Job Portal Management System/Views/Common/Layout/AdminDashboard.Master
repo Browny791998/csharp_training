@@ -76,13 +76,23 @@
 
                 <!-- Sidebar - Brand -->
                 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                    <div class="sidebar-brand-text mx-3">Admin Myo</div>
-                </a>
+                <div class="sidebar-brand-icon">
+                <img src="../../../Resources/images/Brilliant%20Job-logos_black.png" width="80" height="60" />
+                </div>
+                
+            </a>
                 <!-- Divider -->
                 <hr class="sidebar-divider my-0">
 
                 <!-- Nav Item - Dashboard -->
-
+                  <li class="nav-item active">
+                <a class="nav-link" href="">
+                  <span>Email:</span>  <span><% Response.Write(Session["email"]); %></span>
+           <span>Name:</span>  <span><% Response.Write(Session["name"]); %></span>
+                </a>
+                 
+            </li>
+              
                 <!-- Divider -->
                 <hr class="sidebar-divider">
 
@@ -174,6 +184,25 @@
                     </div>
                 </li>
 
+                 <!-- Nav Item -Admin Job Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseJob"
+                        aria-expanded="true" aria-controls="collapseJob">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>Job Management</span>
+                    </a>
+                    <div id="collapseJob" class="collapse" aria-labelledby="headingUtilities"
+                        data-parent="#accordionSidebar">
+                        <div class="py-2 collapse-inner rounded bg-gradient-primary">
+                            <h6 class="collapse-header text-white">Manage Job</h6>
+                            <a class="collapse-item text-white" href="../User/AdminCompanyList.aspx">Company List</a>
+                            <a class="collapse-item text-white" href="../User/AdminJobList.aspx">Job List</a>
+                             <a class="collapse-item text-white" href="../User/AdminJobSeekerList">Job Seeker List</a>
+                             <a class="collapse-item text-white" href="../User/AdminJobOffer">Job Offer List</a>
+                        </div>
+                    </div>
+                </li>
+
                 <!-- Divider -->
                 <%-- <hr class="sidebar-divider">
 
@@ -204,21 +233,13 @@
                 </li>
 
                 <!-- Nav Item - Charts -->
-                <li class="nav-item">
-                    <a class="nav-link" href="charts.html">
-                        <i class="fas fa-fw fa-chart-area"></i>
-                        <span>Charts</span></a>
-                </li>
-
-                <!-- Nav Item - Tables -->
-                <li class="nav-item">
-                    <a class="nav-link" href="tables.html">
-                        <i class="fas fa-fw fa-table"></i>
-                        <span>Tables</span></a>
-                </li>
-
-                <!-- Divider -->
+              <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">--%>
+                  <li class="nav-item">
+                
+                   <asp:LinkButton ID="btnLogout" runat="server" CssClass="nav-link" OnClick="btnLogout_Click"
+            class="dropdown-item"><i class="fas fa-sign-out"></i>  Logout</asp:LinkButton>
+            </li>
             </ul>
             <!-- End of Sidebar -->
 
@@ -290,7 +311,7 @@
         setTimeout("HideLabel();", 3000);
 
         $(function () {
-            $(".gvCountry,.gvJobnature,.gvPosition,.gvSkill,.gvSpecialization").DataTable(
+            $(".gvCountry,.gvJobnature,.gvPosition,.gvSkill,.gvSpecialization,.gvCompany,.gvJob,.gvJoboffer,.gvJobSeeker").DataTable(
                 {
                     'columnDefs': [{
                         'targets': [2, 3],

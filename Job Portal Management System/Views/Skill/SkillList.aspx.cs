@@ -26,10 +26,10 @@ namespace Job_Portal_Management_System.Views.Skill
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["email"] == null)
-            //{
-            //    Response.Redirect("~/Views/User/Login.aspx");
-            //}
+            if (Session["email"] == null)
+            {
+                Response.Redirect("~/Views/User/Login.aspx");
+            }
             if (!Page.IsPostBack)
             {
                 GetData();

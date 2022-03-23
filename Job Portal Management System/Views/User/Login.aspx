@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <link href="../../Resources/css/lib/bootstrap.min.css" rel="stylesheet" />
-    <link href="../../Resources/css/style.css" rel="stylesheet" />
+ 
 </head>
 
 <body>

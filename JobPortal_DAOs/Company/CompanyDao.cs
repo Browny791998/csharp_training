@@ -97,6 +97,7 @@ namespace JobPortal_DAOs.Company
         /// <returns></returns>
         public static DataTable GetCompanyAllData()
         {
+
             try
             {
                 return Common.HelperDao.GetData("Select tbl_company.id,name,country_id,country,address,contact_person,mobile,email,password,website,role,detail,active,created_at,updated_at from tbl_company join tbl_country on tbl_country.id=tbl_company.country_id", CommandType.Text);
