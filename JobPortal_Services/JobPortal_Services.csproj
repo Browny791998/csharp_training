@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,7 +46,13 @@
     <Compile Include="JobOffer\JobOfferService.cs" />
     <Compile Include="JobSeeker\JobSeekerService.cs" />
     <Compile Include="Job\JobService.cs" />
+    <Compile Include="Country\CountryServices.cs" />
+    <Compile Include="Jobnature\JobnatureServices.cs" />
+    <Compile Include="Position\PositionServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Skill\SkillServices.cs" />
+    <Compile Include="Specialization\SpecializationServices.cs" />
+    <Compile Include="User\UserServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JobPortal_DAOs\JobPortal_DAOs.csproj">
@@ -57,5 +64,6 @@
       <Name>JobPortal_Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

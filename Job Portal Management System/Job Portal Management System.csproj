@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -110,6 +111,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="datatables\css\jquery.dataTables.min.css" />
+    <Content Include="datatables\js\jquery.dataTables.min.js" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -2016,6 +2019,17 @@
     <Content Include="Views\Job\JobDetail.aspx" />
     <Content Include="Views\Job\JobList.aspx" />
     <Content Include="Views\Login.aspx" />
+    <Content Include="Views\Country\CountryCreate.aspx" />
+    <Content Include="Views\Country\CountryList.aspx" />
+    <Content Include="Views\Home.aspx" />
+    <Content Include="Views\Jobnature\JobnatureCreate.aspx" />
+    <Content Include="Views\Jobnature\JobnatureList.aspx" />
+    <Content Include="Views\Position\PositionCreate.aspx" />
+    <Content Include="Views\Position\PositionList.aspx" />
+    <Content Include="Views\Skill\SkillCreate.aspx" />
+    <Content Include="Views\Skill\SkillList.aspx" />
+    <Content Include="Views\Specialization\SpecializationCreate.aspx" />
+    <Content Include="Views\Specialization\SpecializationList.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -2087,7 +2101,6 @@
     </Compile>
     <Compile Include="Views\Company\CompanyAccount.aspx.cs">
       <DependentUpon>CompanyAccount.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Company\CompanyAccount.aspx.designer.cs">
       <DependentUpon>CompanyAccount.aspx</DependentUpon>
@@ -2105,9 +2118,20 @@
     </Compile>
     <Compile Include="Views\Company\RegisterCompany.aspx.designer.cs">
       <DependentUpon>RegisterCompany.aspx</DependentUpon>
+    <Compile Include="Views\Country\CountryCreate.aspx.cs">
+      <DependentUpon>CountryCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Country\CountryCreate.aspx.designer.cs">
+      <DependentUpon>CountryCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Country\CountryList.aspx.cs">
+      <DependentUpon>CountryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Country\CountryList.aspx.designer.cs">
+      <DependentUpon>CountryList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Home.aspx.designer.cs">
@@ -2188,6 +2212,61 @@
     </Compile>
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="Views\Jobnature\JobnatureCreate.aspx.cs">
+      <DependentUpon>JobnatureCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Jobnature\JobnatureCreate.aspx.designer.cs">
+      <DependentUpon>JobnatureCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jobnature\JobnatureList.aspx.cs">
+      <DependentUpon>JobnatureList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Jobnature\JobnatureList.aspx.designer.cs">
+      <DependentUpon>JobnatureList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Position\PositionCreate.aspx.cs">
+      <DependentUpon>PositionCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Position\PositionCreate.aspx.designer.cs">
+      <DependentUpon>PositionCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Position\PositionList.aspx.cs">
+      <DependentUpon>PositionList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Position\PositionList.aspx.designer.cs">
+      <DependentUpon>PositionList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Skill\SkillCreate.aspx.cs">
+      <DependentUpon>SkillCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Skill\SkillCreate.aspx.designer.cs">
+      <DependentUpon>SkillCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Skill\SkillList.aspx.cs">
+      <DependentUpon>SkillList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Skill\SkillList.aspx.designer.cs">
+      <DependentUpon>SkillList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Specialization\SpecializationCreate.aspx.cs">
+      <DependentUpon>SpecializationCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Specialization\SpecializationCreate.aspx.designer.cs">
+      <DependentUpon>SpecializationCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Specialization\SpecializationList.aspx.cs">
+      <DependentUpon>SpecializationList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Specialization\SpecializationList.aspx.designer.cs">
+      <DependentUpon>SpecializationList.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -2196,6 +2275,7 @@
     <Folder Include="Download\" />
     <Folder Include="ScriptFile\" />
     <Folder Include="Upload\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
