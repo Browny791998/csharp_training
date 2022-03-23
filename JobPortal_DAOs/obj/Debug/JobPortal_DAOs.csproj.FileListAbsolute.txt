@@ -16,3 +16,30 @@ Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_DAOs\obj\Debug\Job
 Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.csproj.CopyComplete
 Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.dll
 Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.pdb
+D:\Job Portal Management System\csharp_training\JobPortal_DAOs\bin\Debug\JobPortal_DAOs.dll
+D:\Job Portal Management System\csharp_training\JobPortal_DAOs\bin\Debug\JobPortal_DAOs.pdb
+D:\Job Portal Management System\csharp_training\JobPortal_DAOs\bin\Debug\JobPortal_Models.dll
+D:\Job Portal Management System\csharp_training\JobPortal_DAOs\bin\Debug\JobPortal_Models.pdb
+D:\Job Portal Management System\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.csproj.AssemblyReference.cache
+D:\Job Portal Management System\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.csproj.CoreCompileInputs.cache
+D:\Job Portal Management System\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.csproj.CopyComplete
+D:\Job Portal Management System\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.dll
+D:\Job Portal Management System\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.pdb
+D:\MMH(Csharp Project)\2032022\csharp_training\JobPortal_DAOs\bin\Debug\JobPortal_DAOs.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\JobPortal_DAOs\bin\Debug\JobPortal_DAOs.pdb
+D:\MMH(Csharp Project)\2032022\csharp_training\JobPortal_DAOs\bin\Debug\JobPortal_Models.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\JobPortal_DAOs\bin\Debug\JobPortal_Models.pdb
+D:\MMH(Csharp Project)\2032022\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.csproj.AssemblyReference.cache
+D:\MMH(Csharp Project)\2032022\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.csproj.CoreCompileInputs.cache
+D:\MMH(Csharp Project)\2032022\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.csproj.CopyComplete
+D:\MMH(Csharp Project)\2032022\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.pdb
+D:\1732022\csharp_training\JobPortal_DAOs\bin\Debug\JobPortal_DAOs.dll
+D:\1732022\csharp_training\JobPortal_DAOs\bin\Debug\JobPortal_DAOs.pdb
+D:\1732022\csharp_training\JobPortal_DAOs\bin\Debug\JobPortal_Models.dll
+D:\1732022\csharp_training\JobPortal_DAOs\bin\Debug\JobPortal_Models.pdb
+D:\1732022\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.csproj.AssemblyReference.cache
+D:\1732022\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.csproj.CoreCompileInputs.cache
+D:\1732022\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.csproj.CopyComplete
+D:\1732022\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.dll
+D:\1732022\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.pdb

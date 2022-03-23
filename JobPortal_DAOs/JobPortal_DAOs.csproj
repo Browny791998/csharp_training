@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,7 +48,13 @@
     <Compile Include="JobOffer\JobOfferDao.cs" />
     <Compile Include="JobSeeker\JobSeekerDao.cs" />
     <Compile Include="Job\JobDao.cs" />
+    <Compile Include="Country\CountryDaos.cs" />
+    <Compile Include="Jobnature\JobnatureDaos.cs" />
+    <Compile Include="Position\PositionDaos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Skill\SkillDaos.cs" />
+    <Compile Include="Specialization\SpecializationDaos.cs" />
+    <Compile Include="User\UserDaos.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JobPortal_Models\JobPortal_Models.csproj">

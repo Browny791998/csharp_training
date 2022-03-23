@@ -4,3 +4,21 @@ D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Models\obj\Debug\JobPor
 D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.csproj.CoreCompileInputs.cache
 D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.dll
 D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.pdb
+D:\Job Portal Management System\csharp_training\JobPortal_Models\bin\Debug\JobPortal_Models.dll
+D:\Job Portal Management System\csharp_training\JobPortal_Models\bin\Debug\JobPortal_Models.pdb
+D:\Job Portal Management System\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.csproj.AssemblyReference.cache
+D:\Job Portal Management System\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.csproj.CoreCompileInputs.cache
+D:\Job Portal Management System\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.dll
+D:\Job Portal Management System\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.pdb
+D:\MMH(Csharp Project)\2032022\csharp_training\JobPortal_Models\bin\Debug\JobPortal_Models.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\JobPortal_Models\bin\Debug\JobPortal_Models.pdb
+D:\MMH(Csharp Project)\2032022\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.csproj.AssemblyReference.cache
+D:\MMH(Csharp Project)\2032022\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.csproj.CoreCompileInputs.cache
+D:\MMH(Csharp Project)\2032022\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.dll
+D:\MMH(Csharp Project)\2032022\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.pdb
+D:\1732022\csharp_training\JobPortal_Models\bin\Debug\JobPortal_Models.dll
+D:\1732022\csharp_training\JobPortal_Models\bin\Debug\JobPortal_Models.pdb
+D:\1732022\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.csproj.AssemblyReference.cache
+D:\1732022\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.csproj.CoreCompileInputs.cache
+D:\1732022\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.dll
+D:\1732022\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.pdb

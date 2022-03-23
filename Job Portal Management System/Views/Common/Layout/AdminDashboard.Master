@@ -11,189 +11,305 @@
     <link href="../../../Resources/css/lib/fontawesome-free-6.0.0-beta3-web/css/all.min.css" rel="stylesheet" />
     <link href="../../../Resources/css/sb-admin-2.min.css" rel="stylesheet" />
     <link href="../../../Resources/css/lib/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        .AlertMessage {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 60px;
+            left: 20px;
+            animation: fadeInDown 0.8s;
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-page {
+            display: block;
+            width: 70%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 10px;
+        }
+
+        .searchlabel {
+            font-size: 16px;
+        }
+
+        .dataTables_length {
+            font-size: 17px;
+            margin-top: 13px;
+            font-weight: normal;
+        }
+
+            .dataTables_length select {
+                width: 45px;
+                height: 40px;
+                text-align: center;
+            }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button, .dataTables_wrapper .dataTables_paginate .paginate_button {
+            display: inline-block;
+            font-size: 17px;
+            font-weight: bolder;
+            margin-top: 8px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-          <!-- Page Wrapper -->
-    <div id="wrapper">
+        <!-- Page Wrapper -->
+        <div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar -->
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-            </a>
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                    <div class="sidebar-brand-text mx-3">Admin Myo</div>
+                </a>
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+                <!-- Nav Item - Dashboard -->
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-           <%-- <div class="sidebar-heading">
+                <!-- Heading -->
+                <%-- <div class="sidebar-heading">
                 Interface
             </div>--%>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Skill</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Manage Skills:</h6>
-                        <a class="collapse-item" href="buttons.html">Skill List</a>
-                        <a class="collapse-item" href="cards.html">Create Skill</a>
+                <!-- Nav Item - Country Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCountry"
+                        aria-expanded="true" aria-controls="collapseCountry">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Country</span>
+                    </a>
+                    <div id="collapseCountry" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="py-2 collapse-inner rounded bg-gradient-primary text-white">
+                            <h6 class="collapse-header text-white">Manage Countries</h6>
+                            <a class="collapse-item text-white" href="../Country/CountryList.aspx">Country List</a>
+                            <a class="collapse-item text-white" href="../Country/CountryCreate.aspx">Create Country</a>
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                <!-- Nav Item - Position Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePosition"
+                        aria-expanded="true" aria-controls="collapsePosition">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Position</span>
+                    </a>
+                    <div id="collapsePosition" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="py-2 collapse-inner rounded bg-gradient-primary">
+                            <h6 class="collapse-header text-white">Manage Positions</h6>
+                            <a class="collapse-item text-white" href="../Position/PositionList.aspx">Position List</a>
+                            <a class="collapse-item text-white" href="../Position/PositionCreate.aspx">Create Position</a>
+                        </div>
                     </div>
+                </li>
+
+                <!-- Nav Item - Job Nature Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseJobnature"
+                        aria-expanded="true" aria-controls="collapseJobnature">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>Job Nature</span>
+                    </a>
+                    <div id="collapseJobnature" class="collapse" aria-labelledby="headingUtilities"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded bg-gradient-primary">
+                            <h6 class="collapse-header text-white">Manage Job Nature</h6>
+                            <a class="collapse-item text-white" href="../Jobnature/JobnatureList.aspx">Job Nature List</a>
+                            <a class="collapse-item text-white" href="../Jobnature/JobnatureCreate.aspx">Create Job Nature</a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Nav Item -Skill Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSkill"
+                        aria-expanded="true" aria-controls="collapseSkill">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>Skill</span>
+                    </a>
+                    <div id="collapseSkill" class="collapse" aria-labelledby="headingUtilities"
+                        data-parent="#accordionSidebar">
+                        <div class="py-2 collapse-inner rounded bg-gradient-primary">
+                            <h6 class="collapse-headery text-white">Manage Skill</h6>
+                            <a class="collapse-item text-white" href="../Skill/SkillList.aspx">Skill List</a>
+                            <a class="collapse-item text-white" href="../Skill/SkillCreate.aspx">Create Skill</a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Nav Item -Specialization Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSpecialization"
+                        aria-expanded="true" aria-controls="collapseSpecialization">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>Specialization</span>
+                    </a>
+                    <div id="collapseSpecialization" class="collapse" aria-labelledby="headingUtilities"
+                        data-parent="#accordionSidebar">
+                        <div class="py-2 collapse-inner rounded bg-gradient-primary">
+                            <h6 class="collapse-header text-white">Manage Specialization</h6>
+                            <a class="collapse-item text-white" href="../Specialization/SpecializationList.aspx">Specialization List</a>
+                            <a class="collapse-item text-white" href="../Specialization/SpecializationCreate.aspx">Create Specialization</a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Divider -->
+                <%-- <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Addons
                 </div>
-            </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                        aria-expanded="true" aria-controls="collapsePages">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Pages</span>
+                    </a>
+                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Login Screens:</h6>
+                            <a class="collapse-item" href="login.html">Login</a>
+                            <a class="collapse-item" href="register.html">Register</a>
+                            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                            <div class="collapse-divider"></div>
+                            <h6 class="collapse-header">Other Pages:</h6>
+                            <a class="collapse-item" href="404.html">404 Page</a>
+                            <a class="collapse-item" href="blank.html">Blank Page</a>
+                        </div>
+                    </div>
+                </li>
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
+                <!-- Nav Item - Charts -->
+                <li class="nav-item">
+                    <a class="nav-link" href="charts.html">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Charts</span></a>
+                </li>
+
+                <!-- Nav Item - Tables -->
+                <li class="nav-item">
+                    <a class="nav-link" href="tables.html">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Tables</span></a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block">--%>
+            </ul>
+            <!-- End of Sidebar -->
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <!-- /.container-fluid -->
+                </div>
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Brilliant Job Company 2022</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
             </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-           
-
-        </ul>
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
-
-             <!-- Begin Page Content -->
-                <div class="container-fluid">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-                         </div>
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Brilliant Job Company 2022</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
+            <!-- End of Content Wrapper -->
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Page Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-        
-        
     </form>
     <script src="../../../Resources/js/lib/jquery.js"></script>
     <script src="../../../Resources/js/lib/popper.min.js"></script>
     <script src="../../../Resources/js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
 
+    <script type="text/javascript">
+        function HideLabel() {
+            document.getElementById("AlertMsg").style.display = "none";
+        }
+        setTimeout("HideLabel();", 3000);
+
+        $(function () {
+            $(".gvCountry,.gvJobnature,.gvPosition,.gvSkill,.gvSpecification").DataTable(
+                {
+                    'columnDefs': [{
+                        'targets': [2, 3],
+                        'orderable': false,
+                    }],
+                    "dom": '<"top"i>rt<"bottom"flp><"clear">',
+                    searching: false,
+                    bLengthChange: true,
+                    lengthMenu: [[5, 10, -1], [5, 10, "All"]],
+                    bFilter: true,
+                    bSort: true,
+                    bPaginate: true,
+                    bInfo: false,
+                    language: {
+                        lengthMenu: "<span style='padding-right:15px'>Page Size</span>_MENU_"
+                    }
+
+                });
+        });
+    </script>
 </body>
 </html>
