@@ -36,7 +36,8 @@
                 <asp:TextBox ID="txtSearch" runat="server" Style="padding: 5px 35px 5px 13px; outline: none;"></asp:TextBox>
                 
                 <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
-                 <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-primary" OnClick="btnClear_Click" />
+                 <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-info" OnClick="btnClear_Click" />
+                <asp:Button ID="btnSend" runat="server" Text="Send Email" CssClass="btn btn-danger" OnClick="btnSend_Click" />
             </div>
              <div class="col-md-2">
             Accept: <asp:RadioButton ID="rdoAccept" runat="server" GroupName="Accept" CssClass="custom-radio"/>

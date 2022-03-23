@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -103,6 +106,48 @@ namespace Job_Portal_Management_System.Views.User
             rdoAccept.Checked = false;
             rdoReject.Checked = false;
             this.GetData();
+        }
+
+        
+        protected void btnSend_Click(object sender, EventArgs e)
+        {
+            da = JobPortal_Services.JobOffer.JobOfferService.GetAllJobOffer();
+          for(int i = 0; i < da.Rows.Count; i++)
+            {
+             
+                string applier = da.Rows[i]["seeker"].ToString();
+                string mails = da.Rows[i]["seekermail"].ToString();
+                string company = da.Rows[i]["company"].ToString();
+                SendEmail(applier, mails,company);
+            }
+        }
+
+        private void SendEmail(string name,string email,string company)
+        {
+            DataTable dt = new DataTable();
+            StringBuilder sb = new StringBuilder();
+            sb.Append("<center><h1>Job Reply</h1></center>");
+            sb.Append("<h3>Hello {name} </h3>");
+            sb.Append("<p>{company} reviewed your cv and agree to make an appointment with you</p>");
+            sb.Append("<p>Best Regards</p>");
+            sb.Append("<p>Brilliant Job</p>");
+            sb = sb.Replace("{name}", name);
+            sb = sb.Replace("{company}",company);
+
+            using (MailMessage mm = new MailMessage("sender@gmail.com", email))
+            {
+                mm.Subject = "Job Reply";
+                mm.Body = sb.ToString();
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true;
+                NetworkCredential NetworkCred = new NetworkCredential("sender@gmail.com", "password");
+                smtp.UseDefaultCredentials = true;
+                smtp.Credentials = NetworkCred;
+                smtp.Port = 587;
+                smtp.Send(mm);
+                
+            }
         }
     }
 }
