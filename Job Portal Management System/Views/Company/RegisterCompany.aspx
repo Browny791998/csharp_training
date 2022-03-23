@@ -36,11 +36,6 @@
                    <div class="form-group">
     <label for="ddlCountry">Country</label>
        <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-control">
-           <asp:ListItem Value="1">Singapore</asp:ListItem>
-           <asp:ListItem Value="2">Myanmar</asp:ListItem>
-           <asp:ListItem Value="3">Japan</asp:ListItem>
-           <asp:ListItem Value="4">China</asp:ListItem>
-           <asp:ListItem Value="5">Korea</asp:ListItem>
                        </asp:DropDownList>
        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlCountry" ForeColor="Red">Please select Country</asp:RequiredFieldValidator>
   </div>

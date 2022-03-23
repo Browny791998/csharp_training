@@ -21,6 +21,7 @@ namespace Job_Portal_Management_System.Views.Company
             }
             if (!IsPostBack)
             {
+                bindCountry();
                 int id = Convert.ToInt32(Request.QueryString["ID"]);
                 SqlDataReader dr = JobPortal_Services.Company.CompanyService.ReadData(id);
                 while (dr.Read())
@@ -36,6 +37,17 @@ namespace Job_Portal_Management_System.Views.Company
             }
         }
 
+        public void bindCountry()
+        {
+            da = JobPortal_Services.Country.CountryServices.GetAllData();
+            if (da.Rows.Count > 0)
+            {
+                ddlCountry.DataSource = da;
+                ddlCountry.DataValueField = "id";
+                ddlCountry.DataTextField = "country";
+                ddlCountry.DataBind();
+            }
+        }
 
         #region UpdateData
         /// <summary>

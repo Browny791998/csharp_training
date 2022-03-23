@@ -27,10 +27,10 @@ namespace Job_Portal_Management_System.Views.Jobnature
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["email"] == null)
-            {
-                Response.Redirect("~/Views/User/Login.aspx");
-            }
+            //if (Session["email"] == null)
+            //{
+            //    Response.Redirect("~/Views/User/Login.aspx");
+            //}
             if (!Page.IsPostBack)
             {
                 GetData();
@@ -96,20 +96,20 @@ namespace Job_Portal_Management_System.Views.Jobnature
         /// <param name="e"></param>
         protected void grvJobnature_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            //int mid;
+            int jnid;
             int id = Convert.ToInt32(grvJobnature.DataKeys[e.RowIndex].Value);
-            da = JobPortal_Services.Jobnature.JobnatureServices.GetAllData();
-            //for (int j = 0; j < da.Rows.Count; j++)
-            //{
-            //    mid = Convert.ToInt32(da.Rows[j]["id"]);
-            //    if (mid == id)
-            //    {
-            //        Session["alert"] = "Data Exist You can't delete this";
-            //        Session["alert-type"] = "warning";
-            //        GetData();
-            //        return;
-            //    }
-            //}
+            da = JobPortal_Services.Job.JobService.GetAllJObData();
+            for (int j = 0; j < da.Rows.Count; j++)
+            {
+                jnid = Convert.ToInt32(da.Rows[j]["job_nature_id"]);
+                if (jnid == id)
+                {
+                    Session["alert"] = "Data Exist You can't delete this";
+                    Session["alert-type"] = "warning";
+                    GetData();
+                    return;
+                }
+            }
             jobnaturemodel.ID = id;
             bool IsDelete = JobPortal_Services.Jobnature.JobnatureServices.Delete(jobnaturemodel);
             if (IsDelete)

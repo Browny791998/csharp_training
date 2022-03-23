@@ -59,14 +59,7 @@
     <div class="form-group">
     <label for="lbSkill">Skill</label>
         <asp:ListBox ID="lbSkill" runat="server" CssClass="form-control" SelectionMode="Multiple">
-            <asp:ListItem Value="1">C#</asp:ListItem>
-            <asp:ListItem Value="2">Java</asp:ListItem>
-            <asp:ListItem Value="3">PHP</asp:ListItem>
-            <asp:ListItem Value="4">Python</asp:ListItem>
-              <asp:ListItem Value="5">Excel</asp:ListItem>
-             <asp:ListItem Value="6">Powerpoint</asp:ListItem>
-             <asp:ListItem Value="7">UI/UX</asp:ListItem>
-             <asp:ListItem Value="8">Other</asp:ListItem>
+           
         </asp:ListBox>
        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="lbSkill" ForeColor="Red">Please Select Skill</asp:RequiredFieldValidator>
   </div>
@@ -86,12 +79,7 @@
     <div class="form-group">
     <label for="ddlPosition">Position</label>
         <asp:DropDownList ID="ddlPosition" runat="server" CssClass="form-control">
-            <asp:ListItem Value="1">Junior Developer</asp:ListItem>
-            <asp:ListItem Value="2">Senior Developer</asp:ListItem>
-            <asp:ListItem Value="3">Leader</asp:ListItem>
-            <asp:ListItem Value="4">Manager</asp:ListItem>
-            <asp:ListItem Value="5">Staff</asp:ListItem>
-              <asp:ListItem Value="6">HR</asp:ListItem>
+            
         </asp:DropDownList>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlPosition" ForeColor="Red">Please Select Position</asp:RequiredFieldValidator>
           </div>
@@ -99,20 +87,14 @@
        <div class="form-group">
     <label for="ddlJobtype">Job Type</label>
         <asp:DropDownList ID="ddlJobtype" runat="server" CssClass="form-control">
-            <asp:ListItem Value="1">Part-time</asp:ListItem>
-            <asp:ListItem Value="2">Full-time</asp:ListItem>
-            <asp:ListItem Value="3">Freelance</asp:ListItem>
+            
         </asp:DropDownList>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlJobtype" ForeColor="Red">Please Select Job Type</asp:RequiredFieldValidator>
           </div>
                    <div class="form-group">
     <label for="ddlSpecialization">Specializations</label>
         <asp:DropDownList ID="ddlSpecialization" runat="server" CssClass="form-control">
-            <asp:ListItem Value="1">IT</asp:ListItem>
-            <asp:ListItem Value="2">engineering</asp:ListItem>
-            <asp:ListItem Value="3">marketing</asp:ListItem>
-             <asp:ListItem Value="4">restaurant</asp:ListItem>
-             <asp:ListItem Value="5">healthcare</asp:ListItem>
+           
         </asp:DropDownList>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlJobtype" ForeColor="Red">Please Select Job Type</asp:RequiredFieldValidator>
           </div>

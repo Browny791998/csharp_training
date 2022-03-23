@@ -27,10 +27,10 @@ namespace Job_Portal_Management_System.Views.Country
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["email"] == null)
-            {
-                Response.Redirect("~/Views/User/Login.aspx");
-            }
+            //if (Session["email"] == null)
+            //{
+            //    Response.Redirect("~/Views/User/Login.aspx");
+            //}
             if (!Page.IsPostBack)
             {
                 GetData();
@@ -96,20 +96,20 @@ namespace Job_Portal_Management_System.Views.Country
         /// <param name="e"></param>
         protected void grvCountry_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            //int mid;
+            int cid;
             int id = Convert.ToInt32(grvCountry.DataKeys[e.RowIndex].Value);
-            da = JobPortal_Services.Country.CountryServices.GetAllData();
-            //for (int j = 0; j < da.Rows.Count; j++)
-            //{
-            //    mid = Convert.ToInt32(da.Rows[j]["id"]);
-            //    if (mid == id)
-            //    {
-            //        Session["alert"] = "Data Exist You can't delete this";
-            //        Session["alert-type"] = "warning";
-            //        GetData();
-            //        return;
-            //    }
-            //}
+            da = JobPortal_Services.Company.CompanyService.GetCompanyAllData();
+            for (int j = 0; j < da.Rows.Count; j++)
+            {
+                cid = Convert.ToInt32(da.Rows[j]["country_id"]);
+                if (cid == id)
+                {
+                    Session["alert"] = "Data Exist You can't delete this";
+                    Session["alert-type"] = "warning";
+                    GetData();
+                    return;
+                }
+            }
             countrymodel.ID = id;
             bool IsDelete = JobPortal_Services.Country.CountryServices.Delete(countrymodel);
             if (IsDelete)

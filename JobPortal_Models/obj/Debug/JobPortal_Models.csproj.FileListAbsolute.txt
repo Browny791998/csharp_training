@@ -22,3 +22,9 @@ D:\1732022\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.csproj.As
 D:\1732022\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.csproj.CoreCompileInputs.cache
 D:\1732022\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.dll
 D:\1732022\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.pdb
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_Models\bin\Debug\JobPortal_Models.dll
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_Models\bin\Debug\JobPortal_Models.pdb
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.csprojAssemblyReference.cache
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.csproj.CoreCompileInputs.cache
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.dll
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_Models\obj\Debug\JobPortal_Models.pdb

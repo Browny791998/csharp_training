@@ -91,6 +91,45 @@ namespace JobPortal_DAOs.Company
                 throw ex;
             }
         }
+        /// <summary>
+        /// Get All Data
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetCompanyAllData()
+        {
+            try
+            {
+                return Common.HelperDao.GetData("Select tbl_company.id,name,country_id,country,address,contact_person,mobile,email,password,website,role,detail,active,created_at,updated_at from tbl_company join tbl_country on tbl_country.id=tbl_company.country_id", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Get Search Data
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetSearchData(string str)
+        {
+            try
+            {
+                if (str == "")
+                {
+                    return Common.HelperDao.GetData("Select tbl_company.id,name,country_id,country,address,contact_person,mobile,email,password,website,role,detail,active,created_at,updated_at from tbl_company join tbl_country on tbl_country.id=tbl_company.country_id", CommandType.Text);
+                }
+                else
+                {
+                    return Common.HelperDao.GetData("Select tbl_company.id,name,country_id,country,address,contact_person,mobile,email,password,website,role,detail,active,created_at,updated_at from tbl_company join tbl_country on tbl_country.id=tbl_company.country_id where name LIKE '%" + str + "%'", CommandType.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         /// <summary>
         /// Get All Data

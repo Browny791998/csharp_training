@@ -36,7 +36,7 @@ namespace Job_Portal_Management_System.Views.User
             if (da.Rows.Count > 0)
             {
                 Session["email"] = txtEmail.Text;
-                Response.Redirect("~/Views/Customer/CustomerList.aspx");
+                Response.Redirect("~/Views/Country/CountryList");
             }
             else
             {

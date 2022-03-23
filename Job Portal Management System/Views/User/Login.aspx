@@ -13,7 +13,7 @@
     <form id="form1" runat="server">
         <div class="loginform">
             <div class="row">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-5 offset-md-4 card p-5 shadow-sm mt-5">
                     <h1 class="text-center text-info">Admin Login</h1>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
@@ -23,7 +23,7 @@
                         <label for="exampleInputPassword1">Password</label>
                         <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" placeholder="Password" TextMode="Password"></asp:TextBox>
                     </div>
-                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" CssClass="btn btn-primary" />
+                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" CssClass="btn btn-info" />
                 </div>
             </div>
         </div>

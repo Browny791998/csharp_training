@@ -62,6 +62,37 @@ namespace JobPortal_Services.JobSeeker
         }
 
         /// <summary>
+        /// Get Search Data
+        /// </summary>
+        public static DataTable SearchAllJobSeeker(string str)
+        {
+            try
+            {
+                return JobPortal_DAOs.JobSeeker.JobSeekerDao.SearchAllJobSeeker(str);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Get All Data
+        /// </summary>
+        public static DataTable GetAllJobSeeker()
+        {
+            try
+            {
+                return JobPortal_DAOs.JobSeeker.JobSeekerDao.GetAllJobSeeker();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        /// <summary>
         /// Get All Data
         /// </summary>
         public static DataTable GetAllData(int id)

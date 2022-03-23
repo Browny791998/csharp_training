@@ -15,6 +15,10 @@ namespace Job_Portal_Management_System.Views.Company
         DataTable da = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                bindCountry();
+            }
         }
         #region InsertData
         /// <summary>
@@ -62,6 +66,18 @@ namespace Job_Portal_Management_System.Views.Company
                 }
             }
             
+        }
+
+        public void bindCountry()
+        {
+            da = JobPortal_Services.Country.CountryServices.GetAllData();
+            if (da.Rows.Count > 0)
+            {
+                ddlCountry.DataSource = da;
+                ddlCountry.DataValueField = "id";
+                ddlCountry.DataTextField = "country";
+                ddlCountry.DataBind();
+            }
         }
 
         private void ClearFields()

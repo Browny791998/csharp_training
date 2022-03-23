@@ -24,6 +24,10 @@ namespace Job_Portal_Management_System.Views.Job
             {
                 if (!IsPostBack)
                 {
+                    bindSkill();
+                    bindPosition();
+                    bindJobType();
+                    bindSpecialization();
                     int id = Convert.ToInt32(Request.QueryString["id"]);
                     SqlDataReader dr = JobPortal_Services.Job.JobService.ReadData(id);
                     while (dr.Read())
@@ -56,6 +60,63 @@ namespace Job_Portal_Management_System.Views.Job
                         }
                     }
                 }
+            }
+            else
+            {
+                if (!IsPostBack)
+                {
+                    bindSkill();
+                    bindPosition();
+                    bindJobType();
+                    bindSpecialization();
+                }
+            }
+        }
+
+        public void bindSkill()
+        {
+            da = JobPortal_Services.Skill.SkillServices.GetAllData();
+            if (da.Rows.Count > 0)
+            {
+                lbSkill.DataSource = da;
+                lbSkill.DataValueField = "id";
+                lbSkill.DataTextField = "skill";
+                lbSkill.DataBind();
+            }
+        }
+
+        public void bindPosition()
+        {
+            da = JobPortal_Services.Position.PositionServices.GetAllData();
+            if (da.Rows.Count > 0)
+            {
+                ddlPosition.DataSource = da;
+                ddlPosition.DataValueField = "id";
+                ddlPosition.DataTextField = "position";
+                ddlPosition.DataBind();
+            }
+        }
+
+        public void bindJobType()
+        {
+            da = JobPortal_Services.Jobnature.JobnatureServices.GetAllData();
+            if (da.Rows.Count > 0)
+            {
+                ddlJobtype.DataSource = da;
+                ddlJobtype.DataValueField = "id";
+                ddlJobtype.DataTextField = "job_nature";
+                ddlJobtype.DataBind();
+            }
+        }
+        public void bindSpecialization()
+        {
+            da = JobPortal_Services.Specialization.SpecializationServices.GetAllData();
+            if (da.Rows.Count > 0)
+            {
+                ddlSpecialization.DataSource = da;
+                ddlSpecialization.DataValueField = "id";
+                ddlSpecialization.DataTextField = "specialization";
+                ddlSpecialization.DataBind();
             }
         }
 

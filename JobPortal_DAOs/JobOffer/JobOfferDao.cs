@@ -129,6 +129,61 @@ namespace JobPortal_DAOs.JobOffer
         /// Get All Data
         /// </summary>
         /// <returns></returns>
+        public static DataTable GetAllJoboffer()
+        {
+            try
+            {
+                return Common.HelperDao.GetData("Select tbl_joboffer.id,job_id,job_seeker_id,tbl_joboffer.company_id,applied_date,(CASE WHEN is_accept= 1 THEN 'Accepted' When is_accept= 0 THEN 'Rejected' ELSE 'Applying' END)as Accept,title,tbl_jobseeker.name as seeker,tbl_company.name as company,cvform,vacancy,tbl_jobseeker.email as seekermail,tbl_jobseeker.mobile,tbl_job.active from tbl_joboffer join tbl_job on tbl_job.id = tbl_joboffer.job_id join tbl_jobseeker on tbl_jobseeker.id = tbl_joboffer.job_seeker_id join tbl_company on tbl_company.id = tbl_joboffer.company_id Where tbl_job.active = 1", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
+        /// Get Search Data
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetSearchAllJoboffer(string str, string company)
+        {
+            try
+            {
+                if (str == "")
+                {
+                    return Common.HelperDao.GetData("Select tbl_joboffer.id,job_id,job_seeker_id,tbl_joboffer.company_id,applied_date,(CASE WHEN is_accept= 1 THEN 'Accepted' When is_accept= 0 THEN 'Rejected' ELSE 'Applying' END)as Accept,title,tbl_jobseeker.name as seeker,tbl_company.name as company,cvform,vacancy,tbl_jobseeker.email as seekermail,tbl_jobseeker.mobile,tbl_job.active from tbl_joboffer join tbl_job on tbl_job.id = tbl_joboffer.job_id join tbl_jobseeker on tbl_jobseeker.id = tbl_joboffer.job_seeker_id join tbl_company on tbl_company.id = tbl_joboffer.company_id Where tbl_job.active = 1 and tbl_company.name='" + company + "'", CommandType.Text);
+                }
+                else
+                {
+                    return Common.HelperDao.GetData("Select tbl_joboffer.id,job_id,job_seeker_id,tbl_joboffer.company_id,applied_date,(CASE WHEN is_accept= 1 THEN 'Accepted' When is_accept= 0 THEN 'Rejected' ELSE 'Applying' END)as Accept,title,tbl_jobseeker.name as seeker,tbl_company.name as company,cvform,vacancy,tbl_jobseeker.email as seekermail,tbl_jobseeker.mobile,tbl_job.active from tbl_joboffer join tbl_job on tbl_job.id = tbl_joboffer.job_id join tbl_jobseeker on tbl_jobseeker.id = tbl_joboffer.job_seeker_id join tbl_company on tbl_company.id = tbl_joboffer.company_id Where tbl_company.name='" + company + "' and tbl_job.active = 1 and  title LIKE '%" + str + "%'", CommandType.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Get Search Data
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetSearchAllAccept(int status, string search, string company)
+        {
+            try
+            {
+                return Common.HelperDao.GetData("Select tbl_joboffer.id,job_id,job_seeker_id,tbl_joboffer.company_id,applied_date,(CASE WHEN is_accept= 1 THEN 'Accepted' When is_accept= 0 THEN 'Rejected' ELSE 'Applying' END)as Accept,title,tbl_jobseeker.name as seeker,tbl_company.name as company,cvform,vacancy,tbl_jobseeker.email as seekermail,tbl_jobseeker.mobile,tbl_job.active from tbl_joboffer join tbl_job on tbl_job.id = tbl_joboffer.job_id join tbl_jobseeker on tbl_jobseeker.id = tbl_joboffer.job_seeker_id join tbl_company on tbl_company.id = tbl_joboffer.company_id Where tbl_company.name='" + company + "' and  tbl_job.active = 1 and is_accept='" + status + "' and title LIKE '%" + search + "%'", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        /// <summary>
+        /// Get All Data
+        /// </summary>
+        /// <returns></returns>
         public static DataTable GetAllData(int companyId)
         {
             try

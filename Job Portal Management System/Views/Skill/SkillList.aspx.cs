@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
+using System.Data.SqlClient;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -15,6 +13,7 @@ namespace Job_Portal_Management_System.Views.Skill
         private JobPortal_Models.Skill.Skill skillmodel = new JobPortal_Models.Skill.Skill();
         private JobPortal_Services.Skill.SkillServices skillservice = new JobPortal_Services.Skill.SkillServices();
         private DataTable da = new DataTable();
+        SqlDataReader dr;
 
         #endregion variable declaration
 
@@ -27,10 +26,10 @@ namespace Job_Portal_Management_System.Views.Skill
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["email"] == null)
-            {
-                Response.Redirect("~/Views/User/Login.aspx");
-            }
+            //if (Session["email"] == null)
+            //{
+            //    Response.Redirect("~/Views/User/Login.aspx");
+            //}
             if (!Page.IsPostBack)
             {
                 GetData();
@@ -94,22 +93,50 @@ namespace Job_Portal_Management_System.Views.Skill
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        string[] skillList;
         protected void grvSkill_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            //int mid;
+
             int id = Convert.ToInt32(grvSkill.DataKeys[e.RowIndex].Value);
-            da = JobPortal_Services.Skill.SkillServices.GetAllData();
-            //for (int j = 0; j < da.Rows.Count; j++)
-            //{
-            //    mid = Convert.ToInt32(da.Rows[j]["id"]);
-            //    if (mid == id)
-            //    {
-            //        Session["alert"] = "Data Exist You can't delete this";
-            //        Session["alert-type"] = "warning";
-            //        GetData();
-            //        return;
-            //    }
-            //}
+            dr = JobPortal_Services.Skill.SkillServices.ReadData(id);
+            while (dr.Read())
+            {
+
+                da = JobPortal_Services.Job.JobService.GetAllJObData();
+
+                for (int j = 0; j < da.Rows.Count; j++)
+                {
+                    skillList = da.Rows[j]["skill"].ToString().Split(',');
+
+                    foreach (string s in skillList)
+                    {
+                        if (s == dr["skill"].ToString())
+                        {
+                            Session["alert"] = "Data Exist You can't delete this";
+                            Session["alert-type"] = "warning";
+                            GetData();
+                            return;
+                        }
+                    }
+                }
+
+                da = JobPortal_Services.JobSeeker.JobSeekerService.GetAllJobSeeker();
+                for (int j = 0; j < da.Rows.Count; j++)
+                {
+                    skillList = da.Rows[j]["skill"].ToString().Split(',');
+
+                    foreach (string s in skillList)
+                    {
+                        if (s == dr["skill"].ToString())
+                        {
+                            Session["alert"] = "Data Exist You can't delete this";
+                            Session["alert-type"] = "warning";
+                            GetData();
+                            return;
+                        }
+                    }
+                }
+            }
             skillmodel.ID = id;
             bool IsDelete = JobPortal_Services.Skill.SkillServices.Delete(skillmodel);
             if (IsDelete)

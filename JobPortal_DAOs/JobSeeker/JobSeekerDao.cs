@@ -103,6 +103,32 @@ namespace JobPortal_DAOs.JobSeeker
             }
         }
 
+        public static DataTable SearchAllJobSeeker(string search)
+        {
+            try
+            {
+                return Common.HelperDao.GetData("Select id,name,address,mobile,gender,CONVERT(varchar,dob,3) as dob,skill,experience,degree,degree_name,cvform,profile,email,password,detail,role,active,created_date,updated_date from tbl_jobseeker where name LIKE '%" + search + "%'", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public static DataTable GetAllJobSeeker()
+        {
+            try
+            {
+                return Common.HelperDao.GetData("Select id,name,address,mobile,gender,CONVERT(varchar,dob,3) as dob,skill,experience,degree,degree_name,cvform,profile,email,password,detail,role,active,created_date,updated_date from tbl_jobseeker", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         /// <summary>
         /// Get All Data
         /// </summary>

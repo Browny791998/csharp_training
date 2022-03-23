@@ -103,6 +103,50 @@ namespace JobPortal_Services.JobOffer
                 throw ex;
             }
         }
+        /// <summary>
+        /// Get All Data
+        /// </summary>
+        public static DataTable GetAllJobOffer()
+        {
+            try
+            {
+                return JobPortal_DAOs.JobOffer.JobOfferDao.GetAllJoboffer();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Get Search Data
+        /// </summary>
+        public static DataTable GetSearchAllJoboffer(string str, string company)
+        {
+            try
+            {
+                return JobPortal_DAOs.JobOffer.JobOfferDao.GetSearchAllJoboffer(str, company);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Get Search Data
+        /// </summary>
+        public static DataTable GetSearchAllAcceptData(int status, string search, string company)
+        {
+            try
+            {
+                return JobPortal_DAOs.JobOffer.JobOfferDao.GetSearchAllAccept(status, search, company);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
         /// <summary>

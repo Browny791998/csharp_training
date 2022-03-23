@@ -79,6 +79,21 @@ namespace JobPortal_Services.Job
         /// <summary>
         /// Get All Data
         /// </summary>
+        public static DataTable GetAllJObData()
+        {
+            try
+            {
+                return JobPortal_DAOs.Job.JobDao.GetAllJObData();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Get All Data
+        /// </summary>
         public static DataTable GetAllData(int companyId)
         {
             try
@@ -105,6 +120,23 @@ namespace JobPortal_Services.Job
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Get All Data
+        /// </summary>
+        public static DataTable SearchActiveData(string title)
+        {
+            try
+            {
+                return JobPortal_DAOs.Job.JobDao.SearchActiveData(title);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         /// <summary>
         /// Get All Data
         /// </summary>

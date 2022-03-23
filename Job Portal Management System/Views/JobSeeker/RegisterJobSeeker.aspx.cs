@@ -18,7 +18,11 @@ namespace Job_Portal_Management_System.Views.JobSeeker
 
         protected void Page_Load(object sender, EventArgs e)
         {
-         }
+            if (!IsPostBack)
+            {
+                bindSkill();
+            }
+        }
 
         #region InsertData
         /// <summary>
@@ -63,6 +67,17 @@ namespace Job_Portal_Management_System.Views.JobSeeker
         }
         #endregion
 
+        public void bindSkill()
+        {
+            da = JobPortal_Services.Skill.SkillServices.GetAllData();
+            if (da.Rows.Count > 0)
+            {
+                lbSkill.DataSource = da;
+                lbSkill.DataValueField = "id";
+                lbSkill.DataTextField = "skill";
+                lbSkill.DataBind();
+            }
+        }
 
         protected void ddlDegree_SelectedIndexChanged(object sender, EventArgs e)
         {

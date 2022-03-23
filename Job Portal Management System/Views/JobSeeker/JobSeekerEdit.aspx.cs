@@ -23,6 +23,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
 
             if (!IsPostBack)
             {
+                bindSkill();
                 int id = Convert.ToInt32(Request.QueryString["ID"]);
                 SqlDataReader dr = JobPortal_Services.JobSeeker.JobSeekerService.ReadData(id);
                 while (dr.Read())
@@ -51,6 +52,18 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                     txtDegree.Text = dr["degree_name"].ToString();
                     txtDetail.Text = dr["detail"].ToString();
                 }
+            }
+        }
+
+        public void bindSkill()
+        {
+            da = JobPortal_Services.Skill.SkillServices.GetAllData();
+            if (da.Rows.Count > 0)
+            {
+                lbSkill.DataSource = da;
+                lbSkill.DataValueField = "id";
+                lbSkill.DataTextField = "skill";
+                lbSkill.DataBind();
             }
         }
 

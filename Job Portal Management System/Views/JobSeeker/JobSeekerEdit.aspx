@@ -60,11 +60,6 @@
 <div class="form-group">
     <label for="lbSkill">Skill</label>
     <asp:ListBox ID="lbSkill" runat="server" CssClass="form-control" SelectionMode="Multiple">
-        <asp:ListItem>C#</asp:ListItem>
-        <asp:ListItem>Java</asp:ListItem>
-        <asp:ListItem>Python</asp:ListItem>
-        <asp:ListItem>PHP</asp:ListItem>
-        <asp:ListItem></asp:ListItem>
 
     </asp:ListBox>
      <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="lbSkill" ForeColor="Red">Please select your skill</asp:RequiredFieldValidator>
