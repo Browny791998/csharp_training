@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 class="text-center text-warning" style="padding-bottom: 80px">Country List</h1>
+    <h1 class="text-center text-warning mt-3">Country List</h1>
     <div class="list-sec container">
         <%if (Session["alert"] != null && Session["alert-type"] != null)
             {
