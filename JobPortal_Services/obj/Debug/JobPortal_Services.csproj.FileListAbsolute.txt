@@ -9,3 +9,14 @@ D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Services\obj\Debug\JobP
 D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Services\obj\Debug\JobPortal_Services.csproj.CopyComplete
 D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Services\obj\Debug\JobPortal_Services.dll
 D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_Services\obj\Debug\JobPortal_Services.pdb
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_Services\bin\Debug\JobPortal_Services.dll
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_Services\bin\Debug\JobPortal_Services.pdb
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_Services\bin\Debug\JobPortal_DAOs.dll
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_Services\bin\Debug\JobPortal_Models.dll
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_Services\bin\Debug\JobPortal_DAOs.pdb
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_Services\bin\Debug\JobPortal_Models.pdb
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_Services\obj\Debug\JobPortal_Services.csprojAssemblyReference.cache
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_Services\obj\Debug\JobPortal_Services.csproj.CoreCompileInputs.cache
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_Services\obj\Debug\JobPortal_Services.csproj.CopyComplete
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_Services\obj\Debug\JobPortal_Services.dll
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_Services\obj\Debug\JobPortal_Services.pdb

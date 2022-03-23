@@ -7,3 +7,12 @@ D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_DAOs\obj\Debug\JobPorta
 D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.csproj.CopyComplete
 D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.dll
 D:\Webproject\SCMTraining\Day1\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.pdb
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_DAOs\bin\Debug\JobPortal_DAOs.dll
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_DAOs\bin\Debug\JobPortal_DAOs.pdb
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_DAOs\bin\Debug\JobPortal_Models.dll
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_DAOs\bin\Debug\JobPortal_Models.pdb
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.csprojAssemblyReference.cache
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.csproj.CoreCompileInputs.cache
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.csproj.CopyComplete
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.dll
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\JobPortal_DAOs\obj\Debug\JobPortal_DAOs.pdb
