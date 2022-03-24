@@ -17,7 +17,7 @@ namespace JobPortal_Models.Company
         private int _countryid;
         private string _address;
         private string _contactperson;
-        private int _mobile;
+        private Int64 _mobile;
         private string _email;
         private string _password;
         private string _website;
@@ -48,7 +48,7 @@ namespace JobPortal_Models.Company
             _updatedddate = DateTime.Now;
         }
 
-        public void PostData(int id, string name,int country_id,string address, string contact_person, int mobile, string email,string password,string website, string role, string detail,DateTime createddate, DateTime updateddate)
+        public void PostData(int id, string name,int country_id,string address, string contact_person, Int64 mobile, string email,string password,string website, string role, string detail,DateTime createddate, DateTime updateddate)
         {
             _id = id;
             _name = name;
@@ -153,7 +153,7 @@ namespace JobPortal_Models.Company
         /// Gets or sets the <b>_movie</b> attribute value.
         /// </summary>
         /// <value>The <b>_movie</b> attribute value.</value>
-        public int Mobile
+        public Int64 Mobile
         {
             get
             {

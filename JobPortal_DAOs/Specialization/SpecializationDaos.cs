@@ -86,7 +86,7 @@ namespace JobPortal_DAOs.Specialization
         {
             try
             {
-                return Common.HelperDao.GetData("Select specialization from tbl_specialization where specialization='" + specialization + "'", CommandType.Text);
+                return Common.HelperDao.GetData("Select specialization from tbl_specialization where specialization COLLATE Latin1_General_CS_AS='" + specialization + "'", CommandType.Text);
             }
             catch (Exception ex)
             {

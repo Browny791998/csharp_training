@@ -30,7 +30,7 @@ namespace Job_Portal_Management_System.Views.Company
             companymodel.CountryID= Convert.ToInt32(ddlCountry.SelectedValue);
             companymodel.Address = txtAddress.Text;
            companymodel.ContactPerson = txtContactPerson.Text;
-           companymodel.Mobile = Convert.ToInt32(txtMobile.Text);
+           companymodel.Mobile = Convert.ToInt64(txtMobile.Text);
             companymodel.Email = txtEmail.Text;
             companymodel.Password = EncryptPassword(txtPassword.Text);
             companymodel.Website = txtWebsite.Text;

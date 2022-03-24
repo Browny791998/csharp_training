@@ -16,10 +16,9 @@ namespace JobPortal_DAOs.Position
         {
             try
             {
-                var arr = new object[4];
-                arr[0] = position.ID;
-                arr[1] = position.Position_Name;
-                bool num = Common.HelperDao.Insert(arr, "id,position", "tbl_position");
+                var arr = new object[2];
+                arr[0] = position.Position_Name;
+                bool num = Common.HelperDao.Insert(arr, "position", "tbl_position");
                 if (num)
                 {
                     return true;
@@ -83,7 +82,7 @@ namespace JobPortal_DAOs.Position
         {
             try
             {
-                return Common.HelperDao.GetData("Select position from tbl_position where position='" + job_nature + "'", CommandType.Text);
+                return Common.HelperDao.GetData("Select position from tbl_position where position COLLATE Latin1_General_CS_AS='" + job_nature + "'", CommandType.Text);
             }
             catch (Exception ex)
             {

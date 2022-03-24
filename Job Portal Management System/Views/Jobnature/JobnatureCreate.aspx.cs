@@ -27,6 +27,12 @@ namespace Job_Portal_Management_System.Views.Jobnature
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["action"] == "add")
+            {
+                Session.Remove("label");
+              lblJobnature.Text = "Add Jobnature";
+
+            }
             if (Session["label"] != null)
             {
                 string label = Session["label"].ToString();

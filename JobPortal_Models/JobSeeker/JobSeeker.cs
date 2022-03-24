@@ -15,7 +15,7 @@ namespace JobPortal_Models.JobSeeker
         private int _id;
         private string _name;
         private string _address;
-        private int _mobile;
+        private Int64 _mobile;
         private string _gender;
         private DateTime _dob;
         private string _skill;
@@ -58,7 +58,7 @@ namespace JobPortal_Models.JobSeeker
         _updatedddate=DateTime.Now;
     }
 
-        public void PostData(int id, string name,string address,int mobile,string gender,DateTime dob,string skill,string experience,string degree,string degreename,string cvform,string profile,string email,string password,string detail,string role,DateTime createddate,DateTime updateddate)
+        public void PostData(int id, string name,string address,Int64 mobile,string gender,DateTime dob,string skill,string experience,string degree,string degreename,string cvform,string profile,string email,string password,string detail,string role,DateTime createddate,DateTime updateddate)
         {
             _id = id;
             _name = name;
@@ -135,7 +135,7 @@ namespace JobPortal_Models.JobSeeker
         /// Gets or sets the <b>_movie</b> attribute value.
         /// </summary>
         /// <value>The <b>_movie</b> attribute value.</value>
-        public int Mobile
+        public Int64 Mobile
         {
             get
             {

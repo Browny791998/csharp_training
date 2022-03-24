@@ -27,6 +27,11 @@ namespace Job_Portal_Management_System.Views.Specialization
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["action"] == "add")
+            {
+                Session.Remove("label");
+                lblSpecialization.Text = "Add Specialization";
+            }
             if (Session["label"] != null)
             {
                 string label = Session["label"].ToString();
@@ -35,6 +40,7 @@ namespace Job_Portal_Management_System.Views.Specialization
                     lblSpecialization.Text = "Add Specialization";
                     if (!IsPostBack)
                     {
+
                     }
                 }
                 else if (label == "update")

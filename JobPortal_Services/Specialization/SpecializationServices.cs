@@ -69,7 +69,7 @@ namespace JobPortal_Services.Specialization
         {
             try
             {
-                return JobPortal_DAOs.Specialization.SpecializationDaos.GetData(specialization);
+    return JobPortal_DAOs.Specialization.SpecializationDaos.GetData(specialization.ToString().Replace("'", "''"));
             }
             catch (Exception ex)
             {
@@ -99,7 +99,7 @@ namespace JobPortal_Services.Specialization
         {
             try
             {
-                return JobPortal_DAOs.Specialization.SpecializationDaos.GetSearchData(str);
+                return JobPortal_DAOs.Specialization.SpecializationDaos.GetSearchData(str.ToString().Replace("'", "''"));
             }
             catch (Exception ex)
             {

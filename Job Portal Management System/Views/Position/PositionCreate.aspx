@@ -12,12 +12,13 @@
             <div class="card col-md-6 mx-auto mt-5">
                 <div class="card-body">
                     <h1 class="card-title text-center" style="font-size: 24px;">
-                        <asp:Label ID="lblPosition" runat="server" Text="Add Position"></asp:Label></h1>
+                        <asp:Label ID="lblPosition" runat="server"></asp:Label></h1>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Position</label>
                         <span class="fill">*</span>
                         <asp:TextBox ID="txtPosition" runat="server" CssClass="form-control"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPosition" ErrorMessage="Please fill position" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPosition" ErrorMessage="Please fill position" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="special charater doesn't allow" ForeColor="Red" ControlToValidate="txtPosition" ValidationExpression="^[a-zA-Z'.\s]{1,40}$" Display="Dynamic"></asp:RegularExpressionValidator>
                     </div>
                     <div class="text-center">
                         <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary mr-2" OnClick="btnSubmit_Click" />
@@ -26,17 +27,6 @@
                     </div>
                 </div>
             </div>
-            <%--     <div class="col-md-6">
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Country</label>
-                    <span class="fill">*</span>
-                    <asp:TextBox ID="txtCountry" runat="server" CssClass="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCountry" ErrorMessage="Please fill country" ForeColor="Red"></asp:RequiredFieldValidator>
-                </div>
-                <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click" />
-                <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-info" OnClick="btnClear_Click" CausesValidation="False" />
-                <asp:Button ID="btnBack" runat="server" Text="Back" CssClass="btn btn-info" OnClick="btnBack_Click" CausesValidation="False" />
-            </div>--%>
         </div>
     </div>
 </asp:Content>

@@ -82,7 +82,7 @@ namespace JobPortal_DAOs.Country
         {
             try
             {
-                return Common.HelperDao.GetData("Select country from tbl_country where country='" + country + "'", CommandType.Text);
+                return Common.HelperDao.GetData("Select country from tbl_country where country COLLATE Latin1_General_CS_AS='" + country + "'", CommandType.Text);
             }
             catch (Exception ex)
             {

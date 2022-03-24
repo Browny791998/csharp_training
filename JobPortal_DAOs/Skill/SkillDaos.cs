@@ -82,7 +82,7 @@ namespace JobPortal_DAOs.Skill
         {
             try
             {
-                return Common.HelperDao.GetData("Select skill from tbl_skill where skill='" + job_nature + "'", CommandType.Text);
+                return Common.HelperDao.GetData("Select skill from tbl_skill where skill COLLATE Latin1_General_CS_AS='" + job_nature + "'", CommandType.Text);
             }
             catch (Exception ex)
             {

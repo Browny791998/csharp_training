@@ -113,21 +113,38 @@ namespace Job_Portal_Management_System.Views.User
             this.GetData();
         }
 
-        
+   
         protected void btnSend_Click(object sender, EventArgs e)
         {
-            da = JobPortal_Services.JobOffer.JobOfferService.GetAllJobOffer();
-          for(int i = 0; i < da.Rows.Count; i++)
+            bool accept;
+            if (rdoAccept.Checked == true)
             {
-             
+                status = 1;
+            }
+            else if(rdoReject.Checked == true)
+            {
+                status = 0;
+            }
+            da = JobPortal_Services.JobOffer.JobOfferService.GetSearchAllAcceptData(status, txtSearch.Text, ddlCompany.SelectedItem.ToString());
+            for (int i = 0; i < da.Rows.Count; i++)
+            {
+                
                 string applier = da.Rows[i]["seeker"].ToString();
                 string mails = da.Rows[i]["seekermail"].ToString();
                 string company = da.Rows[i]["company"].ToString();
-                SendEmail(applier, mails,company);
+                if(da.Rows[i]["Accept"].ToString()== "Accepted")
+                {
+                    accept = true;
+                }
+                else
+                {
+                    accept = false;
+                }
+                SendEmail(applier, mails, company,accept);
             }
         }
 
-        private void SendEmail(string name,string email,string company)
+        private void SendEmail(string name,string email,string company,bool accept)
         {
             DataTable dt = new DataTable();
 
@@ -139,12 +156,27 @@ namespace Job_Portal_Management_System.Views.User
             ListDictionary replacements = new ListDictionary();
             replacements.Add("{name}",name);
             replacements.Add("{company}", company);
-
-            string body = "<center><h1>Job Reply</h1></center>";
-            body += "<h3>Hello {name} </h3>";
-            body += "<p>{company} reviewed your cv and agree to make an appointment with you</p>";
-            body += "<p>Best Regards</p>";
-            body += "<p>Brilliant Job</p>";
+            string body;
+            if (accept)
+            {
+                body = "<center><h1>Job Reply</h1></center>";
+                body += "<h3>Hello {name} </h3>";
+                body += "<p><b>{company}</b> reviewed your cv and agree to make an appointment with you</p>";
+                body += "<p>Best Regards</p>";
+                body += "<p>🏢Brilliant Job</p>";
+            }
+            else
+            {
+                 body = "<center><h1>Job Reply</h1></center>";
+                body += "<h3>Hello {name} </h3>";
+                body += "<p><b>{company}</b> reviewd your CV</p>";
+                body += "<p>We are really sorry.</p>";
+                body += "<p>Unfortunately,you are rejected</p>";
+                body += "<p>Please try again next time,Good Luck!</p>";
+                body += "<p>Best Regards</p>";
+                body += "<p>🏢Brilliant Job</p>";
+            }
+           
 
             MailMessage msg = md.CreateMailMessage(email, replacements, body, new System.Web.UI.Control());
             SmtpClient smtp = new SmtpClient();
@@ -156,29 +188,7 @@ namespace Job_Portal_Management_System.Views.User
             smtp.Port = 587;
             smtp.Send(msg);
 
-            //StringBuilder sb = new StringBuilder();
-            //sb.Append("<center><h1>Job Reply</h1></center>");
-            //sb.Append("<h3>Hello {name} </h3>");
-            //sb.Append("<p>{company} reviewed your cv and agree to make an appointment with you</p>");
-            //sb.Append("<p>Best Regards</p>");
-            //sb.Append("<p>Brilliant Job</p>");
-            //sb = sb.Replace("{name}", name);
-            //sb = sb.Replace("{company}",company);
-
-            //using (MailMessage mm = new MailMessage("sender@gmail.com", email))
-            //{
-            //    mm.Subject = "Job Reply";
-            //    mm.Body = sb.ToString();
-            //    SmtpClient smtp = new SmtpClient();
-            //    smtp.Host = "smtp.gmail.com";
-            //    smtp.EnableSsl = true;
-            //    NetworkCredential NetworkCred = new NetworkCredential("sender@gmail.com", "password");
-            //    smtp.UseDefaultCredentials = true;
-            //    smtp.Credentials = NetworkCred;
-            //    smtp.Port = 587;
-            //    smtp.Send(mm);
-
-            //}
+            
 
 
         }

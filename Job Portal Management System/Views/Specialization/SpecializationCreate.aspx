@@ -12,12 +12,13 @@
             <div class="card col-md-6 mx-auto mt-5">
                 <div class="card-body">
                     <h1 class="card-title text-center" style="font-size: 24px;">
-                        <asp:Label ID="lblSpecialization" runat="server" Text="Add Specialization"></asp:Label></h1>
+                        <asp:Label ID="lblSpecialization" runat="server"></asp:Label></h1>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Specialization</label>
                         <span class="fill">*</span>
                         <asp:TextBox ID="txtSpecialization" runat="server" CssClass="form-control"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtSpecialization" ErrorMessage="Please fill specialization" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtSpecialization" ErrorMessage="Please fill specialization" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="special charater doesn't allow" ForeColor="Red" ControlToValidate="txtSpecialization" ValidationExpression="^[a-zA-Z'.\s]{1,40}$" Display="Dynamic"></asp:RegularExpressionValidator>
                     </div>
                     <div class="text-center">
                         <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary mr-2" OnClick="btnSubmit_Click" />

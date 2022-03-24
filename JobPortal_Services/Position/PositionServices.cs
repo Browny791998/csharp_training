@@ -65,7 +65,7 @@ namespace JobPortal_Services.Position
         {
             try
             {
-                return JobPortal_DAOs.Position.PositionDaos.GetData(position);
+         return JobPortal_DAOs.Position.PositionDaos.GetData(position.ToString().Replace("'", "''"));
             }
             catch (Exception ex)
             {
@@ -95,7 +95,7 @@ namespace JobPortal_Services.Position
         {
             try
             {
-                return JobPortal_DAOs.Position.PositionDaos.GetSearchData(str);
+         return JobPortal_DAOs.Position.PositionDaos.GetSearchData(str.ToString().Replace("'", "''"));
             }
             catch (Exception ex)
             {

@@ -82,7 +82,7 @@ namespace JobPortal_DAOs.Jobnature
         {
             try
             {
-                return Common.HelperDao.GetData("Select job_nature from tbl_jobnature where job_nature='" + job_nature + "'", CommandType.Text);
+                return Common.HelperDao.GetData("Select job_nature from tbl_jobnature where job_nature COLLATE Latin1_General_CS_AS='" + job_nature + "'", CommandType.Text);
             }
             catch (Exception ex)
             {

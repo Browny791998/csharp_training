@@ -27,6 +27,12 @@ namespace Job_Portal_Management_System.Views.Country
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Request.QueryString["action"] == "add")
+            {
+                Session.Remove("label");
+                lblCountry.Text = "Add Country";
+
+            }
             if (Session["label"] != null)
             {
                 string label = Session["label"].ToString();
@@ -36,6 +42,7 @@ namespace Job_Portal_Management_System.Views.Country
                     if (!IsPostBack)
                     {
                     }
+                    
                 }
                 else if (label == "update")
                 {
@@ -90,6 +97,8 @@ namespace Job_Portal_Management_System.Views.Country
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
+      
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             if (hfCountry.Value == "")
@@ -117,7 +126,7 @@ namespace Job_Portal_Management_System.Views.Country
                         Session["alert"] = "Adding failed. Try again!!";
                         Session["alert-type"] = "danger";
                         Response.Redirect("CountryList.aspx");
-                    }
+                }
                 }
             }
             else

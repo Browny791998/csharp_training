@@ -30,9 +30,11 @@ namespace Job_Portal_Management_System.Views.JobSeeker
         /// </summary>
         private void InsertData()
         {
+            string ext;
+            bool isValidFile;
             jobseekermodel.Name = txtName.Text;
             jobseekermodel.Address = txtAddress.Text;
-            jobseekermodel.Mobile = Convert.ToInt32(txtMobile.Text);
+            jobseekermodel.Mobile = Convert.ToInt64(txtMobile.Text);
             jobseekermodel.Gender = ddlgender.SelectedValue;
             jobseekermodel.DOB = Convert.ToDateTime(txtDate.Text);
             string strskill = string.Empty;
@@ -51,20 +53,56 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 txtDegree.Text = "Student";
             }
             jobseekermodel.DegreeName = txtDegree.Text;
-            fuCV.SaveAs(Server.MapPath("~/CV/") + Path.GetFileName(fuCV.FileName));
-            string cvform = "CV/" + Path.GetFileName(fuCV.FileName);
-            jobseekermodel.CVForm = cvform;
-          fuProfile.SaveAs(Server.MapPath("~/Profile/") + Path.GetFileName(fuProfile.FileName));
-            string image = "~/Profile/" + Path.GetFileName(fuProfile.FileName);
-            jobseekermodel.Profile = image;
+            string[] validCVFileTypes = { "doc", "docx" };
+           ext = System.IO.Path.GetExtension(fuCV.PostedFile.FileName);
+           isValidFile = false;
+            for (int i = 0; i < validCVFileTypes.Length; i++)
+            {
+                if (ext == "." + validCVFileTypes[i])
+                {
+                    isValidFile = true;
+                    break;
+                }
+            }
+            if (!isValidFile)
+            {
+
+                jobseekermodel.CVForm = null;
+            }
+            else
+            {
+                fuCV.SaveAs(Server.MapPath("~/CV/") + Path.GetFileName(fuCV.FileName));
+                string cvform = "CV/" + Path.GetFileName(fuCV.FileName);
+                jobseekermodel.CVForm = cvform;
+        }
+            string[] validImageFileTypes = { "png", "jpg", "jpeg" };
+            ext = System.IO.Path.GetExtension(fuProfile.PostedFile.FileName);
+            isValidFile = false;
+            for (int i = 0; i < validImageFileTypes.Length; i++)
+            {
+                if (ext == "." + validImageFileTypes[i])
+                {
+                    isValidFile = true;
+                    break;
+                }
+            }
+            if (!isValidFile)
+            {
+             jobseekermodel.Profile= null;
+            }
+            else
+            {
+                fuProfile.SaveAs(Server.MapPath("~/Profile/") + Path.GetFileName(fuProfile.FileName));
+                string image = "~/Profile/" + Path.GetFileName(fuProfile.FileName);
+                jobseekermodel.Profile = image;
+            }
             jobseekermodel.Email = txtEmail.Text;
             jobseekermodel.Password = EncryptPassword(txtPassword.Text);
             jobseekermodel.Detail = txtDetail.Text;
             jobseekermodel.Role = "Job Seeker";
             jobseekermodel.CreatedDate = DateTime.Now;
             jobseekermodel.UpdatedDate = DateTime.Now;
-
-        }
+         }
         #endregion
 
         public void bindSkill()
@@ -81,7 +119,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
 
         protected void ddlDegree_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddlDegree.SelectedItem.Value == "Graduate")
+            if (ddlDegree.SelectedItem.Value == "1")
             {
                 pnldegree.Visible = true;
             }
@@ -102,18 +140,33 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             else
             {
                 InsertData();
-                bool success = JobPortal_Services.JobSeeker.JobSeekerService.Insert(jobseekermodel);
-                if (success)
+                if (jobseekermodel.CVForm == null)
                 {
-                    Session["alert"] = "Successfully registered";
-                    Session["alert-type"] = "success";
-                    ClearFields();
+                    Session["alert"] = "CV Form File Type is invalid";
+                    Session["alert-type"] = "warning";
+                    return;
+                }else if(jobseekermodel.Profile == null)
+                {
+                    Session["alert"] = "Profile File Type is invalid";
+                    Session["alert-type"] = "warning";
+                    return;
                 }
                 else
                 {
-                    Session["alert"] = "Failed registering";
-                    Session["alert-type"] = "danger";
+                    bool success = JobPortal_Services.JobSeeker.JobSeekerService.Insert(jobseekermodel);
+                    if (success)
+                    {
+                        Session["alert"] = "Successfully registered";
+                        Session["alert-type"] = "success";
+                        ClearFields();
+                    }
+                    else
+                    {
+                        Session["alert"] = "Failed registering";
+                        Session["alert-type"] = "danger";
+                    }
                 }
+                
             }
            
         }

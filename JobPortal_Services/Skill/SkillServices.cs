@@ -65,7 +65,7 @@ namespace JobPortal_Services.Skill
         {
             try
             {
-                return JobPortal_DAOs.Skill.SkillDaos.GetData(skill);
+                return JobPortal_DAOs.Skill.SkillDaos.GetData(skill.ToString().Replace("'", "''"));
             }
             catch (Exception ex)
             {
@@ -95,7 +95,7 @@ namespace JobPortal_Services.Skill
         {
             try
             {
-                return JobPortal_DAOs.Skill.SkillDaos.GetSearchData(str);
+                return JobPortal_DAOs.Skill.SkillDaos.GetSearchData(str.ToString().Replace("'", "''"));
             }
             catch (Exception ex)
             {

@@ -95,6 +95,7 @@
     <label for="fuCV">CV Form</label>
             <asp:FileUpload ID="fuCV" runat="server" CssClass="form-control pb-3" />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="fuCV" ForeColor="Red">please upload your cv</asp:RequiredFieldValidator>
+            
           </div>
         <div class="form-group">
     <label for="fuProfile">Profile</label>

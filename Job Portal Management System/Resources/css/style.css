@@ -138,3 +138,19 @@ footer {
             background-color: #eeeeee;
             border-color: #dddddd;
         }
+
+
+.dropdownItem {
+    display: block;
+    text-align: center;
+    padding: 3px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0;
+    padding:10px;
+}
+.dropdownItem:hover {
+      color:black;
+        background-color:cornflowerblue;
+        text-decoration: none;
+    }

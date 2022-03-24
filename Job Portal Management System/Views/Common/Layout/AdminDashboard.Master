@@ -102,90 +102,87 @@
             </div>--%>
 
                 <!-- Nav Item - Country Collapse Menu -->
-                <li class="nav-item">
+                <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCountry"
                         aria-expanded="true" aria-controls="collapseCountry">
                         <i class="fas fa-fw fa-cog"></i>
                         <span>Country</span>
                     </a>
-                    <div id="collapseCountry" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="py-2 collapse-inner rounded bg-gradient-primary text-white">
-                            <h6 class="collapse-header text-white">Manage Countries</h6>
-                            <a class="collapse-item text-white" href="../Country/CountryList.aspx">Country List</a>
-                            <a class="collapse-item text-white" href="../Country/CountryCreate.aspx">Create Country</a>
-                        </div>
+                    <div id="collapseCountry" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                            <a class="dropdownItem text-white" href="../Country/CountryList.aspx" >Country List</a>
+                            <a class="dropdownItem collapse-item text-white" href="../Country/CountryCreate.aspx?action=add">Create Country</a>
                     </div>
                 </li>
 
-                <!-- Nav Item - Position Collapse Menu -->
-                <li class="nav-item">
+               <!-- Nav Item - Position Collapse Menu -->
+                <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePosition"
-                        aria-expanded="true" aria-controls="collapsePosition">
+                        aria-expanded="true" aria-controls="collapseCountry">
                         <i class="fas fa-fw fa-cog"></i>
                         <span>Position</span>
                     </a>
-                    <div id="collapsePosition" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="py-2 collapse-inner rounded bg-gradient-primary">
-                            <h6 class="collapse-header text-white">Manage Positions</h6>
-                            <a class="collapse-item text-white" href="../Position/PositionList.aspx">Position List</a>
-                            <a class="collapse-item text-white" href="../Position/PositionCreate.aspx">Create Position</a>
-                        </div>
+                    <div id="collapsePosition" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapsePosition">
+                        <a class="dropdownItem text-white" href="../Position/PositionList.aspx">Position List</a>
+                            <a class="dropdownItem text-white" href="../Position/PositionCreate.aspx?action=add">Create Position</a>
                     </div>
                 </li>
 
-                <!-- Nav Item - Job Nature Collapse Menu -->
-                <li class="nav-item">
+             <!-- Nav Item - Job Nature Collapse Menu -->
+                <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseJobnature"
                         aria-expanded="true" aria-controls="collapseJobnature">
-                        <i class="fas fa-fw fa-wrench"></i>
+                        <i class="fas fa-fw fa-cog"></i>
                         <span>Job Nature</span>
                     </a>
-                    <div id="collapseJobnature" class="collapse" aria-labelledby="headingUtilities"
-                        data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded bg-gradient-primary">
-                            <h6 class="collapse-header text-white">Manage Job Nature</h6>
-                            <a class="collapse-item text-white" href="../Jobnature/JobnatureList.aspx">Job Nature List</a>
-                            <a class="collapse-item text-white" href="../Jobnature/JobnatureCreate.aspx">Create Job Nature</a>
-                        </div>
+                    <div id="collapseJobnature" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapseJobnature">
+                        <a class="dropdownItem text-white" href="../Jobnature/JobnatureList.aspx">Job Nature List</a>
+                            <a class="dropdownItem text-white" href="../Jobnature/JobnatureCreate.aspx?action=add">Create Job Nature</a>
                     </div>
                 </li>
 
-                <!-- Nav Item -Skill Collapse Menu -->
-                <li class="nav-item">
+               <!-- Nav Item -Skill Collapse Menu -->
+                <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSkill"
                         aria-expanded="true" aria-controls="collapseSkill">
-                        <i class="fas fa-fw fa-wrench"></i>
+                        <i class="fas fa-fw fa-cog"></i>
                         <span>Skill</span>
                     </a>
-                    <div id="collapseSkill" class="collapse" aria-labelledby="headingUtilities"
-                        data-parent="#accordionSidebar">
-                        <div class="py-2 collapse-inner rounded bg-gradient-primary">
-                            <h6 class="collapse-headery text-white">Manage Skill</h6>
-                            <a class="collapse-item text-white" href="../Skill/SkillList.aspx">Skill List</a>
-                            <a class="collapse-item text-white" href="../Skill/SkillCreate.aspx">Create Skill</a>
-                        </div>
+                    <div id="collapseSkill" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapseSkill">
+                         <a class="dropdownItem text-white" href="../Skill/SkillList.aspx">Skill List</a>
+                            <a class="dropdownItem text-white" href="../Skill/SkillCreate.aspx?action=add">Create Skill</a>
                     </div>
                 </li>
 
-                <!-- Nav Item -Specialization Collapse Menu -->
-                <li class="nav-item">
+                  <!-- Nav Item -Specialization Collapse Menu -->
+                 <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSpecialization"
                         aria-expanded="true" aria-controls="collapseSpecialization">
-                        <i class="fas fa-fw fa-wrench"></i>
+                        <i class="fas fa-fw fa-cog"></i>
                         <span>Specialization</span>
                     </a>
-                    <div id="collapseSpecialization" class="collapse" aria-labelledby="headingUtilities"
-                        data-parent="#accordionSidebar">
-                        <div class="py-2 collapse-inner rounded bg-gradient-primary">
-                            <h6 class="collapse-header text-white">Manage Specialization</h6>
-                            <a class="collapse-item text-white" href="../Specialization/SpecializationList.aspx">Specialization List</a>
-                            <a class="collapse-item text-white" href="../Specialization/SpecializationCreate.aspx">Create Specialization</a>
-                        </div>
+                    <div id="collapseSpecialization" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapseSpecialization">
+                        <a class="dropdownItem text-white" href="../Specialization/SpecializationList.aspx">Specialization List</a>
+                            <a class="dropdownItem text-white" href="../Specialization/SpecializationCreate.aspx?action=add">Create Specialization</a>
+                    </div>
+                </li>
+
+               <!-- Nav Item -Admin Job Menu -->
+                 <li class="nav-item p-0">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseJob"
+                        aria-expanded="true" aria-controls="collapseJob">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Job Management</span>
+                    </a>
+                    <div id="collapseJob" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapseJob">
+                         <a class="dropdownItem text-white" href="../User/AdminCompanyList.aspx">Company List</a>
+                            <a class="dropdownItem text-white" href="../User/AdminJobList.aspx">Job List</a>
+                             <a class="dropdownItem text-white" href="../User/AdminJobSeekerList">Job Seeker List</a>
+                             <a class="dropdownItem text-white" href="../User/AdminJobOffer">Job Offer List</a>
                     </div>
                 </li>
 
                  <!-- Nav Item -Admin Job Menu -->
-                <li class="nav-item">
+              <%--  <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseJob"
                         aria-expanded="true" aria-controls="collapseJob">
                         <i class="fas fa-fw fa-wrench"></i>
@@ -201,7 +198,7 @@
                              <a class="collapse-item text-white" href="../User/AdminJobOffer">Job Offer List</a>
                         </div>
                     </div>
-                </li>
+                </li>--%>
 
                 <!-- Divider -->
                 <%-- <hr class="sidebar-divider">

@@ -28,9 +28,9 @@
 
         <div class="row">
 
-             <div class="col-md-10 offset-md-3">
+             <div class="col-md-10">
                 
-                <asp:Label ID="Label2" runat="server" CssClass="font-weight-bold" Text="Label">Country Name</asp:Label>
+                <asp:Label ID="Label2" runat="server" CssClass="font-weight-bold mr-4" Text="Label">Country Name</asp:Label>
                   <asp:TextBox ID="txtSearch" runat="server" Style="padding: 5px 35px 5px 13px; outline: none;"  OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
                <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
                    <asp:Button ID="btnAdd" runat="server" Text="Add Country" CssClass="btn btn-primary" OnClick="btnAdd_Click" />
@@ -53,7 +53,7 @@
                                 <asp:Label ID="lblRowNumber" Text='<%# Container.DataItemIndex + 1 %>' runat="server" />
                             </ItemTemplate>
 
-                            <ItemStyle Width="5px" HorizontalAlign="Center"></ItemStyle>
+                            <ItemStyle Width="5px" HorizontalAlign="Left"></ItemStyle>
                         </asp:TemplateField>
                         <asp:TemplateField ItemStyle-Width="20%">
                             <HeaderTemplate>

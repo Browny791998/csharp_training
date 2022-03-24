@@ -9,17 +9,21 @@
             <%--           <h1>
                 <asp:Label ID="lblCountry" runat="server" Text="Add Country"></asp:Label></h1>--%>
             <asp:Label ID="LblMessage" runat="server" Text="Label" Visible="False"></asp:Label>
-            <div class="card col-md-6 mx-auto mt-5">
+            <div class="card col-md-11 ml-5 mt-5 p-3" style="height:80vh;">
                 <div class="card-body">
                     <h1 class="card-title text-center" style="font-size: 24px;">
-                        <asp:Label ID="lblCountry" runat="server" Text="Add Country"></asp:Label></h1>
-                    <div class="form-group">
+                        <asp:Label ID="lblCountry" runat="server"></asp:Label></h1>
+                    <div class="row">
+                         <div class="form-group col-md-6" style="margin-top:50px;">
                         <label for="exampleInputPassword1">Country</label>
                         <span class="fill">*</span>
                         <asp:TextBox ID="txtCountry" runat="server" CssClass="form-control"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCountry" ErrorMessage="Please fill country" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCountry" ErrorMessage="Please fill country" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="special charater doesn't allow" ForeColor="Red" ControlToValidate="txtCountry" ValidationExpression="^[a-zA-Z'.\s]{1,40}$" Display="Dynamic"></asp:RegularExpressionValidator>
                     </div>
-                    <div class="text-center">
+                    </div>
+                   
+                    <div>
                         <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary mr-2" OnClick="btnSubmit_Click" />
                         <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-info mr-2" OnClick="btnClear_Click" CausesValidation="False" />
                         <asp:Button ID="btnBack" runat="server" Text="Back" CssClass="btn btn-dark text-white" OnClick="btnBack_Click" CausesValidation="False" />

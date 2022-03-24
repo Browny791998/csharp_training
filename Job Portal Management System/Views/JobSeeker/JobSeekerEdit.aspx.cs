@@ -69,7 +69,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
 
         protected void ddlDegree_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddlDegree.SelectedItem.Value == "Graduate")
+            if (ddlDegree.SelectedItem.Value == "1")
             {
                 pnldegree.Visible = true;
             }
@@ -85,10 +85,12 @@ namespace Job_Portal_Management_System.Views.JobSeeker
         /// </summary>
         private void UpdateData()
         {
+            string ext;
+            bool isValidFile;
             jobseekermodel.ID = Convert.ToInt32(Request.QueryString["ID"]);
             jobseekermodel.Name = txtName.Text;
             jobseekermodel.Address = txtAddress.Text;
-            jobseekermodel.Mobile = Convert.ToInt32(txtMobile.Text);
+            jobseekermodel.Mobile = Convert.ToInt64(txtMobile.Text);
             jobseekermodel.Gender = ddlgender.SelectedValue;
             jobseekermodel.DOB = Convert.ToDateTime(txtDate.Text);
             string strskill = string.Empty;
@@ -113,15 +115,35 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             }
             else
             {
-                string cvpath = Server.MapPath(hfCV.Value);
-                FileInfo file = new FileInfo(cvpath);
-                if (file.Exists)
+                string[] validCVFileTypes = { "doc", "docx" };
+                ext = System.IO.Path.GetExtension(fuCV.PostedFile.FileName);
+                isValidFile = false;
+                for (int i = 0; i < validCVFileTypes.Length; i++)
                 {
-                    file.Delete();
+                    if (ext == "." + validCVFileTypes[i])
+                    {
+                        isValidFile = true;
+                        break;
+                    }
                 }
-                fuCV.SaveAs(Server.MapPath("~/CV/") + Path.GetFileName(fuCV.FileName));
-                string cvform = "~/CV/" + Path.GetFileName(fuCV.FileName);
-                jobseekermodel.CVForm = cvform;
+                if (!isValidFile)
+                {
+
+                    jobseekermodel.CVForm = null;
+                }
+                else
+                {
+                    string cvpath = Server.MapPath(hfCV.Value);
+                    FileInfo file = new FileInfo(cvpath);
+                    if (file.Exists)
+                    {
+                        file.Delete();
+                    }
+                    fuCV.SaveAs(Server.MapPath("~/CV/") + Path.GetFileName(fuCV.FileName));
+                    string cvform = "~/CV/" + Path.GetFileName(fuCV.FileName);
+                    jobseekermodel.CVForm = cvform;
+                }
+                
             }
            
             if (!fuProfile.HasFile)
@@ -130,15 +152,34 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             }
             else
             {
-                string currentpath= Server.MapPath(currentimg.ImageUrl);
-                FileInfo file = new FileInfo(currentpath);
-                if (file.Exists)
+                string[] validImageFileTypes = { "png", "jpg", "jpeg" };
+                ext = System.IO.Path.GetExtension(fuProfile.PostedFile.FileName);
+                isValidFile = false;
+                for (int i = 0; i < validImageFileTypes.Length; i++)
                 {
-                    file.Delete();
+                    if (ext == "." + validImageFileTypes[i])
+                    {
+                        isValidFile = true;
+                        break;
+                    }
                 }
-                fuProfile.SaveAs(Server.MapPath("~/Profile/") + Path.GetFileName(fuProfile.FileName));
-                string image = "~/Profile/" + Path.GetFileName(fuProfile.FileName);
-                jobseekermodel.Profile = image;
+                if (!isValidFile)
+                {
+                    jobseekermodel.Profile = null;
+                }
+                else
+                {
+                    string currentpath = Server.MapPath(currentimg.ImageUrl);
+                    FileInfo file = new FileInfo(currentpath);
+                    if (file.Exists)
+                    {
+                        file.Delete();
+                    }
+                    fuProfile.SaveAs(Server.MapPath("~/Profile/") + Path.GetFileName(fuProfile.FileName));
+                    string image = "~/Profile/" + Path.GetFileName(fuProfile.FileName);
+                    jobseekermodel.Profile = image;
+                }
+               
             }
             jobseekermodel.Detail = txtDetail.Text;
             jobseekermodel.UpdatedDate = DateTime.Now;
@@ -149,17 +190,33 @@ namespace Job_Portal_Management_System.Views.JobSeeker
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             UpdateData();
-            bool IsUpdate = JobPortal_Services.JobSeeker.JobSeekerService.Update(jobseekermodel);
-            if (IsUpdate)
+            if (jobseekermodel.CVForm == null)
             {
-                Session["alert"] = "Successfully updated your profile";
-                Session["alert-type"] = "success";
+                Session["alert"] = "CV Form File Type is invalid";
+                Session["alert-type"] = "warning";
+                return;
+            }
+            else if (jobseekermodel.Profile == null)
+            {
+                Session["alert"] = "Profile File Type is invalid";
+                Session["alert-type"] = "warning";
+                return;
             }
             else
             {
-                Session["alert"] = "failed to update your profile";
-                Session["alert-type"] = "danger";
+                bool IsUpdate = JobPortal_Services.JobSeeker.JobSeekerService.Update(jobseekermodel);
+                if (IsUpdate)
+                {
+                    Session["alert"] = "Successfully updated your profile";
+                    Session["alert-type"] = "success";
+                }
+                else
+                {
+                    Session["alert"] = "failed to update your profile";
+                    Session["alert-type"] = "danger";
+                }
             }
+           
         }
     }
 }

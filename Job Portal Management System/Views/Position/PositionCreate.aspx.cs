@@ -27,6 +27,12 @@ namespace Job_Portal_Management_System.Views.Position
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["action"] == "add")
+            {
+                Session.Remove("label");
+                lblPosition.Text = "Add Position";
+
+            }
             if (Session["label"] != null)
             {
                 string label = Session["label"].ToString();
