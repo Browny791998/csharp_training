@@ -125,7 +125,7 @@ namespace JobPortal_Services.JobOffer
         {
             try
             {
-                return JobPortal_DAOs.JobOffer.JobOfferDao.GetSearchAllJoboffer(str, company);
+     return JobPortal_DAOs.JobOffer.JobOfferDao.GetSearchAllJoboffer(str.ToString().Replace("'", "''"), company);
             }
             catch (Exception ex)
             {
@@ -140,7 +140,7 @@ namespace JobPortal_Services.JobOffer
         {
             try
             {
-                return JobPortal_DAOs.JobOffer.JobOfferDao.GetSearchAllAccept(status, search, company);
+                return JobPortal_DAOs.JobOffer.JobOfferDao.GetSearchAllAccept(status,search.ToString().Replace("'", "''"), company);
             }
             catch (Exception ex)
             {
@@ -186,7 +186,7 @@ namespace JobPortal_Services.JobOffer
         {
             try
             {
-                return JobPortal_DAOs.JobOffer.JobOfferDao.GetSearchData(str, companyID);
+     return JobPortal_DAOs.JobOffer.JobOfferDao.GetSearchData(str.ToString().Replace("'", "''"), companyID);
             }
             catch (Exception ex)
             {

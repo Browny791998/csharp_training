@@ -26,26 +26,26 @@
                 Session.Remove("alert");
                 Session.Remove("alert-type");
             } %>
-     <h1 class="text-center text-info">Your Job List</h1>
-    <div class="row mt-5 ml-5">
-        <div class="col-md-2">
-            <label for="txtSearch" class="text-dark font-weight-bold float-md-right">Job Title</label>
-            </div>
+     <h1 class="text-center text-info mt-2">Your Job List</h1>
+    <div class="row mt-5">
+       
+      <div class="col-md-2">
+          <label class="text-dark font-weight-bold float-right">Job Title</label>
+      </div>
+          <div class="col-md-4">
+             
+            <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control"></asp:TextBox>
+           
+             </div>
         <div class="col-md-3">
-      <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control"></asp:TextBox>
-      
-        </div>
-        <div class="col-md-4">
-             <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-info" OnClick="btnSearch_Click" />
-             <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="btn btn-info" OnClick="btnAdd_Click" />
+            <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-info" OnClick="btnSearch_Click" />
+              <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="btn btn-info" OnClick="btnAdd_Click" />
              <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-info" OnClick="btnClear_Click" />
         </div>
-      
-     
-  </div>
+           </div>
     <div class="row mt-5">
         <div class="col-md-12">
-            <asp:GridView ID="grvJob" runat="server"  CssClass="gvJob table table-striped table-hover" ShowHeaderWhenEmpty="true"   DataKeyNames="id" PageSize="5" AllowPaging="false" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="Both" OnRowDeleting="grvJob_RowDeleting" OnRowUpdating="grvJob_RowUpdating" OnPageIndexChanging="grvJob_PageIndexChanging">
+            <asp:GridView ID="grvJob" runat="server"  CssClass="gvJob table table-striped " ShowHeaderWhenEmpty="true"   DataKeyNames="id" PageSize="5" AllowPaging="false" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="Both" OnRowDeleting="grvJob_RowDeleting" OnRowUpdating="grvJob_RowUpdating" OnPageIndexChanging="grvJob_PageIndexChanging">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField >

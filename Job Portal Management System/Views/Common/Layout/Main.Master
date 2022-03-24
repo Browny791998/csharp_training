@@ -70,7 +70,7 @@
               <%}
                   else if(Session["role"] != null && Session["role"].ToString() == "Job Seeker" ){%>
          <a class="dropdown-item" href="../../../Views/JobSeeker/JobSeekerProfile.aspx">My Account</a>
-            <a class="dropdown-item" href="../../../Views/JobSeeker/AppliedJob.aspx">My job offer</a>
+            <a class="dropdown-item" href="../../../Views/JobSeeker/AppliedJob.aspx">My applied job</a>
              <%} %>
             <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click"
             class="dropdown-item"> Logout</asp:LinkButton>

@@ -6,8 +6,7 @@
     <div class="container">
         <div class="row">
             <asp:HiddenField ID="hfCountry" runat="server" />
-            <%--           <h1>
-                <asp:Label ID="lblCountry" runat="server" Text="Add Country"></asp:Label></h1>--%>
+           
             <asp:Label ID="LblMessage" runat="server" Text="Label" Visible="False"></asp:Label>
             <div class="card col-md-11 ml-5 mt-5 p-3" style="height:80vh;">
                 <div class="card-body">

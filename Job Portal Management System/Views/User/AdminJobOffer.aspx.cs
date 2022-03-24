@@ -176,8 +176,6 @@ namespace Job_Portal_Management_System.Views.User
                 body += "<p>Best Regards</p>";
                 body += "<p>🏢Brilliant Job</p>";
             }
-           
-
             MailMessage msg = md.CreateMailMessage(email, replacements, body, new System.Web.UI.Control());
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
@@ -187,10 +185,6 @@ namespace Job_Portal_Management_System.Views.User
             smtp.Credentials = NetworkCred;
             smtp.Port = 587;
             smtp.Send(msg);
-
-            
-
-
-        }
+         }
     }
 }

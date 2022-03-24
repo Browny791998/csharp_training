@@ -78,6 +78,7 @@ namespace Job_Portal_Management_System.Views.Joboffer
                     Session["alert"] = "fail to accept";
                     Session["alert-type"] = "danger";
                 }
+                
             }
             else if (e.CommandName == "Reject")
             {
@@ -128,6 +129,8 @@ namespace Job_Portal_Management_System.Views.Joboffer
         protected void btnClear_Click(object sender, EventArgs e)
         {
             txtSearch.Text = string.Empty;
+            rdoAccept.Checked = false;
+            rdoReject.Checked = false;
             this.GetData();
         }
 
@@ -145,10 +148,14 @@ namespace Job_Portal_Management_System.Views.Joboffer
                 if (drv["Accept"].ToString().Equals("Accepted"))
                 {
                     e.Row.BackColor = System.Drawing.Color.PaleGreen;
+                    Button btnaccept= (Button)e.Row.FindControl("btnAccept"); 
+                    btnaccept.Enabled = false;
                 }
                 else if(drv["Accept"].ToString().Equals("Rejected"))
                 {
                     e.Row.BackColor = System.Drawing.Color.Tomato;
+                    Button btnreject = (Button)e.Row.FindControl("btnReject");
+                    btnreject.Enabled = false;
                 }
                 else
                 {

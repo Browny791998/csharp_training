@@ -209,6 +209,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 {
                     Session["alert"] = "Successfully updated your profile";
                     Session["alert-type"] = "success";
+                    Response.Redirect("~/Views/JobSeeker/JobSeekerProfile.aspx");
                 }
                 else
                 {

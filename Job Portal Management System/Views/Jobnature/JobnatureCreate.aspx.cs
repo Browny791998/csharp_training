@@ -30,7 +30,7 @@ namespace Job_Portal_Management_System.Views.Jobnature
             if (Request.QueryString["action"] == "add")
             {
                 Session.Remove("label");
-              lblJobnature.Text = "Add Jobnature";
+              lblJobnature.Text = "Add Job nature";
 
             }
             if (Session["label"] != null)

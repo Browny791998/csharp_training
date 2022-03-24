@@ -49,7 +49,7 @@
     <div class="row mt-5">
         <div class="col-md-12">
           
-            <asp:GridView ID="grvJobOffer" runat="server"  CssClass="gvJobOffer table table-striped table-hover" ShowHeaderWhenEmpty="True" PageSize="5"  DataKeyNames="id"  AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" OnRowCommand="grvJobOffer_RowCommand" OnPageIndexChanging="grvJobOffer_PageIndexChanging" OnRowDataBound="grvJobOffer_RowDataBound">
+            <asp:GridView ID="grvJobOffer" runat="server"  CssClass="gvJobOffer table table-striped " ShowHeaderWhenEmpty="True" PageSize="5"  DataKeyNames="id"  AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" OnRowCommand="grvJobOffer_RowCommand" OnPageIndexChanging="grvJobOffer_PageIndexChanging" OnRowDataBound="grvJobOffer_RowDataBound">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField >
@@ -62,12 +62,7 @@
 
 <ItemStyle Width="5px" HorizontalAlign="Center"></ItemStyle>
             </asp:TemplateField>
-           <asp:TemplateField HeaderText="">
-                        <ItemTemplate>
-                            <asp:Button ID="btnDetail" runat="server" CommandName="Detail" CssClass="btn btn-success" Text="Detail" CommandArgument="<%#Container.DataItemIndex %>" />
-                           
-                        </ItemTemplate>
-                    </asp:TemplateField>
+          
 
           <asp:BoundField DataField="title" HeaderText="Job Title" />
                     <asp:BoundField DataField="vacancy" HeaderText="Vacancy" />
@@ -86,6 +81,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="">
                         <ItemTemplate>
+                      <asp:Button ID="btnDetail" runat="server" CommandName="Detail" CssClass="btn btn-primary" Text="Detail" CommandArgument="<%#Container.DataItemIndex %>" />
                             <asp:Button ID="btnAccept" runat="server" CommandName="Accept" CssClass="btn btn-success" Text="Accept" CommandArgument="<%#Container.DataItemIndex %>" />
                             <asp:Button ID="btnReject" runat="server" CommandName="Reject" CssClass="btn btn-danger" Text="Reject" CommandArgument="<%#Container.DataItemIndex %>" />
                         </ItemTemplate>

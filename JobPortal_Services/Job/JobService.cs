@@ -128,7 +128,7 @@ namespace JobPortal_Services.Job
         {
             try
             {
-                return JobPortal_DAOs.Job.JobDao.SearchActiveData(title);
+               return JobPortal_DAOs.Job.JobDao.SearchActiveData(title.ToString().Replace("'", "''"));
             }
             catch (Exception ex)
             {
@@ -159,7 +159,7 @@ namespace JobPortal_Services.Job
         {
             try
             {
-                return JobPortal_DAOs.Job.JobDao.GetSearchData(str,companyID);
+     return JobPortal_DAOs.Job.JobDao.GetSearchData(str.ToString().Replace("'", "''"), companyID);
             }
             catch (Exception ex)
             {

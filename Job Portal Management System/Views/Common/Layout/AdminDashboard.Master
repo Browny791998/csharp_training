@@ -308,10 +308,29 @@
         setTimeout("HideLabel();", 3000);
 
         $(function () {
-            $(".gvCountry,.gvJobnature,.gvPosition,.gvSkill,.gvSpecialization,.gvCompany,.gvJob,.gvJoboffer,.gvJobSeeker").DataTable(
+            $(".gvCountry,.gvJobnature,.gvPosition,.gvSkill,.gvSpecialization").DataTable(
                 {
                     'columnDefs': [{
                         'targets': [2, 3],
+                        'orderable': false,
+                    }],
+                    "dom": '<"top"i>rt<"bottom"flp><"clear">',
+                    searching: false,
+                    bLengthChange: true,
+                    lengthMenu: [[5, 10, -1], [5, 10, "All"]],
+                    bFilter: true,
+                    bSort: true,
+                    bPaginate: true,
+                    bInfo: false,
+                    language: {
+                        lengthMenu: "<span style='padding-right:15px'>Page Size</span>_MENU_"
+                    }
+
+                });
+
+            $(".gvCompany,.gvJob,.gvJoboffer,.gvJobSeeker").DataTable(
+                {
+                    'columnDefs': [{
                         'orderable': false,
                     }],
                     "dom": '<"top"i>rt<"bottom"flp><"clear">',

@@ -30,7 +30,8 @@
                    <div class="form-group">
     <label for="txtName">Name</label>
        <asp:TextBox ID="txtName" runat="server" CssClass="form-control"></asp:TextBox>
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtName" ForeColor="Red">Name can&#39;t be blank</asp:RequiredFieldValidator>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" Display="Dynamic" ControlToValidate="txtName" ForeColor="Red">Name can&#39;t be blank</asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator ForeColor="Red" ID="RegularExpressionValidator1" ControlToValidate="txtName" Display="Dynamic" runat="server" ErrorMessage="Special characters are not allowed" ValidationExpression="^[a-zA-Z'.\s]{1,40}$"></asp:RegularExpressionValidator>
                   </div>
 
                    <div class="form-group">
@@ -50,6 +51,7 @@
     <label for="txtContactPerson">Contact Person Name</label>
       <asp:TextBox ID="txtContactPerson" runat="server" CssClass="form-control"></asp:TextBox>
       <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtContactPerson" ForeColor="Red">Contact Person Name can&#39;t be blank</asp:RequiredFieldValidator>
+      <asp:RegularExpressionValidator ForeColor="Red" ID="RegularExpressionValidator2" ControlToValidate="txtContactPerson" Display="Dynamic" runat="server" ErrorMessage="Special characters are not allowed" ValidationExpression="^[a-zA-Z'.\s]{1,40}$"></asp:RegularExpressionValidator>
                  </div>
 
            <div class="form-group">

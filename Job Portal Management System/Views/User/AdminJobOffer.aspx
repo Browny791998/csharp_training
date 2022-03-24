@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <h1 class="text-center text-warning" style="padding-bottom: 80px">job offer List</h1>
+     <h1 class="text-center text-warning mt-5">job offer List</h1>
     <div class="list-sec container">
         <%if (Session["alert"] != null && Session["alert-type"] != null)
             {
@@ -27,28 +27,26 @@
      
         <div class="row">
             
-            <div class="col-md-10 ">
+            <div class="col-md-12">
                 
-                <asp:Label ID="Label4" runat="server" CssClass="font-weight-bold" Text="Label">Company Name</asp:Label>
+                <asp:Label ID="Label4" runat="server" CssClass="font-weight-bold mr-2" Text="Label">Company Name</asp:Label>
                 <asp:DropDownList ID="ddlCompany"  runat="server"></asp:DropDownList>
-                <asp:Label ID="Label2" runat="server" CssClass="font-weight-bold" Text="Label">job Name</asp:Label>
+                <asp:Label ID="Label2" runat="server" CssClass="font-weight-bold mr-2 ml-2" Text="Label">job Name</asp:Label>
 
                 <asp:TextBox ID="txtSearch" runat="server" Style="padding: 5px 35px 5px 13px; outline: none;"></asp:TextBox>
                 
                 <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
                  <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-info" OnClick="btnClear_Click" />
                 <asp:Button ID="btnSend" runat="server" Text="Send Email" CssClass="btn btn-danger" OnClick="btnSend_Click" />
-            </div>
-             <div class="col-md-2">
-            Accept: <asp:RadioButton ID="rdoAccept" runat="server" GroupName="Accept" CssClass="custom-radio"/>
+                 Accept: <asp:RadioButton ID="rdoAccept" runat="server" GroupName="Accept" CssClass="custom-radio"/>
             Reject: <asp:RadioButton ID="rdoReject" runat="server" GroupName="Accept" CssClass="custom-radio"/>
-        </div>
+            </div>
             
         </div>
         <br />
         <div class="row">
             <div class="col-md-12">
-                <asp:GridView ID="grvJoboffer" runat="server" CssClass="gvJoboffer table table-striped table-hover pt-5" AutoGenerateColumns="False" DataKeyNames="id" PageSize="5"
+                <asp:GridView ID="grvJoboffer" runat="server" CssClass="gvJoboffer table table-striped pt-5" AutoGenerateColumns="False" DataKeyNames="id" PageSize="5"
                     ShowHeaderWhenEmpty="True" OnPageIndexChanging="grvJoboffer_PageIndexChanging">
                     <Columns>
                         <asp:TemplateField ItemStyle-Width="5%">
@@ -59,7 +57,7 @@
                                 <asp:Label ID="lblRowNumber" Text='<%# Container.DataItemIndex + 1 %>' runat="server" />
                             </ItemTemplate>
 
-                            <ItemStyle Width="5px" HorizontalAlign="Center"></ItemStyle>
+                            <ItemStyle Width="5px" HorizontalAlign="Left"></ItemStyle>
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <HeaderTemplate>

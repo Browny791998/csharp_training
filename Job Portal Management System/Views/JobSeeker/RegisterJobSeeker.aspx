@@ -30,7 +30,8 @@
              <div class="form-group">
     <label for="txtName">Name</label>
        <asp:TextBox ID="txtName" runat="server" CssClass="form-control"></asp:TextBox>
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtName" ForeColor="Red">Name can&#39;t be blank</asp:RequiredFieldValidator>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" Display="Dynamic" ControlToValidate="txtName" ForeColor="Red">Name can&#39;t be blank</asp:RequiredFieldValidator>
+                 <asp:RegularExpressionValidator ForeColor="Red" ID="RegularExpressionValidator1" ControlToValidate="txtName" Display="Dynamic" runat="server" ErrorMessage="Special characters are not allowed" ValidationExpression="^[a-zA-Z'.\s]{1,40}$"></asp:RegularExpressionValidator>
   </div>
   <div class="form-group">
     <label for="txtAddress">Address</label>
@@ -66,7 +67,7 @@
   </div>
      <div class="form-group">
     <label for="txtExperience">Experience</label>
-         <asp:TextBox ID="txtExperience" runat="server" CssClass="form-control"></asp:TextBox>
+         <asp:TextBox ID="txtExperience" runat="server" CssClass="form-control" ToolTip="e.g 3 years"></asp:TextBox>
          <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtExperience" ForeColor="Red">Experience can&#39;t be blank</asp:RequiredFieldValidator>
   </div>
 

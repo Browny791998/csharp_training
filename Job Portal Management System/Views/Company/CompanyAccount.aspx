@@ -3,7 +3,26 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    <h1 class="text-center text-info mt-5">Company Account</h1>
-   
+    <%if (Session["alert"] != null && Session["alert-type"] != null )
+            {
+                Lblalert.Visible = true;
+                Lblalert.Text = Session["alert"].ToString();
+                string type = Session["alert-type"].ToString();
+               %>
+        <div class="AlertMessage" id="AlertMsg">
+        <div class="row">
+        <div class="col-md-6 col-md-offset-2">
+        <div class="alert alert-<% Response.Write(type); %> alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <asp:Label ID="Lblalert" runat="server" Text="Label" Visible="False"></asp:Label>
+</div>
+    </div>
+    </div>
+            </div>
+        <%
+                Session.Remove("alert");
+                Session.Remove("alert-type");
+            } %>
             <div class="row">
                  
         <div class="col-md-8 card p-3 mt-3 mx-auto d-flex flex-column">
@@ -46,7 +65,6 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-4">
                     <asp:Button ID="btnEdit" CssClass="btn btn-info" runat="server" Text="Edit" OnClick="btnEdit_Click" />
-               <asp:Button ID="btnBack" runat="server" Text="Back" CssClass="btn btn-warning" />
                 </div>
             
                  </div>

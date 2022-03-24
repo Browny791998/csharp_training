@@ -68,7 +68,7 @@ namespace JobPortal_Services.Company
         {
             try
             {
-                return JobPortal_DAOs.Company.CompanyDao.GetSearchData(str);
+          return JobPortal_DAOs.Company.CompanyDao.GetSearchData(str.ToString().Replace("'", "''"));
             }
             catch (Exception ex)
             {

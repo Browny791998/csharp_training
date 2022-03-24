@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <h1 class="text-center text-warning" style="padding-bottom: 80px">Job List</h1>
+     <h1 class="text-center text-warning mt-5">Job List</h1>
     <div class="list-sec container">
         <%if (Session["alert"] != null && Session["alert-type"] != null)
             {
@@ -27,9 +27,9 @@
      
         <div class="row">
             
-            <div class="col-md-5 offset-md-3">
+            <div class="col-md-5">
                 
-                <asp:Label ID="Label2" runat="server" CssClass="font-weight-bold" Text="Label">Job Name</asp:Label>
+                <asp:Label ID="Label2" runat="server" CssClass="font-weight-bold mr-3" Text="Label">Job Name</asp:Label>
                 <asp:TextBox ID="txtSearch" runat="server" Style="padding: 5px 35px 5px 13px; outline: none;"></asp:TextBox>
                 <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click"/>
             </div>
@@ -39,7 +39,7 @@
         <br />
         <div class="row">
             <div class="col-md-12">
-                <asp:GridView ID="grvJob" runat="server" CssClass="gvJob table table-striped table-hover pt-5" AutoGenerateColumns="False" DataKeyNames="id" PageSize="5"
+                <asp:GridView ID="grvJob" runat="server" CssClass="gvJob table table-striped  pt-5" AutoGenerateColumns="False" DataKeyNames="id" PageSize="5"
                     ShowHeaderWhenEmpty="True" OnPageIndexChanging="grvJob_PageIndexChanging">
                     <Columns>
                         <asp:TemplateField ItemStyle-Width="5%">
@@ -50,11 +50,11 @@
                                 <asp:Label ID="lblRowNumber" Text='<%# Container.DataItemIndex + 1 %>' runat="server" />
                             </ItemTemplate>
 
-                            <ItemStyle Width="5px" HorizontalAlign="Center"></ItemStyle>
+                            <ItemStyle Width="5px" HorizontalAlign="Left"></ItemStyle>
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                <asp:Label ID="Label3" runat="server" Text="Label">Title</asp:Label>
+                                <asp:Label ID="Label3" runat="server" Text="Label">Job Title</asp:Label>
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <%#HttpUtility.HtmlEncode(Eval("title"))%>

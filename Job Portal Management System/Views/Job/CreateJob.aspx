@@ -42,7 +42,8 @@
                    <div class="form-group">
     <label for="txtTitle">Title</label>
        <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control"></asp:TextBox>
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtTitle" ForeColor="Red">Title can&#39;t be blank</asp:RequiredFieldValidator>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" Display="Dynamic" ControlToValidate="txtTitle" ForeColor="Red">Title can&#39;t be blank</asp:RequiredFieldValidator>
+          <asp:RegularExpressionValidator ForeColor="Red" ID="RegularExpressionValidator1" ControlToValidate="txtTitle" Display="Dynamic" runat="server" ErrorMessage="Special characters are not allowed" ValidationExpression="^[a-zA-Z'.\s]{1,40}$"></asp:RegularExpressionValidator>
                   </div>
 
                    <div class="form-group">
@@ -102,6 +103,8 @@
     <label for="txtSalary">Salary</label>
             <asp:TextBox ID="txtSalary" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtSalary" ForeColor="Red">Salary can&#39;t be blank</asp:RequiredFieldValidator>
+      <asp:RegularExpressionValidator ForeColor="Red" ID="RegularExpressionValidator2" ControlToValidate="txtSalary" Display="Dynamic" runat="server" ErrorMessage="Special characters are not allowed" ValidationExpression="^[a-zA-Z'.\s]{1,40}$"></asp:RegularExpressionValidator>
+                   
           </div>
                    <div class="form-group">
     <label for="txtDetail">Detail</label>

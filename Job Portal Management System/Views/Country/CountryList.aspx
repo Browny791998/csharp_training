@@ -42,7 +42,7 @@
         <br />
         <div class="row">
             <div class="col-md-12">
-                <asp:GridView ID="grvCountry" runat="server" CssClass="gvCountry table table-striped table-hover pt-5" AutoGenerateColumns="False" DataKeyNames="id" OnRowUpdating="grvCountry_RowUpdating" OnRowDeleting="grvCountry_RowDeleting" OnPageIndexChanging="grvCountry_PageIndexChanging" PageSize="5"
+                <asp:GridView ID="grvCountry" runat="server" CssClass="gvCountry table table-striped pt-5" AutoGenerateColumns="False" DataKeyNames="id" OnRowUpdating="grvCountry_RowUpdating" OnRowDeleting="grvCountry_RowDeleting" OnPageIndexChanging="grvCountry_PageIndexChanging" PageSize="5"
                     ShowHeaderWhenEmpty="True">
                     <Columns>
                         <asp:TemplateField ItemStyle-Width="5%">

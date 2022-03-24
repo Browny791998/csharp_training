@@ -74,6 +74,7 @@ namespace Job_Portal_Management_System.Views.Company
             {
                 Session["alert"] = "Successfully updated your company information";
                 Session["alert-type"] = "success";
+                Response.Redirect("~/Views/Company/CompanyAccount.aspx");
             }
             else
             {
