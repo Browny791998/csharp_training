@@ -52,6 +52,7 @@
     <Compile Include="Jobnature\JobnatureDaos.cs" />
     <Compile Include="Position\PositionDaos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResetPassword\ResetPasswordDao.cs" />
     <Compile Include="Skill\SkillDaos.cs" />
     <Compile Include="Specialization\SpecializationDaos.cs" />
     <Compile Include="User\UserDaos.cs" />

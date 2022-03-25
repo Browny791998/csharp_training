@@ -41,10 +41,11 @@ namespace JobPortal_DAOs.JobOffer
         {
             try
             {
-                var arr = new object[3];
+                var arr = new object[4];
                 arr[0] = joboffer.IsAccept;
                 arr[1] = joboffer.JobSeekerID;
-                Common.HelperDao.Update("Update tbl_joboffer set is_accept=@1 where job_seeker_id=@2", arr);
+                arr[2] = joboffer.JobID;
+            Common.HelperDao.Update("Update tbl_joboffer set is_accept=@1 where job_seeker_id=@2 and job_id=@3", arr);
                 return true;
             }
             catch (Exception ex)

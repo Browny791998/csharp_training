@@ -103,7 +103,6 @@
     <label for="txtSalary">Salary</label>
             <asp:TextBox ID="txtSalary" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtSalary" ForeColor="Red">Salary can&#39;t be blank</asp:RequiredFieldValidator>
-      <asp:RegularExpressionValidator ForeColor="Red" ID="RegularExpressionValidator2" ControlToValidate="txtSalary" Display="Dynamic" runat="server" ErrorMessage="Special characters are not allowed" ValidationExpression="^[a-zA-Z'.\s]{1,40}$"></asp:RegularExpressionValidator>
                    
           </div>
                    <div class="form-group">

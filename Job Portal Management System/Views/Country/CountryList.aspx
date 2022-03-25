@@ -3,8 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 class="text-center text-warning mt-3">Country List</h1>
-    <div class="list-sec container">
+   
+    <div class="list-sec container card p-3 mt-4">
+         <h1 class="text-center text-warning mb-5">Country List</h1>
         <%if (Session["alert"] != null && Session["alert-type"] != null)
             {
                 Lblalert.Visible = true;
@@ -41,7 +42,7 @@
         </div>
         <br />
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 ">
                 <asp:GridView ID="grvCountry" runat="server" CssClass="gvCountry table table-striped pt-5" AutoGenerateColumns="False" DataKeyNames="id" OnRowUpdating="grvCountry_RowUpdating" OnRowDeleting="grvCountry_RowDeleting" OnPageIndexChanging="grvCountry_PageIndexChanging" PageSize="5"
                     ShowHeaderWhenEmpty="True">
                     <Columns>

@@ -61,11 +61,13 @@ namespace Job_Portal_Management_System.Views.Joboffer
             int rowIndex = Convert.ToInt32(e.CommandArgument);
             GridViewRow row = grvJobOffer.Rows[rowIndex];
             int jobseekerID = Convert.ToInt32((row.FindControl("lbljobseekerId") as Label).Text);
+            int jobID= Convert.ToInt32((row.FindControl("lbljobId") as Label).Text);
             if (e.CommandName == "Accept")
             {
 
                 joboffermodel.JobSeekerID = jobseekerID;
                 joboffermodel.IsAccept = 1;
+                joboffermodel.JobID = jobID;
                 bool IsAccept = JobPortal_Services.JobOffer.JobOfferService.Accept(joboffermodel);
                 if (IsAccept)
                 {
@@ -84,6 +86,7 @@ namespace Job_Portal_Management_System.Views.Joboffer
             {
                 joboffermodel.JobSeekerID = jobseekerID;
                 joboffermodel.IsAccept = 0;
+                joboffermodel.JobID = jobID;
                 bool IsAccept = JobPortal_Services.JobOffer.JobOfferService.Accept(joboffermodel);
                 if (IsAccept)
                 {
@@ -101,6 +104,7 @@ namespace Job_Portal_Management_System.Views.Joboffer
             {
                 Response.Redirect("ApplierDetail.aspx?applierID=" + jobseekerID);
             }
+
 
         }
 
@@ -161,7 +165,9 @@ namespace Job_Portal_Management_System.Views.Joboffer
                 {
                     e.Row.BackColor = System.Drawing.Color.Orange;
                 }
+               
             }
+           
         }
 
         protected void rdoAccept_CheckedChanged(object sender, EventArgs e)

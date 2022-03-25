@@ -8,6 +8,7 @@
                 Lblalert.Text = Session["alert"].ToString();
                 string type = Session["alert-type"].ToString();
                %>
+       
         <div class="AlertMessage" id="AlertMsg">
         <div class="row">
         <div class="col-md-6 col-md-offset-2">
@@ -77,6 +78,11 @@
                      <asp:TemplateField HeaderText="Accept" Visible="false">
                         <ItemTemplate>
                             <asp:Label ID="lbljobseekerId" runat="server" Text='<%# Eval("job_seeker_id") %>'></asp:Label>      
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField  Visible="false">
+                        <ItemTemplate>
+                            <asp:Label ID="lbljobId" runat="server" Text='<%# Eval("job_id") %>'></asp:Label>      
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="">

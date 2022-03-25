@@ -50,6 +50,7 @@
     <Compile Include="Jobnature\Jobnature.cs" />
     <Compile Include="Position\Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResetPassword\ResetPassword.cs" />
     <Compile Include="Skill\Skill.cs" />
     <Compile Include="Specialization\Specilization.cs" />
     <Compile Include="User\User.cs" />

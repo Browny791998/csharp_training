@@ -95,7 +95,11 @@
               
                 <!-- Divider -->
                 <hr class="sidebar-divider">
-
+                 <li class="nav-item">
+                <a class="nav-link" href="../User/AdminHome.aspx">
+                  Dashboard
+                </a>
+                     </li>
                 <!-- Heading -->
                 <%-- <div class="sidebar-heading">
                 Interface
@@ -105,8 +109,8 @@
                 <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCountry"
                         aria-expanded="true" aria-controls="collapseCountry">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Country</span>
+                       
+                        <span><h6 class="d-inline font-weight-bold"> <i class="fas fa-fw fa-cog d-inline"></i> Country</h6></span>
                     </a>
                     <div id="collapseCountry" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                             <a class="dropdownItem text-white" href="../Country/CountryList.aspx" >Country List</a>
@@ -118,8 +122,7 @@
                 <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePosition"
                         aria-expanded="true" aria-controls="collapseCountry">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Position</span>
+                         <span><h6 class="d-inline font-weight-bold"> <i class="fas fa-fw fa-cog d-inline"></i> Position</h6></span>
                     </a>
                     <div id="collapsePosition" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapsePosition">
                         <a class="dropdownItem text-white" href="../Position/PositionList.aspx">Position List</a>
@@ -131,8 +134,7 @@
                 <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseJobnature"
                         aria-expanded="true" aria-controls="collapseJobnature">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Job Nature</span>
+                         <span><h6 class="d-inline font-weight-bold"> <i class="fas fa-fw fa-cog d-inline"></i> Job Nature</h6></span>
                     </a>
                     <div id="collapseJobnature" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapseJobnature">
                         <a class="dropdownItem text-white" href="../Jobnature/JobnatureList.aspx">Job Nature List</a>
@@ -144,8 +146,7 @@
                 <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSkill"
                         aria-expanded="true" aria-controls="collapseSkill">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Skill</span>
+                        <span><h6 class="d-inline font-weight-bold"> <i class="fas fa-fw fa-cog d-inline"></i> Skill</h6></span>
                     </a>
                     <div id="collapseSkill" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapseSkill">
                          <a class="dropdownItem text-white" href="../Skill/SkillList.aspx">Skill List</a>
@@ -157,8 +158,7 @@
                  <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSpecialization"
                         aria-expanded="true" aria-controls="collapseSpecialization">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Specialization</span>
+                        <span><h6 class="d-inline font-weight-bold"> <i class="fas fa-fw fa-cog d-inline"></i>Specialization</h6></span>
                     </a>
                     <div id="collapseSpecialization" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapseSpecialization">
                         <a class="dropdownItem text-white" href="../Specialization/SpecializationList.aspx">Specialization List</a>
@@ -170,8 +170,7 @@
                  <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseJob"
                         aria-expanded="true" aria-controls="collapseJob">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Job Management</span>
+                        <span><h6 class="d-inline font-weight-bold"> <i class="fas fa-fw fa-cog d-inline"></i>Job Management</h6></span>
                     </a>
                     <div id="collapseJob" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapseJob">
                          <a class="dropdownItem text-white" href="../User/AdminCompanyList.aspx">Company List</a>

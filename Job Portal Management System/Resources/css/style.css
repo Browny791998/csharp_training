@@ -142,15 +142,18 @@ footer {
 
 .dropdownItem {
     display: block;
-    text-align: center;
-    padding: 3px;
+    text-align: left;
+
+    padding-left: 50px;
+    padding-top:10px;
+    padding-bottom:10px;
     text-decoration: none;
     font-weight: bold;
     margin: 0;
-    padding:10px;
 }
 .dropdownItem:hover {
       color:black;
         background-color:cornflowerblue;
         text-decoration: none;
     }
+

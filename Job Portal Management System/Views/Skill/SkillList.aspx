@@ -3,8 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 class="text-center text-warning mt-5">Skill List</h1>
-    <div class="list-sec container">
+    
+    <div class="list-sec container card p-3 mt-4">
+        <h1 class="text-center text-warning mb-5">Skill List</h1>
         <%if (Session["alert"] != null && Session["alert-type"] != null)
             {
                 Lblalert.Visible = true;
