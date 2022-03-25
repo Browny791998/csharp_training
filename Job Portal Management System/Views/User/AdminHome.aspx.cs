@@ -18,6 +18,26 @@ namespace Job_Portal_Management_System.Views
             lblCompany.Text = da.Rows.Count.ToString();
             da = JobPortal_Services.Job.JobService.GetActiveData();
             lblJob.Text= da.Rows.Count.ToString();
+
+
+            da = JobPortal_Services.JobSeeker.JobSeekerService.GetChartData();
+            if (da.Rows.Count > 0)
+            {
+                string ChartData = "";
+                string views = "";
+                string labels = "";
+                ChartData += "<script>";
+                for(int i = 0; i < da.Rows.Count; i++)
+                {
+                    views += da.Rows[i]["JobSeeker"] + ",";
+                    labels +=da.Rows[i]["Day"] + ",";
+                }
+                views = views.Substring(0, views.Length - 1);
+                labels= labels.Substring(0, labels.Length - 1);
+                ChartData += " chartLabels=["+labels+ "];chartData=["+views+"]";
+                ChartData += "</script>";
+                ltChartData.Text = ChartData;
+            }
         }
     }
 }

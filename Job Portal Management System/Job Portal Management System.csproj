@@ -1906,6 +1906,7 @@
     <Content Include="Resources\images\Brilliant Job-logos_black.png" />
     <Content Include="Resources\images\Brilliant Job-logos_white.png" />
     <Content Include="Resources\images\job.gif" />
+    <Content Include="Resources\js\chart-area-demo.js" />
     <Content Include="Resources\js\lib\bootstrap.bundle.js.map" />
     <Content Include="Resources\js\lib\bootstrap.bundle.min.js.map" />
     <Content Include="Resources\js\lib\bootstrap.js.map" />
@@ -1962,6 +1963,10 @@
     <Content Include="Resources\css\lib\bootstrap-reboot.min.css" />
     <Content Include="Resources\css\lib\bootstrap.css" />
     <Content Include="Resources\css\lib\bootstrap.min.css" />
+    <Content Include="Resources\js\lib\chart.js\Chart.bundle.js" />
+    <Content Include="Resources\js\lib\chart.js\Chart.bundle.min.js" />
+    <Content Include="Resources\js\lib\chart.js\Chart.js" />
+    <Content Include="Resources\js\lib\chart.js\Chart.min.js" />
     <Content Include="Resources\js\lib\popper.min.js" />
     <Content Include="Resources\css\sb-admin-2.min.css" />
     <Content Include="Resources\css\style.css" />

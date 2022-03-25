@@ -91,6 +91,8 @@ namespace JobPortal_Services.JobSeeker
             }
         }
 
+        
+
         /// <summary>
         /// Get All Data
         /// </summary>
@@ -125,17 +127,17 @@ namespace JobPortal_Services.JobSeeker
         /// <summary>
         /// Get Search Data
         /// </summary>
-        //public static DataTable GetSearchData(string str)
-        //{
-        //    try
-        //    {
-        //        return DAOs.Movie.MovieDao.GetSearchData(str);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        public static DataTable GetChartData()
+        {
+            try
+            {
+                return JobPortal_DAOs.JobSeeker.JobSeekerDao.GetChartData();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         /// <summary>
         /// Read Data

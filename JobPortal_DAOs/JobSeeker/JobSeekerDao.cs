@@ -170,25 +170,18 @@ namespace JobPortal_DAOs.JobSeeker
         /// Get Search Data
         /// </summary>
         /// <returns></returns>
-        //public static DataTable GetSearchData(string str)
-        //{
-        //    try
-        //    {
-        //        if (str == "")
-        //        {
-        //            return Common.HelperDao.GetData("Select id,movie from tbl_movie", CommandType.Text);
-        //        }
-        //        else
-        //        {
-        //            //return Common.HelperDao.GetData("Select id,movie from tbl_movie where movie LIKE '" + str + "'", CommandType.Text);
-        //            return Common.HelperDao.GetData("Select id,movie from tbl_movie where movie LIKE '%" + str + "%'", CommandType.Text);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        public static DataTable GetChartData()
+        {
+            try
+            {
+        return Common.HelperDao.GetData("Select Count(id) as JobSeeker,DAY(created_date) as Day from tbl_jobseeker  Group By DAY(created_date)", CommandType.Text);
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         /// <summary>
         /// Read Data
