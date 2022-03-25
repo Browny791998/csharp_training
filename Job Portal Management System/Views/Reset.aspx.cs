@@ -53,9 +53,11 @@ namespace Job_Portal_Management_System.Views
         {
             bool success;
             Role= Request.QueryString["Role"];
+            string encyptpass;
             if (Role == "JobSeeker")
             {
-                jobseekermodel.Password = txtNewPassword.Text;
+                encyptpass = EncryptPassword(txtNewPassword.Text);
+               jobseekermodel.Password = encyptpass;
                 jobseekermodel.Email = Email;
              success = JobPortal_Services.JobSeeker.JobSeekerService.UpdatebyEmail(jobseekermodel);
                 if (success)
@@ -75,7 +77,8 @@ namespace Job_Portal_Management_System.Views
                 }
             }else if(Role == "Company")
             {
-                companymodel.Password = txtNewPassword.Text;
+                encyptpass = EncryptPassword(txtNewPassword.Text);
+                companymodel.Password = encyptpass;
                 companymodel.Email = Email;
                 success = JobPortal_Services.Company.CompanyService.UpdateByEmail(companymodel);
                 if (success)
@@ -94,6 +97,13 @@ namespace Job_Portal_Management_System.Views
                     Session["alert-type"] = "danger";
                 }
             }
+        }
+
+        public string EncryptPassword(string passEncrypted)
+        {
+            byte[] b = System.Text.ASCIIEncoding.ASCII.GetBytes(passEncrypted);
+            string encrypted = Convert.ToBase64String(b);
+            return encrypted;
         }
     }
 }

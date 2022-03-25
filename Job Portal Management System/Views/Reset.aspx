@@ -29,11 +29,14 @@
               <div class="form-group">
     <label for="exampleInputPassword1">New Password</label>
       <asp:TextBox Visible="false" ID="txtNewPassword" TextMode="Password" runat="server" CssClass="form-control"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="New Password can't be blank" ControlToValidate="txtNewPassword"></asp:RequiredFieldValidator>
   </div>
 
                <div class="form-group">
     <label for="exampleInputPassword1">Confirm Password</label>
       <asp:TextBox Visible="false" ID="txtConfirmPass" TextMode="Password" runat="server" CssClass="form-control"></asp:TextBox>
+   <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Confirm Password can't be blank" ControlToValidate="txtConfirmPass"></asp:RequiredFieldValidator>
+         <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Confirm Password must be same with new password" ControlToValidate="txtConfirmPass" ControlToCompare="txtNewPassword"></asp:CompareValidator>
   </div>
               
               <asp:Button Visible="false" ID="btnSubmit" runat="server" CssClass="btn btn-info" Text="Reset" OnClick="btnSubmit_Click"   />
