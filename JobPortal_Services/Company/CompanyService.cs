@@ -41,6 +41,20 @@ namespace JobPortal_Services.Company
                 throw ex;
             }
         }
+        /// <summary>
+        /// Update Data
+        /// </summary>
+        public static bool UpdateByEmail(JobPortal_Models.Company.Company company)
+        {
+            try
+            {
+                return JobPortal_DAOs.Company.CompanyDao.UpdatebyEmail(company);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
         #endregion

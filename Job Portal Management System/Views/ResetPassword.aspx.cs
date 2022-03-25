@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -35,7 +37,24 @@ namespace Job_Portal_Management_System.Views
                     if (success)
                     {
                         Toemail = email;
-                        emailBody = "<p>Click the follow Link to reset your password</p><br><br>"+myGUID;
+                        emailBody = "<p>Click the follow Link to reset your password</p><br><br>https://localhost:44381/Views/Reset?Role=JobSeeker&Uid=" + myGUID;
+                        MailMessage PassMail = new MailMessage("frompass@gmail.com", Toemail);
+                        PassMail.Body = emailBody;
+                        PassMail.IsBodyHtml = true;
+                        PassMail.Subject = "Reset Password";
+                        PassMail.Priority = MailPriority.High;
+                        SmtpClient SMTP = new SmtpClient("smtp.gmail.com", 587);
+                        SMTP.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        SMTP.UseDefaultCredentials = false;
+                        SMTP.Credentials = new NetworkCredential()
+                        {
+                            UserName = "frompass@gmail.com",
+                            Password = "Yourpassword"
+                        };
+                        SMTP.EnableSsl = true;
+                        SMTP.Send(PassMail);
+                        Session["alert"] = "Check your Email to reset your password";
+                        Session["alert-type"] = "success";
                     }
                 }
                 else
@@ -56,8 +75,25 @@ namespace Job_Portal_Management_System.Views
                     success = JobPortal_DAOs.ResetPassword.ResetPasswordDao.Insert(resetpassmodel);
                     if (success)
                     {
-                        Session["alert"] = "Success";
-                        Session["alert-type"] = "danger";
+                        Toemail = email;
+                        emailBody = "<p>Click the follow Link to reset your password</p><br><br>https://localhost:44381/Views/Reset?Role=Company&Uid=" + myGUID;
+                        MailMessage PassMail = new MailMessage("frompass@gmail.com", Toemail);
+                        PassMail.Body = emailBody;
+                        PassMail.IsBodyHtml = true;
+                        PassMail.Subject = "Reset Password";
+                        PassMail.Priority = MailPriority.High;
+                        SmtpClient SMTP = new SmtpClient("smtp.gmail.com", 587);
+                        SMTP.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        SMTP.UseDefaultCredentials = false;
+                        SMTP.Credentials = new NetworkCredential()
+                        {
+                            UserName = "frompass@gmail.com",
+                            Password = "Yourpassword"
+                        };
+                        SMTP.EnableSsl = true;
+                        SMTP.Send(PassMail);
+                        Session["alert"] = "Check your Email to reset your password";
+                        Session["alert-type"] = "success";
                     }
                 }
                 else

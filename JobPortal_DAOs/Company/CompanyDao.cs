@@ -73,6 +73,27 @@ namespace JobPortal_DAOs.Company
             }
         }
 
+        /// <summary>
+        /// Update Data
+        /// <paramref name="post"/>
+        /// </summary>
+        /// <returns></returns>
+        public static bool UpdatebyEmail(JobPortal_Models.Company.Company company)
+        {
+            try
+            {
+                var arr = new object[3];
+                arr[0] = company.Password;
+                arr[1] = company.Email;
+                Common.HelperDao.Update("Update tbl_company set password=@1 where email=@2", arr);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         #endregion
 
         #region Get Data

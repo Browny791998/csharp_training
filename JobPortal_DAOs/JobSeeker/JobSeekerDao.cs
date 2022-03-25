@@ -84,6 +84,27 @@ namespace JobPortal_DAOs.JobSeeker
             }
         }
 
+        /// <summary>
+        /// Update Data
+        /// <paramref name="post"/>
+        /// </summary>
+        /// <returns></returns>
+        public static bool UpdatebyEmail(JobPortal_Models.JobSeeker.JobSeeker jobseeker)
+        {
+            try
+            {
+                var arr = new object[3];
+                arr[0] = jobseeker.Password;
+                arr[1] = jobseeker.Email;
+                Common.HelperDao.Update("Update tbl_jobseeker set password=@1 where email=@2", arr);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         #endregion
 
         #region Get Data

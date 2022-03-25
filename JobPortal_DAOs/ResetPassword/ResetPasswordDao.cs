@@ -50,7 +50,7 @@ namespace JobPortal_DAOs.ResetPassword
                 arr[1] = resetpass.Email;
                 arr[2] = resetpass.Requestdate;
                 arr[3] = resetpass.ID;
-                Common.HelperDao.Update("Update tbl_jobnature set uid=@1,email=@2,requestdatetime=@3 where ID=@4", arr);
+                Common.HelperDao.Update("Update tbl_reset_password set uid=@1,email=@2,requestdatetime=@3 where ID=@4", arr);
                 return true;
             }
             catch (Exception ex)
@@ -68,8 +68,8 @@ namespace JobPortal_DAOs.ResetPassword
             try
             {
                 var arr = new object[2];
-                arr[0] = resetpass.ID;
-                Common.HelperDao.Delete("Delete from tbl_jobnature where id=@1", arr);
+                arr[0] = resetpass.Email;
+                Common.HelperDao.Delete("Delete from tbl_reset_password where email=@1", arr);
                 return true;
             }
             catch (Exception ex)
@@ -114,28 +114,24 @@ namespace JobPortal_DAOs.ResetPassword
             }
         }
 
+
         /// <summary>
-        /// Get Search Data
+        /// Get All Data
         /// </summary>
         /// <returns></returns>
-        //public static DataTable GetSearchData(string str)
-        //{
-        //    try
-        //    {
-        //        if (str == "")
-        //        {
-        //            return Common.HelperDao.GetData("Select tbl_jobnature.id,tbl_jobnature.job_nature  from tbl_jobnature", CommandType.Text);
-        //        }
-        //        else
-        //        {
-        //            return Common.HelperDao.GetData("Select tbl_jobnature.id,tbl_jobnature.job_nature  from tbl_jobnature where job_nature LIKE '%" + str + "%'", CommandType.Text);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        public static DataTable GetGUI(string gui)
+        {
+            try
+            {
+                return Common.HelperDao.GetData("Select id,uid,email,requestdatetime  from tbl_reset_password Where uid ='"+gui+"'", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
         /// <summary>
         ///Read Data

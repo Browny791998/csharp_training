@@ -78,6 +78,21 @@ namespace JobPortal_Services.ResetPassword
         }
 
         /// <summary>
+        /// Get Data
+        /// </summary>
+        public static DataTable GetGUI(string gui)
+        {
+            try
+            {
+                return JobPortal_DAOs.ResetPassword.ResetPasswordDao.GetGUI(gui);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
         /// Get All Data
         /// </summary>
         public static DataTable GetAllData()

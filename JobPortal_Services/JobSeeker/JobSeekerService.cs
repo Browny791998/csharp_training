@@ -42,6 +42,21 @@ namespace JobPortal_Services.JobSeeker
             }
         }
 
+        /// <summary>
+        /// Update Data
+        /// </summary>
+        public static bool UpdatebyEmail(JobPortal_Models.JobSeeker.JobSeeker jobseeker)
+        {
+            try
+            {
+                return JobPortal_DAOs.JobSeeker.JobSeekerDao.UpdatebyEmail(jobseeker);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         #endregion
 
