@@ -1963,6 +1963,7 @@
     <Content Include="Resources\css\lib\bootstrap-reboot.min.css" />
     <Content Include="Resources\css\lib\bootstrap.css" />
     <Content Include="Resources\css\lib\bootstrap.min.css" />
+    <Content Include="Resources\js\lib\chart-bar-demo.js" />
     <Content Include="Resources\js\lib\chart.js\Chart.bundle.js" />
     <Content Include="Resources\js\lib\chart.js\Chart.bundle.min.js" />
     <Content Include="Resources\js\lib\chart.js\Chart.js" />

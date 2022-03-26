@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Text;
 
 namespace Job_Portal_Management_System.Views
 {
@@ -21,22 +22,44 @@ namespace Job_Portal_Management_System.Views
 
 
             da = JobPortal_Services.JobSeeker.JobSeekerService.GetChartData();
+           
             if (da.Rows.Count > 0)
             {
                 string ChartData = "";
                 string views = "";
-                string labels = "";
+                StringBuilder sb = new StringBuilder();
                 ChartData += "<script>";
                 for(int i = 0; i < da.Rows.Count; i++)
                 {
+                   
                     views += da.Rows[i]["JobSeeker"] + ",";
-                    labels +=da.Rows[i]["Day"] + ",";
+                    sb.AppendFormat("'{0}'"+",", da.Rows[i]["Day"]);
                 }
+
                 views = views.Substring(0, views.Length - 1);
-                labels= labels.Substring(0, labels.Length - 1);
-                ChartData += " chartLabels=["+labels+ "];chartData=["+views+"]";
+                ChartData += " chartLabels=[" + sb + "];chartData=[" + views + "]";
                 ChartData += "</script>";
                 ltChartData.Text = ChartData;
+            }
+
+            
+            da = JobPortal_Services.Company.CompanyService.GetChartData();
+            if (da.Rows.Count > 0)
+            {
+                string CompanyData = "";
+                string totalcompany = "";
+                StringBuilder sb = new StringBuilder();
+                CompanyData += "<script>";
+                for (int i = 0; i < da.Rows.Count; i++)
+                {
+                totalcompany += da.Rows[i]["Company"] + ",";
+                    sb.AppendFormat("'{0}'" + ",", da.Rows[i]["Day"]);
+                }
+
+                totalcompany = totalcompany.Substring(0, totalcompany.Length - 1);
+                CompanyData += "companyWeek=[" + sb + "];totalcompany=[" + totalcompany + "]";
+                CompanyData += "</script>";
+                ltCompanyData.Text = CompanyData;
             }
         }
     }

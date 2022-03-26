@@ -122,20 +122,17 @@ namespace JobPortal_Services.Company
         }
 
 
-        /// <summary>
-        /// Get Search Data
-        /// </summary>
-        //public static DataTable GetSearchData(string str)
-        //{
-        //    try
-        //    {
-        //        return DAOs.Movie.MovieDao.GetSearchData(str);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        public static DataTable GetChartData()
+        {
+            try
+            {
+                return JobPortal_DAOs.Company.CompanyDao.GetChartData();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         /// <summary>
         /// Read Data

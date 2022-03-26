@@ -174,8 +174,9 @@ namespace JobPortal_DAOs.JobSeeker
         {
             try
             {
-        return Common.HelperDao.GetData("Select Count(id) as JobSeeker,DAY(created_date) as Day from tbl_jobseeker  Group By DAY(created_date)", CommandType.Text);
-                
+                return Common.HelperDao.GetData("Select Count(id) as JobSeeker,DATENAME(WEEKDAY,created_date) as Day from tbl_jobseeker Group By DATENAME(WEEKDAY,created_date)", CommandType.Text);
+
+
             }
             catch (Exception ex)
             {

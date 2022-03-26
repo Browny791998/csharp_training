@@ -45,7 +45,7 @@
   <div class="form-group form-check">
     <input type="checkbox" class="form-check-input" id="chkMe" runat="server">
     <label class="form-check-label" for="exampleCheck1">Remember Me</label>
-      <asp:HyperLink ID="HyperLink1" runat="server" CssClass="text-primary pointer-event float-right">Forgot Password?</asp:HyperLink>
+      <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Views/ResetPassword.aspx" CssClass="text-primary pointer-event float-right">Forgot Password?</asp:HyperLink>
   </div>
               <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-info" Text="Login" OnClick="btnSubmit_Click"  />
           </div>

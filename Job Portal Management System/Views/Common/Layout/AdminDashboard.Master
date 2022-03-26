@@ -234,7 +234,7 @@
                   <li class="nav-item">
                 
                    <asp:LinkButton ID="btnLogout" runat="server" CssClass="nav-link" OnClick="btnLogout_Click"
-            class="dropdown-item"><i class="fas fa-sign-out"></i>  Logout</asp:LinkButton>
+            class="dropdown-item" CausesValidation="False"><i class="fas fa-sign-out"></i>  Logout</asp:LinkButton>
             </li>
             </ul>
             <!-- End of Sidebar -->
@@ -301,6 +301,7 @@
     <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
        <script src="../../../Resources/js/lib/chart.js/Chart.min.js"></script>
     <script src="../../../Resources/js/chart-area-demo.js"></script>
+    <script src="../../../Resources/js/lib/chart-bar-demo.js"></script>
     <script type="text/javascript">
         function HideLabel() {
             document.getElementById("AlertMsg").style.display = "none";

@@ -40,14 +40,14 @@
         <div class="row">
               <div class="col-md-5 mt-5 offset-md-4">
                    <div class="form-group">
-    <label for="txtTitle">Title</label>
+    <label for="txtTitle">Title</label><span class="fill">*</span>
        <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" Display="Dynamic" ControlToValidate="txtTitle" ForeColor="Red">Title can&#39;t be blank</asp:RequiredFieldValidator>
           <asp:RegularExpressionValidator ForeColor="Red" ID="RegularExpressionValidator1" ControlToValidate="txtTitle" Display="Dynamic" runat="server" ErrorMessage="Special characters are not allowed" ValidationExpression="^[a-zA-Z'.\s]{1,40}$"></asp:RegularExpressionValidator>
                   </div>
 
                    <div class="form-group">
-    <label for="ddlDegree">Degree</label>
+    <label for="ddlDegree">Degree</label><span class="fill">*</span>
  
        <asp:DropDownList ID="ddlDegree" runat="server" CssClass="form-control">
            <asp:ListItem Value="1">Graduate</asp:ListItem>
@@ -58,7 +58,7 @@
   </div>
 
     <div class="form-group">
-    <label for="lbSkill">Skill</label>
+    <label for="lbSkill">Skill</label><span class="fill">*</span>
         <asp:ListBox ID="lbSkill" runat="server" CssClass="form-control" SelectionMode="Multiple">
            
         </asp:ListBox>
@@ -66,19 +66,19 @@
   </div>
 
                    <div class="form-group">
-    <label for="txtExperience">Experience</label>
+    <label for="txtExperience">Experience</label><span class="fill">*</span>
       <asp:TextBox ID="txtExperience" runat="server" CssClass="form-control"></asp:TextBox>
       <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtExperience" ForeColor="Red">Experience can&#39;t be blank</asp:RequiredFieldValidator>
                  </div>
 
            <div class="form-group">
-    <label for="txtVacancy">Vacancy</label>
+    <label for="txtVacancy">Vacancy</label><span class="fill">*</span>
       <asp:TextBox ID="txtVacancy" runat="server" TextMode="Number" CssClass="form-control"></asp:TextBox>
       <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtVacancy" ForeColor="Red">Vacancy can&#39;t be blank</asp:RequiredFieldValidator>
   </div>
 
     <div class="form-group">
-    <label for="ddlPosition">Position</label>
+    <label for="ddlPosition">Position</label><span class="fill">*</span>
         <asp:DropDownList ID="ddlPosition" runat="server" CssClass="form-control">
             
         </asp:DropDownList>
@@ -86,27 +86,27 @@
           </div>
 
        <div class="form-group">
-    <label for="ddlJobtype">Job Type</label>
+    <label for="ddlJobtype">Job Type</label><span class="fill">*</span>
         <asp:DropDownList ID="ddlJobtype" runat="server" CssClass="form-control">
             
         </asp:DropDownList>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlJobtype" ForeColor="Red">Please Select Job Type</asp:RequiredFieldValidator>
           </div>
                    <div class="form-group">
-    <label for="ddlSpecialization">Specializations</label>
+    <label for="ddlSpecialization">Specializations</label><span class="fill">*</span>
         <asp:DropDownList ID="ddlSpecialization" runat="server" CssClass="form-control">
            
         </asp:DropDownList>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlJobtype" ForeColor="Red">Please Select Job Type</asp:RequiredFieldValidator>
           </div>
                   <div class="form-group">
-    <label for="txtSalary">Salary</label>
+    <label for="txtSalary">Salary</label><span class="fill">*</span>
             <asp:TextBox ID="txtSalary" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtSalary" ForeColor="Red">Salary can&#39;t be blank</asp:RequiredFieldValidator>
                    
           </div>
                    <div class="form-group">
-    <label for="txtDetail">Detail</label>
+    <label for="txtDetail">Detail</label><span class="fill">*</span>
             <asp:TextBox ID="txtDetail" runat="server" CssClass="form-control"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtDetail" ForeColor="Red">Detail can&#39;t be blank</asp:RequiredFieldValidator>
           </div>

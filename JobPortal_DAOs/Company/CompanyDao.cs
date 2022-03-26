@@ -173,25 +173,19 @@ namespace JobPortal_DAOs.Company
         /// Get Search Data
         /// </summary>
         /// <returns></returns>
-        //public static DataTable GetSearchData(string str)
-        //{
-        //    try
-        //    {
-        //        if (str == "")
-        //        {
-        //            return Common.HelperDao.GetData("Select id,movie from tbl_movie", CommandType.Text);
-        //        }
-        //        else
-        //        {
-        //            //return Common.HelperDao.GetData("Select id,movie from tbl_movie where movie LIKE '" + str + "'", CommandType.Text);
-        //            return Common.HelperDao.GetData("Select id,movie from tbl_movie where movie LIKE '%" + str + "%'", CommandType.Text);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        public static DataTable GetChartData()
+        {
+            try
+            {
+                return Common.HelperDao.GetData("Select Count(id) as Company,DATENAME(WEEKDAY,created_at) as Day from tbl_company Group By DATENAME(WEEKDAY, created_at) ", CommandType.Text);
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         /// <summary>
         /// Read Data
