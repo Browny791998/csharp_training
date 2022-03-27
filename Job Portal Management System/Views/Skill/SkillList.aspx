@@ -3,8 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+
     <div class="list-sec container card p-3 mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../Views/User/AdminHome.aspx">Dashboard</a></li>
+                <li class="breadcrumb-item active">Skill List</li>
+            </ol>
+        </nav>
         <h1 class="text-center text-warning mb-5">Skill List</h1>
         <%if (Session["alert"] != null && Session["alert-type"] != null)
             {
@@ -29,13 +35,13 @@
 
         <div class="row">
 
-          <div class="col-md-10">
-                
+            <div class="col-md-10">
+
                 <asp:Label ID="Label2" runat="server" CssClass="font-weight-bold mr-3" Text="Label">Skill</asp:Label>
-                  <asp:TextBox ID="txtSearch" runat="server" Style="padding: 5px 35px 5px 13px; outline: none;" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
-               <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
-                    <asp:Button ID="btnAdd" runat="server" Text="Add Skill" CssClass="btn btn-primary" OnClick="btnAdd_Click" />
-                 <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" OnClick="btnClear_Click" />
+                <asp:TextBox ID="txtSearch" runat="server" Style="padding: 5px 35px 5px 13px; outline: none;" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
+                <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
+                <asp:Button ID="btnAdd" runat="server" Text="Add Skill" CssClass="btn btn-primary" OnClick="btnAdd_Click" />
+                <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" OnClick="btnClear_Click" />
             </div>
         </div>
         <br />
