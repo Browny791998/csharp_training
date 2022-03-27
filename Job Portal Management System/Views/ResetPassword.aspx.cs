@@ -1,27 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views
 {
     public partial class ResetPassword : System.Web.UI.Page
     {
-        JobPortal_Models.ResetPassword.ResetPassword resetpassmodel = new JobPortal_Models.ResetPassword.ResetPassword();
-        DataTable da = new DataTable();
+        private JobPortal_Models.ResetPassword.ResetPassword resetpassmodel = new JobPortal_Models.ResetPassword.ResetPassword();
+        private DataTable da = new DataTable();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string myGUID,email,Toemail,emailBody;
+            string myGUID, email, Toemail, emailBody;
             bool success;
             if (ddlRole.SelectedValue == "Job Seeker")
             {
@@ -62,7 +57,8 @@ namespace Job_Portal_Management_System.Views
                     Session["alert"] = "Incorrect Email";
                     Session["alert-type"] = "danger";
                 }
-            }else if(ddlRole.SelectedValue == "Company")
+            }
+            else if (ddlRole.SelectedValue == "Company")
             {
                 da = JobPortal_Services.Company.CompanyService.GetData(txtEmail.Text);
                 if (da.Rows.Count > 0)
@@ -102,7 +98,6 @@ namespace Job_Portal_Management_System.Views
                     Session["alert-type"] = "danger";
                 }
             }
-               
         }
     }
 }

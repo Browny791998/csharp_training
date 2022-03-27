@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JobPortal_Services.Job
 {
     public class JobService
     {
         #region Insert/Update/Delete
+
         /// <summary>
         /// Insert Data
         /// </summary>
@@ -57,10 +54,10 @@ namespace JobPortal_Services.Job
             }
         }
 
-        #endregion
+        #endregion Insert/Update/Delete
 
+        #region Get Data
 
-        #region Get Data      
         /// <summary>
         /// Get Data
         /// </summary>
@@ -128,7 +125,7 @@ namespace JobPortal_Services.Job
         {
             try
             {
-               return JobPortal_DAOs.Job.JobDao.SearchActiveData(title.ToString().Replace("'", "''"));
+                return JobPortal_DAOs.Job.JobDao.SearchActiveData(title.ToString().Replace("'", "''"));
             }
             catch (Exception ex)
             {
@@ -136,15 +133,14 @@ namespace JobPortal_Services.Job
             }
         }
 
-
         /// <summary>
         /// Get All Data
         /// </summary>
-        public static DataTable FilterJob(int countryID, int positionID, int jobtypeID,int specializationID)
+        public static DataTable FilterJob(int countryID, int positionID, int jobtypeID, int specializationID)
         {
             try
             {
-                return JobPortal_DAOs.Job.JobDao.FilterJob(countryID,positionID,jobtypeID,specializationID);
+                return JobPortal_DAOs.Job.JobDao.FilterJob(countryID, positionID, jobtypeID, specializationID);
             }
             catch (Exception ex)
             {
@@ -155,11 +151,11 @@ namespace JobPortal_Services.Job
         /// <summary>
         /// Get Search Data
         /// </summary>
-        public static DataTable GetSearchData(string str,int companyID)
+        public static DataTable GetSearchData(string str, int companyID)
         {
             try
             {
-     return JobPortal_DAOs.Job.JobDao.GetSearchData(str.ToString().Replace("'", "''"), companyID);
+                return JobPortal_DAOs.Job.JobDao.GetSearchData(str.ToString().Replace("'", "''"), companyID);
             }
             catch (Exception ex)
             {
@@ -181,6 +177,7 @@ namespace JobPortal_Services.Job
                 throw ex;
             }
         }
-        #endregion
+
+        #endregion Get Data
     }
 }

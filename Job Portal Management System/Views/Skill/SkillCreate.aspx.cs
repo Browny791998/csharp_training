@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.Skill
 {
@@ -34,11 +29,11 @@ namespace Job_Portal_Management_System.Views.Skill
             }
             if (Session["label"] != null)
             {
-                
                 string label = Session["label"].ToString();
                 if (label == "add")
                 {
                     lblSkill.Text = "Add Skill";
+                    lblSkillbreadcrumb.Text = "Add Skill";
                     if (!IsPostBack)
                     {
                     }
@@ -46,6 +41,7 @@ namespace Job_Portal_Management_System.Views.Skill
                 else if (label == "update")
                 {
                     lblSkill.Text = "Update Skill";
+                    lblSkillbreadcrumb.Text = "Update Skill";
                     if (!IsPostBack)
                     {
                         int id = Convert.ToInt32(Request.QueryString["id"]);

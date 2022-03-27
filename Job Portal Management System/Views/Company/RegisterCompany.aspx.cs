@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.Company
 {
     public partial class RegisterCompany : System.Web.UI.Page
     {
-        JobPortal_Models.Company.Company companymodel = new JobPortal_Models.Company.Company();
-        JobPortal_Services.Company.CompanyService  companyservice = new JobPortal_Services.Company.CompanyService();
-        DataTable da = new DataTable();
+        private JobPortal_Models.Company.Company companymodel = new JobPortal_Models.Company.Company();
+        private JobPortal_Services.Company.CompanyService companyservice = new JobPortal_Services.Company.CompanyService();
+        private DataTable da = new DataTable();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -20,17 +16,19 @@ namespace Job_Portal_Management_System.Views.Company
                 bindCountry();
             }
         }
+
         #region InsertData
+
         /// <summary>
         /// InsertData
         /// </summary>
         private void InsertData()
         {
-           companymodel.Name = txtName.Text;
-            companymodel.CountryID= Convert.ToInt32(ddlCountry.SelectedValue);
+            companymodel.Name = txtName.Text;
+            companymodel.CountryID = Convert.ToInt32(ddlCountry.SelectedValue);
             companymodel.Address = txtAddress.Text;
-           companymodel.ContactPerson = txtContactPerson.Text;
-           companymodel.Mobile = Convert.ToInt64(txtMobile.Text);
+            companymodel.ContactPerson = txtContactPerson.Text;
+            companymodel.Mobile = Convert.ToInt64(txtMobile.Text);
             companymodel.Email = txtEmail.Text;
             companymodel.Password = EncryptPassword(txtPassword.Text);
             companymodel.Website = txtWebsite.Text;
@@ -39,7 +37,8 @@ namespace Job_Portal_Management_System.Views.Company
             companymodel.CreatedDate = DateTime.Now;
             companymodel.UpdatedDate = DateTime.Now;
         }
-        #endregion
+
+        #endregion InsertData
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
@@ -65,7 +64,6 @@ namespace Job_Portal_Management_System.Views.Company
                     Session["alert-type"] = "danger";
                 }
             }
-            
         }
 
         public void bindCountry()
@@ -91,7 +89,6 @@ namespace Job_Portal_Management_System.Views.Company
             txtPassword.Text = string.Empty;
             txtWebsite.Text = string.Empty;
             txtDetail.Text = string.Empty;
-          
         }
 
         public string EncryptPassword(string passEncrypted)

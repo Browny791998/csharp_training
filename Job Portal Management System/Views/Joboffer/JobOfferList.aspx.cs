@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.Joboffer
 {
     public partial class JobOfferList : System.Web.UI.Page
     {
+        private JobPortal_Models.JobOffer.JobOffer joboffermodel = new JobPortal_Models.JobOffer.JobOffer();
+        private JobPortal_Services.JobOffer.JobOfferService jobofferservice = new JobPortal_Services.JobOffer.JobOfferService();
+        private DataTable da = new DataTable();
 
-        JobPortal_Models.JobOffer.JobOffer joboffermodel = new JobPortal_Models.JobOffer.JobOffer();
-        JobPortal_Services.JobOffer.JobOfferService jobofferservice = new JobPortal_Services.JobOffer.JobOfferService();
-        DataTable da = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -24,11 +19,11 @@ namespace Job_Portal_Management_System.Views.Joboffer
             if (!IsPostBack)
             {
                 GetData();
-
             }
         }
 
         #region Get Data
+
         /// <summary>
         /// Get Data
         /// </summary>
@@ -49,22 +44,18 @@ namespace Job_Portal_Management_System.Views.Joboffer
                 grvJobOffer.DataSource = null;
                 grvJobOffer.DataBind();
             }
-
         }
 
-
-
-        #endregion
+        #endregion Get Data
 
         protected void grvJobOffer_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int rowIndex = Convert.ToInt32(e.CommandArgument);
             GridViewRow row = grvJobOffer.Rows[rowIndex];
             int jobseekerID = Convert.ToInt32((row.FindControl("lbljobseekerId") as Label).Text);
-            int jobID= Convert.ToInt32((row.FindControl("lbljobId") as Label).Text);
+            int jobID = Convert.ToInt32((row.FindControl("lbljobId") as Label).Text);
             if (e.CommandName == "Accept")
             {
-
                 joboffermodel.JobSeekerID = jobseekerID;
                 joboffermodel.IsAccept = 1;
                 joboffermodel.JobID = jobID;
@@ -80,7 +71,6 @@ namespace Job_Portal_Management_System.Views.Joboffer
                     Session["alert"] = "fail to accept";
                     Session["alert-type"] = "danger";
                 }
-                
             }
             else if (e.CommandName == "Reject")
             {
@@ -104,11 +94,7 @@ namespace Job_Portal_Management_System.Views.Joboffer
             {
                 Response.Redirect("ApplierDetail.aspx?applierID=" + jobseekerID);
             }
-
-
         }
-
-
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
@@ -152,10 +138,10 @@ namespace Job_Portal_Management_System.Views.Joboffer
                 if (drv["Accept"].ToString().Equals("Accepted"))
                 {
                     e.Row.BackColor = System.Drawing.Color.PaleGreen;
-                    Button btnaccept= (Button)e.Row.FindControl("btnAccept"); 
+                    Button btnaccept = (Button)e.Row.FindControl("btnAccept");
                     btnaccept.Enabled = false;
                 }
-                else if(drv["Accept"].ToString().Equals("Rejected"))
+                else if (drv["Accept"].ToString().Equals("Rejected"))
                 {
                     e.Row.BackColor = System.Drawing.Color.Tomato;
                     Button btnreject = (Button)e.Row.FindControl("btnReject");
@@ -165,9 +151,7 @@ namespace Job_Portal_Management_System.Views.Joboffer
                 {
                     e.Row.BackColor = System.Drawing.Color.Orange;
                 }
-               
             }
-           
         }
 
         protected void rdoAccept_CheckedChanged(object sender, EventArgs e)

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 
 namespace Job_Portal_Management_System.Views.Common.Layout
 {
@@ -7,7 +6,6 @@ namespace Job_Portal_Management_System.Views.Common.Layout
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
         }
 
         protected void onclick_btnlogout(object sender, EventArgs e)

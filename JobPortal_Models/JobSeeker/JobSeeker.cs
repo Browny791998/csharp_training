@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JobPortal_Models.JobSeeker
 {
     public class JobSeeker
     {
         #region Local variable and Constant Declaration
+
         /// <summary>
         /// Movie Variables
-        /// </summary>		
+        /// </summary>
         private int _id;
+
         private string _name;
         private string _address;
         private Int64 _mobile;
@@ -30,35 +28,37 @@ namespace JobPortal_Models.JobSeeker
         private string _role;
         private DateTime _createddate;
         private DateTime _updatedddate;
-        #endregion
+
+        #endregion Local variable and Constant Declaration
 
         #region Constructor and Destructor
+
         /// <summary>
-        ///Constructor and Destructor for Movie Variables 
+        ///Constructor and Destructor for Movie Variables
         /// </summary>
         public void PostJobSeeker()
         {
-        _id = 0;
-        _name=string.Empty;
-        _address= string.Empty;
-        _mobile=0;
-        _gender=string.Empty;
-        _dob=DateTime.Now;
-        _skill=string.Empty;
-        _experience=string.Empty;
-        _degree=string.Empty;
-        _degreename=string.Empty;
-        _cvform=string.Empty;
-        _profile=string.Empty;
-        _email=string.Empty;
-        _password=string.Empty;
-        _detail=string.Empty;
-        _role=string.Empty;
-        _createddate=DateTime.Now;
-        _updatedddate=DateTime.Now;
-    }
+            _id = 0;
+            _name = string.Empty;
+            _address = string.Empty;
+            _mobile = 0;
+            _gender = string.Empty;
+            _dob = DateTime.Now;
+            _skill = string.Empty;
+            _experience = string.Empty;
+            _degree = string.Empty;
+            _degreename = string.Empty;
+            _cvform = string.Empty;
+            _profile = string.Empty;
+            _email = string.Empty;
+            _password = string.Empty;
+            _detail = string.Empty;
+            _role = string.Empty;
+            _createddate = DateTime.Now;
+            _updatedddate = DateTime.Now;
+        }
 
-        public void PostData(int id, string name,string address,Int64 mobile,string gender,DateTime dob,string skill,string experience,string degree,string degreename,string cvform,string profile,string email,string password,string detail,string role,DateTime createddate,DateTime updateddate)
+        public void PostData(int id, string name, string address, Int64 mobile, string gender, DateTime dob, string skill, string experience, string degree, string degreename, string cvform, string profile, string email, string password, string detail, string role, DateTime createddate, DateTime updateddate)
         {
             _id = id;
             _name = name;
@@ -71,7 +71,7 @@ namespace JobPortal_Models.JobSeeker
             _degree = degree;
             _degreename = degreename;
             _cvform = cvform;
-            _profile =profile;
+            _profile = profile;
             _email = email;
             _password = password;
             _detail = detail;
@@ -79,9 +79,11 @@ namespace JobPortal_Models.JobSeeker
             _createddate = createddate;
             _updatedddate = updateddate;
         }
-        #endregion
+
+        #endregion Constructor and Destructor
 
         #region Properties Assigning and Retrieving
+
         /// <summary>
         /// Gets or sets the <b>_ID</b> attribute value.
         /// </summary>
@@ -163,7 +165,6 @@ namespace JobPortal_Models.JobSeeker
             }
         }
 
-
         /// <summary>
         /// Gets or sets the <b>_movie</b> attribute value.
         /// </summary>
@@ -192,7 +193,7 @@ namespace JobPortal_Models.JobSeeker
             }
             set
             {
-                _skill= value;
+                _skill = value;
             }
         }
 
@@ -308,7 +309,6 @@ namespace JobPortal_Models.JobSeeker
             }
         }
 
-
         /// <summary>
         /// Gets or sets the <b>_movie</b> attribute value.
         /// </summary>
@@ -340,6 +340,7 @@ namespace JobPortal_Models.JobSeeker
                 _role = value;
             }
         }
+
         /// <summary>
         /// Gets or sets the <b>_movie</b> attribute value.
         /// </summary>
@@ -372,6 +373,6 @@ namespace JobPortal_Models.JobSeeker
             }
         }
 
-        #endregion
+        #endregion Properties Assigning and Retrieving
     }
 }

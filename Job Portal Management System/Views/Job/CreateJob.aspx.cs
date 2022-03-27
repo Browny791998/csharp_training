@@ -1,26 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.Job
 {
     public partial class CreateJob : System.Web.UI.Page
     {
-        JobPortal_Models.Job.Job jobmodel = new JobPortal_Models.Job.Job();
-        JobPortal_Services.Job.JobService jobservice = new JobPortal_Services.Job.JobService();
-        DataTable da = new DataTable();
+        private JobPortal_Models.Job.Job jobmodel = new JobPortal_Models.Job.Job();
+        private JobPortal_Services.Job.JobService jobservice = new JobPortal_Services.Job.JobService();
+        private DataTable da = new DataTable();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
             {
                 Response.Redirect("~/Views/Login.aspx");
             }
-            if (Request.QueryString["action"]=="update" )
+            if (Request.QueryString["action"] == "update")
             {
                 if (!IsPostBack)
                 {
@@ -54,7 +51,7 @@ namespace Job_Portal_Management_System.Views.Job
                         txtSalary.Text = dr["salary"].ToString();
                         txtDetail.Text = dr["detail"].ToString();
                         string active = dr["active"].ToString();
-                        if(active == "Active")
+                        if (active == "Active")
                         {
                             customSwitch1.Checked = true;
                         }
@@ -108,6 +105,7 @@ namespace Job_Portal_Management_System.Views.Job
                 ddlJobtype.DataBind();
             }
         }
+
         public void bindSpecialization()
         {
             da = JobPortal_Services.Specialization.SpecializationServices.GetAllData();
@@ -120,44 +118,13 @@ namespace Job_Portal_Management_System.Views.Job
             }
         }
 
-
         #region InsertData
+
         /// <summary>
         /// InsertData
         /// </summary>
         private void InsertData()
         {
-           jobmodel.Title = txtTitle.Text;
-            jobmodel.Degree = ddlDegree.SelectedValue;
-            string strskill = string.Empty;
-            foreach (ListItem item in lbSkill.Items)
-            {
-                if (item.Selected)
-                {
-                    strskill += item.Text + ",";
-                }
-            }
-            jobmodel.Skill = strskill.Remove(strskill.Length - 1);
-            jobmodel.Experience = txtExperience.Text;
-            jobmodel.Vacancy = Convert.ToInt32(txtVacancy.Text);
-            jobmodel.Company_id = Convert.ToInt32(Session["id"]);
-            jobmodel.Position_id =Convert.ToInt32(ddlPosition.SelectedValue);
-            jobmodel.Jobnature_id = Convert.ToInt32(ddlJobtype.SelectedValue);
-            jobmodel.Specialization_id = Convert.ToInt32(ddlSpecialization.SelectedValue);
-            jobmodel.Salary = Convert.ToInt32(txtSalary.Text);
-            jobmodel.Detail = txtDetail.Text;    
-            jobmodel.CreatedDate = DateTime.Now;
-            jobmodel.UpdatedDate = DateTime.Now;
-        }
-        #endregion
-
-        #region UpdateData
-        /// <summary>
-        /// UpdateData
-        /// </summary>
-        private void UpdateData()
-        {
-           jobmodel.ID = Convert.ToInt32(Request.QueryString["id"]);
             jobmodel.Title = txtTitle.Text;
             jobmodel.Degree = ddlDegree.SelectedValue;
             string strskill = string.Empty;
@@ -174,9 +141,42 @@ namespace Job_Portal_Management_System.Views.Job
             jobmodel.Company_id = Convert.ToInt32(Session["id"]);
             jobmodel.Position_id = Convert.ToInt32(ddlPosition.SelectedValue);
             jobmodel.Jobnature_id = Convert.ToInt32(ddlJobtype.SelectedValue);
-            jobmodel.Specialization_id= Convert.ToInt32(ddlSpecialization.SelectedValue);
+            jobmodel.Specialization_id = Convert.ToInt32(ddlSpecialization.SelectedValue);
             jobmodel.Salary = Convert.ToInt32(txtSalary.Text);
-            jobmodel.Detail = txtDetail.Text;           
+            jobmodel.Detail = txtDetail.Text;
+            jobmodel.CreatedDate = DateTime.Now;
+            jobmodel.UpdatedDate = DateTime.Now;
+        }
+
+        #endregion InsertData
+
+        #region UpdateData
+
+        /// <summary>
+        /// UpdateData
+        /// </summary>
+        private void UpdateData()
+        {
+            jobmodel.ID = Convert.ToInt32(Request.QueryString["id"]);
+            jobmodel.Title = txtTitle.Text;
+            jobmodel.Degree = ddlDegree.SelectedValue;
+            string strskill = string.Empty;
+            foreach (ListItem item in lbSkill.Items)
+            {
+                if (item.Selected)
+                {
+                    strskill += item.Text + ",";
+                }
+            }
+            jobmodel.Skill = strskill.Remove(strskill.Length - 1);
+            jobmodel.Experience = txtExperience.Text;
+            jobmodel.Vacancy = Convert.ToInt32(txtVacancy.Text);
+            jobmodel.Company_id = Convert.ToInt32(Session["id"]);
+            jobmodel.Position_id = Convert.ToInt32(ddlPosition.SelectedValue);
+            jobmodel.Jobnature_id = Convert.ToInt32(ddlJobtype.SelectedValue);
+            jobmodel.Specialization_id = Convert.ToInt32(ddlSpecialization.SelectedValue);
+            jobmodel.Salary = Convert.ToInt32(txtSalary.Text);
+            jobmodel.Detail = txtDetail.Text;
             if (customSwitch1.Checked)
             {
                 jobmodel.Active = 1;
@@ -187,7 +187,9 @@ namespace Job_Portal_Management_System.Views.Job
             }
             jobmodel.UpdatedDate = DateTime.Now;
         }
-        #endregion
+
+        #endregion UpdateData
+
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             if (Request.QueryString["action"] == "update")
@@ -223,7 +225,6 @@ namespace Job_Portal_Management_System.Views.Job
                     Session["alert-type"] = "danger";
                 }
             }
-            
         }
 
         private void ClearFields()
@@ -238,13 +239,11 @@ namespace Job_Portal_Management_System.Views.Job
             ddlSpecialization.SelectedIndex = -1;
             txtSalary.Text = string.Empty;
             txtDetail.Text = string.Empty;
-
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
             ClearFields();
-
         }
     }
 }

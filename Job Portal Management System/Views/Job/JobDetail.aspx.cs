@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.Job
 {
     public partial class JobDetail : System.Web.UI.Page
     {
-        JobPortal_Models.JobOffer.JobOffer joboffermodel = new JobPortal_Models.JobOffer.JobOffer();
-        JobPortal_Services.JobOffer.JobOfferService jobofferservice = new JobPortal_Services.JobOffer.JobOfferService();
-        DataTable da = new DataTable();
+        private JobPortal_Models.JobOffer.JobOffer joboffermodel = new JobPortal_Models.JobOffer.JobOffer();
+        private JobPortal_Services.JobOffer.JobOfferService jobofferservice = new JobPortal_Services.JobOffer.JobOfferService();
+        private DataTable da = new DataTable();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -21,9 +17,10 @@ namespace Job_Portal_Management_System.Views.Job
                 BindCompany();
             }
         }
+
         public void BindJob()
         {
-            int Jobid= Convert.ToInt32(Request.QueryString["jobID"]);
+            int Jobid = Convert.ToInt32(Request.QueryString["jobID"]);
             da = JobPortal_Services.Job.JobService.GetData(Jobid);
             rptJob.DataSource = da;
             rptJob.DataBind();
@@ -38,6 +35,7 @@ namespace Job_Portal_Management_System.Views.Job
         }
 
         #region InsertData
+
         /// <summary>
         /// InsertData
         /// </summary>
@@ -45,10 +43,12 @@ namespace Job_Portal_Management_System.Views.Job
         {
             joboffermodel.JobSeekerID = Convert.ToInt32(Session["id"]);
             joboffermodel.CompanyID = Convert.ToInt32(Request.QueryString["ComID"]);
-         joboffermodel.JobID = Convert.ToInt32(Request.QueryString["jobID"]);;
-           joboffermodel.AppliedDate = DateTime.Now;
+            joboffermodel.JobID = Convert.ToInt32(Request.QueryString["jobID"]); ;
+            joboffermodel.AppliedDate = DateTime.Now;
         }
-        #endregion
+
+        #endregion InsertData
+
         protected void btnApply_Click(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -83,7 +83,6 @@ namespace Job_Portal_Management_System.Views.Job
                         Session["alert-type"] = "danger";
                     }
                 }
-               
             }
         }
     }

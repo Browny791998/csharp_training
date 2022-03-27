@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.Job
 {
     public partial class JobList : System.Web.UI.Page
     {
-      JobPortal_Models.Job.Job jobmodel = new JobPortal_Models.Job.Job();
-       JobPortal_Services.Job.JobService jobservice = new JobPortal_Services.Job.JobService();
-        DataTable da = new DataTable();
+        private JobPortal_Models.Job.Job jobmodel = new JobPortal_Models.Job.Job();
+        private JobPortal_Services.Job.JobService jobservice = new JobPortal_Services.Job.JobService();
+        private DataTable da = new DataTable();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,10 +20,10 @@ namespace Job_Portal_Management_System.Views.Job
             {
                 GetData();
             }
-           
         }
 
         #region Get Data
+
         /// <summary>
         /// Get Data
         /// </summary>
@@ -48,10 +44,9 @@ namespace Job_Portal_Management_System.Views.Job
                 grvJob.DataSource = null;
                 grvJob.DataBind();
             }
-           
         }
 
-        #endregion
+        #endregion Get Data
 
         protected void grvJob_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
@@ -73,23 +68,22 @@ namespace Job_Portal_Management_System.Views.Job
 
         protected void grvJob_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-           
             int id = Convert.ToInt32(grvJob.DataKeys[e.RowIndex].Value);
-            Response.Redirect("CreateJob.aspx?id=" + id +"&action=update");
+            Response.Redirect("CreateJob.aspx?id=" + id + "&action=update");
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            da = JobPortal_Services.Job.JobService.GetSearchData(txtSearch.Text,Convert.ToInt32(Session["id"]));
+            da = JobPortal_Services.Job.JobService.GetSearchData(txtSearch.Text, Convert.ToInt32(Session["id"]));
             if (da.Rows.Count > 0)
             {
                 grvJob.DataSource = da;
-               grvJob.DataBind();
+                grvJob.DataBind();
                 grvJob.Visible = true;
             }
             else
             {
-               grvJob.DataSource = null;
+                grvJob.DataSource = null;
                 grvJob.DataBind();
             }
             grvJob.UseAccessibleHeader = true;

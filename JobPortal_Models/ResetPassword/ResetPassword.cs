@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JobPortal_Models.ResetPassword
 {
-   public class ResetPassword
+    public class ResetPassword
     {
         #region Local variable and Constant Declaration
 
@@ -34,7 +30,7 @@ namespace JobPortal_Models.ResetPassword
             _requestdate = DateTime.Now;
         }
 
-        public void PostData(int id, string uid,string email,DateTime requestdate)
+        public void PostData(int id, string uid, string email, DateTime requestdate)
         {
             _id = id;
             _uid = uid;
@@ -75,7 +71,7 @@ namespace JobPortal_Models.ResetPassword
             }
             set
             {
-                _uid= value;
+                _uid = value;
             }
         }
 

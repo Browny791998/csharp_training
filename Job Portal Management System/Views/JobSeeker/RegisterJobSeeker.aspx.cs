@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.JobSeeker
 {
     public partial class RegisterJobSeeker : System.Web.UI.Page
     {
-        
-      JobPortal_Models.JobSeeker.JobSeeker jobseekermodel = new JobPortal_Models.JobSeeker.JobSeeker();
-        JobPortal_Services.JobSeeker.JobSeekerService jobseekerservice = new JobPortal_Services.JobSeeker.JobSeekerService();
-        DataTable da = new DataTable();
+        private JobPortal_Models.JobSeeker.JobSeeker jobseekermodel = new JobPortal_Models.JobSeeker.JobSeeker();
+        private JobPortal_Services.JobSeeker.JobSeekerService jobseekerservice = new JobPortal_Services.JobSeeker.JobSeekerService();
+        private DataTable da = new DataTable();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,6 +20,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
         }
 
         #region InsertData
+
         /// <summary>
         /// InsertData
         /// </summary>
@@ -48,14 +44,14 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             jobseekermodel.Skill = strskill.Remove(strskill.Length - 1);
             jobseekermodel.Experience = txtExperience.Text;
             jobseekermodel.Degree = ddlDegree.SelectedValue;
-            if(txtDegree.Text == string.Empty)
+            if (txtDegree.Text == string.Empty)
             {
                 txtDegree.Text = "Student";
             }
             jobseekermodel.DegreeName = txtDegree.Text;
             string[] validCVFileTypes = { "doc", "docx" };
-           ext = System.IO.Path.GetExtension(fuCV.PostedFile.FileName);
-           isValidFile = false;
+            ext = System.IO.Path.GetExtension(fuCV.PostedFile.FileName);
+            isValidFile = false;
             for (int i = 0; i < validCVFileTypes.Length; i++)
             {
                 if (ext == "." + validCVFileTypes[i])
@@ -66,7 +62,6 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             }
             if (!isValidFile)
             {
-
                 jobseekermodel.CVForm = null;
             }
             else
@@ -74,7 +69,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 fuCV.SaveAs(Server.MapPath("~/CV/") + Path.GetFileName(fuCV.FileName));
                 string cvform = "CV/" + Path.GetFileName(fuCV.FileName);
                 jobseekermodel.CVForm = cvform;
-        }
+            }
             string[] validImageFileTypes = { "png", "jpg", "jpeg" };
             ext = System.IO.Path.GetExtension(fuProfile.PostedFile.FileName);
             isValidFile = false;
@@ -88,7 +83,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             }
             if (!isValidFile)
             {
-             jobseekermodel.Profile= null;
+                jobseekermodel.Profile = null;
             }
             else
             {
@@ -102,8 +97,9 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             jobseekermodel.Role = "Job Seeker";
             jobseekermodel.CreatedDate = DateTime.Now;
             jobseekermodel.UpdatedDate = DateTime.Now;
-         }
-        #endregion
+        }
+
+        #endregion InsertData
 
         public void bindSkill()
         {
@@ -131,7 +127,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            da =JobPortal_Services.JobSeeker.JobSeekerService.GetData(txtEmail.Text);
+            da = JobPortal_Services.JobSeeker.JobSeekerService.GetData(txtEmail.Text);
             if (da.Rows.Count > 0)
             {
                 Session["alert"] = "Data already exist";
@@ -145,7 +141,8 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                     Session["alert"] = "CV Form File Type is invalid";
                     Session["alert-type"] = "warning";
                     return;
-                }else if(jobseekermodel.Profile == null)
+                }
+                else if (jobseekermodel.Profile == null)
                 {
                     Session["alert"] = "Profile File Type is invalid";
                     Session["alert-type"] = "warning";
@@ -166,9 +163,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                         Session["alert-type"] = "danger";
                     }
                 }
-                
             }
-           
         }
 
         public void ClearFields()

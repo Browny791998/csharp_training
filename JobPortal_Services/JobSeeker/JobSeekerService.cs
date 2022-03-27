@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JobPortal_Services.JobSeeker
 {
     public class JobSeekerService
     {
         #region Insert/Update/Delete
+
         /// <summary>
         /// Insert Data
         /// </summary>
@@ -57,10 +54,10 @@ namespace JobPortal_Services.JobSeeker
             }
         }
 
+        #endregion Insert/Update/Delete
 
-        #endregion
+        #region Get Data
 
-        #region Get Data      
         /// <summary>
         /// Get Data
         /// </summary>
@@ -91,8 +88,6 @@ namespace JobPortal_Services.JobSeeker
             }
         }
 
-        
-
         /// <summary>
         /// Get All Data
         /// </summary>
@@ -107,7 +102,6 @@ namespace JobPortal_Services.JobSeeker
                 throw ex;
             }
         }
-
 
         /// <summary>
         /// Get All Data
@@ -153,6 +147,7 @@ namespace JobPortal_Services.JobSeeker
                 throw ex;
             }
         }
-        #endregion
+
+        #endregion Get Data
     }
 }

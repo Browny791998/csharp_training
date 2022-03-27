@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JobPortal_Services.JobOffer
 {
     public class JobOfferService
     {
         #region Insert/Update/Delete
+
         /// <summary>
         /// Insert Data
         /// </summary>
@@ -41,6 +38,7 @@ namespace JobPortal_Services.JobOffer
                 throw ex;
             }
         }
+
         ///// <summary>
         ///// Update Data
         ///// </summary>
@@ -71,9 +69,10 @@ namespace JobPortal_Services.JobOffer
             }
         }
 
-        #endregion
+        #endregion Insert/Update/Delete
 
-        #region Get Data      
+        #region Get Data
+
         /// <summary>
         /// Get Data
         /// </summary>
@@ -103,6 +102,7 @@ namespace JobPortal_Services.JobOffer
                 throw ex;
             }
         }
+
         /// <summary>
         /// Get All Data
         /// </summary>
@@ -125,7 +125,7 @@ namespace JobPortal_Services.JobOffer
         {
             try
             {
-     return JobPortal_DAOs.JobOffer.JobOfferDao.GetSearchAllJoboffer(str.ToString().Replace("'", "''"), company);
+                return JobPortal_DAOs.JobOffer.JobOfferDao.GetSearchAllJoboffer(str.ToString().Replace("'", "''"), company);
             }
             catch (Exception ex)
             {
@@ -140,14 +140,13 @@ namespace JobPortal_Services.JobOffer
         {
             try
             {
-                return JobPortal_DAOs.JobOffer.JobOfferDao.GetSearchAllAccept(status,search.ToString().Replace("'", "''"), company);
+                return JobPortal_DAOs.JobOffer.JobOfferDao.GetSearchAllAccept(status, search.ToString().Replace("'", "''"), company);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
 
         /// <summary>
         /// Get Search Data
@@ -156,7 +155,7 @@ namespace JobPortal_Services.JobOffer
         {
             try
             {
-                return JobPortal_DAOs.JobOffer.JobOfferDao.GetJobandSeeker(JobID,JobSeekerID);
+                return JobPortal_DAOs.JobOffer.JobOfferDao.GetJobandSeeker(JobID, JobSeekerID);
             }
             catch (Exception ex)
             {
@@ -186,7 +185,7 @@ namespace JobPortal_Services.JobOffer
         {
             try
             {
-     return JobPortal_DAOs.JobOffer.JobOfferDao.GetSearchData(str.ToString().Replace("'", "''"), companyID);
+                return JobPortal_DAOs.JobOffer.JobOfferDao.GetSearchData(str.ToString().Replace("'", "''"), companyID);
             }
             catch (Exception ex)
             {
@@ -238,6 +237,7 @@ namespace JobPortal_Services.JobOffer
                 throw ex;
             }
         }
-        #endregion
+
+        #endregion Get Data
     }
 }

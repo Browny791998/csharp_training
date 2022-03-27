@@ -65,7 +65,7 @@ namespace JobPortal_Services.Country
         {
             try
             {
-              return JobPortal_DAOs.Country.CountryDaos.GetData(country.ToString().Replace("'", "''"));
+                return JobPortal_DAOs.Country.CountryDaos.GetData(country.ToString().Replace("'", "''"));
             }
             catch (Exception ex)
             {
@@ -95,7 +95,7 @@ namespace JobPortal_Services.Country
         {
             try
             {
-         return JobPortal_DAOs.Country.CountryDaos.GetSearchData(str.ToString().Replace("'", "''"));
+                return JobPortal_DAOs.Country.CountryDaos.GetSearchData(str.ToString().Replace("'", "''"));
             }
             catch (Exception ex)
             {

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.Country
 {
@@ -27,7 +22,7 @@ namespace Job_Portal_Management_System.Views.Country
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Request.QueryString["action"] == "add")
+            if (Request.QueryString["action"] == "add")
             {
                 Session.Remove("label");
                 lblCountry.Text = "Add Country";
@@ -43,7 +38,6 @@ namespace Job_Portal_Management_System.Views.Country
                     if (!IsPostBack)
                     {
                     }
-                    
                 }
                 else if (label == "update")
                 {
@@ -99,8 +93,8 @@ namespace Job_Portal_Management_System.Views.Country
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /// 
-      
+        ///
+
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             if (hfCountry.Value == "")
@@ -128,7 +122,7 @@ namespace Job_Portal_Management_System.Views.Country
                         Session["alert"] = "Adding failed. Try again!!";
                         Session["alert-type"] = "danger";
                         Response.Redirect("CountryList.aspx");
-                }
+                    }
                 }
             }
             else

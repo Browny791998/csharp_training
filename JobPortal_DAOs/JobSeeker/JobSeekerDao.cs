@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using JobPortal_Models;
 
 namespace JobPortal_DAOs.JobSeeker
 {
     public class JobSeekerDao
     {
         #region Insert/Update/Delete
+
         /// <summary>
         /// Insert Data
         /// </summary>
@@ -105,9 +101,10 @@ namespace JobPortal_DAOs.JobSeeker
             }
         }
 
-        #endregion
+        #endregion Insert/Update/Delete
 
         #region Get Data
+
         /// <summary>
         /// Get Data
         /// </summary>
@@ -136,7 +133,6 @@ namespace JobPortal_DAOs.JobSeeker
             }
         }
 
-
         public static DataTable GetAllJobSeeker()
         {
             try
@@ -149,7 +145,6 @@ namespace JobPortal_DAOs.JobSeeker
             }
         }
 
-
         /// <summary>
         /// Get All Data
         /// </summary>
@@ -158,7 +153,7 @@ namespace JobPortal_DAOs.JobSeeker
         {
             try
             {
-       return Common.HelperDao.GetData("Select id,name,address,mobile,gender,CONVERT(varchar,dob,3) as dob,skill,experience,degree,degree_name,cvform,profile,email,password,detail,role,active,created_date,updated_date from tbl_jobseeker Where id='"+id+"'", CommandType.Text);
+                return Common.HelperDao.GetData("Select id,name,address,mobile,gender,CONVERT(varchar,dob,3) as dob,skill,experience,degree,degree_name,cvform,profile,email,password,detail,role,active,created_date,updated_date from tbl_jobseeker Where id='" + id + "'", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -175,8 +170,6 @@ namespace JobPortal_DAOs.JobSeeker
             try
             {
                 return Common.HelperDao.GetData("Select Count(id) as JobSeeker,DATENAME(WEEKDAY,created_date) as Day from tbl_jobseeker Group By DATENAME(WEEKDAY,created_date)", CommandType.Text);
-
-
             }
             catch (Exception ex)
             {
@@ -200,6 +193,6 @@ namespace JobPortal_DAOs.JobSeeker
             }
         }
 
-        #endregion
+        #endregion Get Data
     }
 }

@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JobPortal_Services.Company
 {
-   public class CompanyService
+    public class CompanyService
     {
         #region Insert/Update/Delete
+
         /// <summary>
         /// Insert Data
         /// </summary>
@@ -41,6 +38,7 @@ namespace JobPortal_Services.Company
                 throw ex;
             }
         }
+
         /// <summary>
         /// Update Data
         /// </summary>
@@ -56,10 +54,10 @@ namespace JobPortal_Services.Company
             }
         }
 
+        #endregion Insert/Update/Delete
 
-        #endregion
+        #region Get Data
 
-        #region Get Data      
         /// <summary>
         /// Get Data
         /// </summary>
@@ -82,14 +80,13 @@ namespace JobPortal_Services.Company
         {
             try
             {
-          return JobPortal_DAOs.Company.CompanyDao.GetSearchData(str.ToString().Replace("'", "''"));
+                return JobPortal_DAOs.Company.CompanyDao.GetSearchData(str.ToString().Replace("'", "''"));
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
 
         /// <summary>
         /// Get All Data
@@ -121,7 +118,6 @@ namespace JobPortal_Services.Company
             }
         }
 
-
         public static DataTable GetChartData()
         {
             try
@@ -148,6 +144,7 @@ namespace JobPortal_Services.Company
                 throw ex;
             }
         }
-        #endregion
+
+        #endregion Get Data
     }
 }

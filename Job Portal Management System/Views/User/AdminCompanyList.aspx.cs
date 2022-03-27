@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.User
 {
     public partial class AdminCompanyList : System.Web.UI.Page
     {
+        private JobPortal_Services.Company.CompanyService companyservice = new JobPortal_Services.Company.CompanyService();
+        private DataTable da = new DataTable();
 
-    
-        JobPortal_Services.Company.CompanyService companyservice = new  JobPortal_Services.Company.CompanyService();
-        DataTable da = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -26,18 +21,17 @@ namespace Job_Portal_Management_System.Views.User
             }
         }
 
-
         #region Get Data
+
         /// <summary>
         /// Get Data
         /// </summary>
         public void GetData()
         {
-
             da = JobPortal_Services.Company.CompanyService.GetCompanyAllData();
             if (da.Rows.Count > 0)
             {
-               grvCompany.DataSource = da;
+                grvCompany.DataSource = da;
                 grvCompany.DataBind();
                 grvCompany.Visible = true;
                 grvCompany.UseAccessibleHeader = true;
@@ -48,18 +42,17 @@ namespace Job_Portal_Management_System.Views.User
                 grvCompany.DataSource = null;
                 grvCompany.DataBind();
             }
-
         }
-        #endregion
 
+        #endregion Get Data
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             da = JobPortal_Services.Company.CompanyService.GetSearchData(txtSearch.Text);
             if (da.Rows.Count > 0)
             {
-            grvCompany.DataSource = da;
-              grvCompany.DataBind();
+                grvCompany.DataSource = da;
+                grvCompany.DataBind();
                 grvCompany.Visible = true;
             }
             else

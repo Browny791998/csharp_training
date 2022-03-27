@@ -1,40 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JobPortal_Models.JobOffer
 {
     public class JobOffer
     {
         #region Local variable and Constant Declaration
+
         /// <summary>
         /// Movie Variables
-        /// </summary>		
+        /// </summary>
         private int _id;
+
         private int _jobseekerid;
         private int _companyid;
         private int _jobid;
         private DateTime _applieddate;
         private Int16 _isaccept;
-        #endregion
+
+        #endregion Local variable and Constant Declaration
 
         #region Constructor and Destructor
+
         /// <summary>
-        ///Constructor and Destructor for Movie Variables 
+        ///Constructor and Destructor for Movie Variables
         /// </summary>
         public void PostJobOffer()
         {
             _id = 0;
-            _jobseekerid= 0;
+            _jobseekerid = 0;
             _companyid = 0;
             _jobid = 0;
             _applieddate = DateTime.Now;
             _isaccept = 0;
         }
 
-        public void PostData(int id,int jobseekerID,int companyID, int jobID, DateTime applieddate, Int16 isaccept)
+        public void PostData(int id, int jobseekerID, int companyID, int jobID, DateTime applieddate, Int16 isaccept)
         {
             _id = id;
             _jobseekerid = jobseekerID;
@@ -43,9 +43,11 @@ namespace JobPortal_Models.JobOffer
             _applieddate = applieddate;
             _isaccept = isaccept;
         }
-        #endregion
+
+        #endregion Constructor and Destructor
 
         #region Properties Assigning and Retrieving
+
         /// <summary>
         /// Gets or sets the <b>_ID</b> attribute value.
         /// </summary>
@@ -107,7 +109,7 @@ namespace JobPortal_Models.JobOffer
             }
             set
             {
-                _jobid= value;
+                _jobid = value;
             }
         }
 
@@ -127,7 +129,6 @@ namespace JobPortal_Models.JobOffer
             }
         }
 
-
         /// <summary>
         /// Gets or sets the <b>_movie</b> attribute value.
         /// </summary>
@@ -144,8 +145,6 @@ namespace JobPortal_Models.JobOffer
             }
         }
 
-       
-
-        #endregion
+        #endregion Properties Assigning and Retrieving
     }
 }

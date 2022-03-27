@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JobPortal_Models.Company
 {
     public class Company
     {
         #region Local variable and Constant Declaration
+
         /// <summary>
         /// Movie Variables
-        /// </summary>		
+        /// </summary>
         private int _id;
+
         private string _name;
         private int _countryid;
         private string _address;
@@ -25,11 +23,13 @@ namespace JobPortal_Models.Company
         private string _detail;
         private DateTime _createddate;
         private DateTime _updatedddate;
-        #endregion
+
+        #endregion Local variable and Constant Declaration
 
         #region Constructor and Destructor
+
         /// <summary>
-        ///Constructor and Destructor for Movie Variables 
+        ///Constructor and Destructor for Movie Variables
         /// </summary>
         public void PostCompany()
         {
@@ -37,18 +37,18 @@ namespace JobPortal_Models.Company
             _name = string.Empty;
             _countryid = 0;
             _address = string.Empty;
-            _contactperson= string.Empty;
+            _contactperson = string.Empty;
             _mobile = 0;
             _email = string.Empty;
             _password = string.Empty;
             _website = string.Empty;
-            _role= string.Empty;
+            _role = string.Empty;
             _detail = string.Empty;
             _createddate = DateTime.Now;
             _updatedddate = DateTime.Now;
         }
 
-        public void PostData(int id, string name,int country_id,string address, string contact_person, Int64 mobile, string email,string password,string website, string role, string detail,DateTime createddate, DateTime updateddate)
+        public void PostData(int id, string name, int country_id, string address, string contact_person, Int64 mobile, string email, string password, string website, string role, string detail, DateTime createddate, DateTime updateddate)
         {
             _id = id;
             _name = name;
@@ -58,15 +58,17 @@ namespace JobPortal_Models.Company
             _mobile = mobile;
             _email = email;
             _password = password;
-            _website= website;
+            _website = website;
             _role = role;
             _detail = detail;
             _createddate = createddate;
             _updatedddate = updateddate;
         }
-        #endregion
+
+        #endregion Constructor and Destructor
 
         #region Properties Assigning and Retrieving
+
         /// <summary>
         /// Gets or sets the <b>_ID</b> attribute value.
         /// </summary>
@@ -112,7 +114,7 @@ namespace JobPortal_Models.Company
             }
             set
             {
-                _countryid= value;
+                _countryid = value;
             }
         }
 
@@ -147,7 +149,6 @@ namespace JobPortal_Models.Company
                 _contactperson = value;
             }
         }
-
 
         /// <summary>
         /// Gets or sets the <b>_movie</b> attribute value.
@@ -245,8 +246,7 @@ namespace JobPortal_Models.Company
             }
         }
 
-      
-       /// <summary>
+        /// <summary>
         /// Gets or sets the <b>_movie</b> attribute value.
         /// </summary>
         /// <value>The <b>_movie</b> attribute value.</value>
@@ -278,6 +278,6 @@ namespace JobPortal_Models.Company
             }
         }
 
-        #endregion
+        #endregion Properties Assigning and Retrieving
     }
 }

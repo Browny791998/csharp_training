@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.JobSeeker
 {
     public partial class AppliedJob : System.Web.UI.Page
     {
+        private JobPortal_Models.JobOffer.JobOffer joboffermodel = new JobPortal_Models.JobOffer.JobOffer();
+        private JobPortal_Services.JobOffer.JobOfferService jobofferservice = new JobPortal_Services.JobOffer.JobOfferService();
+        private DataTable da = new DataTable();
 
-
-        JobPortal_Models.JobOffer.JobOffer joboffermodel = new JobPortal_Models.JobOffer.JobOffer();
-        JobPortal_Services.JobOffer.JobOfferService jobofferservice = new JobPortal_Services.JobOffer.JobOfferService();
-        DataTable da = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -24,11 +19,9 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             if (!IsPostBack)
             {
                 GetData();
-
             }
         }
 
-       
         /// <summary>
         /// Get Data
         /// </summary>
@@ -50,7 +43,6 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 grvAppliedJob.DataBind();
             }
         }
-
 
         protected void grvAppliedJob_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {

@@ -1,32 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views
 {
     public partial class Reset : System.Web.UI.Page
     {
-        string GUID;
-        string Role;
-        string Email;
-        JobPortal_Models.JobSeeker.JobSeeker jobseekermodel = new JobPortal_Models.JobSeeker.JobSeeker();
-        JobPortal_Models.Company.Company companymodel = new JobPortal_Models.Company.Company();
-    JobPortal_Models.ResetPassword.ResetPassword resetpassmodel = new JobPortal_Models.ResetPassword.ResetPassword();
-        DataTable da = new DataTable();
+        private string GUID;
+        private string Role;
+        private string Email;
+        private JobPortal_Models.JobSeeker.JobSeeker jobseekermodel = new JobPortal_Models.JobSeeker.JobSeeker();
+        private JobPortal_Models.Company.Company companymodel = new JobPortal_Models.Company.Company();
+        private JobPortal_Models.ResetPassword.ResetPassword resetpassmodel = new JobPortal_Models.ResetPassword.ResetPassword();
+        private DataTable da = new DataTable();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             GUID = Request.QueryString["Uid"];
-            if(GUID != null)
+            if (GUID != null)
             {
                 da = JobPortal_Services.ResetPassword.ResetPasswordService.GetGUI(GUID);
                 if (da.Rows.Count > 0)
                 {
                     Email = da.Rows[0]["email"].ToString();
-
                 }
                 else
                 {
@@ -52,18 +47,18 @@ namespace Job_Portal_Management_System.Views
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             bool success;
-            Role= Request.QueryString["Role"];
+            Role = Request.QueryString["Role"];
             string encyptpass;
             if (Role == "JobSeeker")
             {
                 encyptpass = EncryptPassword(txtNewPassword.Text);
-               jobseekermodel.Password = encyptpass;
+                jobseekermodel.Password = encyptpass;
                 jobseekermodel.Email = Email;
-             success = JobPortal_Services.JobSeeker.JobSeekerService.UpdatebyEmail(jobseekermodel);
+                success = JobPortal_Services.JobSeeker.JobSeekerService.UpdatebyEmail(jobseekermodel);
                 if (success)
                 {
                     resetpassmodel.Email = Email;
-                  success = JobPortal_Services.ResetPassword.ResetPasswordService.Delete(resetpassmodel);
+                    success = JobPortal_Services.ResetPassword.ResetPasswordService.Delete(resetpassmodel);
                     if (success)
                     {
                         Session["alert"] = "Your Password is successfully changed";
@@ -75,7 +70,8 @@ namespace Job_Portal_Management_System.Views
                     Session["alert"] = "Failed Password changing";
                     Session["alert-type"] = "danger";
                 }
-            }else if(Role == "Company")
+            }
+            else if (Role == "Company")
             {
                 encyptpass = EncryptPassword(txtNewPassword.Text);
                 companymodel.Password = encyptpass;

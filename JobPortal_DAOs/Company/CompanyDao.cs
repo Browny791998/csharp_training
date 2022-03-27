@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JobPortal_DAOs.Company
 {
     public class CompanyDao
     {
         #region Insert/Update/Delete
+
         /// <summary>
         /// Insert Data
         /// </summary>
@@ -94,9 +91,10 @@ namespace JobPortal_DAOs.Company
             }
         }
 
-        #endregion
+        #endregion Insert/Update/Delete
 
         #region Get Data
+
         /// <summary>
         /// Get Data
         /// </summary>
@@ -112,13 +110,13 @@ namespace JobPortal_DAOs.Company
                 throw ex;
             }
         }
+
         /// <summary>
         /// Get All Data
         /// </summary>
         /// <returns></returns>
         public static DataTable GetCompanyAllData()
         {
-
             try
             {
                 return Common.HelperDao.GetData("Select tbl_company.id,name,country_id,country,address,contact_person,mobile,email,password,website,role,detail,active,created_at,updated_at from tbl_company join tbl_country on tbl_country.id=tbl_company.country_id", CommandType.Text);
@@ -152,7 +150,6 @@ namespace JobPortal_DAOs.Company
             }
         }
 
-
         /// <summary>
         /// Get All Data
         /// </summary>
@@ -161,7 +158,7 @@ namespace JobPortal_DAOs.Company
         {
             try
             {
-                return Common.HelperDao.GetData("Select tbl_company.id,name,country_id,country,address,contact_person,mobile,email,password,website,role,detail,active,created_at,updated_at from tbl_company join tbl_country on tbl_country.id=tbl_company.country_id Where tbl_company.id='"+id+"'", CommandType.Text);
+                return Common.HelperDao.GetData("Select tbl_company.id,name,country_id,country,address,contact_person,mobile,email,password,website,role,detail,active,created_at,updated_at from tbl_company join tbl_country on tbl_country.id=tbl_company.country_id Where tbl_company.id='" + id + "'", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -178,8 +175,6 @@ namespace JobPortal_DAOs.Company
             try
             {
                 return Common.HelperDao.GetData("Select Count(id) as Company,DATENAME(WEEKDAY,created_at) as Day from tbl_company Group By DATENAME(WEEKDAY, created_at) ", CommandType.Text);
-
-
             }
             catch (Exception ex)
             {
@@ -203,6 +198,6 @@ namespace JobPortal_DAOs.Company
             }
         }
 
-        #endregion
+        #endregion Get Data
     }
 }

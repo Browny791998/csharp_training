@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.User
 {
     public partial class AdminJobList : System.Web.UI.Page
     {
-        JobPortal_Models.Job.Job jobmodel = new JobPortal_Models.Job.Job();
-        JobPortal_Services.Job.JobService jobservice = new JobPortal_Services.Job.JobService();
-        DataTable da = new DataTable();
+        private JobPortal_Models.Job.Job jobmodel = new JobPortal_Models.Job.Job();
+        private JobPortal_Services.Job.JobService jobservice = new JobPortal_Services.Job.JobService();
+        private DataTable da = new DataTable();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -26,12 +23,12 @@ namespace Job_Portal_Management_System.Views.User
         }
 
         #region Get Data
+
         /// <summary>
         /// Get Data
         /// </summary>
         public void GetData()
         {
-            
             da = JobPortal_Services.Job.JobService.GetActiveData();
             if (da.Rows.Count > 0)
             {
@@ -46,10 +43,9 @@ namespace Job_Portal_Management_System.Views.User
                 grvJob.DataSource = null;
                 grvJob.DataBind();
             }
-
         }
 
-        #endregion
+        #endregion Get Data
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {

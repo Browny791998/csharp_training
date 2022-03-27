@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JobPortal_DAOs.ResetPassword
 {
@@ -114,7 +110,6 @@ namespace JobPortal_DAOs.ResetPassword
             }
         }
 
-
         /// <summary>
         /// Get All Data
         /// </summary>
@@ -123,15 +118,13 @@ namespace JobPortal_DAOs.ResetPassword
         {
             try
             {
-                return Common.HelperDao.GetData("Select id,uid,email,requestdatetime  from tbl_reset_password Where uid ='"+gui+"'", CommandType.Text);
+                return Common.HelperDao.GetData("Select id,uid,email,requestdatetime  from tbl_reset_password Where uid ='" + gui + "'", CommandType.Text);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
-
 
         /// <summary>
         ///Read Data

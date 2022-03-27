@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.Company
 {
     public partial class CompanyEdit : System.Web.UI.Page
     {
-        JobPortal_Models.Company.Company companymodel = new JobPortal_Models.Company.Company();
-        DataTable da = new DataTable();
+        private JobPortal_Models.Company.Company companymodel = new JobPortal_Models.Company.Company();
+        private DataTable da = new DataTable();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -29,8 +25,8 @@ namespace Job_Portal_Management_System.Views.Company
                     txtName.Text = dr["name"].ToString();
                     ddlCountry.SelectedValue = dr["country_id"].ToString();
                     txtAddress.Text = dr["address"].ToString();
-                    txtContactPerson.Text= dr["contact_person"].ToString();
-                    txtMobile.Text= dr["mobile"].ToString();
+                    txtContactPerson.Text = dr["contact_person"].ToString();
+                    txtMobile.Text = dr["mobile"].ToString();
                     txtWebsite.Text = dr["website"].ToString();
                     txtDetail.Text = dr["detail"].ToString();
                 }
@@ -50,12 +46,13 @@ namespace Job_Portal_Management_System.Views.Company
         }
 
         #region UpdateData
+
         /// <summary>
         /// UpdateData
         /// </summary>
         private void UpdateData()
         {
-        companymodel.ID = Convert.ToInt32(Request.QueryString["ID"]);
+            companymodel.ID = Convert.ToInt32(Request.QueryString["ID"]);
             companymodel.Name = txtName.Text;
             companymodel.CountryID = Convert.ToInt32(ddlCountry.SelectedValue);
             companymodel.Address = txtAddress.Text;
@@ -65,7 +62,9 @@ namespace Job_Portal_Management_System.Views.Company
             companymodel.Detail = txtDetail.Text;
             companymodel.UpdatedDate = DateTime.Now;
         }
-        #endregion
+
+        #endregion UpdateData
+
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             UpdateData();
@@ -97,7 +96,6 @@ namespace Job_Portal_Management_System.Views.Company
             txtMobile.Text = string.Empty;
             txtWebsite.Text = string.Empty;
             txtDetail.Text = string.Empty;
-
         }
     }
 }

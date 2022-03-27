@@ -3,15 +3,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   
+
     <div class="list-sec container card p-3 mt-4">
         <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="../../Views/User/AdminHome.aspx">Dashboard</a></li>
-    <li class="breadcrumb-item active" >Country List</li>
-  </ol>
-         </nav>
-         <h1 class="text-center text-warning mb-5">Country List</h1>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../Views/User/AdminHome.aspx">Dashboard</a></li>
+                <li class="breadcrumb-item active">Country List</li>
+            </ol>
+        </nav>
+        <h1 class="text-center text-warning mb-5">Country List</h1>
         <%if (Session["alert"] != null && Session["alert-type"] != null)
             {
                 Lblalert.Visible = true;
@@ -35,16 +35,14 @@
 
         <div class="row">
 
-             <div class="col-md-10">
-                
-                <asp:Label ID="Label2" runat="server" CssClass="font-weight-bold mr-4" Text="Label">Country Name</asp:Label>
-                  <asp:TextBox ID="txtSearch" runat="server" Style="padding: 5px 35px 5px 13px; outline: none;"  OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
-               <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
-                   <asp:Button ID="btnAdd" runat="server" Text="Add Country" CssClass="btn btn-primary" OnClick="btnAdd_Click" />
-                 <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" OnClick="btnClear_Click" />
-            </div>
+            <div class="col-md-10">
 
-            
+                <asp:Label ID="Label2" runat="server" CssClass="font-weight-bold mr-4" Text="Label">Country Name</asp:Label>
+                <asp:TextBox ID="txtSearch" runat="server" Style="padding: 5px 35px 5px 13px; outline: none;" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
+                <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
+                <asp:Button ID="btnAdd" runat="server" Text="Add Country" CssClass="btn btn-primary" OnClick="btnAdd_Click" />
+                <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" OnClick="btnClear_Click" />
+            </div>
         </div>
         <br />
         <div class="row">

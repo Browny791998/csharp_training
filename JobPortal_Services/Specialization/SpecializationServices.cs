@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JobPortal_Services.Specialization
 {
@@ -69,7 +65,7 @@ namespace JobPortal_Services.Specialization
         {
             try
             {
-    return JobPortal_DAOs.Specialization.SpecializationDaos.GetData(specialization.ToString().Replace("'", "''"));
+                return JobPortal_DAOs.Specialization.SpecializationDaos.GetData(specialization.ToString().Replace("'", "''"));
             }
             catch (Exception ex)
             {

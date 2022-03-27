@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JobPortal_DAOs.JobOffer
 {
     public class JobOfferDao
     {
         #region Insert/Update/Delete
+
         /// <summary>
         /// Insert Data
         /// </summary>
@@ -45,7 +42,7 @@ namespace JobPortal_DAOs.JobOffer
                 arr[0] = joboffer.IsAccept;
                 arr[1] = joboffer.JobSeekerID;
                 arr[2] = joboffer.JobID;
-            Common.HelperDao.Update("Update tbl_joboffer set is_accept=@1 where job_seeker_id=@2 and job_id=@3", arr);
+                Common.HelperDao.Update("Update tbl_joboffer set is_accept=@1 where job_seeker_id=@2 and job_id=@3", arr);
                 return true;
             }
             catch (Exception ex)
@@ -53,8 +50,6 @@ namespace JobPortal_DAOs.JobOffer
                 throw ex;
             }
         }
-
-
 
         /// <summary>
         /// Update Data
@@ -107,18 +102,19 @@ namespace JobPortal_DAOs.JobOffer
             }
         }
 
-        #endregion
+        #endregion Insert/Update/Delete
 
         #region Get Data
+
         /// <summary>
         /// Get Data
         /// </summary>
         /// <returns></returns>
-        public static DataTable GetJobandSeeker(int JobID,int JobSeekerID)
+        public static DataTable GetJobandSeeker(int JobID, int JobSeekerID)
         {
             try
             {
-                return Common.HelperDao.GetData("Select job_id,job_seeker_id from tbl_joboffer where job_id='"+JobID+"' and job_seeker_id='"+JobSeekerID+"'", CommandType.Text);
+                return Common.HelperDao.GetData("Select job_id,job_seeker_id from tbl_joboffer where job_id='" + JobID + "' and job_seeker_id='" + JobSeekerID + "'", CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -141,6 +137,7 @@ namespace JobPortal_DAOs.JobOffer
                 throw ex;
             }
         }
+
         /// <summary>
         /// Get Search Data
         /// </summary>
@@ -180,7 +177,6 @@ namespace JobPortal_DAOs.JobOffer
             }
         }
 
-
         /// <summary>
         /// Get All Data
         /// </summary>
@@ -205,15 +201,13 @@ namespace JobPortal_DAOs.JobOffer
         {
             try
             {
-                return Common.HelperDao.GetData("Select tbl_joboffer.id,job_id,job_seeker_id,tbl_joboffer.company_id,CONVERT(varchar,applied_date,3) as applied_date,(CASE WHEN is_accept= 1 THEN 'Accepted' When is_accept= 0 THEN 'Rejected' ELSE 'Applying' END)as Accept,title,tbl_company.name,cvform,vacancy,tbl_company.email,tbl_company.mobile,country,position,job_nature,specialization,tbl_job.active from tbl_joboffer join tbl_job on tbl_job.id = tbl_joboffer.job_id join tbl_jobseeker on tbl_jobseeker.id = tbl_joboffer.job_seeker_id join tbl_company on tbl_company.id = tbl_joboffer.company_id join tbl_country on tbl_country.id = tbl_company.country_id join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_specialization on tbl_specialization.id = tbl_job.specialization_id Where tbl_job.active = 1 and tbl_joboffer.job_seeker_id = '" + JobSeekerId+ "'", CommandType.Text);
+                return Common.HelperDao.GetData("Select tbl_joboffer.id,job_id,job_seeker_id,tbl_joboffer.company_id,CONVERT(varchar,applied_date,3) as applied_date,(CASE WHEN is_accept= 1 THEN 'Accepted' When is_accept= 0 THEN 'Rejected' ELSE 'Applying' END)as Accept,title,tbl_company.name,cvform,vacancy,tbl_company.email,tbl_company.mobile,country,position,job_nature,specialization,tbl_job.active from tbl_joboffer join tbl_job on tbl_job.id = tbl_joboffer.job_id join tbl_jobseeker on tbl_jobseeker.id = tbl_joboffer.job_seeker_id join tbl_company on tbl_company.id = tbl_joboffer.company_id join tbl_country on tbl_country.id = tbl_company.country_id join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_specialization on tbl_specialization.id = tbl_job.specialization_id Where tbl_job.active = 1 and tbl_joboffer.job_seeker_id = '" + JobSeekerId + "'", CommandType.Text);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
-
 
         /// <summary>
         /// Get Search Data
@@ -238,7 +232,6 @@ namespace JobPortal_DAOs.JobOffer
             }
         }
 
-
         /// <summary>
         /// Get Search Data
         /// </summary>
@@ -247,8 +240,8 @@ namespace JobPortal_DAOs.JobOffer
         {
             try
             {
-              return Common.HelperDao.GetData("Select tbl_joboffer.id,job_id,job_seeker_id,tbl_joboffer.company_id,CONVERT(varchar,applied_date,3) as applied_date,(CASE WHEN is_accept= 1 THEN 'Accepted' When is_accept= 0 THEN 'Rejected' ELSE 'Applying' END)as Accept,title,name,cvform,vacancy,email,mobile,tbl_job.active from tbl_joboffer join tbl_job on tbl_job.id = tbl_joboffer.job_id join tbl_jobseeker on tbl_jobseeker.id = tbl_joboffer.job_seeker_id Where tbl_job.active=1 and tbl_joboffer.company_id='" + companyId + "' and is_accept='"+status+"'", CommandType.Text);
-             }
+                return Common.HelperDao.GetData("Select tbl_joboffer.id,job_id,job_seeker_id,tbl_joboffer.company_id,CONVERT(varchar,applied_date,3) as applied_date,(CASE WHEN is_accept= 1 THEN 'Accepted' When is_accept= 0 THEN 'Rejected' ELSE 'Applying' END)as Accept,title,name,cvform,vacancy,email,mobile,tbl_job.active from tbl_joboffer join tbl_job on tbl_job.id = tbl_joboffer.job_id join tbl_jobseeker on tbl_jobseeker.id = tbl_joboffer.job_seeker_id Where tbl_job.active=1 and tbl_joboffer.company_id='" + companyId + "' and is_accept='" + status + "'", CommandType.Text);
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -264,8 +257,6 @@ namespace JobPortal_DAOs.JobOffer
             try
             {
                 return Common.HelperDao.GetData("Select COUNT(job_seeker_id) as applier,name as Company  from tbl_joboffer join tbl_company on tbl_company.id = tbl_joboffer.company_id Group by name", CommandType.Text);
-
-
             }
             catch (Exception ex)
             {
@@ -289,6 +280,6 @@ namespace JobPortal_DAOs.JobOffer
             }
         }
 
-        #endregion
+        #endregion Get Data
     }
 }

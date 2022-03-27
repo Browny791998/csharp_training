@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.JobSeeker
 {
     public partial class JobSeekerEdit : System.Web.UI.Page
     {
-       JobPortal_Models.JobSeeker.JobSeeker jobseekermodel = new JobPortal_Models.JobSeeker.JobSeeker();
-        DataTable da = new DataTable();
+        private JobPortal_Models.JobSeeker.JobSeeker jobseekermodel = new JobPortal_Models.JobSeeker.JobSeeker();
+        private DataTable da = new DataTable();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -32,7 +29,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                     txtAddress.Text = dr["address"].ToString();
                     txtMobile.Text = dr["mobile"].ToString();
                     ddlgender.SelectedValue = dr["gender"].ToString();
-                    txtDate.Text= (Convert.ToDateTime(dr["dob"]).ToString("yyyy-MM-dd")); 
+                    txtDate.Text = (Convert.ToDateTime(dr["dob"]).ToString("yyyy-MM-dd"));
                     string skills = dr["skill"].ToString();
                     string[] skillList = skills.Split(',');
                     foreach (string s in skillList)
@@ -46,7 +43,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                         }
                     }
                     hfCV.Value = dr["cvform"].ToString();
-                    currentimg.ImageUrl= dr["profile"].ToString();
+                    currentimg.ImageUrl = dr["profile"].ToString();
                     txtExperience.Text = dr["experience"].ToString();
                     ddlDegree.SelectedValue = dr["degree"].ToString();
                     txtDegree.Text = dr["degree_name"].ToString();
@@ -80,6 +77,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
         }
 
         #region UpdateData
+
         /// <summary>
         /// UpdateData
         /// </summary>
@@ -128,7 +126,6 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 }
                 if (!isValidFile)
                 {
-
                     jobseekermodel.CVForm = null;
                 }
                 else
@@ -143,9 +140,8 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                     string cvform = "~/CV/" + Path.GetFileName(fuCV.FileName);
                     jobseekermodel.CVForm = cvform;
                 }
-                
             }
-           
+
             if (!fuProfile.HasFile)
             {
                 jobseekermodel.Profile = currentimg.ImageUrl;
@@ -179,13 +175,12 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                     string image = "~/Profile/" + Path.GetFileName(fuProfile.FileName);
                     jobseekermodel.Profile = image;
                 }
-               
             }
             jobseekermodel.Detail = txtDetail.Text;
             jobseekermodel.UpdatedDate = DateTime.Now;
-         
         }
-        #endregion
+
+        #endregion UpdateData
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -217,7 +212,6 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                     Session["alert-type"] = "danger";
                 }
             }
-           
         }
     }
 }

@@ -76,30 +76,27 @@
 
                 <!-- Sidebar - Brand -->
                 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../../Views/Home.aspx">
-                <div class="sidebar-brand-icon">
-                <img src="../../../Resources/images/Brilliant%20Job-logos_black.png" width="80" height="60" />
-                </div>
-                
-            </a>
+                    <div class="sidebar-brand-icon">
+                        <img src="../../../Resources/images/Brilliant%20Job-logos_black.png" width="80" height="60" />
+                    </div>
+                </a>
                 <!-- Divider -->
                 <hr class="sidebar-divider my-0">
 
                 <!-- Nav Item - Dashboard -->
-                  <li class="nav-item active">
-                <a class="nav-link" href="">
-                  <span>Email:</span>  <span><% Response.Write(Session["email"]); %></span>
-           <span>Name:</span>  <span><% Response.Write(Session["name"]); %></span>
-                </a>
-                 
-            </li>
-              
+                <li class="nav-item active">
+                    <a class="nav-link" href="">
+                        <span>Email:</span>  <span><% Response.Write(Session["email"]); %></span>
+                        <span>Name:</span>  <span><% Response.Write(Session["name"]); %></span>
+                    </a>
+                </li>
+
                 <!-- Divider -->
                 <hr class="sidebar-divider">
-                 <li class="nav-item">
-                <a class="nav-link" href="../User/AdminHome.aspx">
-                  Dashboard
-                </a>
-                     </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../User/AdminHome.aspx">Dashboard
+                    </a>
+                </li>
                 <!-- Heading -->
                 <%-- <div class="sidebar-heading">
                 Interface
@@ -109,79 +106,91 @@
                 <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCountry"
                         aria-expanded="true" aria-controls="collapseCountry">
-                       
-                        <span><h6 class="d-inline font-weight-bold"> <i class="fas fa-fw fa-cog d-inline"></i> Country</h6></span>
+
+                        <span>
+                            <h6 class="d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i>Country</h6>
+                        </span>
                     </a>
                     <div id="collapseCountry" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                            <a class="dropdownItem text-white" href="../Country/CountryList.aspx" >Country List</a>
-                            <a class="dropdownItem collapse-item text-white" href="../Country/CountryCreate.aspx?action=add">Create Country</a>
+                        <a class="dropdownItem text-white" href="../Country/CountryList.aspx">Country List</a>
+                        <a class="dropdownItem collapse-item text-white" href="../Country/CountryCreate.aspx?action=add">Create Country</a>
                     </div>
                 </li>
 
-               <!-- Nav Item - Position Collapse Menu -->
+                <!-- Nav Item - Position Collapse Menu -->
                 <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePosition"
                         aria-expanded="true" aria-controls="collapseCountry">
-                         <span><h6 class="d-inline font-weight-bold"> <i class="fas fa-fw fa-cog d-inline"></i> Position</h6></span>
+                        <span>
+                            <h6 class="d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i>Position</h6>
+                        </span>
                     </a>
                     <div id="collapsePosition" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapsePosition">
                         <a class="dropdownItem text-white" href="../Position/PositionList.aspx">Position List</a>
-                            <a class="dropdownItem text-white" href="../Position/PositionCreate.aspx?action=add">Create Position</a>
+                        <a class="dropdownItem text-white" href="../Position/PositionCreate.aspx?action=add">Create Position</a>
                     </div>
                 </li>
 
-             <!-- Nav Item - Job Nature Collapse Menu -->
+                <!-- Nav Item - Job Nature Collapse Menu -->
                 <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseJobnature"
                         aria-expanded="true" aria-controls="collapseJobnature">
-                         <span><h6 class="d-inline font-weight-bold"> <i class="fas fa-fw fa-cog d-inline"></i> Job Nature</h6></span>
+                        <span>
+                            <h6 class="d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i>Job Nature</h6>
+                        </span>
                     </a>
                     <div id="collapseJobnature" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapseJobnature">
                         <a class="dropdownItem text-white" href="../Jobnature/JobnatureList.aspx">Job Nature List</a>
-                            <a class="dropdownItem text-white" href="../Jobnature/JobnatureCreate.aspx?action=add">Create Job Nature</a>
+                        <a class="dropdownItem text-white" href="../Jobnature/JobnatureCreate.aspx?action=add">Create Job Nature</a>
                     </div>
                 </li>
 
-               <!-- Nav Item -Skill Collapse Menu -->
+                <!-- Nav Item -Skill Collapse Menu -->
                 <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSkill"
                         aria-expanded="true" aria-controls="collapseSkill">
-                        <span><h6 class="d-inline font-weight-bold"> <i class="fas fa-fw fa-cog d-inline"></i> Skill</h6></span>
+                        <span>
+                            <h6 class="d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i>Skill</h6>
+                        </span>
                     </a>
                     <div id="collapseSkill" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapseSkill">
-                         <a class="dropdownItem text-white" href="../Skill/SkillList.aspx">Skill List</a>
-                            <a class="dropdownItem text-white" href="../Skill/SkillCreate.aspx?action=add">Create Skill</a>
+                        <a class="dropdownItem text-white" href="../Skill/SkillList.aspx">Skill List</a>
+                        <a class="dropdownItem text-white" href="../Skill/SkillCreate.aspx?action=add">Create Skill</a>
                     </div>
                 </li>
 
-                  <!-- Nav Item -Specialization Collapse Menu -->
-                 <li class="nav-item p-0">
+                <!-- Nav Item -Specialization Collapse Menu -->
+                <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSpecialization"
                         aria-expanded="true" aria-controls="collapseSpecialization">
-                        <span><h6 class="d-inline font-weight-bold"> <i class="fas fa-fw fa-cog d-inline"></i>Specialization</h6></span>
+                        <span>
+                            <h6 class="d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i>Specialization</h6>
+                        </span>
                     </a>
                     <div id="collapseSpecialization" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapseSpecialization">
                         <a class="dropdownItem text-white" href="../Specialization/SpecializationList.aspx">Specialization List</a>
-                            <a class="dropdownItem text-white" href="../Specialization/SpecializationCreate.aspx?action=add">Create Specialization</a>
+                        <a class="dropdownItem text-white" href="../Specialization/SpecializationCreate.aspx?action=add">Create Specialization</a>
                     </div>
                 </li>
 
-               <!-- Nav Item -Admin Job Menu -->
-                 <li class="nav-item p-0">
+                <!-- Nav Item -Admin Job Menu -->
+                <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseJob"
                         aria-expanded="true" aria-controls="collapseJob">
-                        <span><h6 class="d-inline font-weight-bold"> <i class="fas fa-fw fa-cog d-inline"></i>Job Management</h6></span>
+                        <span>
+                            <h6 class="d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i>Job Management</h6>
+                        </span>
                     </a>
                     <div id="collapseJob" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapseJob">
-                         <a class="dropdownItem text-white" href="../User/AdminCompanyList.aspx">Company List</a>
-                            <a class="dropdownItem text-white" href="../User/AdminJobList.aspx">Job List</a>
-                             <a class="dropdownItem text-white" href="../User/AdminJobSeekerList">Job Seeker List</a>
-                             <a class="dropdownItem text-white" href="../User/AdminJobOffer">Job Offer List</a>
+                        <a class="dropdownItem text-white" href="../User/AdminCompanyList.aspx">Company List</a>
+                        <a class="dropdownItem text-white" href="../User/AdminJobList.aspx">Job List</a>
+                        <a class="dropdownItem text-white" href="../User/AdminJobSeekerList">Job Seeker List</a>
+                        <a class="dropdownItem text-white" href="../User/AdminJobOffer">Job Offer List</a>
                     </div>
                 </li>
 
-                 <!-- Nav Item -Admin Job Menu -->
-              <%--  <li class="nav-item">
+                <!-- Nav Item -Admin Job Menu -->
+                <%--  <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseJob"
                         aria-expanded="true" aria-controls="collapseJob">
                         <i class="fas fa-fw fa-wrench"></i>
@@ -231,11 +240,11 @@
                 <!-- Nav Item - Charts -->
               <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">--%>
-                  <li class="nav-item">
-                
-                   <asp:LinkButton ID="btnLogout" runat="server" CssClass="nav-link" OnClick="btnLogout_Click"
-            class="dropdown-item" CausesValidation="False"><i class="fas fa-sign-out"></i>  Logout</asp:LinkButton>
-            </li>
+                <li class="nav-item">
+
+                    <asp:LinkButton ID="btnLogout" runat="server" CssClass="nav-link" OnClick="btnLogout_Click"
+                        class="dropdown-item" CausesValidation="False"><i class="fas fa-sign-out"></i>  Logout</asp:LinkButton>
+                </li>
             </ul>
             <!-- End of Sidebar -->
 
@@ -299,7 +308,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
-       <script src="../../../Resources/js/lib/chart.js/Chart.min.js"></script>
+    <script src="../../../Resources/js/lib/chart.js/Chart.min.js"></script>
     <script src="../../../Resources/js/chart-area-demo.js"></script>
     <script src="../../../Resources/js/lib/chart-bar-demo.js"></script>
     <script src="../../../Resources/js/lib/chart-pie-demo.js"></script>

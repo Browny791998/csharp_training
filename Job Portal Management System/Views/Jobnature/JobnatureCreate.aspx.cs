@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.Jobnature
 {
@@ -30,8 +25,7 @@ namespace Job_Portal_Management_System.Views.Jobnature
             if (Request.QueryString["action"] == "add")
             {
                 Session.Remove("label");
-              lblJobnature.Text = "Add Job nature";
-
+                lblJobnature.Text = "Add Job nature";
             }
             if (Session["label"] != null)
             {
@@ -39,6 +33,7 @@ namespace Job_Portal_Management_System.Views.Jobnature
                 if (label == "add")
                 {
                     lblJobnature.Text = "Add Jobnature";
+                    lblJobnaturebreadcrumb.Text = "Add Jobnature";
                     if (!IsPostBack)
                     {
                     }
@@ -46,6 +41,7 @@ namespace Job_Portal_Management_System.Views.Jobnature
                 else if (label == "update")
                 {
                     lblJobnature.Text = "Update Jobnature";
+                    lblJobnaturebreadcrumb.Text = "Update Jobnature";
                     if (!IsPostBack)
                     {
                         int id = Convert.ToInt32(Request.QueryString["id"]);

@@ -13,7 +13,7 @@ namespace Job_Portal_Management_System.Views.Skill
         private JobPortal_Models.Skill.Skill skillmodel = new JobPortal_Models.Skill.Skill();
         private JobPortal_Services.Skill.SkillServices skillservice = new JobPortal_Services.Skill.SkillServices();
         private DataTable da = new DataTable();
-        SqlDataReader dr;
+        private SqlDataReader dr;
 
         #endregion variable declaration
 
@@ -93,15 +93,14 @@ namespace Job_Portal_Management_System.Views.Skill
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        string[] skillList;
+        private string[] skillList;
+
         protected void grvSkill_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-
             int id = Convert.ToInt32(grvSkill.DataKeys[e.RowIndex].Value);
             dr = JobPortal_Services.Skill.SkillServices.ReadData(id);
             while (dr.Read())
             {
-
                 da = JobPortal_Services.Job.JobService.GetAllJObData();
 
                 for (int j = 0; j < da.Rows.Count; j++)

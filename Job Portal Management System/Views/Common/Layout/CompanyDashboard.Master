@@ -7,82 +7,78 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-     <link href="../../../Resources/css/style.css" rel="stylesheet" />
+    <link href="../../../Resources/css/style.css" rel="stylesheet" />
     <link href="../../../Resources/css/lib/fontawesome-free-6.0.0-beta3-web/css/all.min.css" rel="stylesheet" />
     <link href="../../../Resources/css/sb-admin-2.min.css" rel="stylesheet" />
     <link href="../../../Resources/css/lib/bootstrap.min.css" rel="stylesheet" />
-   
-   
 </head>
 <body>
     <form id="form1" runat="server">
         <!-- Page Wrapper -->
-    <div id="wrapper">
+        <div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar -->
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon">
-                <img src="../../../Resources/images/Brilliant%20Job-logos_black.png" width="80" height="60" />
-                </div>
-                
-            </a>
-       
-                
-          
-           
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                    <div class="sidebar-brand-icon">
+                        <img src="../../../Resources/images/Brilliant%20Job-logos_black.png" width="80" height="60" />
+                    </div>
+                </a>
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <span><% Response.Write(Session["name"]); %></span></a>
-            </li>
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">
+                        <span><% Response.Write(Session["name"]); %></span></a>
+                </li>
 
-            <!-- Heading -->
-           <%-- <div class="sidebar-heading">
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <%-- <div class="sidebar-heading">
                 Interface
             </div>--%>
 
-             <!-- Nav Item - Company Collapse Menu -->
+                <!-- Nav Item - Company Collapse Menu -->
                 <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAccount"
                         aria-expanded="true" aria-controls="collapseAccount">
-                          <span><h6 class="d-inline font-weight-bold"> <i class="fas fa-fw fa-cog d-inline"></i> Company Account</h6></span>
+                        <span>
+                            <h6 class="d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i>Company Account</h6>
+                        </span>
                     </a>
                     <div id="collapseAccount" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                          <a class="dropdownItem text-white" href="../../../Views/Company/CompanyAccount.aspx">My Account</a>
+                        <a class="dropdownItem text-white" href="../../../Views/Company/CompanyAccount.aspx">My Account</a>
                     </div>
                 </li>
 
-            <!-- Nav Item -Job Collapse Menu -->
+                <!-- Nav Item -Job Collapse Menu -->
                 <li class="nav-item p-0">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                         aria-expanded="true" aria-controls="collapseUtilities">
-                        <span><h6 class="d-inline font-weight-bold"> <i class="fas fa-fw fa-cog d-inline"></i> Job</h6></span>
+                        <span>
+                            <h6 class="d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i>Job</h6>
+                        </span>
                     </a>
                     <div id="collapseUtilities" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                         <a class="dropdownItem  text-white" href="../../../Views/Job/JobList.aspx">Job List</a>
+                        <a class="dropdownItem  text-white" href="../../../Views/Job/JobList.aspx">Job List</a>
                         <a class="dropdownItem  text-white" href="../../../Views/Job/CreateJob.aspx">Create Job</a>
                         <a class="dropdownItem   text-white" href="../../../Views/JobOffer/JobOfferList.aspx">Job Seeker List</a>
                     </div>
                 </li>
-            
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+                <!-- Divider -->
+                <hr class="sidebar-divider">
 
-            <!-- Heading -->
-           
+                <!-- Heading -->
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <%--<li class="nav-item">
+                <!-- Nav Item - Pages Collapse Menu -->
+                <%--<li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
@@ -102,7 +98,7 @@
                 </div>
             </li>--%>
 
-           <%-- <!-- Nav Item - Charts -->
+                <%-- <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -116,136 +112,123 @@
                     <span>Tables</span></a>
             </li>--%>
 
-            <!-- Divider -->
+                <!-- Divider -->
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline mt-5">
-                  <asp:HyperLink ID="sidebarToggle" runat="server" CssClass="rounded-circle border-0 p-3" NavigateUrl="~/Views/Home.aspx"></asp:HyperLink>
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline mt-5">
+                    <asp:HyperLink ID="sidebarToggle" runat="server" CssClass="rounded-circle border-0 p-3" NavigateUrl="~/Views/Home.aspx"></asp:HyperLink>
+                </div>
+            </ul>
+            <!-- End of Sidebar -->
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <!-- /.container-fluid -->
+                </div>
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Brilliant Job Company 2022</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
             </div>
-           </ul>
-        <!-- End of Sidebar -->
+            <!-- End of Content Wrapper -->
+        </div>
+        <!-- End of Page Wrapper -->
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
 
-            <!-- Main Content -->
-            <div id="content">
-
-             <!-- Begin Page Content -->
-                <div class="container-fluid">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-                         </div>
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Brilliant Job Company 2022</span>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
                     </div>
                 </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
             </div>
         </div>
-    </div>
-        
     </form>
-     
-   <script src="../../../Resources/js/lib/jquery.js"></script>
+
+    <script src="../../../Resources/js/lib/jquery.js"></script>
     <script src="../../../Resources/js/lib/popper.min.js"></script>
     <script src="../../../Resources/js/lib/bootstrap.min.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
-  <script type="text/javascript">
-      function HideLabel() {
-          document.getElementById("AlertMsg").style.display = "none";
-      }
-      setTimeout("HideLabel();", 3000);
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
+    <script type="text/javascript">
+        function HideLabel() {
+            document.getElementById("AlertMsg").style.display = "none";
+        }
+        setTimeout("HideLabel();", 3000);
 
-    
+        $(function () {
+            $(".gvJob,.gvJobOffer").DataTable(
+                {
+                    'columnDefs': [{
+                        'targets': [10, 11],
+                        'orderable': false,
+                    }],
+                    "dom": '<"top"i>rt<"bottom"flp><"clear">',
+                    searching: false,
+                    bLengthChange: true,
+                    lengthMenu: [[5, 10, -1], [5, 10, "All"]],
+                    bFilter: true,
+                    bSort: true,
+                    bPaginate: true,
+                    bInfo: false,
+                    language: {
+                        lengthMenu: "<span style='padding-right:15px'>Page Size</span>_MENU_"
+                    }
 
-      $(function () {
-          $(".gvJob,.gvJobOffer").DataTable(
-              {
-                  'columnDefs': [{
-                      'targets': [10, 11],
-                      'orderable': false,
-                  }],
-                  "dom": '<"top"i>rt<"bottom"flp><"clear">',
-                  searching: false,
-                  bLengthChange: true,
-                  lengthMenu: [[5, 10, -1], [5, 10, "All"]],
-                  bFilter: true,
-                  bSort: true,
-                  bPaginate: true,
-                  bInfo: false,
-                  language: {
-                      lengthMenu: "<span style='padding-right:15px'>Page Size</span>_MENU_"
-                  }
+                });
 
+            //$(".gvJobOffer").DataTable(
+            //    {
+            //        'columnDefs': [{
+            //            'targets': [1,6,7],
+            //            'orderable': false,
+            //        }],
+            //        "dom": '<"top"i>rt<"bottom"flp><"clear">',
+            //        searching: false,
+            //        bLengthChange: true,
+            //        lengthMenu: [[5, 10, -1], [5, 10, "All"]],
+            //        bFilter: true,
+            //        bSort: true,
+            //        bPaginate: true,
+            //        bInfo: false,
+            //        language: {
+            //            lengthMenu: "<span style='padding-right:15px'>Page Size</span>_MENU_"
+            //        }
 
-
-              });
-
-
-
-          //$(".gvJobOffer").DataTable(
-          //    {
-          //        'columnDefs': [{
-          //            'targets': [1,6,7],
-          //            'orderable': false,
-          //        }],
-          //        "dom": '<"top"i>rt<"bottom"flp><"clear">',
-          //        searching: false,
-          //        bLengthChange: true,
-          //        lengthMenu: [[5, 10, -1], [5, 10, "All"]],
-          //        bFilter: true,
-          //        bSort: true,
-          //        bPaginate: true,
-          //        bInfo: false,
-          //        language: {
-          //            lengthMenu: "<span style='padding-right:15px'>Page Size</span>_MENU_"
-          //        }
-
-          //    });
-      });
-
-      
-  </script>
-    
+            //    });
+        });
+    </script>
 </body>
 </html>

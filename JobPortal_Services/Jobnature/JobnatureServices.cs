@@ -65,7 +65,7 @@ namespace JobPortal_Services.Jobnature
         {
             try
             {
-        return JobPortal_DAOs.Jobnature.JobnatureDaos.GetData(jobnature.ToString().Replace("'", "''"));
+                return JobPortal_DAOs.Jobnature.JobnatureDaos.GetData(jobnature.ToString().Replace("'", "''"));
             }
             catch (Exception ex)
             {
@@ -95,7 +95,7 @@ namespace JobPortal_Services.Jobnature
         {
             try
             {
-        return JobPortal_DAOs.Jobnature.JobnatureDaos.GetSearchData(str.ToString().Replace("'", "''"));
+                return JobPortal_DAOs.Jobnature.JobnatureDaos.GetSearchData(str.ToString().Replace("'", "''"));
             }
             catch (Exception ex)
             {

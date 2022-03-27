@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.User
 {
     public partial class AdminJobSeekerList : System.Web.UI.Page
     {
-        JobPortal_Models.JobSeeker.JobSeeker jobseekermodel = new JobPortal_Models.JobSeeker.JobSeeker();
-        JobPortal_Services.JobSeeker.JobSeekerService jobseekerservice = new JobPortal_Services.JobSeeker.JobSeekerService();
-        DataTable da = new DataTable();
+        private JobPortal_Models.JobSeeker.JobSeeker jobseekermodel = new JobPortal_Models.JobSeeker.JobSeeker();
+        private JobPortal_Services.JobSeeker.JobSeekerService jobseekerservice = new JobPortal_Services.JobSeeker.JobSeekerService();
+        private DataTable da = new DataTable();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -26,12 +23,12 @@ namespace Job_Portal_Management_System.Views.User
         }
 
         #region Get Data
+
         /// <summary>
         /// Get Data
         /// </summary>
         public void GetData()
         {
-
             da = JobPortal_Services.JobSeeker.JobSeekerService.GetAllJobSeeker();
             if (da.Rows.Count > 0)
             {
@@ -46,9 +43,9 @@ namespace Job_Portal_Management_System.Views.User
                 grvJobSeeker.DataSource = null;
                 grvJobSeeker.DataBind();
             }
-
         }
-        #endregion
+
+        #endregion Get Data
 
         protected void grvJobSeeker_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {

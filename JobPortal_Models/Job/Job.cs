@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JobPortal_Models.Job
 {
     public class Job
     {
         #region Local variable and Constant Declaration
+
         /// <summary>
         /// Movie Variables
-        /// </summary>		
+        /// </summary>
         private int _id;
+
         private string _title;
         private string _degree;
         private string _skill;
@@ -27,17 +25,19 @@ namespace JobPortal_Models.Job
         private Int16 _active;
         private DateTime _createddate;
         private DateTime _updatedddate;
-        #endregion
+
+        #endregion Local variable and Constant Declaration
 
         #region Constructor and Destructor
+
         /// <summary>
-        ///Constructor and Destructor for Movie Variables 
+        ///Constructor and Destructor for Movie Variables
         /// </summary>
         public void PostCompany()
         {
             _id = 0;
             _title = string.Empty;
-            _degree= string.Empty;
+            _degree = string.Empty;
             _skill = string.Empty;
             _experience = string.Empty;
             _vacancy = 0;
@@ -52,7 +52,7 @@ namespace JobPortal_Models.Job
             _updatedddate = DateTime.Now;
         }
 
-        public void PostData(int id, string title,string degree,string skill,string experience, int vacancy, int company_id,int position_id,int jobnature_id,int specialization_id,int salary, string detail,Int16 active, DateTime createddate, DateTime updateddate)
+        public void PostData(int id, string title, string degree, string skill, string experience, int vacancy, int company_id, int position_id, int jobnature_id, int specialization_id, int salary, string detail, Int16 active, DateTime createddate, DateTime updateddate)
         {
             _id = id;
             _title = title;
@@ -61,18 +61,19 @@ namespace JobPortal_Models.Job
             _experience = experience;
             _vacancy = vacancy;
             _companyid = company_id;
-            _positionid= position_id;
-            _jobnatureid =jobnature_id;
+            _positionid = position_id;
+            _jobnatureid = jobnature_id;
             _specializationid = specialization_id;
             _salary = salary;
             _detail = detail;
             _createddate = createddate;
             _updatedddate = updateddate;
         }
-        #endregion
 
+        #endregion Constructor and Destructor
 
         #region Properties Assigning and Retrieving
+
         /// <summary>
         /// Gets or sets the <b>_ID</b> attribute value.
         /// </summary>
@@ -150,10 +151,9 @@ namespace JobPortal_Models.Job
             }
             set
             {
-                _experience= value;
+                _experience = value;
             }
         }
-
 
         /// <summary>
         /// Gets or sets the <b>_movie</b> attribute value.
@@ -283,7 +283,6 @@ namespace JobPortal_Models.Job
             }
         }
 
-
         /// <summary>
         /// Gets or sets the <b>_movie</b> attribute value.
         /// </summary>
@@ -316,6 +315,6 @@ namespace JobPortal_Models.Job
             }
         }
 
-        #endregion
+        #endregion Properties Assigning and Retrieving
     }
 }
