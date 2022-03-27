@@ -6,9 +6,20 @@ namespace Job_Portal_Management_System.Views.Company
 {
     public partial class CompanyEdit : System.Web.UI.Page
     {
+        #region variable declaration
+
         private JobPortal_Models.Company.Company companymodel = new JobPortal_Models.Company.Company();
         private DataTable da = new DataTable();
 
+        #endregion variable declaration
+
+        #region bind data
+
+        /// <summary>
+        /// page load event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -33,6 +44,9 @@ namespace Job_Portal_Management_System.Views.Company
             }
         }
 
+        /// <summary>
+        /// binding data
+        /// </summary>
         public void bindCountry()
         {
             da = JobPortal_Services.Country.CountryServices.GetAllData();
@@ -44,6 +58,8 @@ namespace Job_Portal_Management_System.Views.Company
                 ddlCountry.DataBind();
             }
         }
+
+        #endregion bind data
 
         #region UpdateData
 
@@ -63,8 +79,11 @@ namespace Job_Portal_Management_System.Views.Company
             companymodel.UpdatedDate = DateTime.Now;
         }
 
-        #endregion UpdateData
-
+        /// <summary>
+        /// update company data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             UpdateData();
@@ -82,11 +101,23 @@ namespace Job_Portal_Management_System.Views.Company
             }
         }
 
+        #endregion UpdateData
+
+        #region clear data
+
+        /// <summary>
+        /// clear all text in textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnClear_Click(object sender, EventArgs e)
         {
             ClearFields();
         }
 
+        /// <summary>
+        /// clear all data
+        /// </summary>
         private void ClearFields()
         {
             txtName.Text = string.Empty;
@@ -97,5 +128,7 @@ namespace Job_Portal_Management_System.Views.Company
             txtWebsite.Text = string.Empty;
             txtDetail.Text = string.Empty;
         }
+
+        #endregion clear data
     }
 }

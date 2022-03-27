@@ -7,10 +7,21 @@ namespace Job_Portal_Management_System.Views.Job
 {
     public partial class CreateJob : System.Web.UI.Page
     {
+        #region variable declaration
+
         private JobPortal_Models.Job.Job jobmodel = new JobPortal_Models.Job.Job();
         private JobPortal_Services.Job.JobService jobservice = new JobPortal_Services.Job.JobService();
         private DataTable da = new DataTable();
 
+        #endregion variable declaration
+
+        #region bind data
+
+        /// <summary>
+        /// bind data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -70,6 +81,9 @@ namespace Job_Portal_Management_System.Views.Job
             }
         }
 
+        /// <summary>
+        /// bind skill data
+        /// </summary>
         public void bindSkill()
         {
             da = JobPortal_Services.Skill.SkillServices.GetAllData();
@@ -82,6 +96,9 @@ namespace Job_Portal_Management_System.Views.Job
             }
         }
 
+        /// <summary>
+        /// bind position data
+        /// </summary>
         public void bindPosition()
         {
             da = JobPortal_Services.Position.PositionServices.GetAllData();
@@ -94,6 +111,9 @@ namespace Job_Portal_Management_System.Views.Job
             }
         }
 
+        /// <summary>
+        /// bind Jobnature data
+        /// </summary>
         public void bindJobType()
         {
             da = JobPortal_Services.Jobnature.JobnatureServices.GetAllData();
@@ -106,6 +126,9 @@ namespace Job_Portal_Management_System.Views.Job
             }
         }
 
+        /// <summary>
+        /// bind Specialization data
+        /// </summary>
         public void bindSpecialization()
         {
             da = JobPortal_Services.Specialization.SpecializationServices.GetAllData();
@@ -117,6 +140,8 @@ namespace Job_Portal_Management_System.Views.Job
                 ddlSpecialization.DataBind();
             }
         }
+
+        #endregion bind data
 
         #region InsertData
 
@@ -188,8 +213,11 @@ namespace Job_Portal_Management_System.Views.Job
             jobmodel.UpdatedDate = DateTime.Now;
         }
 
-        #endregion UpdateData
-
+        /// <summary>
+        /// Update check
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             if (Request.QueryString["action"] == "update")
@@ -227,6 +255,13 @@ namespace Job_Portal_Management_System.Views.Job
             }
         }
 
+        #endregion UpdateData
+
+        #region clear data
+
+        /// <summary>
+        /// clear all data
+        /// </summary>
         private void ClearFields()
         {
             txtTitle.Text = string.Empty;
@@ -241,9 +276,16 @@ namespace Job_Portal_Management_System.Views.Job
             txtDetail.Text = string.Empty;
         }
 
+        /// <summary>
+        /// clear textbox data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnClear_Click(object sender, EventArgs e)
         {
             ClearFields();
         }
+
+        #endregion clear data
     }
 }

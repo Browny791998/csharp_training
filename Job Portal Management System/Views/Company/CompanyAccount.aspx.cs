@@ -6,9 +6,20 @@ namespace Job_Portal_Management_System.Views.Company
 {
     public partial class CompanyAccount : System.Web.UI.Page
     {
+        #region variable declaration
+
         private JobPortal_Services.Company.CompanyService companyservice = new JobPortal_Services.Company.CompanyService();
         private DataTable da = new DataTable();
 
+        #endregion variable declaration
+
+        #region bind data
+
+        /// <summary>
+        /// page load event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -18,6 +29,9 @@ namespace Job_Portal_Management_System.Views.Company
             GetAcc();
         }
 
+        /// <summary>
+        /// binding data
+        /// </summary>
         public void GetAcc()
         {
             int id = Convert.ToInt32(Session["id"]);
@@ -26,6 +40,15 @@ namespace Job_Portal_Management_System.Views.Company
             rptCompany.DataBind();
         }
 
+        #endregion bind data
+
+        #region edit data
+
+        /// <summary>
+        /// edit company data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnEdit_Click(object sender, EventArgs e)
         {
             var btn = (Button)sender;
@@ -34,5 +57,7 @@ namespace Job_Portal_Management_System.Views.Company
 
             Response.Redirect("CompanyEdit.aspx?ID=" + IdValue);
         }
+
+        #endregion edit data
     }
 }

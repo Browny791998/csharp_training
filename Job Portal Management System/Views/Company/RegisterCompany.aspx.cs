@@ -5,9 +5,15 @@ namespace Job_Portal_Management_System.Views.Company
 {
     public partial class RegisterCompany : System.Web.UI.Page
     {
+        #region variable declaration
+
         private JobPortal_Models.Company.Company companymodel = new JobPortal_Models.Company.Company();
         private JobPortal_Services.Company.CompanyService companyservice = new JobPortal_Services.Company.CompanyService();
         private DataTable da = new DataTable();
+
+        #endregion variable declaration
+
+        #region bind data
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -16,6 +22,23 @@ namespace Job_Portal_Management_System.Views.Company
                 bindCountry();
             }
         }
+
+        /// <summary>
+        /// binding data
+        /// </summary>
+        public void bindCountry()
+        {
+            da = JobPortal_Services.Country.CountryServices.GetAllData();
+            if (da.Rows.Count > 0)
+            {
+                ddlCountry.DataSource = da;
+                ddlCountry.DataValueField = "id";
+                ddlCountry.DataTextField = "country";
+                ddlCountry.DataBind();
+            }
+        }
+
+        #endregion bind data
 
         #region InsertData
 
@@ -40,6 +63,13 @@ namespace Job_Portal_Management_System.Views.Company
 
         #endregion InsertData
 
+        #region register account
+
+        /// <summary>
+        /// register company account
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             da = JobPortal_Services.Company.CompanyService.GetData(txtEmail.Text);
@@ -66,18 +96,13 @@ namespace Job_Portal_Management_System.Views.Company
             }
         }
 
-        public void bindCountry()
-        {
-            da = JobPortal_Services.Country.CountryServices.GetAllData();
-            if (da.Rows.Count > 0)
-            {
-                ddlCountry.DataSource = da;
-                ddlCountry.DataValueField = "id";
-                ddlCountry.DataTextField = "country";
-                ddlCountry.DataBind();
-            }
-        }
+        #endregion register account
 
+        #region clear data and encrypt password
+
+        /// <summary>
+        /// clear data
+        /// </summary>
         private void ClearFields()
         {
             txtName.Text = string.Empty;
@@ -91,11 +116,18 @@ namespace Job_Portal_Management_System.Views.Company
             txtDetail.Text = string.Empty;
         }
 
+        /// <summary>
+        /// encrypt password
+        /// </summary>
+        /// <param name="passEncrypted"></param>
+        /// <returns></returns>
         public string EncryptPassword(string passEncrypted)
         {
             byte[] b = System.Text.ASCIIEncoding.ASCII.GetBytes(passEncrypted);
             string encrypted = Convert.ToBase64String(b);
             return encrypted;
         }
+
+        #endregion clear data and encrypt password
     }
 }
