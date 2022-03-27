@@ -1,10 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/AdminDashboard.Master" AutoEventWireup="true" CodeBehind="AdminJobOffer.aspx.cs" Inherits="Job_Portal_Management_System.Views.User.AdminJobOffer" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+
     <div class="list-sec container card p-3 mt-4">
-         <h1 class="text-center text-warning mb-5">job offer List</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../Views/User/AdminHome.aspx">Dashboard</a></li>
+                <li class="breadcrumb-item active">Job Offer List</li>
+            </ol>
+        </nav>
+        <h1 class="text-center text-warning mb-5">job offer List</h1>
         <%if (Session["alert"] != null && Session["alert-type"] != null)
             {
                 Lblalert.Visible = true;
@@ -25,24 +32,25 @@
                 Session.Remove("alert");
                 Session.Remove("alert-type");
             } %>
-     
+
         <div class="row">
-            
+
             <div class="col-md-12">
-                
+
                 <asp:Label ID="Label4" runat="server" CssClass="font-weight-bold mr-2" Text="Label">Company Name</asp:Label>
-                <asp:DropDownList ID="ddlCompany"  runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlCompany" runat="server"></asp:DropDownList>
                 <asp:Label ID="Label2" runat="server" CssClass="font-weight-bold mr-2 ml-2" Text="Label">job Name</asp:Label>
 
                 <asp:TextBox ID="txtSearch" runat="server" Style="padding: 5px 35px 5px 13px; outline: none;"></asp:TextBox>
-                
+
                 <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
-                 <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-info" OnClick="btnClear_Click" />
+                <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-info" OnClick="btnClear_Click" />
                 <asp:Button ID="btnSend" runat="server" Text="Send Email" CssClass="btn btn-danger" OnClick="btnSend_Click" />
-                 Accept: <asp:RadioButton ID="rdoAccept" runat="server" GroupName="Accept" CssClass="custom-radio"/>
-            Reject: <asp:RadioButton ID="rdoReject" runat="server" GroupName="Accept" CssClass="custom-radio"/>
+                Accept:
+                <asp:RadioButton ID="rdoAccept" runat="server" GroupName="Accept" CssClass="custom-radio" />
+                Reject:
+                <asp:RadioButton ID="rdoReject" runat="server" GroupName="Accept" CssClass="custom-radio" />
             </div>
-            
         </div>
         <br />
         <div class="row">
@@ -77,7 +85,7 @@
                                 <%#HttpUtility.HtmlEncode(Eval("title"))%>
                             </ItemTemplate>
                         </asp:TemplateField>
-                         <asp:TemplateField>
+                        <asp:TemplateField>
                             <HeaderTemplate>
                                 <asp:Label ID="Label3" runat="server" Text="Label">Company</asp:Label>
                             </HeaderTemplate>
@@ -86,9 +94,7 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                       
-
-                          <asp:TemplateField>
+                        <asp:TemplateField>
                             <HeaderTemplate>
                                 <asp:Label ID="Label3" runat="server" Text="Label">Email</asp:Label>
                             </HeaderTemplate>
@@ -112,9 +118,6 @@
                                 <%#HttpUtility.HtmlEncode(Eval("applied_date"))%>
                             </ItemTemplate>
                         </asp:TemplateField>
-         
-         
-         
                     </Columns>
                     <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
                     <HeaderStyle BackColor="#6699FF" />

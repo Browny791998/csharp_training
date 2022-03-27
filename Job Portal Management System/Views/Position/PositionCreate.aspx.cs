@@ -31,7 +31,6 @@ namespace Job_Portal_Management_System.Views.Position
             {
                 Session.Remove("label");
                 lblPosition.Text = "Add Position";
-
             }
             if (Session["label"] != null)
             {
@@ -39,6 +38,7 @@ namespace Job_Portal_Management_System.Views.Position
                 if (label == "add")
                 {
                     lblPosition.Text = "Add Position";
+                    lblPositionbreadcrumb.Text = "Add Position";
                     if (!IsPostBack)
                     {
                     }
@@ -46,6 +46,7 @@ namespace Job_Portal_Management_System.Views.Position
                 else if (label == "update")
                 {
                     lblPosition.Text = "Update Position";
+                    lblPositionbreadcrumb.Text = "Update Position";
                     if (!IsPostBack)
                     {
                         int id = Convert.ToInt32(Request.QueryString["id"]);

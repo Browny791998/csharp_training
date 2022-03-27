@@ -1,9 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/AdminDashboard.Master" AutoEventWireup="true" CodeBehind="AdminJobList.aspx.cs" Inherits="Job_Portal_Management_System.Views.User.AdminJobList" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     
+
     <div class="list-sec container card p-3 mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../Views/User/AdminHome.aspx">Dashboard</a></li>
+                <li class="breadcrumb-item active">Job List</li>
+            </ol>
+        </nav>
         <h1 class="text-center text-warning mb-5">Job List</h1>
         <%if (Session["alert"] != null && Session["alert-type"] != null)
             {
@@ -25,17 +32,15 @@
                 Session.Remove("alert");
                 Session.Remove("alert-type");
             } %>
-     
+
         <div class="row">
-            
+
             <div class="col-md-5">
-                
+
                 <asp:Label ID="Label2" runat="server" CssClass="font-weight-bold mr-3" Text="Label">Job Name</asp:Label>
                 <asp:TextBox ID="txtSearch" runat="server" Style="padding: 5px 35px 5px 13px; outline: none;"></asp:TextBox>
-                <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click"/>
+                <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
             </div>
-            
-            
         </div>
         <br />
         <div class="row">
@@ -70,7 +75,7 @@
                                 <%#HttpUtility.HtmlEncode(Eval("degree"))%>
                             </ItemTemplate>
                         </asp:TemplateField>
-                         <asp:TemplateField>
+                        <asp:TemplateField>
                             <HeaderTemplate>
                                 <asp:Label ID="Label3" runat="server" Text="Label">Skill</asp:Label>
                             </HeaderTemplate>
@@ -79,9 +84,7 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                       
-
-                          <asp:TemplateField>
+                        <asp:TemplateField>
                             <HeaderTemplate>
                                 <asp:Label ID="Label3" runat="server" Text="Label">Vacancy</asp:Label>
                             </HeaderTemplate>
@@ -114,8 +117,6 @@
                                 <%#HttpUtility.HtmlEncode(Eval("country"))%>
                             </ItemTemplate>
                         </asp:TemplateField>
-         
-         
                     </Columns>
                     <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
                     <HeaderStyle BackColor="#6699FF" />

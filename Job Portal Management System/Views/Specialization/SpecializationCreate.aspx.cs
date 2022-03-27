@@ -38,14 +38,15 @@ namespace Job_Portal_Management_System.Views.Specialization
                 if (label == "add")
                 {
                     lblSpecialization.Text = "Add Specialization";
+                    lblSpecializationbreadcrumb.Text = "Add Specialization";
                     if (!IsPostBack)
                     {
-
                     }
                 }
                 else if (label == "update")
                 {
                     lblSpecialization.Text = "Update Specialization";
+                    lblSpecializationbreadcrumb.Text = "Update Specialization";
                     if (!IsPostBack)
                     {
                         int id = Convert.ToInt32(Request.QueryString["id"]);

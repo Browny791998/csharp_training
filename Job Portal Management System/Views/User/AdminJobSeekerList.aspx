@@ -1,10 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/AdminDashboard.Master" AutoEventWireup="true" CodeBehind="AdminJobSeekerList.aspx.cs" Inherits="Job_Portal_Management_System.Views.User.AdminJobSeekerList" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="list-sec container card p-3 mt-4">
-              <h1 class="text-center text-warning mb-5">Job Seeker List</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../Views/User/AdminHome.aspx">Dashboard</a></li>
+                <li class="breadcrumb-item active">Job Seeker List</li>
+            </ol>
+        </nav>
+        <h1 class="text-center text-warning mb-5">Job Seeker List</h1>
         <%if (Session["alert"] != null && Session["alert-type"] != null)
             {
                 Lblalert.Visible = true;
@@ -25,17 +32,15 @@
                 Session.Remove("alert");
                 Session.Remove("alert-type");
             } %>
-     
+
         <div class="row">
-            
+
             <div class="col-md-7">
-                
+
                 <asp:Label ID="Label2" runat="server" CssClass="font-weight-bold mr-3" Text="Label">Job Seeker Name</asp:Label>
                 <asp:TextBox ID="txtSearch" runat="server" Style="padding: 5px 35px 5px 13px; outline: none;"></asp:TextBox>
-                <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click"/>
+                <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
             </div>
-            
-            
         </div>
         <br />
         <div class="row">
@@ -70,7 +75,7 @@
                                 <%#HttpUtility.HtmlEncode(Eval("address"))%>
                             </ItemTemplate>
                         </asp:TemplateField>
-                         <asp:TemplateField>
+                        <asp:TemplateField>
                             <HeaderTemplate>
                                 <asp:Label ID="Label3" runat="server" Text="Label">Mobile</asp:Label>
                             </HeaderTemplate>
@@ -79,9 +84,7 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                       
-
-                          <asp:TemplateField>
+                        <asp:TemplateField>
                             <HeaderTemplate>
                                 <asp:Label ID="Label3" runat="server" Text="Label">Birth Date</asp:Label>
                             </HeaderTemplate>
@@ -114,15 +117,12 @@
                                 <%#HttpUtility.HtmlEncode(Eval("email"))%>
                             </ItemTemplate>
                         </asp:TemplateField>
-         
-         
+
                         <asp:TemplateField HeaderText="Profile">
                             <ItemTemplate>
-                                <asp:Image ID="Image1" runat="server" Height="100" Width="100" ImageUrl='<%# Eval("profile") %>'/>
+                                <asp:Image ID="Image1" runat="server" Height="100" Width="100" ImageUrl='<%# Eval("profile") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
-         
-         
                     </Columns>
                     <EmptyDataTemplate>No Record Available</EmptyDataTemplate>
                     <HeaderStyle BackColor="#6699FF" />
