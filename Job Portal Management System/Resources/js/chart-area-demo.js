@@ -92,8 +92,25 @@ var myLineChart = new Chart(ctx, {
                 }
             }],
         },
+<<<<<<< HEAD
         legend: {
             display: false
+=======
+        ticks: {
+          maxTicksLimit: 7
+        }
+      }],
+        yAxes: [{
+          ticks: {
+          steps: 10,
+          stepValue: 5,
+          maxTicksLimit: 10,
+          padding: 10,
+          // Include a dollar sign in the ticks
+          callback: function(value, index, values) {
+            return  number_format(value);
+          }
+>>>>>>> 58be74b23127f054cc4607402d730c82d041908f
         },
         tooltips: {
             backgroundColor: "rgb(255,255,255)",
