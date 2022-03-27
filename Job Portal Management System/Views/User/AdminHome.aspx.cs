@@ -61,6 +61,25 @@ namespace Job_Portal_Management_System.Views
                 CompanyData += "</script>";
                 ltCompanyData.Text = CompanyData;
             }
+
+            da = JobPortal_Services.JobOffer.JobOfferService.GetChartData();
+            if (da.Rows.Count > 0)
+            {
+                string JobOfferData = "";
+                string applier = "";
+                StringBuilder sb = new StringBuilder();
+                JobOfferData += "<script>";
+                for (int i = 0; i < da.Rows.Count; i++)
+                {
+                    applier += da.Rows[i]["applier"] + ",";
+                    sb.AppendFormat("'{0}'" + ",", da.Rows[i]["Company"]);
+                }
+
+                applier = applier.Substring(0, applier.Length - 1);
+                JobOfferData += "company=[" + sb + "];applier=[" + applier + "]";
+                JobOfferData += "</script>";
+                ltApplierData.Text = JobOfferData;
+            }
         }
     }
 }

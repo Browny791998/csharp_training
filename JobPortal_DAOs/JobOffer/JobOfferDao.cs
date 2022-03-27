@@ -255,7 +255,23 @@ namespace JobPortal_DAOs.JobOffer
             }
         }
 
-        
+        /// <summary>
+        /// Get Search Data
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetChartData()
+        {
+            try
+            {
+                return Common.HelperDao.GetData("Select COUNT(job_seeker_id) as applier,name as Company  from tbl_joboffer join tbl_company on tbl_company.id = tbl_joboffer.company_id Group by name", CommandType.Text);
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         /// <summary>
         /// Read Data

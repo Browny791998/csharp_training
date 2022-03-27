@@ -209,7 +209,20 @@ namespace JobPortal_Services.JobOffer
             }
         }
 
-
+        /// <summary>
+        /// Get Search Data
+        /// </summary>
+        public static DataTable GetChartData()
+        {
+            try
+            {
+                return JobPortal_DAOs.JobOffer.JobOfferDao.GetChartData();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         /// <summary>
         /// Read Data
