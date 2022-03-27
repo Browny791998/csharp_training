@@ -5,6 +5,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
     <div class="list-sec container card p-3 mt-4">
+        <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="../../Views/User/AdminHome.aspx">Dashboard</a></li>
+    <li class="breadcrumb-item active" >Country List</li>
+  </ol>
+         </nav>
          <h1 class="text-center text-warning mb-5">Country List</h1>
         <%if (Session["alert"] != null && Session["alert-type"] != null)
             {

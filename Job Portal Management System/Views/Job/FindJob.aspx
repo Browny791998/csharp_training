@@ -14,11 +14,7 @@
                    </div>
                    <div class="col-md-7">
                <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-control bg-info text-white font-weight-bold">
-                   <asp:ListItem  Value="1">Singapore</asp:ListItem>
-                   <asp:ListItem Value="2">Myanmar</asp:ListItem>
-                   <asp:ListItem Value="3">Japan</asp:ListItem>
-                   <asp:ListItem Value="4">China</asp:ListItem>
-                   <asp:ListItem Value="5">Korea</asp:ListItem>
+                   
                        </asp:DropDownList>
                    </div>
                </div>
@@ -28,9 +24,6 @@
                    </div>
                    <div class="col-md-7">
                <asp:DropDownList ID="ddlPosition" runat="server" CssClass="form-control bg-info text-white font-weight-bold">
-                   <asp:ListItem Value="1">Junior Developer</asp:ListItem>
-                   <asp:ListItem Value="2">Senior Developer</asp:ListItem>
-                   <asp:ListItem Value="3">Leader</asp:ListItem>
                 
                        </asp:DropDownList>
                    </div>
@@ -41,15 +34,23 @@
                    </div>
                    <div class="col-md-7">
                <asp:DropDownList ID="ddlJobtype" runat="server" CssClass="form-control bg-info text-white font-weight-bold">
-                   <asp:ListItem Value="1">Part-time</asp:ListItem>
-                   <asp:ListItem Value="2">Full-time</asp:ListItem>
-                   <asp:ListItem Value="3">Freelance</asp:ListItem>
                 
                 
                        </asp:DropDownList>
                    </div>
                </div>
 
+                 <div class="row mb-2">
+                   <div class="col-md-5">
+             <p class="ml-2">Specialization</p>
+                   </div>
+                   <div class="col-md-7">
+               <asp:DropDownList ID="ddlspeicalization" runat="server" CssClass="form-control bg-info text-white font-weight-bold">
+                
+                
+                       </asp:DropDownList>
+                   </div>
+               </div>
                
 
               <div class="row">
@@ -67,9 +68,9 @@
            </div>
            <div class="col-12 col-md-8 p-2 ml-5">
            <div class="row">
-          
                <asp:Repeater ID="rptJoblist" runat="server">
                    <ItemTemplate>
+                     
                          <div class="col-md-12 mt-2">
                    <div class="card shadow-sm">
   <div class="card-header bg-info text-white font-weight-bold">
@@ -92,6 +93,7 @@
                </div>
                    </ItemTemplate>
                </asp:Repeater>
+              
               
            
            </div>

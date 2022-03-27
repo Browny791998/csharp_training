@@ -31,7 +31,7 @@ namespace Job_Portal_Management_System.Views.Country
             {
                 Session.Remove("label");
                 lblCountry.Text = "Add Country";
-
+                lblCountrybreadcrumb.Text = "Add Country";
             }
             if (Session["label"] != null)
             {
@@ -39,6 +39,7 @@ namespace Job_Portal_Management_System.Views.Country
                 if (label == "add")
                 {
                     lblCountry.Text = "Add Country";
+                    lblCountrybreadcrumb.Text = "Add Country";
                     if (!IsPostBack)
                     {
                     }
@@ -47,6 +48,7 @@ namespace Job_Portal_Management_System.Views.Country
                 else if (label == "update")
                 {
                     lblCountry.Text = "Update Country";
+                    lblCountrybreadcrumb.Text = "Update Country";
                     if (!IsPostBack)
                     {
                         int id = Convert.ToInt32(Request.QueryString["id"]);

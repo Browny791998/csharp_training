@@ -140,11 +140,11 @@ namespace JobPortal_Services.Job
         /// <summary>
         /// Get All Data
         /// </summary>
-        public static DataTable FilterJob(int countryID, int positionID, int jobtypeID)
+        public static DataTable FilterJob(int countryID, int positionID, int jobtypeID,int specializationID)
         {
             try
             {
-                return JobPortal_DAOs.Job.JobDao.FilterJob(countryID,positionID,jobtypeID);
+                return JobPortal_DAOs.Job.JobDao.FilterJob(countryID,positionID,jobtypeID,specializationID);
             }
             catch (Exception ex)
             {

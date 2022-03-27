@@ -107,12 +107,20 @@
     <script src="../../../Resources/js/lib/jquery.js"></script>
     <script src="../../../Resources/js/lib/popper.min.js"></script>
     <script src="../../../Resources/js/lib/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
   <script>
       function HideLabel() {
           document.getElementById("AlertMsg").style.display = "none";
       }
       setTimeout("HideLabel();", 3000);
+
+      
   </script>
+      
     </form>
+
+    
 </body>
 </html>
