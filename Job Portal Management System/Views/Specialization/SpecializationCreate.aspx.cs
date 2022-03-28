@@ -125,8 +125,9 @@ namespace Job_Portal_Management_System.Views.Specialization
             }
             else
             {
-                da = JobPortal_Services.Specialization.SpecializationServices.GetData(txtSpecialization.Text);
-                if (da.Rows.Count > 0)
+                int specializationID=Convert.ToInt32(hfSpecialization.Value);
+                da = JobPortal_Services.Specialization.SpecializationServices.GetUpdateData(txtSpecialization.Text,specializationID);
+                if (da.Rows.Count == 0)
                 {
                     Session["alert"] = "Data already exist";
                     Session["alert-type"] = "warning";

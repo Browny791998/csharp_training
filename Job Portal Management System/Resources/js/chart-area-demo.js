@@ -36,7 +36,7 @@ var myLineChart = new Chart(ctx, {
     data: {
         labels: chartLabels,
         datasets: [{
-            label: "Days",
+            label: "Job seekers",
             lineTension: 0.3,
             backgroundColor: "rgba(78, 115, 223, 0.05)",
             borderColor: "rgba(78, 115, 223, 1)",
@@ -83,6 +83,11 @@ var myLineChart = new Chart(ctx, {
                         return number_format(value);
                     }
                 },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Number of JobSeekers',
+                    padding:20
+                },
                 gridLines: {
                     color: "rgb(234, 236, 244)",
                     zeroLineColor: "rgb(234, 236, 244)",
@@ -92,25 +97,8 @@ var myLineChart = new Chart(ctx, {
                 }
             }],
         },
-<<<<<<< HEAD
         legend: {
             display: false
-=======
-        ticks: {
-          maxTicksLimit: 7
-        }
-      }],
-        yAxes: [{
-          ticks: {
-          steps: 10,
-          stepValue: 5,
-          maxTicksLimit: 10,
-          padding: 10,
-          // Include a dollar sign in the ticks
-          callback: function(value, index, values) {
-            return  number_format(value);
-          }
->>>>>>> 58be74b23127f054cc4607402d730c82d041908f
         },
         tooltips: {
             backgroundColor: "rgb(255,255,255)",
@@ -129,7 +117,7 @@ var myLineChart = new Chart(ctx, {
             callbacks: {
                 label: function (tooltipItem, chart) {
                     var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                    return datasetLabel + number_format(tooltipItem.yLabel);
+                    return number_format(tooltipItem.yLabel) + datasetLabel;
                 }
             }
         }

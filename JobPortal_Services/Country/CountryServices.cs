@@ -74,6 +74,21 @@ namespace JobPortal_Services.Country
         }
 
         /// <summary>
+        /// Get Data
+        /// </summary>
+        public static DataTable GetUpdateData(string country,int id)
+        {
+            try
+            {
+             return JobPortal_DAOs.Country.CountryDaos.GetUpdateData(country.ToString().Replace("'", "''"),id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
         /// Get All Data
         /// </summary>
         public static DataTable GetAllData()

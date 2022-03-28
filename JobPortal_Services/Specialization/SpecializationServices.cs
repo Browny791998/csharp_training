@@ -74,6 +74,22 @@ namespace JobPortal_Services.Specialization
         }
 
         /// <summary>
+        /// Get Data
+        /// </summary>
+        public static DataTable GetUpdateData(string specialization,int id)
+        {
+            try
+            {
+                return JobPortal_DAOs.Specialization.SpecializationDaos.GetUpdateData(specialization.ToString().Replace("'", "''"),id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        /// <summary>
         /// Get All Data
         /// </summary>
         public static DataTable GetAllData()

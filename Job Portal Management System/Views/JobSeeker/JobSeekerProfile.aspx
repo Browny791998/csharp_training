@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/Main.Master" AutoEventWireup="true" CodeBehind="JobSeekerProfile.aspx.cs" EnableEventValidation="false" Inherits="Job_Portal_Management_System.Views.JobSeeker.JobSeekerProfile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/Main.Master" AutoEventWireup="true" CodeBehind="JobSeekerProfile.aspx.cs" EnableEventValidation="false" Inherits="Job_Portal_Management_System.Views.JobSeeker.JobSeekerProfile" ValidateRequest="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

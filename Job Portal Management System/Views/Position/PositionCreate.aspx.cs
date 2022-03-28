@@ -125,8 +125,9 @@ namespace Job_Portal_Management_System.Views.Position
             }
             else
             {
-                da = JobPortal_Services.Position.PositionServices.GetData(txtPosition.Text);
-                if (da.Rows.Count > 0)
+                int positionID = Convert.ToInt32(hfPosition.Value);
+                da = JobPortal_Services.Position.PositionServices.GetUpdateData(txtPosition.Text,positionID);
+                if (da.Rows.Count == 0)
                 {
                     Session["alert"] = "Data already exist";
                     Session["alert-type"] = "warning";

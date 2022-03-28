@@ -91,6 +91,22 @@ namespace JobPortal_DAOs.Skill
         }
 
         /// <summary>
+        /// Get Data
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetUpdateData(string job_nature,int id)
+        {
+            try
+            {
+                return Common.HelperDao.GetData("Select skill from tbl_skill where skill='" + job_nature + "' and id='"+id+"'", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
         /// Get All Data
         /// </summary>
         /// <returns></returns>

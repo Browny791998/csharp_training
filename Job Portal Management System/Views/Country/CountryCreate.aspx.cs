@@ -99,6 +99,7 @@ namespace Job_Portal_Management_System.Views.Country
         {
             if (hfCountry.Value == "")
             {
+                
                 da = JobPortal_Services.Country.CountryServices.GetData(txtCountry.Text);
                 if (da.Rows.Count > 0)
                 {
@@ -127,8 +128,10 @@ namespace Job_Portal_Management_System.Views.Country
             }
             else
             {
-                da = JobPortal_Services.Country.CountryServices.GetData(txtCountry.Text);
-                if (da.Rows.Count > 0)
+                int CountryID =Convert.ToInt32(hfCountry.Value);
+
+                da = JobPortal_Services.Country.CountryServices.GetUpdateData(txtCountry.Text, CountryID);
+                if (da.Rows.Count == 0)
                 {
                     Session["alert"] = "Data already exist";
                     Session["alert-type"] = "warning";

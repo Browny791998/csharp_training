@@ -125,8 +125,9 @@ namespace Job_Portal_Management_System.Views.Skill
             }
             else
             {
-                da = JobPortal_Services.Skill.SkillServices.GetData(txtSkill.Text);
-                if (da.Rows.Count > 0)
+                int skillID = Convert.ToInt32(hfSkill.Value);
+                da = JobPortal_Services.Skill.SkillServices.GetUpdateData(txtSkill.Text,skillID);
+                if (da.Rows.Count == 0)
                 {
                     Session["alert"] = "Data already exist";
                     Session["alert-type"] = "warning";

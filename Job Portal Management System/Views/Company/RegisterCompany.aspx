@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/Main.Master" AutoEventWireup="true" CodeBehind="RegisterCompany.aspx.cs" Inherits="Job_Portal_Management_System.Views.Company.RegisterCompany" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/Main.Master" AutoEventWireup="true" CodeBehind="RegisterCompany.aspx.cs" Inherits="Job_Portal_Management_System.Views.Company.RegisterCompany" ValidateRequest="false"  %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -84,7 +84,7 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtDetail" ForeColor="Red">Detail can&#39;t be blank</asp:RequiredFieldValidator>
                 </div>
                 <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-info" OnClick="btnRegister_Click" />
-                <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" />
+                <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" OnClick="btnClear_Click" />
             </div>
         </div>
     </div>

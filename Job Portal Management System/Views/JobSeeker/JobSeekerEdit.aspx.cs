@@ -138,7 +138,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             }
             else
             {
-                string[] validCVFileTypes = { "doc", "docx" };
+                string[] validCVFileTypes = { "doc", "docx", "DOC", "DOCX" };
                 ext = System.IO.Path.GetExtension(fuCV.PostedFile.FileName);
                 isValidFile = false;
                 for (int i = 0; i < validCVFileTypes.Length; i++)
@@ -173,7 +173,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             }
             else
             {
-                string[] validImageFileTypes = { "png", "jpg", "jpeg" };
+                string[] validImageFileTypes = { "png", "jpg", "jpeg","PNG", "JPG", "JPEG" };
                 ext = System.IO.Path.GetExtension(fuProfile.PostedFile.FileName);
                 isValidFile = false;
                 for (int i = 0; i < validImageFileTypes.Length; i++)

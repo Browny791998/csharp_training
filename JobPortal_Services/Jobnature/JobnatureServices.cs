@@ -74,6 +74,21 @@ namespace JobPortal_Services.Jobnature
         }
 
         /// <summary>
+        /// Get Data
+        /// </summary>
+        public static DataTable GetUpdateData(string jobnature,int id)
+        {
+            try
+            {
+                return JobPortal_DAOs.Jobnature.JobnatureDaos.GetUpdateData(jobnature.ToString().Replace("'", "''"),id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
         /// Get All Data
         /// </summary>
         public static DataTable GetAllData()

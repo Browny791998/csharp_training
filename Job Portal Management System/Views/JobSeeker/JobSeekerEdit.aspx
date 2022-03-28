@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/Main.Master" AutoEventWireup="true" CodeBehind="JobSeekerEdit.aspx.cs" Inherits="Job_Portal_Management_System.Views.JobSeeker.JobSeekerEdit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/Main.Master" AutoEventWireup="true" CodeBehind="JobSeekerEdit.aspx.cs" Inherits="Job_Portal_Management_System.Views.JobSeeker.JobSeekerEdit" ValidateRequest="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -73,11 +73,14 @@
                 <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-info" OnClick="btnUpdate_Click" />
             </div>
             <div class="col-md-5 mt-5">
+                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                   <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
                 <div class="form-group">
                     <label for="ddldegree">Degree</label><span class="fill">*</span>
                     <asp:DropDownList ID="ddlDegree" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlDegree_SelectedIndexChanged" AutoPostBack="True">
-                        <asp:ListItem Value="Graduate">Graduate</asp:ListItem>
-                        <asp:ListItem Value="Under Graduate">Under Graduate</asp:ListItem>
+                        <asp:ListItem Value="1">Graduate</asp:ListItem>
+                        <asp:ListItem Value="2">Under Graduate</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Special characters are not allowed" ControlToValidate="ddlDegree" ForeColor="Red">Please select Degree</asp:RequiredFieldValidator>
                 </div>
@@ -89,6 +92,8 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtDegree" ForeColor="Red">Degree can&#39;t be blank</asp:RequiredFieldValidator>
                     </asp:Panel>
                 </div>
+                            </ContentTemplate>
+                       </asp:UpdatePanel>
                 <div class="form-group">
                     <label for="fuCV">CV Form</label>
                     <asp:HiddenField ID="hfCV" runat="server" />

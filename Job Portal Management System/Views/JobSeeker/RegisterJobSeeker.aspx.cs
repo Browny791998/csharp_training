@@ -77,7 +77,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 txtDegree.Text = "Student";
             }
             jobseekermodel.DegreeName = txtDegree.Text;
-            string[] validCVFileTypes = { "doc", "docx" };
+            string[] validCVFileTypes = { "doc", "docx","DOC","DOCX" };
             ext = System.IO.Path.GetExtension(fuCV.PostedFile.FileName);
             isValidFile = false;
             for (int i = 0; i < validCVFileTypes.Length; i++)
@@ -98,7 +98,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 string cvform = "CV/" + Path.GetFileName(fuCV.FileName);
                 jobseekermodel.CVForm = cvform;
             }
-            string[] validImageFileTypes = { "png", "jpg", "jpeg" };
+            string[] validImageFileTypes = { "png", "jpg", "jpeg","PNG","JPG","JPEG" };
             ext = System.IO.Path.GetExtension(fuProfile.PostedFile.FileName);
             isValidFile = false;
             for (int i = 0; i < validImageFileTypes.Length; i++)

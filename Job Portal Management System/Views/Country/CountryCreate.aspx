@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/AdminDashboard.Master" AutoEventWireup="true" CodeBehind="CountryCreate.aspx.cs" Inherits="Job_Portal_Management_System.Views.Country.CountryCreate" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/AdminDashboard.Master" AutoEventWireup="true" CodeBehind="CountryCreate.aspx.cs" Inherits="Job_Portal_Management_System.Views.Country.CountryCreate" ValidateRequest="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

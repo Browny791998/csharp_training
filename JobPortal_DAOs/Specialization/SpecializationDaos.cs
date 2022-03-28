@@ -91,6 +91,22 @@ namespace JobPortal_DAOs.Specialization
         }
 
         /// <summary>
+        /// Get Data
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetUpdateData(string specialization,int id)
+        {
+            try
+            {
+                return Common.HelperDao.GetData("Select specialization from tbl_specialization where specialization ='" + specialization + "' and id='"+id+"'", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
         /// Get All Data
         /// </summary>
         /// <returns></returns>

@@ -12,3 +12,10 @@ D:\Job Portal Management System\csharp_training\CSharp_Training\obj\Debug\CSharp
 D:\Job Portal Management System\csharp_training\CSharp_Training\obj\Debug\CSharp_Training.csproj.CoreCompileInputs.cache
 D:\Job Portal Management System\csharp_training\CSharp_Training\obj\Debug\CSharp_Training.exe
 D:\Job Portal Management System\csharp_training\CSharp_Training\obj\Debug\CSharp_Training.pdb
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\CSharp_Training\bin\Debug\CSharp_Training.exe.config
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\CSharp_Training\bin\Debug\CSharp_Training.exe
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\CSharp_Training\bin\Debug\CSharp_Training.pdb
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\CSharp_Training\obj\Debug\CSharp_Training.csprojAssemblyReference.cache
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\CSharp_Training\obj\Debug\CSharp_Training.csproj.CoreCompileInputs.cache
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\CSharp_Training\obj\Debug\CSharp_Training.exe
+Y:\webtuto\C#Revision\jobportaltest\csharp_training\CSharp_Training\obj\Debug\CSharp_Training.pdb

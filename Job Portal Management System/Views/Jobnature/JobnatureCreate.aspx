@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/AdminDashboard.Master" AutoEventWireup="true" CodeBehind="JobnatureCreate.aspx.cs" Inherits="Job_Portal_Management_System.Views.Jobnature.JobnatureCreate" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/AdminDashboard.Master" AutoEventWireup="true" CodeBehind="JobnatureCreate.aspx.cs" Inherits="Job_Portal_Management_System.Views.Jobnature.JobnatureCreate" 
+    ValidateRequest="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
