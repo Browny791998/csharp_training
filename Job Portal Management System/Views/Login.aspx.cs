@@ -5,8 +5,19 @@ namespace Job_Portal_Management_System.Views
 {
     public partial class Login : System.Web.UI.Page
     {
+        #region variable delcaration
+
         private DataTable da = new DataTable();
 
+        #endregion variable delcaration
+
+        #region bind data
+
+        /// <summary>
+        /// bind data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -19,6 +30,15 @@ namespace Job_Portal_Management_System.Views
             }
         }
 
+        #endregion bind data
+
+        #region check jobseeker
+
+        /// <summary>
+        /// check jobseeker email and password
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             if (ddlRole.SelectedValue == "Job Seeker")
@@ -86,6 +106,15 @@ namespace Job_Portal_Management_System.Views
             }
         }
 
+        #endregion check jobseeker
+
+        #region decrypt password
+
+        /// <summary>
+        /// decrypt password
+        /// </summary>
+        /// <param name="passDecrypted"></param>
+        /// <returns></returns>
         public string DecryptPassword(string passDecrypted)
         {
             byte[] b;
@@ -101,5 +130,7 @@ namespace Job_Portal_Management_System.Views
             }
             return decrypted;
         }
+
+        #endregion decrypt password
     }
 }

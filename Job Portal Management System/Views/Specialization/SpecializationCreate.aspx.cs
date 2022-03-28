@@ -26,6 +26,7 @@ namespace Job_Portal_Management_System.Views.Specialization
             {
                 Session.Remove("label");
                 lblSpecialization.Text = "Add Specialization";
+                lblSpecializationbreadcrumb.Text = "Add Specialization";
             }
             if (Session["label"] != null)
             {

@@ -8,9 +8,20 @@ namespace Job_Portal_Management_System.Views.JobSeeker
 {
     public partial class JobSeekerEdit : System.Web.UI.Page
     {
+        #region variable declrartion
+
         private JobPortal_Models.JobSeeker.JobSeeker jobseekermodel = new JobPortal_Models.JobSeeker.JobSeeker();
         private DataTable da = new DataTable();
 
+        #endregion variable declrartion
+
+        #region bind data
+
+        /// <summary>
+        /// bind data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -52,6 +63,9 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             }
         }
 
+        /// <summary>
+        /// bind skill data
+        /// </summary>
         public void bindSkill()
         {
             da = JobPortal_Services.Skill.SkillServices.GetAllData();
@@ -64,6 +78,15 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             }
         }
 
+        #endregion bind data
+
+        #region hide textbox
+
+        /// <summary>
+        /// check if gradurate hide textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ddlDegree_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ddlDegree.SelectedItem.Value == "1")
@@ -75,6 +98,8 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 pnldegree.Visible = false;
             }
         }
+
+        #endregion hide textbox
 
         #region UpdateData
 
@@ -180,8 +205,11 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             jobseekermodel.UpdatedDate = DateTime.Now;
         }
 
-        #endregion UpdateData
-
+        /// <summary>
+        /// check cv form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             UpdateData();
@@ -213,5 +241,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 }
             }
         }
+
+        #endregion UpdateData
     }
 }

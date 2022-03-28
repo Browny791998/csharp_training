@@ -7,10 +7,21 @@ namespace Job_Portal_Management_System.Views.JobSeeker
 {
     public partial class RegisterJobSeeker : System.Web.UI.Page
     {
+        #region variable declaration
+
         private JobPortal_Models.JobSeeker.JobSeeker jobseekermodel = new JobPortal_Models.JobSeeker.JobSeeker();
         private JobPortal_Services.JobSeeker.JobSeekerService jobseekerservice = new JobPortal_Services.JobSeeker.JobSeekerService();
         private DataTable da = new DataTable();
 
+        #endregion variable declaration
+
+        #region bind data
+
+        /// <summary>
+        /// bind data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -18,6 +29,23 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 bindSkill();
             }
         }
+
+        /// <summary>
+        /// bind skill data
+        /// </summary>
+        public void bindSkill()
+        {
+            da = JobPortal_Services.Skill.SkillServices.GetAllData();
+            if (da.Rows.Count > 0)
+            {
+                lbSkill.DataSource = da;
+                lbSkill.DataValueField = "id";
+                lbSkill.DataTextField = "skill";
+                lbSkill.DataBind();
+            }
+        }
+
+        #endregion bind data
 
         #region InsertData
 
@@ -101,18 +129,13 @@ namespace Job_Portal_Management_System.Views.JobSeeker
 
         #endregion InsertData
 
-        public void bindSkill()
-        {
-            da = JobPortal_Services.Skill.SkillServices.GetAllData();
-            if (da.Rows.Count > 0)
-            {
-                lbSkill.DataSource = da;
-                lbSkill.DataValueField = "id";
-                lbSkill.DataTextField = "skill";
-                lbSkill.DataBind();
-            }
-        }
+        #region hide textbox
 
+        /// <summary>
+        /// hide textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ddlDegree_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ddlDegree.SelectedItem.Value == "1")
@@ -125,6 +148,15 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             }
         }
 
+        #endregion hide textbox
+
+        #region register jobseeker
+
+        /// <summary>
+        ///  register jobseeker
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             da = JobPortal_Services.JobSeeker.JobSeekerService.GetData(txtEmail.Text);
@@ -166,6 +198,13 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             }
         }
 
+        #endregion register jobseeker
+
+        #region clear data
+
+        /// <summary>
+        /// clear data
+        /// </summary>
         public void ClearFields()
         {
             txtName.Text = string.Empty;
@@ -184,16 +223,32 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             txtDetail.Text = string.Empty;
         }
 
+        /// <summary>
+        /// clear data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnClear_Click(object sender, EventArgs e)
         {
             ClearFields();
         }
 
+        #endregion clear data
+
+        #region encrypt password
+
+        /// <summary>
+        ///  encrypt password
+        /// </summary>
+        /// <param name="passEncrypted"></param>
+        /// <returns></returns>
         public string EncryptPassword(string passEncrypted)
         {
             byte[] b = System.Text.ASCIIEncoding.ASCII.GetBytes(passEncrypted);
             string encrypted = Convert.ToBase64String(b);
             return encrypted;
         }
+
+        #endregion encrypt password
     }
 }

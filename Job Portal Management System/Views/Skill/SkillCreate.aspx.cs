@@ -26,6 +26,7 @@ namespace Job_Portal_Management_System.Views.Skill
             {
                 Session.Remove("label");
                 lblSkill.Text = "Add Skill";
+                lblSkillbreadcrumb.Text = "Add Skill";
             }
             if (Session["label"] != null)
             {

@@ -6,10 +6,21 @@ namespace Job_Portal_Management_System.Views.Joboffer
 {
     public partial class JobOfferList : System.Web.UI.Page
     {
+        #region variable declaration
+
         private JobPortal_Models.JobOffer.JobOffer joboffermodel = new JobPortal_Models.JobOffer.JobOffer();
         private JobPortal_Services.JobOffer.JobOfferService jobofferservice = new JobPortal_Services.JobOffer.JobOfferService();
         private DataTable da = new DataTable();
 
+        #endregion variable declaration
+
+        #region bind data
+
+        /// <summary>
+        /// bind data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -21,6 +32,8 @@ namespace Job_Portal_Management_System.Views.Joboffer
                 GetData();
             }
         }
+
+        #endregion bind data
 
         #region Get Data
 
@@ -48,6 +61,13 @@ namespace Job_Portal_Management_System.Views.Joboffer
 
         #endregion Get Data
 
+        #region check jobseeker
+
+        /// <summary>
+        /// check jobseeker
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void grvJobOffer_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int rowIndex = Convert.ToInt32(e.CommandArgument);
@@ -96,6 +116,15 @@ namespace Job_Portal_Management_System.Views.Joboffer
             }
         }
 
+        #endregion check jobseeker
+
+        #region search and clear data
+
+        /// <summary>
+        /// search data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             rdoAccept.Checked = false;
@@ -116,6 +145,11 @@ namespace Job_Portal_Management_System.Views.Joboffer
             grvJobOffer.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
+        /// <summary>
+        /// clear data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnClear_Click(object sender, EventArgs e)
         {
             txtSearch.Text = string.Empty;
@@ -124,12 +158,26 @@ namespace Job_Portal_Management_System.Views.Joboffer
             this.GetData();
         }
 
+        #endregion search and clear data
+
+        #region accept and reject
+
+        /// <summary>
+        /// data bind to datagrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void grvJobOffer_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grvJobOffer.PageIndex = e.NewPageIndex;
             this.GetData();
         }
 
+        /// <summary>
+        /// check jobseeker accept or reject
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void grvJobOffer_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -154,6 +202,11 @@ namespace Job_Portal_Management_System.Views.Joboffer
             }
         }
 
+        /// <summary>
+        /// check jobseeker accept or not
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void rdoAccept_CheckedChanged(object sender, EventArgs e)
         {
             da = JobPortal_Services.JobOffer.JobOfferService.GetSearchAcceptData(1, Convert.ToInt32(Session["id"]));
@@ -172,6 +225,11 @@ namespace Job_Portal_Management_System.Views.Joboffer
             grvJobOffer.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
+        /// <summary>
+        /// check jobseeker reject or not
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void rdoReject_CheckedChanged(object sender, EventArgs e)
         {
             da = JobPortal_Services.JobOffer.JobOfferService.GetSearchAcceptData(0, Convert.ToInt32(Session["id"]));
@@ -189,5 +247,7 @@ namespace Job_Portal_Management_System.Views.Joboffer
             grvJobOffer.UseAccessibleHeader = true;
             grvJobOffer.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
+
+        #endregion accept and reject
     }
 }

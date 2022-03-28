@@ -6,8 +6,19 @@ namespace Job_Portal_Management_System.Views.Job
 {
     public partial class FindJob : System.Web.UI.Page
     {
+        #region variable declaration
+
         private DataTable da = new DataTable();
 
+        #endregion variable declaration
+
+        #region bind data
+
+        /// <summary>
+        /// bind data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -20,6 +31,9 @@ namespace Job_Portal_Management_System.Views.Job
             }
         }
 
+        /// <summary>
+        /// bind data to datagrid
+        /// </summary>
         public void BindJob()
         {
             da = JobPortal_Services.Job.JobService.GetActiveData();
@@ -27,6 +41,9 @@ namespace Job_Portal_Management_System.Views.Job
             rptJoblist.DataBind();
         }
 
+        /// <summary>
+        /// bind Specialization data
+        /// </summary>
         public void bindSpecialization()
         {
             da = JobPortal_Services.Specialization.SpecializationServices.GetAllData();
@@ -39,6 +56,9 @@ namespace Job_Portal_Management_System.Views.Job
             }
         }
 
+        /// <summary>
+        /// bind Position data
+        /// </summary>
         public void bindPosition()
         {
             da = JobPortal_Services.Position.PositionServices.GetAllData();
@@ -51,6 +71,9 @@ namespace Job_Portal_Management_System.Views.Job
             }
         }
 
+        /// <summary>
+        /// bind Jobnature data
+        /// </summary>
         public void bindJobType()
         {
             da = JobPortal_Services.Jobnature.JobnatureServices.GetAllData();
@@ -63,6 +86,9 @@ namespace Job_Portal_Management_System.Views.Job
             }
         }
 
+        /// <summary>
+        /// bind Country data
+        /// </summary>
         public void bindCountry()
         {
             da = JobPortal_Services.Country.CountryServices.GetAllData();
@@ -75,6 +101,15 @@ namespace Job_Portal_Management_System.Views.Job
             }
         }
 
+        #endregion bind data
+
+        #region get data
+
+        /// <summary>
+        /// get data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnFilter_Click(object sender, EventArgs e)
         {
             int countryID = Convert.ToInt32(ddlCountry.SelectedValue);
@@ -86,6 +121,15 @@ namespace Job_Portal_Management_System.Views.Job
             rptJoblist.DataBind();
         }
 
+        #endregion get data
+
+        #region view data
+
+        /// <summary>
+        /// view all job
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnViewAllJob_Click(object sender, EventArgs e)
         {
             da = JobPortal_Services.Job.JobService.GetActiveData();
@@ -93,6 +137,11 @@ namespace Job_Portal_Management_System.Views.Job
             rptJoblist.DataBind();
         }
 
+        /// <summary>
+        /// view job and company
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnView_Click(object sender, EventArgs e)
         {
             var btn = (Button)sender;
@@ -101,5 +150,7 @@ namespace Job_Portal_Management_System.Views.Job
             var CompanyId = ((Label)item.FindControl("companyId")).Text;
             Response.Redirect("JobDetail.aspx?jobID=" + jobId + "&ComID=" + CompanyId);
         }
+
+        #endregion view data
     }
 }

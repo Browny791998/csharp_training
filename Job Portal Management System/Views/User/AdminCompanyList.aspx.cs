@@ -6,9 +6,20 @@ namespace Job_Portal_Management_System.Views.User
 {
     public partial class AdminCompanyList : System.Web.UI.Page
     {
+        #region variable declaration
+
         private JobPortal_Services.Company.CompanyService companyservice = new JobPortal_Services.Company.CompanyService();
         private DataTable da = new DataTable();
 
+        #endregion variable declaration
+
+        #region bind data
+
+        /// <summary>
+        /// bind data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -20,6 +31,8 @@ namespace Job_Portal_Management_System.Views.User
                 GetData();
             }
         }
+
+        #endregion bind data
 
         #region Get Data
 
@@ -46,6 +59,13 @@ namespace Job_Portal_Management_System.Views.User
 
         #endregion Get Data
 
+        #region search data
+
+        /// <summary>
+        /// search data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             da = JobPortal_Services.Company.CompanyService.GetSearchData(txtSearch.Text);
@@ -64,10 +84,17 @@ namespace Job_Portal_Management_System.Views.User
             grvCompany.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
+        /// <summary>
+        /// bind data to datagrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void grvCompany_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grvCompany.PageIndex = e.NewPageIndex;
             this.GetData();
         }
+
+        #endregion search data
     }
 }

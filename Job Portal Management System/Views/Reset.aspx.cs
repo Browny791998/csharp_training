@@ -5,6 +5,8 @@ namespace Job_Portal_Management_System.Views
 {
     public partial class Reset : System.Web.UI.Page
     {
+        #region variable declaration
+
         private string GUID;
         private string Role;
         private string Email;
@@ -13,6 +15,15 @@ namespace Job_Portal_Management_System.Views
         private JobPortal_Models.ResetPassword.ResetPassword resetpassmodel = new JobPortal_Models.ResetPassword.ResetPassword();
         private DataTable da = new DataTable();
 
+        #endregion variable declaration
+
+        #region bind data
+
+        /// <summary>
+        /// bind data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             GUID = Request.QueryString["Uid"];
@@ -44,6 +55,15 @@ namespace Job_Portal_Management_System.Views
             }
         }
 
+        #endregion bind data
+
+        #region check role
+
+        /// <summary>
+        /// check role and jobseeker
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             bool success;
@@ -95,11 +115,22 @@ namespace Job_Portal_Management_System.Views
             }
         }
 
+        #endregion check role
+
+        #region encrpyt password
+
+        /// <summary>
+        /// encrypt password
+        /// </summary>
+        /// <param name="passEncrypted"></param>
+        /// <returns></returns>
         public string EncryptPassword(string passEncrypted)
         {
             byte[] b = System.Text.ASCIIEncoding.ASCII.GetBytes(passEncrypted);
             string encrypted = Convert.ToBase64String(b);
             return encrypted;
         }
+
+        #endregion encrpyt password
     }
 }

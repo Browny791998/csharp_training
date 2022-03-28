@@ -9,10 +9,22 @@ namespace Job_Portal_Management_System.Views.User
 {
     public partial class AdminJobOffer : System.Web.UI.Page
     {
+        #region variable declaration
+
         private JobPortal_Models.JobOffer.JobOffer joboffermodel = new JobPortal_Models.JobOffer.JobOffer();
         private JobPortal_Services.JobOffer.JobOfferService jobofferservice = new JobPortal_Services.JobOffer.JobOfferService();
         private DataTable da = new DataTable();
+        private int status;
 
+        #endregion variable declaration
+
+        #region bind data
+
+        /// <summary>
+        /// bind data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -26,8 +38,30 @@ namespace Job_Portal_Management_System.Views.User
             }
         }
 
-        private int status;
+        /// <summary>
+        /// bind company data
+        /// </summary>
+        public void bindCompany()
+        {
+            da = JobPortal_Services.Company.CompanyService.GetCompanyAllData();
+            if (da.Rows.Count > 0)
+            {
+                ddlCompany.DataSource = da;
+                ddlCompany.DataValueField = "id";
+                ddlCompany.DataTextField = "name";
+                ddlCompany.DataBind();
+            }
+        }
 
+        #endregion bind data
+
+        #region search data
+
+        /// <summary>
+        /// search data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             if (rdoAccept.Checked == false && rdoReject.Checked == false)
@@ -60,6 +94,8 @@ namespace Job_Portal_Management_System.Views.User
             grvJoboffer.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
+        #endregion search data
+
         #region Get Data
 
         /// <summary>
@@ -85,24 +121,24 @@ namespace Job_Portal_Management_System.Views.User
 
         #endregion Get Data
 
-        public void bindCompany()
-        {
-            da = JobPortal_Services.Company.CompanyService.GetCompanyAllData();
-            if (da.Rows.Count > 0)
-            {
-                ddlCompany.DataSource = da;
-                ddlCompany.DataValueField = "id";
-                ddlCompany.DataTextField = "name";
-                ddlCompany.DataBind();
-            }
-        }
+        #region clear data
 
+        /// <summary>
+        /// bind data to datagrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void grvJoboffer_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grvJoboffer.PageIndex = e.NewPageIndex;
             this.GetData();
         }
 
+        /// <summary>
+        /// clear data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnClear_Click(object sender, EventArgs e)
         {
             txtSearch.Text = string.Empty;
@@ -111,6 +147,15 @@ namespace Job_Portal_Management_System.Views.User
             this.GetData();
         }
 
+        #endregion clear data
+
+        #region send email
+
+        /// <summary>
+        /// send email
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSend_Click(object sender, EventArgs e)
         {
             bool accept;
@@ -140,6 +185,13 @@ namespace Job_Portal_Management_System.Views.User
             }
         }
 
+        /// <summary>
+        /// send email to jobseeker
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="email"></param>
+        /// <param name="company"></param>
+        /// <param name="accept"></param>
         private void SendEmail(string name, string email, string company, bool accept)
         {
             DataTable dt = new DataTable();
@@ -182,5 +234,7 @@ namespace Job_Portal_Management_System.Views.User
             smtp.Port = 587;
             smtp.Send(msg);
         }
+
+        #endregion send email
     }
 }

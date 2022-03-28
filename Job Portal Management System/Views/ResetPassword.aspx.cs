@@ -7,13 +7,28 @@ namespace Job_Portal_Management_System.Views
 {
     public partial class ResetPassword : System.Web.UI.Page
     {
+        #region variable declaration
+
         private JobPortal_Models.ResetPassword.ResetPassword resetpassmodel = new JobPortal_Models.ResetPassword.ResetPassword();
         private DataTable da = new DataTable();
+
+        #endregion variable declaration
+
+        #region bind data
 
         protected void Page_Load(object sender, EventArgs e)
         {
         }
 
+        #endregion bind data
+
+        #region check data
+
+        /// <summary>
+        /// check data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             string myGUID, email, Toemail, emailBody;
@@ -99,5 +114,7 @@ namespace Job_Portal_Management_System.Views
                 }
             }
         }
+
+        #endregion check data
     }
 }

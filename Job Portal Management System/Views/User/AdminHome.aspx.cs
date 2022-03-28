@@ -6,8 +6,19 @@ namespace Job_Portal_Management_System.Views
 {
     public partial class AdminHome : System.Web.UI.Page
     {
+        #region variable declaration
+
         private DataTable da = new DataTable();
 
+        #endregion variable declaration
+
+        #region bind data
+
+        /// <summary>
+        /// bind data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -79,5 +90,7 @@ namespace Job_Portal_Management_System.Views
                 ltApplierData.Text = JobOfferData;
             }
         }
+
+        #endregion bind data
     }
 }

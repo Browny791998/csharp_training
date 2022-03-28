@@ -26,6 +26,7 @@ namespace Job_Portal_Management_System.Views.Jobnature
             {
                 Session.Remove("label");
                 lblJobnature.Text = "Add Job nature";
+                lblJobnaturebreadcrumb.Text = "Add Job nature";
             }
             if (Session["label"] != null)
             {

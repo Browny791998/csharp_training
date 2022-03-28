@@ -6,10 +6,21 @@ namespace Job_Portal_Management_System.Views.Job
 {
     public partial class JobList : System.Web.UI.Page
     {
+        #region variable declaration
+
         private JobPortal_Models.Job.Job jobmodel = new JobPortal_Models.Job.Job();
         private JobPortal_Services.Job.JobService jobservice = new JobPortal_Services.Job.JobService();
         private DataTable da = new DataTable();
 
+        #endregion variable declaration
+
+        #region bind data
+
+        /// <summary>
+        /// bind data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -21,6 +32,8 @@ namespace Job_Portal_Management_System.Views.Job
                 GetData();
             }
         }
+
+        #endregion bind data
 
         #region Get Data
 
@@ -48,6 +61,13 @@ namespace Job_Portal_Management_System.Views.Job
 
         #endregion Get Data
 
+        #region delete and update data
+
+        /// <summary>
+        /// delete data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void grvJob_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int id = Convert.ToInt32(grvJob.DataKeys[e.RowIndex].Value);
@@ -66,6 +86,11 @@ namespace Job_Portal_Management_System.Views.Job
             }
         }
 
+        /// <summary>
+        /// update data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void grvJob_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             int id = Convert.ToInt32(grvJob.DataKeys[e.RowIndex].Value);
@@ -90,21 +115,46 @@ namespace Job_Portal_Management_System.Views.Job
             grvJob.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
+        #endregion delete and update data
+
+        #region add and clear data
+
+        /// <summary>
+        /// add data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             Response.Redirect("CreateJob.aspx");
         }
 
+        /// <summary>
+        /// clear textbox data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnClear_Click(object sender, EventArgs e)
         {
             txtSearch.Text = string.Empty;
             this.GetData();
         }
 
+        #endregion add and clear data
+
+        #region paging
+
+        /// <summary>
+        /// pagination
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void grvJob_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grvJob.PageIndex = e.NewPageIndex;
             this.GetData();
         }
+
+        #endregion paging
     }
 }

@@ -5,10 +5,21 @@ namespace Job_Portal_Management_System.Views.Job
 {
     public partial class JobDetail : System.Web.UI.Page
     {
+        #region variable declaration
+
         private JobPortal_Models.JobOffer.JobOffer joboffermodel = new JobPortal_Models.JobOffer.JobOffer();
         private JobPortal_Services.JobOffer.JobOfferService jobofferservice = new JobPortal_Services.JobOffer.JobOfferService();
         private DataTable da = new DataTable();
 
+        #endregion variable declaration
+
+        #region bind data
+
+        /// <summary>
+        /// bind data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -18,6 +29,9 @@ namespace Job_Portal_Management_System.Views.Job
             }
         }
 
+        /// <summary>
+        /// bind job data
+        /// </summary>
         public void BindJob()
         {
             int Jobid = Convert.ToInt32(Request.QueryString["jobID"]);
@@ -26,6 +40,9 @@ namespace Job_Portal_Management_System.Views.Job
             rptJob.DataBind();
         }
 
+        /// <summary>
+        /// bind company data
+        /// </summary>
         public void BindCompany()
         {
             int companyid = Convert.ToInt32(Request.QueryString["ComID"]);
@@ -33,6 +50,8 @@ namespace Job_Portal_Management_System.Views.Job
             rptcompany.DataSource = da;
             rptcompany.DataBind();
         }
+
+        #endregion bind data
 
         #region InsertData
 
@@ -49,6 +68,13 @@ namespace Job_Portal_Management_System.Views.Job
 
         #endregion InsertData
 
+        #region check user
+
+        /// <summary>
+        /// check user or not
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnApply_Click(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -85,5 +111,7 @@ namespace Job_Portal_Management_System.Views.Job
                 }
             }
         }
+
+        #endregion check user
     }
 }

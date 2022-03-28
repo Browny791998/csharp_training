@@ -6,10 +6,21 @@ namespace Job_Portal_Management_System.Views.User
 {
     public partial class AdminJobSeekerList : System.Web.UI.Page
     {
+        #region variable declaration
+
         private JobPortal_Models.JobSeeker.JobSeeker jobseekermodel = new JobPortal_Models.JobSeeker.JobSeeker();
         private JobPortal_Services.JobSeeker.JobSeekerService jobseekerservice = new JobPortal_Services.JobSeeker.JobSeekerService();
         private DataTable da = new DataTable();
 
+        #endregion variable declaration
+
+        #region bind data
+
+        /// <summary>
+        /// bind data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -21,6 +32,8 @@ namespace Job_Portal_Management_System.Views.User
                 GetData();
             }
         }
+
+        #endregion bind data
 
         #region Get Data
 
@@ -47,12 +60,24 @@ namespace Job_Portal_Management_System.Views.User
 
         #endregion Get Data
 
+        #region search data
+
+        /// <summary>
+        /// bind data to datagrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void grvJobSeeker_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grvJobSeeker.PageIndex = e.NewPageIndex;
             this.GetData();
         }
 
+        /// <summary>
+        /// search data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             da = JobPortal_Services.JobSeeker.JobSeekerService.SearchAllJobSeeker(txtSearch.Text);
@@ -70,5 +95,7 @@ namespace Job_Portal_Management_System.Views.User
             grvJobSeeker.UseAccessibleHeader = true;
             grvJobSeeker.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
+
+        #endregion search data
     }
 }

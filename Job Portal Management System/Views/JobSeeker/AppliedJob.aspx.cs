@@ -6,10 +6,21 @@ namespace Job_Portal_Management_System.Views.JobSeeker
 {
     public partial class AppliedJob : System.Web.UI.Page
     {
+        #region variable declaration
+
         private JobPortal_Models.JobOffer.JobOffer joboffermodel = new JobPortal_Models.JobOffer.JobOffer();
         private JobPortal_Services.JobOffer.JobOfferService jobofferservice = new JobPortal_Services.JobOffer.JobOfferService();
         private DataTable da = new DataTable();
 
+        #endregion variable declaration
+
+        #region bind data
+
+        /// <summary>
+        /// bind data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["email"] == null)
@@ -21,6 +32,10 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 GetData();
             }
         }
+
+        #endregion bind data
+
+        #region get data
 
         /// <summary>
         /// Get Data
@@ -44,12 +59,26 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             }
         }
 
+        #endregion get data
+
+        #region delete data
+
+        /// <summary>
+        /// bind data to datagrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void grvAppliedJob_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grvAppliedJob.PageIndex = e.NewPageIndex;
             this.GetData();
         }
 
+        /// <summary>
+        /// delete data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void grvAppliedJob_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int id = Convert.ToInt32(grvAppliedJob.DataKeys[e.RowIndex].Value);
@@ -67,5 +96,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 Session["alert-type"] = "danger";
             }
         }
+
+        #endregion delete data
     }
 }
