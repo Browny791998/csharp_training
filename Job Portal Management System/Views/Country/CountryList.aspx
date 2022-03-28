@@ -71,7 +71,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField ItemStyle-Width="10%" ItemStyle-CssClass="text-center table-options" HeaderStyle-CssClass="text-center">
                             <ItemTemplate>
-                                <asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Update" Text="Update" CssClass="btn btn-success btn-sm"></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Update" Text="Edit" CssClass="btn btn-success"></asp:LinkButton>
                             </ItemTemplate>
 
                             <HeaderStyle CssClass="text-center"></HeaderStyle>
@@ -80,7 +80,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField ItemStyle-Width="10%" ItemStyle-CssClass="text-center table-options" HeaderStyle-CssClass="text-center">
                             <ItemTemplate>
-                                <asp:LinkButton OnClientClick="return confirm('Are you sure to delete');" ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" CssClass="btn btn-danger btn-sm"></asp:LinkButton>
+                                <asp:LinkButton OnClientClick="return confirm('Are you sure to delete');" ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" CssClass="btn btn-danger"></asp:LinkButton>
                             </ItemTemplate>
 
                             <HeaderStyle CssClass="text-center"></HeaderStyle>

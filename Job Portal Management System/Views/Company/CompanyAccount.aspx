@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 class="text-center text-info mt-5">Company Account</h1>
+    <h1 class="text-center text-info mt-5">Company Profile</h1>
     <%if (Session["alert"] != null && Session["alert-type"] != null)
         {
             Lblalert.Visible = true;

@@ -42,7 +42,7 @@
     </div>
     <div class="row mt-5">
         <div class="col-md-12">
-            <asp:GridView ID="grvJob" runat="server" CssClass="gvJob table table-striped " ShowHeaderWhenEmpty="true" DataKeyNames="id" PageSize="5" AllowPaging="false" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="Both" OnRowDeleting="grvJob_RowDeleting" OnRowUpdating="grvJob_RowUpdating" OnPageIndexChanging="grvJob_PageIndexChanging">
+            <asp:GridView ID="grvJob" runat="server" CssClass="gvJob table table-striped " ShowHeaderWhenEmpty="True" DataKeyNames="id" PageSize="5" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" OnRowDeleting="grvJob_RowDeleting" OnRowUpdating="grvJob_RowUpdating" OnPageIndexChanging="grvJob_PageIndexChanging">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField>
@@ -59,10 +59,14 @@
                     <asp:BoundField DataField="degree" HeaderText="Degree" />
                     <asp:BoundField DataField="skill" HeaderText="Skill" />
                     <asp:BoundField DataField="experience" HeaderText="Experience" />
-                    <asp:BoundField DataField="vacancy" HeaderText="Vacancy" />
+                    <asp:BoundField DataField="vacancy" HeaderText="Vacancy" >
+                    <ItemStyle HorizontalAlign="Right" />
+                    </asp:BoundField>
                     <asp:BoundField DataField="position" HeaderText="Position" />
                     <asp:BoundField DataField="job_nature" HeaderText="Job Type" />
-                    <asp:BoundField DataField="salary" HeaderText="Salary" />
+                    <asp:BoundField DataField="salary" HeaderText="Salary" >
+                    <ItemStyle HorizontalAlign="Right" />
+                    </asp:BoundField>
                     <asp:BoundField DataField="active" HeaderText="Status" />
 
                     <asp:TemplateField ItemStyle-CssClass="text-center table-options" HeaderStyle-CssClass="text-center">

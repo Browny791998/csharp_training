@@ -4,10 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
-        <h2 class="text-center text-info mt-3 ">Recent Job List</h2>
+        <h2 class="text-center text-info mt-3 ">Job List</h2>
         <div class="row mt-3">
 
-            <div class="col-12 col-md-3 mt-5 border-right">
+            <div class="col-12 col-md-4 mt-5 border-right">
                 <h2 class="text-danger text-center"><i class="fa-solid fa-filter text-black-50 mr-2"></i>Filter Jobs</h2>
                 <div class="row mb-2">
                     <div class="col-md-5">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-8 p-2 ml-5">
+            <div class="col-12 col-md-7 p-2 ml-5">
                 <div class="row">
                     <asp:Repeater ID="rptJoblist" runat="server">
                         <ItemTemplate>

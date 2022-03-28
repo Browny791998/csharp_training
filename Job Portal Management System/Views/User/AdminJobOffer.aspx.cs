@@ -49,7 +49,9 @@ namespace Job_Portal_Management_System.Views.User
                 ddlCompany.DataSource = da;
                 ddlCompany.DataValueField = "id";
                 ddlCompany.DataTextField = "name";
+                ddlCompany.SelectedIndex = -1;
                 ddlCompany.DataBind();
+                ddlCompany.Items.Insert(0, new ListItem("--Select Company--", "--Select Company--"));
             }
         }
 
@@ -64,7 +66,11 @@ namespace Job_Portal_Management_System.Views.User
         /// <param name="e"></param>
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            if (rdoAccept.Checked == false && rdoReject.Checked == false)
+            if (ddlCompany.SelectedValue == "--Select Company--")
+            {
+                GetData();
+            }
+            else if (rdoAccept.Checked == false && rdoReject.Checked == false)
             {
                 da = JobPortal_Services.JobOffer.JobOfferService.GetSearchAllJoboffer(txtSearch.Text, ddlCompany.SelectedItem.ToString());
             }
@@ -144,6 +150,7 @@ namespace Job_Portal_Management_System.Views.User
             txtSearch.Text = string.Empty;
             rdoAccept.Checked = false;
             rdoReject.Checked = false;
+            ddlCompany.SelectedValue = "--Select Company--";
             this.GetData();
         }
 

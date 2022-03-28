@@ -82,6 +82,7 @@
                             <ItemTemplate>
                                 <%#HttpUtility.HtmlEncode(Eval("skill"))%>
                             </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Left" />
                         </asp:TemplateField>
 
                         <asp:TemplateField>
@@ -91,6 +92,7 @@
                             <ItemTemplate>
                                 <%#HttpUtility.HtmlEncode(Eval("vacancy"))%>
                             </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Right" />
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <HeaderTemplate>

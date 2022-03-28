@@ -38,7 +38,8 @@
             <div class="col-md-12">
 
                 <asp:Label ID="Label4" runat="server" CssClass="font-weight-bold mr-2" Text="Label">Company Name</asp:Label>
-                <asp:DropDownList ID="ddlCompany" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlCompany" runat="server">
+                </asp:DropDownList>
                 <asp:Label ID="Label2" runat="server" CssClass="font-weight-bold mr-2 ml-2" Text="Label">job Name</asp:Label>
 
                 <asp:TextBox ID="txtSearch" runat="server" Style="padding: 5px 35px 5px 13px; outline: none;"></asp:TextBox>

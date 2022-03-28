@@ -114,7 +114,7 @@ namespace JobPortal_DAOs.Jobnature
         {
             try
             {
-                return Common.HelperDao.GetData("Select tbl_jobnature.id,tbl_jobnature.job_nature  from tbl_jobnature", CommandType.Text);
+                return Common.HelperDao.GetData("Select id,job_nature from tbl_jobnature", CommandType.Text);
             }
             catch (Exception ex)
             {

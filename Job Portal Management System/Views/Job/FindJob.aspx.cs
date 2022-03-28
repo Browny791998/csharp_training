@@ -52,7 +52,9 @@ namespace Job_Portal_Management_System.Views.Job
                 ddlspeicalization.DataSource = da;
                 ddlspeicalization.DataValueField = "id";
                 ddlspeicalization.DataTextField = "specialization";
+                ddlspeicalization.SelectedIndex = -1;
                 ddlspeicalization.DataBind();
+              ddlspeicalization.Items.Insert(0, new ListItem("--Select Specialization--", "--Select Specialization--"));
             }
         }
 
@@ -67,7 +69,9 @@ namespace Job_Portal_Management_System.Views.Job
                 ddlPosition.DataSource = da;
                 ddlPosition.DataValueField = "id";
                 ddlPosition.DataTextField = "position";
+                ddlPosition.SelectedIndex =-1;
                 ddlPosition.DataBind();
+                ddlPosition.Items.Insert(0, new ListItem("--Select Position--", "--Select Position--"));
             }
         }
 
@@ -82,7 +86,9 @@ namespace Job_Portal_Management_System.Views.Job
                 ddlJobtype.DataSource = da;
                 ddlJobtype.DataValueField = "id";
                 ddlJobtype.DataTextField = "job_nature";
+                ddlJobtype.SelectedIndex = -1;
                 ddlJobtype.DataBind();
+                ddlJobtype.Items.Insert(0, new ListItem("--Select Type--", "--Select Type--"));
             }
         }
 
@@ -97,7 +103,9 @@ namespace Job_Portal_Management_System.Views.Job
                 ddlCountry.DataSource = da;
                 ddlCountry.DataValueField = "id";
                 ddlCountry.DataTextField = "country";
+               ddlCountry.SelectedIndex = -1;
                 ddlCountry.DataBind();
+                ddlCountry.Items.Insert(0, new ListItem("--Select Country--", "--Select Country--"));
             }
         }
 
@@ -112,14 +120,54 @@ namespace Job_Portal_Management_System.Views.Job
         /// <param name="e"></param>
         protected void btnFilter_Click(object sender, EventArgs e)
         {
-            int countryID = Convert.ToInt32(ddlCountry.SelectedValue);
-            int positionID = Convert.ToInt32(ddlPosition.SelectedValue);
-            int jobtypeID = Convert.ToInt32(ddlJobtype.SelectedValue);
-            int speiclizationID = Convert.ToInt32(ddlspeicalization.SelectedValue);
-            da = JobPortal_Services.Job.JobService.FilterJob(countryID, positionID, jobtypeID, speiclizationID);
-            rptJoblist.DataSource = da;
-            rptJoblist.DataBind();
-        }
+            int countryID, positionID, jobtypeID, speiclizationID;
+            if (ddlCountry.SelectedValue== "--Select Country--" && ddlJobtype.SelectedValue== "--Select Type--" && ddlPosition.SelectedValue== "--Select Position--" && ddlspeicalization.SelectedValue == "--Select Specialization--")
+            {
+                BindJob();
+            }
+            else if(ddlJobtype.SelectedValue == "--Select Type--" && ddlPosition.SelectedValue == "--Select Position--" && ddlspeicalization.SelectedValue == "--Select Specialization--")
+            {
+                countryID = Convert.ToInt32(ddlCountry.SelectedValue);
+                da = JobPortal_Services.Job.JobService.FilterJob(countryID,0, 0, 0);
+                rptJoblist.DataSource = da;
+                rptJoblist.DataBind();
+            }
+            else if (ddlCountry.SelectedValue == "--Select Country--" && ddlPosition.SelectedValue == "--Select Position--" && ddlspeicalization.SelectedValue == "--Select Specialization--")
+            {
+                jobtypeID = Convert.ToInt32(ddlJobtype.SelectedValue);
+                da = JobPortal_Services.Job.JobService.FilterJob(0, 0,jobtypeID, 0);
+                rptJoblist.DataSource = da;
+                rptJoblist.DataBind();
+            }
+            else if (ddlCountry.SelectedValue == "--Select Country--" && ddlJobtype.SelectedValue == "--Select Type--" && ddlspeicalization.SelectedValue == "--Select Specialization--")
+            {
+                positionID = Convert.ToInt32(ddlPosition.SelectedValue);
+                da = JobPortal_Services.Job.JobService.FilterJob(0, positionID, 0, 0);
+                rptJoblist.DataSource = da;
+                rptJoblist.DataBind();
+            }
+            else if(ddlCountry.SelectedValue == "--Select Country--" && ddlJobtype.SelectedValue == "--Select Type--" && ddlPosition.SelectedValue == "--Select Position--")
+            {
+              speiclizationID= Convert.ToInt32(ddlspeicalization.SelectedValue);
+                da = JobPortal_Services.Job.JobService.FilterJob(0,0, 0, speiclizationID);
+                rptJoblist.DataSource = da;
+                rptJoblist.DataBind();
+            }
+            else if(ddlCountry.SelectedValue != "--Select Country--" && ddlJobtype.SelectedValue != "--Select Type--" && ddlPosition.SelectedValue != "--Select Position--" && ddlspeicalization.SelectedValue != "--Select Specialization--")
+            {
+                countryID = Convert.ToInt32(ddlCountry.SelectedValue);
+                positionID = Convert.ToInt32(ddlPosition.SelectedValue);
+                jobtypeID = Convert.ToInt32(ddlJobtype.SelectedValue);
+                speiclizationID = Convert.ToInt32(ddlspeicalization.SelectedValue);
+                da = JobPortal_Services.Job.JobService.FilterJob(countryID, positionID, jobtypeID, speiclizationID);
+                rptJoblist.DataSource = da;
+                rptJoblist.DataBind();
+            }
+            else
+            {
+                BindJob();
+            }
+         }
 
         #endregion get data
 
@@ -132,6 +180,10 @@ namespace Job_Portal_Management_System.Views.Job
         /// <param name="e"></param>
         protected void btnViewAllJob_Click(object sender, EventArgs e)
         {
+            ddlCountry.SelectedValue = "--Select Country--";
+            ddlJobtype.SelectedValue = "--Select Type--";
+            ddlPosition.SelectedValue = "--Select Position--";
+            ddlspeicalization.SelectedValue = "--Select Specialization--";
             da = JobPortal_Services.Job.JobService.GetActiveData();
             rptJoblist.DataSource = da;
             rptJoblist.DataBind();
