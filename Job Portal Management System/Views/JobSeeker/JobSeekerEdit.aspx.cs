@@ -32,7 +32,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             if (!IsPostBack)
             {
                 bindSkill();
-                int id = Convert.ToInt32(Request.QueryString["ID"]);
+                int id = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["ID"]));
                 SqlDataReader dr = JobPortal_Services.JobSeeker.JobSeekerService.ReadData(id);
                 while (dr.Read())
                 {
@@ -110,7 +110,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
         {
             string ext;
             bool isValidFile;
-            jobseekermodel.ID = Convert.ToInt32(Request.QueryString["ID"]);
+            jobseekermodel.ID = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["ID"]));
             jobseekermodel.Name = txtName.Text;
             jobseekermodel.Address = txtAddress.Text;
             jobseekermodel.Mobile = Convert.ToInt64(txtMobile.Text);

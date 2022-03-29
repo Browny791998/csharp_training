@@ -15,6 +15,15 @@ namespace Job_Portal_Management_System.Views.Position
     {
 
         /// <summary>
+        /// Lblalert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lblalert;
+
+        /// <summary>
         /// hfPosition control.
         /// </summary>
         /// <remarks>

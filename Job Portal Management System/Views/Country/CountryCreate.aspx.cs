@@ -131,13 +131,7 @@ namespace Job_Portal_Management_System.Views.Country
                 int CountryID =Convert.ToInt32(hfCountry.Value);
 
                 da = JobPortal_Services.Country.CountryServices.GetUpdateData(txtCountry.Text, CountryID);
-                if (da.Rows.Count == 0)
-                {
-                    Session["alert"] = "Data already exist";
-                    Session["alert-type"] = "warning";
-                    Response.Redirect("CountryList.aspx");
-                }
-                else
+                if (da.Rows.Count> 0)
                 {
                     UpdateData();
                     bool IsUpdate = JobPortal_Services.Country.CountryServices.Update(countrymodel);
@@ -152,6 +146,32 @@ namespace Job_Portal_Management_System.Views.Country
                         Session["alert"] = "Updating failed";
                         Session["alert-type"] = "danger";
                         Response.Redirect("CountryList.aspx");
+                    }
+                }
+            else if(da.Rows.Count == 0)
+                {
+                    da = JobPortal_Services.Country.CountryServices.GetData(txtCountry.Text);
+                    if (da.Rows.Count > 0)
+                    {
+                        Session["alert"] = "Data already exist";
+                        Session["alert-type"] = "warning";
+                    }
+                    else
+                    {
+                        UpdateData();
+                        bool IsUpdate = JobPortal_Services.Country.CountryServices.Update(countrymodel);
+                        if (IsUpdate)
+                        {
+                            Session["alert"] = "Updated successfully";
+                            Session["alert-type"] = "success";
+                            Response.Redirect("CountryList.aspx");
+                        }
+                        else
+                        {
+                            Session["alert"] = "Updating failed";
+                            Session["alert-type"] = "danger";
+                            Response.Redirect("CountryList.aspx");
+                        }
                     }
                 }
             }

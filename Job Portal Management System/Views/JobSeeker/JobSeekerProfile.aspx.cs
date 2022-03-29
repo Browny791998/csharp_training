@@ -58,8 +58,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             var btn = (Button)sender;
             var item = (RepeaterItem)btn.NamingContainer;
             var IdValue = ((Label)item.FindControl("jobseekerId")).Text;
-
-            Response.Redirect("JobSeekerEdit.aspx?ID=" + IdValue);
+            Response.Redirect("JobSeekerEdit.aspx?ID=" + MyCrypto.GetEncryptedQueryString(IdValue));
         }
 
         #endregion edit data

@@ -40,7 +40,7 @@ namespace Job_Portal_Management_System.Views.Joboffer
         /// </summary>
         public void GetApplier()
         {
-            int id = Convert.ToInt32(Request.QueryString["applierID"]);
+            int id = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["applierID"]));
             da = JobPortal_Services.JobSeeker.JobSeekerService.GetAllData(id);
             rptApplier.DataSource = da;
             rptApplier.DataBind();

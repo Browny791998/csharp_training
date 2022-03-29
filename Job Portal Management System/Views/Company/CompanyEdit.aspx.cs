@@ -29,7 +29,7 @@ namespace Job_Portal_Management_System.Views.Company
             if (!IsPostBack)
             {
                 bindCountry();
-                int id = Convert.ToInt32(Request.QueryString["ID"]);
+                int id = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["ID"]));
                 SqlDataReader dr = JobPortal_Services.Company.CompanyService.ReadData(id);
                 while (dr.Read())
                 {
@@ -68,7 +68,7 @@ namespace Job_Portal_Management_System.Views.Company
         /// </summary>
         private void UpdateData()
         {
-            companymodel.ID = Convert.ToInt32(Request.QueryString["ID"]);
+            companymodel.ID = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["ID"]));
             companymodel.Name = txtName.Text;
             companymodel.CountryID = Convert.ToInt32(ddlCountry.SelectedValue);
             companymodel.Address = txtAddress.Text;

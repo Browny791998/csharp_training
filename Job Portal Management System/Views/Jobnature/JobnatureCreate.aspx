@@ -6,6 +6,26 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <div class="row">
+             <%if (Session["alert"] != null && Session["alert-type"] != null)
+            {
+                Lblalert.Visible = true;
+                Lblalert.Text = Session["alert"].ToString();
+                string type = Session["alert-type"].ToString();
+        %>
+        <div class="AlertMessage" id="AlertMsg">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="alert alert-<% Response.Write(type); %> alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <asp:Label ID="Lblalert" runat="server" Text="Label" Visible="False"></asp:Label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%
+                Session.Remove("alert");
+                Session.Remove("alert-type");
+            } %>
             <asp:HiddenField ID="hfJobnature" runat="server" />
             <asp:Label ID="LblMessage" runat="server" Text="Label" Visible="False"></asp:Label>
             <div class="card col-md-11 ml-5 mt-5 p-3" style="height: 80vh;">

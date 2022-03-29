@@ -127,13 +127,7 @@ namespace Job_Portal_Management_System.Views.Skill
             {
                 int skillID = Convert.ToInt32(hfSkill.Value);
                 da = JobPortal_Services.Skill.SkillServices.GetUpdateData(txtSkill.Text,skillID);
-                if (da.Rows.Count == 0)
-                {
-                    Session["alert"] = "Data already exist";
-                    Session["alert-type"] = "warning";
-                    Response.Redirect("SkillList.aspx");
-                }
-                else
+                if (da.Rows.Count > 0)
                 {
                     UpdateData();
                     bool IsUpdate = JobPortal_Services.Skill.SkillServices.Update(skillmodel);
@@ -148,6 +142,32 @@ namespace Job_Portal_Management_System.Views.Skill
                         Session["alert"] = "Updating failed";
                         Session["alert-type"] = "danger";
                         Response.Redirect("SkillList.aspx");
+                    }
+                }
+                else if(da.Rows.Count == 0)
+                {
+                    da = JobPortal_Services.Skill.SkillServices.GetData(txtSkill.Text);
+                    if (da.Rows.Count > 0)
+                    {
+                        Session["alert"] = "Data already exist";
+                        Session["alert-type"] = "warning";
+                    }
+                    else
+                    {
+                        UpdateData();
+                        bool IsUpdate = JobPortal_Services.Skill.SkillServices.Update(skillmodel);
+                        if (IsUpdate)
+                        {
+                            Session["alert"] = "Updated successfully";
+                            Session["alert-type"] = "success";
+                            Response.Redirect("SkillList.aspx");
+                        }
+                        else
+                        {
+                            Session["alert"] = "Updating failed";
+                            Session["alert-type"] = "danger";
+                            Response.Redirect("SkillList.aspx");
+                        }
                     }
                 }
             }

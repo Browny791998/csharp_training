@@ -110,7 +110,7 @@ namespace Job_Portal_Management_System.Views.Jobnature
                     bool success = JobPortal_Services.Jobnature.JobnatureServices.Insert(jobnaturemodel);
                     if (success)
                     {
-                        Session["alert"] = "Added Country Successfully";
+                        Session["alert"] = "Added Job Nature Successfully";
                         Session["alert-type"] = "success";
                         Response.Redirect("JobnatureList.aspx");
                         txtJobnature.Text = string.Empty;
@@ -127,13 +127,7 @@ namespace Job_Portal_Management_System.Views.Jobnature
             {
                 int JobNatureID=Convert.ToInt32(hfJobnature.Value);
                 da = JobPortal_Services.Jobnature.JobnatureServices.GetUpdateData(txtJobnature.Text,JobNatureID);
-                if (da.Rows.Count == 0)
-                {
-                    Session["alert"] = "Data already exist";
-                    Session["alert-type"] = "warning";
-                    Response.Redirect("JobnatureList.aspx");
-                }
-                else
+                if (da.Rows.Count > 0)
                 {
                     UpdateData();
                     bool IsUpdate = JobPortal_Services.Jobnature.JobnatureServices.Update(jobnaturemodel);
@@ -149,6 +143,33 @@ namespace Job_Portal_Management_System.Views.Jobnature
                         Session["alert-type"] = "danger";
                         Response.Redirect("JobnatureList.aspx");
                     }
+                }
+                else if (da.Rows.Count == 0)
+                {
+                    da = JobPortal_Services.Jobnature.JobnatureServices.GetData(txtJobnature.Text);
+                    if(da.Rows.Count > 0)
+                    {
+                        Session["alert"] = "Data already exist";
+                        Session["alert-type"] = "warning";
+                    }
+                    else
+                    {
+                        UpdateData();
+                        bool IsUpdate = JobPortal_Services.Jobnature.JobnatureServices.Update(jobnaturemodel);
+                        if (IsUpdate)
+                        {
+                            Session["alert"] = "Updated successfully";
+                            Session["alert-type"] = "success";
+                            Response.Redirect("JobnatureList.aspx");
+                        }
+                        else
+                        {
+                            Session["alert"] = "Updating failed";
+                            Session["alert-type"] = "danger";
+                            Response.Redirect("JobnatureList.aspx");
+                        }
+                    }
+                   
                 }
             }
         }

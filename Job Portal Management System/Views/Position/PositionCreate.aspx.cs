@@ -127,13 +127,7 @@ namespace Job_Portal_Management_System.Views.Position
             {
                 int positionID = Convert.ToInt32(hfPosition.Value);
                 da = JobPortal_Services.Position.PositionServices.GetUpdateData(txtPosition.Text,positionID);
-                if (da.Rows.Count == 0)
-                {
-                    Session["alert"] = "Data already exist";
-                    Session["alert-type"] = "warning";
-                    Response.Redirect("PositionList.aspx");
-                }
-                else
+                if (da.Rows.Count>0)
                 {
                     UpdateData();
                     bool IsUpdate = JobPortal_Services.Position.PositionServices.Update(positionmodel);
@@ -148,6 +142,31 @@ namespace Job_Portal_Management_System.Views.Position
                         Session["alert"] = "Updating failed";
                         Session["alert-type"] = "danger";
                         Response.Redirect("PositionList.aspx");
+                    }
+                }
+                else if(da.Rows.Count == 0)
+                {
+                    da = JobPortal_Services.Position.PositionServices.GetData(txtPosition.Text);
+                    if (da.Rows.Count > 0)
+                    {
+                        Session["alert"] = "Data already exist";
+                        Session["alert-type"] = "warning";
+                    }
+                    else{
+                        UpdateData();
+                        bool IsUpdate = JobPortal_Services.Position.PositionServices.Update(positionmodel);
+                        if (IsUpdate)
+                        {
+                            Session["alert"] = "Updated successfully";
+                            Session["alert-type"] = "success";
+                            Response.Redirect("PositionList.aspx");
+                        }
+                        else
+                        {
+                            Session["alert"] = "Updating failed";
+                            Session["alert-type"] = "danger";
+                            Response.Redirect("PositionList.aspx");
+                        }
                     }
                 }
             }

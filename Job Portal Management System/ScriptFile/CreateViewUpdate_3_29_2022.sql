@@ -1,0 +1,3 @@
+Create View FilterJob AS Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,name,country,tbl_company.country_id,position_id,position,job_nature_id,job_nature,specialization_id,specialization,salary,tbl_job.detail,tbl_job.active,tbl_job.created_at,tbl_job.updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_specialization on tbl_job.specialization_id = tbl_specialization.id join tbl_company on tbl_company.id=tbl_job.company_id join tbl_country on tbl_country.id = tbl_company.country_id Where tbl_job.active = 1
+
+

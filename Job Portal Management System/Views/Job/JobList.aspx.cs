@@ -94,7 +94,7 @@ namespace Job_Portal_Management_System.Views.Job
         protected void grvJob_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             int id = Convert.ToInt32(grvJob.DataKeys[e.RowIndex].Value);
-            Response.Redirect("CreateJob.aspx?id=" + id + "&action=update");
+            Response.Redirect("CreateJob.aspx?id=" +  MyCrypto.GetEncryptedQueryString(id.ToString())+ "&action=update");
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)

@@ -194,25 +194,65 @@ namespace JobPortal_DAOs.Job
         {
             try
             {
-                if (positionID==0 && jobtypeID==0 && specializationID == 0)
+                if (positionID==0 && jobtypeID==0 && specializationID == 0 && countryID !=0)
             {
-                   return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,name,country,tbl_company.country_id,position,job_nature_id,job_nature,specialization_id,specialization,salary,tbl_job.detail,tbl_job.active,tbl_job.created_at,tbl_job.updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_specialization on tbl_job.specialization_id = tbl_specialization.id join tbl_company on tbl_company.id=tbl_job.company_id join tbl_country on tbl_country.id = tbl_company.country_id Where tbl_job.active = 1 and country_id='" + countryID+"'", CommandType.Text);
+                   return Common.HelperDao.GetData("Select * from FilterJob where country_id='" + countryID+"'", CommandType.Text);
                 }
-                else if (countryID==0 && positionID == 0 && specializationID == 0)
+                else if (countryID==0 && positionID == 0 && specializationID == 0 && jobtypeID !=0)
                 {
-                    return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,name,country,tbl_company.country_id,position,job_nature_id,job_nature,specialization_id,specialization,salary,tbl_job.detail,tbl_job.active,tbl_job.created_at,tbl_job.updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_specialization on tbl_job.specialization_id = tbl_specialization.id join tbl_company on tbl_company.id=tbl_job.company_id join tbl_country on tbl_country.id = tbl_company.country_id Where tbl_job.active = 1 and job_nature_id='" + jobtypeID + "'", CommandType.Text);
+                    return Common.HelperDao.GetData("Select * from FilterJob where job_nature_id='" + jobtypeID + "'", CommandType.Text);
                 }
-                else if(countryID == 0 && jobtypeID == 0 && specializationID == 0)
+                else if(countryID == 0 && jobtypeID == 0 && specializationID == 0 && positionID!=0)
                 {
-                    return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,name,country,tbl_company.country_id,position,job_nature_id,job_nature,specialization_id,specialization,salary,tbl_job.detail,tbl_job.active,tbl_job.created_at,tbl_job.updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_specialization on tbl_job.specialization_id = tbl_specialization.id join tbl_company on tbl_company.id=tbl_job.company_id join tbl_country on tbl_country.id = tbl_company.country_id Where tbl_job.active = 1 and position_id='" + positionID + "'", CommandType.Text);
+                    return Common.HelperDao.GetData("Select* from FilterJob where position_id='" + positionID + "'", CommandType.Text);
                 }
-                else if (countryID == 0 && jobtypeID == 0 && positionID == 0)
+                else if (countryID == 0 && jobtypeID == 0 && positionID == 0 && specializationID!=0)
                 {
-                    return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,name,country,tbl_company.country_id,position,job_nature_id,job_nature,specialization_id,specialization,salary,tbl_job.detail,tbl_job.active,tbl_job.created_at,tbl_job.updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_specialization on tbl_job.specialization_id = tbl_specialization.id join tbl_company on tbl_company.id=tbl_job.company_id join tbl_country on tbl_country.id = tbl_company.country_id Where tbl_job.active = 1 and specialization_id='" + specializationID + "'", CommandType.Text);
+                    return Common.HelperDao.GetData("Select * from FilterJob where specialization_id='" + specializationID + "'", CommandType.Text);
+                }
+                else if(jobtypeID == 0 && specializationID == 0 && countryID !=0 && positionID !=0)
+                {
+                    return Common.HelperDao.GetData("Select * from FilterJob where country_id='" + countryID + "' and position_id='" + positionID + "' ", CommandType.Text);
+                }
+                else if(positionID == 0 && specializationID == 0 && countryID !=0 && jobtypeID!=0)
+                {
+                    return Common.HelperDao.GetData("Select * from FilterJob where country_id='" + countryID + "' and job_nature_id='" + jobtypeID + "'", CommandType.Text);
+                }
+                else if(positionID == 0 && jobtypeID == 0 && countryID !=0 && specializationID !=0)
+                {
+                    return Common.HelperDao.GetData("Select * from FilterJob where country_id='" + countryID + "' and specialization_id='" + specializationID + "'", CommandType.Text);
+                }
+                else if(specializationID == 0 && countryID != 0 && positionID != 0 && jobtypeID != 0)
+                {
+                    return Common.HelperDao.GetData("Select * from FilterJob where country_id='" + countryID + "' and position_id='" + positionID + "' and job_nature_id='" + jobtypeID + "'", CommandType.Text);
+                }
+                else if(positionID == 0 && countryID != 0 && jobtypeID != 0 && specializationID != 0)
+                {
+                    return Common.HelperDao.GetData("Select * from FilterJob where country_id='" + countryID + "' and job_nature_id='" + jobtypeID + "' and specialization_id='" + specializationID + "'", CommandType.Text);
+                }
+                else if(jobtypeID == 0 && countryID != 0 && positionID != 0 && specializationID != 0)
+                {
+                    return Common.HelperDao.GetData("Select * from FilterJob where country_id='" + countryID + "' and position_id='" + positionID + "' and specialization_id='" + specializationID + "'", CommandType.Text);
+                }
+                else if(countryID == 0 && positionID != 0 && specializationID != 0 && jobtypeID != 0)
+                {
+                    return Common.HelperDao.GetData("Select * from FilterJob where position_id='" + positionID + "' and job_nature_id='" + jobtypeID + "' and specialization_id='" + specializationID + "'", CommandType.Text);
+                }
+                else if (countryID == 0 && specializationID == 0 && positionID != 0 && jobtypeID != 0)
+                {
+                    return Common.HelperDao.GetData("Select * from FilterJob where position_id='" + positionID + "' and job_nature_id='" + jobtypeID + "'", CommandType.Text);
+                }
+                else if (countryID == 0 && jobtypeID == 0 && positionID != 0 && specializationID != 0)
+                {
+                    return Common.HelperDao.GetData("Select * from FilterJob where position_id='" + positionID + "' and specialization_id='" + specializationID + "'", CommandType.Text);
+                }
+                else if(countryID == 0 && positionID == 0 && jobtypeID != 0 && specializationID != 0)
+                {
+                    return Common.HelperDao.GetData("Select * from FilterJob where  job_nature_id='" + jobtypeID + "' and specialization_id='" + specializationID + "'", CommandType.Text);
                 }
                 else
                 {
-                    return Common.HelperDao.GetData("Select tbl_job.id,title,degree,skill,experience,vacancy,company_id,name,country,tbl_company.country_id,position,job_nature_id,job_nature,specialization_id,specialization,salary,tbl_job.detail,tbl_job.active,tbl_job.created_at,tbl_job.updated_at from tbl_job join tbl_position on tbl_position.id = tbl_job.position_id join tbl_jobnature on tbl_jobnature.id = tbl_job.job_nature_id join tbl_specialization on tbl_job.specialization_id = tbl_specialization.id join tbl_company on tbl_company.id=tbl_job.company_id join tbl_country on tbl_country.id = tbl_company.country_id Where tbl_job.active = 1 and country_id='" + countryID + "' and position_id='" + positionID + "' and job_nature_id='" + jobtypeID + "' and specialization_id='" + specializationID + "'", CommandType.Text);
+                    return Common.HelperDao.GetData("Select * from FilterJob where country_id='" + countryID + "' and position_id='" + positionID + "' and job_nature_id='" + jobtypeID + "' and specialization_id='" + specializationID + "'", CommandType.Text);
                 }
             }
             catch (Exception ex)

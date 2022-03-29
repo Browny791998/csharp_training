@@ -127,13 +127,7 @@ namespace Job_Portal_Management_System.Views.Specialization
             {
                 int specializationID=Convert.ToInt32(hfSpecialization.Value);
                 da = JobPortal_Services.Specialization.SpecializationServices.GetUpdateData(txtSpecialization.Text,specializationID);
-                if (da.Rows.Count == 0)
-                {
-                    Session["alert"] = "Data already exist";
-                    Session["alert-type"] = "warning";
-                    Response.Redirect("SpecializationList.aspx");
-                }
-                else
+                if (da.Rows.Count > 0)
                 {
                     UpdateData();
                     bool IsUpdate = JobPortal_Services.Specialization.SpecializationServices.Update(specializationmodel);
@@ -148,6 +142,31 @@ namespace Job_Portal_Management_System.Views.Specialization
                         Session["alert"] = "Updating failed";
                         Session["alert-type"] = "danger";
                         Response.Redirect("SpecializationList.aspx");
+                    }
+                }
+                else if(da.Rows.Count == 0){
+                  da = JobPortal_Services.Specialization.SpecializationServices.GetData(txtSpecialization.Text);
+                    if (da.Rows.Count > 0)
+                    {
+                        Session["alert"] = "Data already exist";
+                        Session["alert-type"] = "warning";
+                    }
+                    else
+                    {
+                        UpdateData();
+                        bool IsUpdate = JobPortal_Services.Specialization.SpecializationServices.Update(specializationmodel);
+                        if (IsUpdate)
+                        {
+                            Session["alert"] = "Updated successfully";
+                            Session["alert-type"] = "success";
+                            Response.Redirect("SpecializationList.aspx");
+                        }
+                        else
+                        {
+                            Session["alert"] = "Updating failed";
+                            Session["alert-type"] = "danger";
+                            Response.Redirect("SpecializationList.aspx");
+                        }
                     }
                 }
             }

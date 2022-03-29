@@ -36,7 +36,7 @@ namespace Job_Portal_Management_System.Views.Job
                     bindPosition();
                     bindJobType();
                     bindSpecialization();
-                    int id = Convert.ToInt32(Request.QueryString["id"]);
+                    int id = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["id"]));
                     SqlDataReader dr = JobPortal_Services.Job.JobService.ReadData(id);
                     while (dr.Read())
                     {
@@ -182,7 +182,7 @@ namespace Job_Portal_Management_System.Views.Job
         /// </summary>
         private void UpdateData()
         {
-            jobmodel.ID = Convert.ToInt32(Request.QueryString["id"]);
+            jobmodel.ID = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["id"]));
             jobmodel.Title = txtTitle.Text;
             jobmodel.Degree = ddlDegree.SelectedValue;
             string strskill = string.Empty;

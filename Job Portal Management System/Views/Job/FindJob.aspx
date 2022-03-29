@@ -66,7 +66,7 @@
                             <div class="col-md-12 mt-2">
                                 <div class="card shadow-sm">
                                     <div class="card-header bg-info text-white font-weight-bold">
-                                        <i class="fa-solid fa-building"></i><%# Eval("name") %>
+                                        <i class="fa-solid fa-building"></i> <%# Eval("name") %>
                                         <p class="float-right"><%# Eval("specialization") %></p>
                                     </div>
                                     <div class="card-body">

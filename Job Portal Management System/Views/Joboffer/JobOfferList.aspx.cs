@@ -112,7 +112,7 @@ namespace Job_Portal_Management_System.Views.Joboffer
             }
             else if (e.CommandName == "Detail")
             {
-                Response.Redirect("ApplierDetail.aspx?applierID=" + jobseekerID);
+             Response.Redirect("ApplierDetail.aspx?applierID=" + MyCrypto.GetEncryptedQueryString(jobseekerID.ToString()));
             }
         }
 

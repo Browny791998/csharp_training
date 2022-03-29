@@ -55,7 +55,7 @@ namespace Job_Portal_Management_System.Views.Company
             var item = (RepeaterItem)btn.NamingContainer;
             var IdValue = ((Label)item.FindControl("companyId")).Text;
 
-            Response.Redirect("CompanyEdit.aspx?ID=" + IdValue);
+            Response.Redirect("CompanyEdit.aspx?ID=" + MyCrypto.GetEncryptedQueryString(IdValue));
         }
 
         #endregion edit data
