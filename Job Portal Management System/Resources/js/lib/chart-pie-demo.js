@@ -28,6 +28,19 @@ var myPieChart = new Chart(ctx, {
             yPadding: 15,
             displayColors: false,
             caretPadding: 10,
+            callbacks: {
+                label: function (tooltipItem, data) {
+                    var dataLabel = data.labels[tooltipItem.index];
+                    var value = ':' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toLocaleString()+' applier';
+                    if (Chart.helpers.isArray(dataLabel)) {
+                        dataLabel = dataLabel.slice();
+                        dataLabel[0] += value;
+                    } else {
+                        dataLabel += value;
+                    }
+                    return dataLabel;
+                }
+            }
         },
         legend: {
             display: false
