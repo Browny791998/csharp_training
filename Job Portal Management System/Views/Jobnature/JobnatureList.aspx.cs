@@ -83,7 +83,7 @@ namespace Job_Portal_Management_System.Views.Jobnature
         {
             Session["label"] = "update";
             int id = Convert.ToInt32(grvJobnature.DataKeys[e.RowIndex].Value);
-            Response.Redirect("JobnatureCreate.aspx?id=" + id);
+            Response.Redirect("JobnatureCreate.aspx?id=" + MyCrypto.GetEncryptedQueryString(id.ToString()));
         }
 
         /// <summary>

@@ -45,7 +45,7 @@ namespace Job_Portal_Management_System.Views.Skill
                     lblSkillbreadcrumb.Text = "Update Skill";
                     if (!IsPostBack)
                     {
-                        int id = Convert.ToInt32(Request.QueryString["id"]);
+                        int id = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["id"]));
                         SqlDataReader dr = JobPortal_Services.Skill.SkillServices.ReadData(id);
                         while (dr.Read())
                         {

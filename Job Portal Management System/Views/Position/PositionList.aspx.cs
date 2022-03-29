@@ -83,7 +83,7 @@ namespace Job_Portal_Management_System.Views.Position
         {
             Session["label"] = "update";
             int id = Convert.ToInt32(grvPosition.DataKeys[e.RowIndex].Value);
-            Response.Redirect("PositionCreate.aspx?id=" + id);
+            Response.Redirect("PositionCreate.aspx?id=" + MyCrypto.GetEncryptedQueryString(id.ToString()));
         }
 
         /// <summary>

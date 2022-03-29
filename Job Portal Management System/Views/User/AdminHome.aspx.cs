@@ -64,7 +64,6 @@ namespace Job_Portal_Management_System.Views
                     totalcompany += da.Rows[i]["Company"] + ",";
                     sb.AppendFormat("'{0}'" + ",", da.Rows[i]["Day"]);
                 }
-
                 totalcompany = totalcompany.Substring(0, totalcompany.Length - 1);
                 CompanyData += "companyWeek=[" + sb + "];totalcompany=[" + totalcompany + "]";
                 CompanyData += "</script>";

@@ -45,7 +45,7 @@ namespace Job_Portal_Management_System.Views.Position
                     lblPositionbreadcrumb.Text = "Update Position";
                     if (!IsPostBack)
                     {
-                        int id = Convert.ToInt32(Request.QueryString["id"]);
+                        int id = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["id"]));
                         SqlDataReader dr = JobPortal_Services.Position.PositionServices.ReadData(id);
                         while (dr.Read())
                         {

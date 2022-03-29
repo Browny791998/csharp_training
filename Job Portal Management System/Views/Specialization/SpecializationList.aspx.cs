@@ -83,7 +83,7 @@ namespace Job_Portal_Management_System.Views.Specialization
         {
             Session["label"] = "update";
             int id = Convert.ToInt32(grvSpecialization.DataKeys[e.RowIndex].Value);
-            Response.Redirect("SpecializationCreate.aspx?id=" + id);
+            Response.Redirect("SpecializationCreate.aspx?id=" + MyCrypto.GetEncryptedQueryString(id.ToString()));
         }
 
         /// <summary>

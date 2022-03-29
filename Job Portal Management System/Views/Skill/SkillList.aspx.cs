@@ -85,7 +85,7 @@ namespace Job_Portal_Management_System.Views.Skill
         {
             Session["label"] = "update";
             int id = Convert.ToInt32(grvSkill.DataKeys[e.RowIndex].Value);
-            Response.Redirect("SkillCreate.aspx?id=" + id);
+            Response.Redirect("SkillCreate.aspx?id=" + MyCrypto.GetEncryptedQueryString(id.ToString()));
         }
 
         /// <summary>

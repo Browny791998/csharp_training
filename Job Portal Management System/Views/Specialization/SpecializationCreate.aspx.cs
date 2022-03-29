@@ -45,7 +45,7 @@ namespace Job_Portal_Management_System.Views.Specialization
                     lblSpecializationbreadcrumb.Text = "Update Specialization";
                     if (!IsPostBack)
                     {
-                        int id = Convert.ToInt32(Request.QueryString["id"]);
+                        int id = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["id"]));
                         SqlDataReader dr = JobPortal_Services.Specialization.SpecializationServices.ReadData(id);
                         while (dr.Read())
                         {

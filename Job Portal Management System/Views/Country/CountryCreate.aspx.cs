@@ -45,7 +45,7 @@ namespace Job_Portal_Management_System.Views.Country
                     lblCountrybreadcrumb.Text = "Update Country";
                     if (!IsPostBack)
                     {
-                        int id = Convert.ToInt32(Request.QueryString["id"]);
+                        int id = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["id"]));
                         SqlDataReader dr = JobPortal_Services.Country.CountryServices.ReadData(id);
                         while (dr.Read())
                         {

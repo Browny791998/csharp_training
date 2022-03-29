@@ -83,7 +83,7 @@ namespace Job_Portal_Management_System.Views.Country
         {
             Session["label"] = "update";
             int id = Convert.ToInt32(grvCountry.DataKeys[e.RowIndex].Value);
-            Response.Redirect("CountryCreate.aspx?id=" + id);
+            Response.Redirect("CountryCreate.aspx?id=" + MyCrypto.GetEncryptedQueryString(id.ToString()));
         }
 
         /// <summary>
