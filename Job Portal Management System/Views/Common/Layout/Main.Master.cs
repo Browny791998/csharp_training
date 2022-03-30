@@ -19,5 +19,11 @@ namespace Job_Portal_Management_System.Views.Common.Layout
             Session.Abandon();
             Response.Redirect("~/Views/Home.aspx");
         }
+
+        protected void btnCreateJob_Click(object sender, EventArgs e)
+        {
+            Session.Remove("label");
+            Response.Redirect("~/Views/Job/CreateJob.aspx");
+        }
     }
 }

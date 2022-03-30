@@ -29,19 +29,53 @@ namespace Job_Portal_Management_System.Views.Company
             if (!IsPostBack)
             {
                 bindCountry();
-                int id = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["ID"]));
-                SqlDataReader dr = JobPortal_Services.Company.CompanyService.ReadData(id);
-                while (dr.Read())
+                string strReq = "";
+                strReq = Request.RawUrl;
+                strReq = strReq.Substring(strReq.IndexOf('?') + 1);
+                if (Session["url"] == null)
                 {
-                    txtName.Text = dr["name"].ToString();
-                    ddlCountry.SelectedValue = dr["country_id"].ToString();
-                    txtAddress.Text = dr["address"].ToString();
-                    txtContactPerson.Text = dr["contact_person"].ToString();
-                    txtMobile.Text = dr["mobile"].ToString();
-                    txtWebsite.Text = dr["website"].ToString();
-                    txtDetail.Text = dr["detail"].ToString();
+                    Session["url"] = strReq;
+                }
+                else if (strReq != Session["url"].ToString())
+                {
+                    Session["alert"] = "Wrong Url";
+                    Session["alert-type"] = "warning";
+                    strReq = Session["url"].ToString();
+                }
+                if (!strReq.Equals(""))
+                {
+                    strReq = DecryptQueryString(strReq);
+                    string[] arrMsgs = strReq.Split('&');
+                    string[] arrIndMsg;
+                    string CID = "";
+                    arrIndMsg = arrMsgs[0].Split('=');
+                    CID = arrIndMsg[1].ToString().Trim();
+                    int id = Convert.ToInt32(CID);
+                    hfCID.Value = id.ToString();
+                    SqlDataReader dr = JobPortal_Services.Company.CompanyService.ReadData(id);
+                    while (dr.Read())
+                    {
+                        txtName.Text = dr["name"].ToString();
+                        ddlCountry.SelectedValue = dr["country_id"].ToString();
+                        txtAddress.Text = dr["address"].ToString();
+                        txtContactPerson.Text = dr["contact_person"].ToString();
+                        txtMobile.Text = dr["mobile"].ToString();
+                        txtWebsite.Text = dr["website"].ToString();
+                        txtDetail.Text = dr["detail"].ToString();
+                    }
+                }
+                else
+                {
+                    Session["alert"] = "Wrong Url";
+                    Session["alert-type"] = "warning";
                 }
             }
+        }
+
+        private string DecryptQueryString(string strQueryString)
+        {
+            EncryptDecryptQueryString objEDQueryString = new EncryptDecryptQueryString();
+            return objEDQueryString.Decrypt(strQueryString, "r0b1nr0y");
         }
 
         /// <summary>
@@ -68,7 +102,7 @@ namespace Job_Portal_Management_System.Views.Company
         /// </summary>
         private void UpdateData()
         {
-            companymodel.ID = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["ID"]));
+            companymodel.ID = Convert.ToInt32(hfCID.Value);
             companymodel.Name = txtName.Text;
             companymodel.CountryID = Convert.ToInt32(ddlCountry.SelectedValue);
             companymodel.Address = txtAddress.Text;

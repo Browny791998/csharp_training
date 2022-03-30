@@ -49,7 +49,7 @@
                                 <span class="fill">*</span>
                                 <asp:TextBox ID="txtJobnature" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtJobnature" ErrorMessage="Please fill job-nature" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="special charater doesn't allow" ForeColor="Red" ControlToValidate="txtJobnature" ValidationExpression="^[A-Za-z0-9_.\s]+$" Display="Dynamic"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="special charater doesn't allow" ForeColor="Red" ControlToValidate="txtJobnature" ValidationExpression="^[0-9a-zA-Z\- \/_?:.,\s]+$" Display="Dynamic"></asp:RegularExpressionValidator>
                             </div>
                         </div>
 

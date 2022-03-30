@@ -63,7 +63,8 @@
                                         <%if (Session["role"] != null && Session["role"].ToString() == "Company")
                                             { %>
                                         <a class="dropdown-item" href="../../../Views/Company/CompanyAccount.aspx">Manage Company Account</a>
-                                        <a class="dropdown-item" href="../../../Views/Job/CreateJob.aspx">Created Jobs</a>
+                            <asp:LinkButton ID="btnCreateJob" runat="server" OnClick="btnCreateJob_Click"
+                                           class="dropdown-item" CausesValidation="false">Create Job</asp:LinkButton>
 
                                         <%}
                                             else if (Session["role"] != null && Session["role"].ToString() == "Job Seeker")

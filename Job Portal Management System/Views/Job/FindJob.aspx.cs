@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Web;
 using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.Job
@@ -280,11 +281,21 @@ namespace Job_Portal_Management_System.Views.Job
         /// <param name="e"></param>
         protected void btnView_Click(object sender, EventArgs e)
         {
+            Session.Remove("url");
             var btn = (Button)sender;
             var item = (RepeaterItem)btn.NamingContainer;
             var jobId = ((Label)item.FindControl("jobId")).Text;
             var CompanyId = ((Label)item.FindControl("companyId")).Text;
-            Response.Redirect("JobDetail.aspx?jobID=" + jobId + "&ComID=" + CompanyId);
+            string strURL = "JobDetail.aspx?";
+            string strURLWithData = strURL +
+          EncryptQueryString(string.Format("jobID={0}&ComID={1}",jobId,CompanyId));
+            HttpContext.Current.Response.Redirect(strURLWithData);
+        }
+
+        public string EncryptQueryString(string strQueryString)
+        {
+            EncryptDecryptQueryString objEDQueryString = new EncryptDecryptQueryString();
+            return objEDQueryString.Encrypt(strQueryString, "r0b1nr0y");
         }
 
         #endregion view data

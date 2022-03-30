@@ -47,7 +47,7 @@
                             <span class="fill">*</span>
                             <asp:TextBox ID="txtSpecialization" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtSpecialization" ErrorMessage="Please fill specialization" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="special charater doesn't allow" ForeColor="Red" ControlToValidate="txtSpecialization" ValidationExpression="^[A-Za-z0-9_.\s]+$" Display="Dynamic"></asp:RegularExpressionValidator>
+                      <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="special charater doesn't allow" ForeColor="Red" ControlToValidate="txtSpecialization" ValidationExpression="^[0-9a-zA-Z\- \/_?:.,\s]+$" Display="Dynamic"></asp:RegularExpressionValidator>
                         </div>
                     </div>
 
@@ -58,17 +58,6 @@
                     </div>
                 </div>
             </div>
-            <%--     <div class="col-md-6">
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Country</label>
-                    <span class="fill">*</span>
-                    <asp:TextBox ID="txtCountry" runat="server" CssClass="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCountry" ErrorMessage="Please fill country" ForeColor="Red"></asp:RequiredFieldValidator>
-                </div>
-                <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click" />
-                <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-info" OnClick="btnClear_Click" CausesValidation="False" />
-                <asp:Button ID="btnBack" runat="server" Text="Back" CssClass="btn btn-info" OnClick="btnBack_Click" CausesValidation="False" />
-            </div>--%>
         </div>
     </div>
 </asp:Content>

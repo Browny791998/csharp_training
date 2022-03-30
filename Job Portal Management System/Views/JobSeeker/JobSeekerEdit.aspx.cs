@@ -32,35 +32,69 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             if (!IsPostBack)
             {
                 bindSkill();
-                int id = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["ID"]));
-                SqlDataReader dr = JobPortal_Services.JobSeeker.JobSeekerService.ReadData(id);
-                while (dr.Read())
+                string strReq = "";
+                strReq = Request.RawUrl;
+                strReq = strReq.Substring(strReq.IndexOf('?') + 1);
+                if (Session["url"] == null)
                 {
-                    txtName.Text = dr["name"].ToString();
-                    txtAddress.Text = dr["address"].ToString();
-                    txtMobile.Text = dr["mobile"].ToString();
-                    ddlgender.SelectedValue = dr["gender"].ToString();
-                    txtDate.Text = (Convert.ToDateTime(dr["dob"]).ToString("yyyy-MM-dd"));
-                    string skills = dr["skill"].ToString();
-                    string[] skillList = skills.Split(',');
-                    foreach (string s in skillList)
+                    Session["url"] = strReq;
+                }
+                else if (strReq != Session["url"].ToString())
+                {
+                    Session["alert"] = "Wrong Url";
+                    Session["alert-type"] = "warning";
+                    strReq = Session["url"].ToString();
+                }
+                if (!strReq.Equals(""))
+                {
+                    strReq = DecryptQueryString(strReq);
+                    string[] arrMsgs = strReq.Split('&');
+                    string[] arrIndMsg;
+                    string CID = "";
+                    arrIndMsg = arrMsgs[0].Split('=');
+                    CID = arrIndMsg[1].ToString().Trim();
+                    int id = Convert.ToInt32(CID);
+                    hfJobSeeker.Value = id.ToString();
+                    SqlDataReader dr = JobPortal_Services.JobSeeker.JobSeekerService.ReadData(id);
+                    while (dr.Read())
                     {
-                        foreach (ListItem item in lbSkill.Items)
+                        txtName.Text = dr["name"].ToString();
+                        txtAddress.Text = dr["address"].ToString();
+                        txtMobile.Text = dr["mobile"].ToString();
+                        ddlgender.SelectedValue = dr["gender"].ToString();
+                        txtDate.Text = (Convert.ToDateTime(dr["dob"]).ToString("yyyy-MM-dd"));
+                        string skills = dr["skill"].ToString();
+                        string[] skillList = skills.Split(',');
+                        foreach (string s in skillList)
                         {
-                            if (s == item.Text)
+                            foreach (ListItem item in lbSkill.Items)
                             {
-                                item.Selected = true;
+                                if (s == item.Text)
+                                {
+                                    item.Selected = true;
+                                }
                             }
                         }
+                        hfCV.Value = dr["cvform"].ToString();
+                        currentimg.ImageUrl = dr["profile"].ToString();
+                        txtExperience.Text = dr["experience"].ToString();
+                        ddlDegree.SelectedValue = dr["degree"].ToString();
+                        txtDegree.Text = dr["degree_name"].ToString();
+                        txtDetail.Text = dr["detail"].ToString();
                     }
-                    hfCV.Value = dr["cvform"].ToString();
-                    currentimg.ImageUrl = dr["profile"].ToString();
-                    txtExperience.Text = dr["experience"].ToString();
-                    ddlDegree.SelectedValue = dr["degree"].ToString();
-                    txtDegree.Text = dr["degree_name"].ToString();
-                    txtDetail.Text = dr["detail"].ToString();
+                }
+                else
+                {
+                    Session["alert"] = "Wrong Url";
+                    Session["alert-type"] = "warning";
                 }
             }
+        }
+
+        private string DecryptQueryString(string strQueryString)
+        {
+            EncryptDecryptQueryString objEDQueryString = new EncryptDecryptQueryString();
+            return objEDQueryString.Decrypt(strQueryString, "r0b1nr0y");
         }
 
         /// <summary>
@@ -110,7 +144,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
         {
             string ext;
             bool isValidFile;
-            jobseekermodel.ID = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["ID"]));
+            jobseekermodel.ID =Convert.ToInt32(hfJobSeeker.Value);
             jobseekermodel.Name = txtName.Text;
             jobseekermodel.Address = txtAddress.Text;
             jobseekermodel.Mobile = Convert.ToInt64(txtMobile.Text);

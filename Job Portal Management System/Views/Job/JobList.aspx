@@ -71,7 +71,7 @@
 
                     <asp:TemplateField ItemStyle-CssClass="text-center table-options" HeaderStyle-CssClass="text-center">
                         <ItemTemplate>
-                            <asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Update" Text="Update" CssClass="btn btn-success"></asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Update" Text="Edit" CssClass="btn btn-success"></asp:LinkButton>
                         </ItemTemplate>
 
                         <HeaderStyle CssClass="text-center"></HeaderStyle>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Web;
 using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.Joboffer
@@ -112,8 +113,17 @@ namespace Job_Portal_Management_System.Views.Joboffer
             }
             else if (e.CommandName == "Detail")
             {
-                Response.Redirect("ApplierDetail.aspx?applierID=" + MyCrypto.GetEncryptedQueryString(jobseekerID.ToString()));
+                Session.Remove("url");
+                string strURL = "ApplierDetail.aspx?";
+                string strURLWithData = strURL + EncryptQueryString(string.Format("id={0}",jobseekerID));
+                HttpContext.Current.Response.Redirect(strURLWithData);
             }
+        }
+
+        public string EncryptQueryString(string strQueryString)
+        {
+            EncryptDecryptQueryString objEDQueryString = new EncryptDecryptQueryString();
+            return objEDQueryString.Encrypt(strQueryString, "r0b1nr0y");
         }
 
         #endregion check jobseeker

@@ -24,9 +24,41 @@ namespace Job_Portal_Management_System.Views.Job
         {
             if (!IsPostBack)
             {
-                BindJob();
-                BindCompany();
-            }
+                string strReq = "";
+                strReq = Request.RawUrl;
+                strReq = strReq.Substring(strReq.IndexOf('?') + 1);
+                if (Session["url"] == null)
+                {
+                    Session["url"] = strReq;
+                }
+                else if (strReq != Session["url"].ToString())
+                {
+                    Session["alert"] = "Wrong Url";
+                    Session["alert-type"] = "warning";
+                    strReq = Session["url"].ToString();
+                }
+                if (!strReq.Equals(""))
+                {
+                    strReq = DecryptQueryString(strReq);
+                    string[] arrMsgs = strReq.Split('&');
+                    string[] arrIndMsg;
+                    string JobID = "";
+                    string CID = "";
+                    arrIndMsg = arrMsgs[0].Split('=');
+                   JobID = arrIndMsg[1].ToString().Trim();
+                    arrIndMsg = arrMsgs[1].Split('=');
+                    CID = arrIndMsg[1].ToString().Trim();
+                    hfJobID.Value = JobID;
+                    hfCID.Value= CID;
+                    BindJob();
+                    BindCompany();
+                }
+                else
+                {
+                    Session["alert"] = "Wrong Url";
+                    Session["alert-type"] = "warning";
+                }
+             }
         }
 
         /// <summary>
@@ -34,10 +66,16 @@ namespace Job_Portal_Management_System.Views.Job
         /// </summary>
         public void BindJob()
         {
-            int Jobid = Convert.ToInt32(Request.QueryString["jobID"]);
+            int Jobid = Convert.ToInt32(hfJobID.Value);
             da = JobPortal_Services.Job.JobService.GetData(Jobid);
             rptJob.DataSource = da;
             rptJob.DataBind();
+        }
+
+        private string DecryptQueryString(string strQueryString)
+        {
+            EncryptDecryptQueryString objEDQueryString = new EncryptDecryptQueryString();
+            return objEDQueryString.Decrypt(strQueryString, "r0b1nr0y");
         }
 
         /// <summary>
@@ -45,7 +83,7 @@ namespace Job_Portal_Management_System.Views.Job
         /// </summary>
         public void BindCompany()
         {
-            int companyid = Convert.ToInt32(Request.QueryString["ComID"]);
+            int companyid = Convert.ToInt32(hfCID.Value);
             da = JobPortal_Services.Company.CompanyService.GetAllData(companyid);
             rptcompany.DataSource = da;
             rptcompany.DataBind();
@@ -61,8 +99,10 @@ namespace Job_Portal_Management_System.Views.Job
         private void InsertData()
         {
             joboffermodel.JobSeekerID = Convert.ToInt32(Session["id"]);
-            joboffermodel.CompanyID = Convert.ToInt32(Request.QueryString["ComID"]);
-            joboffermodel.JobID = Convert.ToInt32(Request.QueryString["jobID"]); ;
+            //joboffermodel.CompanyID = Convert.ToInt32(Request.QueryString["ComID"]);
+            //joboffermodel.JobID = Convert.ToInt32(Request.QueryString["jobID"]); ;
+            joboffermodel.CompanyID = Convert.ToInt32(hfCID.Value);
+            joboffermodel.JobID = Convert.ToInt32(hfJobID.Value);
             joboffermodel.AppliedDate = DateTime.Now;
         }
 
@@ -81,14 +121,14 @@ namespace Job_Portal_Management_System.Views.Job
             {
                 Response.Redirect("~/Views/Login.aspx");
             }
-            else if (Session["role"].ToString() == "Company")
+            else if (Session["role"].ToString() == "Company" && Session["role"].ToString() != "Job Seeker")
             {
                 Session["alert"] = "Only Job Seeker can apply the job";
                 Session["alert-type"] = "warning";
             }
             else
             {
-                da = JobPortal_Services.JobOffer.JobOfferService.GetJobandSeeker(Convert.ToInt32(Request.QueryString["jobID"]), Convert.ToInt32(Session["id"]));
+             da = JobPortal_Services.JobOffer.JobOfferService.GetJobandSeeker(Convert.ToInt32(hfJobID.Value), Convert.ToInt32(Session["id"]));
                 if (da.Rows.Count > 0)
                 {
                     Session["alert"] = "You already applied this job!";

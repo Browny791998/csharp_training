@@ -178,7 +178,7 @@ namespace Job_Portal_Management_System.Views.Jobnature
                 }
                 else if (da.Rows.Count == 0)
                 {
-                    da = JobPortal_Services.Jobnature.JobnatureServices.GetData(txtJobnature.Text);
+                    da = JobPortal_Services.Jobnature.JobnatureServices.GetAddData(txtJobnature.Text);
                     if (da.Rows.Count > 0)
                     {
                         Session["alert"] = "Data already exist";

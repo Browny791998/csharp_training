@@ -178,7 +178,7 @@ namespace Job_Portal_Management_System.Views.Position
                 }
                 else if (da.Rows.Count == 0)
                 {
-                    da = JobPortal_Services.Position.PositionServices.GetData(txtPosition.Text);
+                    da = JobPortal_Services.Position.PositionServices.GetAddData(txtPosition.Text);
                     if (da.Rows.Count > 0)
                     {
                         Session["alert"] = "Data already exist";

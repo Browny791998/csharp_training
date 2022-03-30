@@ -24,6 +24,24 @@ namespace Job_Portal_Management_System.Views.Job
         protected global::System.Web.UI.WebControls.Label Lblalert;
 
         /// <summary>
+        /// hfJobID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfJobID;
+
+        /// <summary>
+        /// hfAction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfAction;
+
+        /// <summary>
         /// txtTitle control.
         /// </summary>
         /// <remarks>

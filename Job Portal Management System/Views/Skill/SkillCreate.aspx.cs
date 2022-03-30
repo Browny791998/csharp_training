@@ -45,18 +45,51 @@ namespace Job_Portal_Management_System.Views.Skill
                     lblSkillbreadcrumb.Text = "Update Skill";
                     if (!IsPostBack)
                     {
-                        int id = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["id"]));
-                        SqlDataReader dr = JobPortal_Services.Skill.SkillServices.ReadData(id);
-                        while (dr.Read())
+                        string strReq = "";
+                        strReq = Request.RawUrl;
+                        strReq = strReq.Substring(strReq.IndexOf('?') + 1);
+                        if (Session["url"] == null)
                         {
-                            string ID = dr["id"].ToString();
-                            string skill = dr["skill"].ToString();
-                            hfSkill.Value = ID;
-                            txtSkill.Text = skill;
+                            Session["url"] = strReq;
+                        }
+                        else if (strReq != Session["url"].ToString())
+                        {
+                            Session["alert"] = "Wrong Url";
+                            Session["alert-type"] = "warning";
+                            strReq = Session["url"].ToString();
+                        }
+                        if (!strReq.Equals(""))
+                        {
+                            strReq = DecryptQueryString(strReq);
+                            string[] arrMsgs = strReq.Split('&');
+                            string[] arrIndMsg;
+                            string CID = "";
+                            arrIndMsg = arrMsgs[0].Split('=');
+                            CID = arrIndMsg[1].ToString().Trim();
+                            int id = Convert.ToInt32(CID);
+                            SqlDataReader dr = JobPortal_Services.Skill.SkillServices.ReadData(id);
+                            while (dr.Read())
+                            {
+                                string ID = dr["id"].ToString();
+                                string skill = dr["skill"].ToString();
+                                hfSkill.Value = ID;
+                                txtSkill.Text = skill;
+                            }
+                        }
+                        else
+                        {
+                            Session["alert"] = "Wrong Url";
+                            Session["alert-type"] = "warning";
                         }
                     }
                 }
             }
+        }
+
+        private string DecryptQueryString(string strQueryString)
+        {
+            EncryptDecryptQueryString objEDQueryString = new EncryptDecryptQueryString();
+            return objEDQueryString.Decrypt(strQueryString, "r0b1nr0y");
         }
 
         #endregion binding data and getting data
@@ -145,7 +178,7 @@ namespace Job_Portal_Management_System.Views.Skill
                 }
                 else if (da.Rows.Count == 0)
                 {
-                    da = JobPortal_Services.Skill.SkillServices.GetData(txtSkill.Text);
+                    da = JobPortal_Services.Skill.SkillServices.GetAddData(txtSkill.Text);
                     if (da.Rows.Count > 0)
                     {
                         Session["alert"] = "Data already exist";

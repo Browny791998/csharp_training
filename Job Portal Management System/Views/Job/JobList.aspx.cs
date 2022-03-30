@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Web;
 using System.Web.UI.WebControls;
 
 namespace Job_Portal_Management_System.Views.Job
@@ -93,8 +94,21 @@ namespace Job_Portal_Management_System.Views.Job
         /// <param name="e"></param>
         protected void grvJob_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            Session["label"] = "update";
+            Session.Remove("url");
             int id = Convert.ToInt32(grvJob.DataKeys[e.RowIndex].Value);
-            Response.Redirect("CreateJob.aspx?id=" + MyCrypto.GetEncryptedQueryString(id.ToString()) + "&action=update");
+            string action = "update";
+            string strURL = "CreateJob.aspx?";
+            string strURLWithData = strURL +
+          EncryptQueryString(string.Format("id={0}&action={1}",id, action));
+            HttpContext.Current.Response.Redirect(strURLWithData);
+            //Response.Redirect("CreateJob.aspx?id=" + MyCrypto.GetEncryptedQueryString(id.ToString()) + "&action=update");
+        }
+
+        public string EncryptQueryString(string strQueryString)
+        {
+            EncryptDecryptQueryString objEDQueryString = new EncryptDecryptQueryString();
+            return objEDQueryString.Encrypt(strQueryString, "r0b1nr0y");
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)

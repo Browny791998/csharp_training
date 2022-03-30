@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -88,6 +89,7 @@ namespace Job_Portal_Management_System.Views.Skill
             int id = Convert.ToInt32(grvSkill.DataKeys[e.RowIndex].Value);
             string strURL = "SkillCreate.aspx?";
             string strURLWithData = strURL + EncryptQueryString(string.Format("id={0}", id));
+            HttpContext.Current.Response.Redirect(strURLWithData);
         }
 
         public string EncryptQueryString(string strQueryString)

@@ -28,7 +28,8 @@ namespace Job_Portal_Management_System.Views.Job
             {
                 Response.Redirect("~/Views/Login.aspx");
             }
-            if (Request.QueryString["action"] == "update")
+
+           if (Session["label"] != null && Session["label"].ToString() == "update")
             {
                 if (!IsPostBack)
                 {
@@ -36,36 +37,68 @@ namespace Job_Portal_Management_System.Views.Job
                     bindPosition();
                     bindJobType();
                     bindSpecialization();
-                    int id = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["id"]));
-                    SqlDataReader dr = JobPortal_Services.Job.JobService.ReadData(id);
-                    while (dr.Read())
+                     string strReq = "";
+                    strReq = Request.RawUrl;
+                    strReq = strReq.Substring(strReq.IndexOf('?') + 1);
+                    if (Session["url"] == null)
                     {
-                        txtTitle.Text = dr["title"].ToString();
-                        ddlDegree.SelectedValue = dr["degree"].ToString();
-                        string skills = dr["skill"].ToString();
-                        string[] skillList = skills.Split(',');
-                        foreach (string s in skillList)
+                        Session["url"] = strReq;
+                    }
+                    else if (strReq != Session["url"].ToString())
+                    {
+                        Session["alert"] = "Wrong Url";
+                        Session["alert-type"] = "warning";
+                        strReq = Session["url"].ToString();
+                    }
+                    if (!strReq.Equals(""))
+                    {
+                        strReq = DecryptQueryString(strReq);
+                        string[] arrMsgs = strReq.Split('&');
+                        string[] arrIndMsg;
+                        string JobID = "";
+                        string action = "";
+                        arrIndMsg = arrMsgs[0].Split('=');
+                        JobID = arrIndMsg[1].ToString().Trim();
+                        arrIndMsg = arrMsgs[1].Split('=');
+                        action = arrIndMsg[1].ToString().Trim();
+                        hfJobID.Value = JobID;
+                        hfAction.Value = action;
+                        int id = Convert.ToInt32(JobID);
+                        SqlDataReader dr = JobPortal_Services.Job.JobService.ReadData(id);
+                        while (dr.Read())
                         {
-                            foreach (ListItem item in lbSkill.Items)
+                            txtTitle.Text = dr["title"].ToString();
+                            ddlDegree.SelectedValue = dr["degree"].ToString();
+                            string skills = dr["skill"].ToString();
+                            string[] skillList = skills.Split(',');
+                            foreach (string s in skillList)
                             {
-                                if (s == item.Text)
+                                foreach (ListItem item in lbSkill.Items)
                                 {
-                                    item.Selected = true;
+                                    if (s == item.Text)
+                                    {
+                                        item.Selected = true;
+                                    }
                                 }
                             }
+                            txtExperience.Text = dr["experience"].ToString();
+                            txtVacancy.Text = dr["vacancy"].ToString();
+                            ddlPosition.SelectedValue = dr["position_id"].ToString();
+                            ddlJobtype.SelectedValue = dr["job_nature_id"].ToString();
+                            ddlSpecialization.SelectedValue = dr["specialization_id"].ToString();
+                            txtSalary.Text = dr["salary"].ToString();
+                            txtDetail.Text = dr["detail"].ToString();
+                            string active = dr["active"].ToString();
+                            if (active == "Active")
+                            {
+                                customSwitch1.Checked = true;
+                            }
                         }
-                        txtExperience.Text = dr["experience"].ToString();
-                        txtVacancy.Text = dr["vacancy"].ToString();
-                        ddlPosition.SelectedValue = dr["position_id"].ToString();
-                        ddlJobtype.SelectedValue = dr["job_nature_id"].ToString();
-                        ddlSpecialization.SelectedValue = dr["specialization_id"].ToString();
-                        txtSalary.Text = dr["salary"].ToString();
-                        txtDetail.Text = dr["detail"].ToString();
-                        string active = dr["active"].ToString();
-                        if (active == "Active")
-                        {
-                            customSwitch1.Checked = true;
-                        }
+                    }
+                    else
+                    {
+                        Session["alert"] = "Wrong Url";
+                        Session["alert-type"] = "warning";
                     }
                 }
             }
@@ -79,6 +112,12 @@ namespace Job_Portal_Management_System.Views.Job
                     bindSpecialization();
                 }
             }
+        }
+
+        private string DecryptQueryString(string strQueryString)
+        {
+            EncryptDecryptQueryString objEDQueryString = new EncryptDecryptQueryString();
+            return objEDQueryString.Decrypt(strQueryString, "r0b1nr0y");
         }
 
         /// <summary>
@@ -182,7 +221,8 @@ namespace Job_Portal_Management_System.Views.Job
         /// </summary>
         private void UpdateData()
         {
-            jobmodel.ID = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["id"]));
+            //jobmodel.ID = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["id"]));
+            jobmodel.ID = Convert.ToInt32(hfJobID.Value);
             jobmodel.Title = txtTitle.Text;
             jobmodel.Degree = ddlDegree.SelectedValue;
             string strskill = string.Empty;
@@ -220,7 +260,7 @@ namespace Job_Portal_Management_System.Views.Job
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (Request.QueryString["action"] == "update")
+            if (hfAction.Value == "update")
             {
                 UpdateData();
                 bool IsUpdate = JobPortal_Services.Job.JobService.Update(jobmodel);

@@ -67,7 +67,8 @@
                     </a>
                     <div id="collapseUtilities" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <a class="dropdownItem  text-white" href="../../../Views/Job/JobList.aspx">Job List</a>
-                        <a class="dropdownItem  text-white" href="../../../Views/Job/CreateJob.aspx">Create Job</a>
+                        <asp:LinkButton ID="btnCreateJob" runat="server" OnClick="btnCreateJob_Click"
+                                           class="dropdownItem  text-white" CausesValidation="false">Create Job</asp:LinkButton>
                         <a class="dropdownItem   text-white" href="../../../Views/JobOffer/JobOfferList.aspx">Job Seeker List</a>
                     </div>
                 </li>

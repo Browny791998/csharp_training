@@ -40,6 +40,8 @@
         <div class="row">
             <div class="col-md-5 mt-5 offset-md-4">
                 <div class="form-group">
+                    <asp:HiddenField ID="hfJobID" runat="server" />
+                    <asp:HiddenField ID="hfAction" runat="server" />
                     <label for="txtTitle">Title</label><span class="fill">*</span>
                     <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" Display="Dynamic" ControlToValidate="txtTitle" ForeColor="Red">Title can&#39;t be blank</asp:RequiredFieldValidator>

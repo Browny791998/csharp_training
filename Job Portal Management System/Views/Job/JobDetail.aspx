@@ -4,6 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container mb-5">
+        <asp:HiddenField ID="hfJobID" runat="server" />
+        <asp:HiddenField ID="hfCID" runat="server" />
         <%if (Session["alert"] != null && Session["alert-type"] != null)
             {
                 Lblalert.Visible = true;
