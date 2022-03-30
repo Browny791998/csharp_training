@@ -72,10 +72,6 @@ namespace JobPortal_DAOs.Country
 
         #endregion Insert/Update/Delete
 
-
-
-
-
         #region Get Data
 
         /// <summary>
@@ -98,11 +94,11 @@ namespace JobPortal_DAOs.Country
         /// Get Data
         /// </summary>
         /// <returns></returns>
-        public static DataTable GetUpdateData(string country,int id)
+        public static DataTable GetUpdateData(string country, int id)
         {
             try
             {
-                return Common.HelperDao.GetData("Select country from tbl_country where country='" + country + "' and id='"+id+"'", CommandType.Text);
+                return Common.HelperDao.GetData("Select country from tbl_country where country='" + country + "' and id='" + id + "'", CommandType.Text);
             }
             catch (Exception ex)
             {

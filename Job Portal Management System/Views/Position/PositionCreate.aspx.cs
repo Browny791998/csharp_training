@@ -126,8 +126,8 @@ namespace Job_Portal_Management_System.Views.Position
             else
             {
                 int positionID = Convert.ToInt32(hfPosition.Value);
-                da = JobPortal_Services.Position.PositionServices.GetUpdateData(txtPosition.Text,positionID);
-                if (da.Rows.Count>0)
+                da = JobPortal_Services.Position.PositionServices.GetUpdateData(txtPosition.Text, positionID);
+                if (da.Rows.Count > 0)
                 {
                     UpdateData();
                     bool IsUpdate = JobPortal_Services.Position.PositionServices.Update(positionmodel);
@@ -144,7 +144,7 @@ namespace Job_Portal_Management_System.Views.Position
                         Response.Redirect("PositionList.aspx");
                     }
                 }
-                else if(da.Rows.Count == 0)
+                else if (da.Rows.Count == 0)
                 {
                     da = JobPortal_Services.Position.PositionServices.GetData(txtPosition.Text);
                     if (da.Rows.Count > 0)
@@ -152,7 +152,8 @@ namespace Job_Portal_Management_System.Views.Position
                         Session["alert"] = "Data already exist";
                         Session["alert-type"] = "warning";
                     }
-                    else{
+                    else
+                    {
                         UpdateData();
                         bool IsUpdate = JobPortal_Services.Position.PositionServices.Update(positionmodel);
                         if (IsUpdate)

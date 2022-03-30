@@ -126,7 +126,7 @@ namespace Job_Portal_Management_System.Views.Skill
             else
             {
                 int skillID = Convert.ToInt32(hfSkill.Value);
-                da = JobPortal_Services.Skill.SkillServices.GetUpdateData(txtSkill.Text,skillID);
+                da = JobPortal_Services.Skill.SkillServices.GetUpdateData(txtSkill.Text, skillID);
                 if (da.Rows.Count > 0)
                 {
                     UpdateData();
@@ -144,7 +144,7 @@ namespace Job_Portal_Management_System.Views.Skill
                         Response.Redirect("SkillList.aspx");
                     }
                 }
-                else if(da.Rows.Count == 0)
+                else if (da.Rows.Count == 0)
                 {
                     da = JobPortal_Services.Skill.SkillServices.GetData(txtSkill.Text);
                     if (da.Rows.Count > 0)

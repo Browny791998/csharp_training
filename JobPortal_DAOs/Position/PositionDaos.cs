@@ -94,11 +94,11 @@ namespace JobPortal_DAOs.Position
         /// Get Data
         /// </summary>
         /// <returns></returns>
-        public static DataTable GetUpdateData(string position,int id)
+        public static DataTable GetUpdateData(string position, int id)
         {
             try
             {
-                return Common.HelperDao.GetData("Select position from tbl_position where position='" + position + "' and id='"+id+"'", CommandType.Text);
+                return Common.HelperDao.GetData("Select position from tbl_position where position='" + position + "' and id='" + id + "'", CommandType.Text);
             }
             catch (Exception ex)
             {

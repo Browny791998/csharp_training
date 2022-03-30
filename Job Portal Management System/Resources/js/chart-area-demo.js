@@ -76,7 +76,7 @@ var myLineChart = new Chart(ctx, {
             }],
             yAxes: [{
                 ticks: {
-                    max:10,
+                    max: 10,
                     padding: 10,
                     // Include a dollar sign in the ticks
                     callback: function (value, index, values) {
@@ -86,7 +86,7 @@ var myLineChart = new Chart(ctx, {
                 scaleLabel: {
                     display: true,
                     labelString: 'Number of JobSeekers',
-                    padding:20
+                    padding: 20
                 },
                 gridLines: {
                     color: "rgb(234, 236, 244)",

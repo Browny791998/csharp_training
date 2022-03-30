@@ -6,7 +6,6 @@ namespace Job_Portal_Management_System.Views.Common.Layout
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)

@@ -59,13 +59,13 @@
                     <asp:BoundField DataField="degree" HeaderText="Degree" />
                     <asp:BoundField DataField="skill" HeaderText="Skill" />
                     <asp:BoundField DataField="experience" HeaderText="Experience" />
-                    <asp:BoundField DataField="vacancy" HeaderText="Vacancy" >
-                    <ItemStyle HorizontalAlign="Right" />
+                    <asp:BoundField DataField="vacancy" HeaderText="Vacancy">
+                        <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
                     <asp:BoundField DataField="position" HeaderText="Position" />
                     <asp:BoundField DataField="job_nature" HeaderText="Job Type" />
-                    <asp:BoundField DataField="salary" HeaderText="Salary" >
-                    <ItemStyle HorizontalAlign="Right" />
+                    <asp:BoundField DataField="salary" HeaderText="Salary">
+                        <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
                     <asp:BoundField DataField="active" HeaderText="Status" />
 

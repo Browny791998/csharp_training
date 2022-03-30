@@ -99,7 +99,6 @@ namespace Job_Portal_Management_System.Views.Country
         {
             if (hfCountry.Value == "")
             {
-                
                 da = JobPortal_Services.Country.CountryServices.GetData(txtCountry.Text);
                 if (da.Rows.Count > 0)
                 {
@@ -128,10 +127,10 @@ namespace Job_Portal_Management_System.Views.Country
             }
             else
             {
-                int CountryID =Convert.ToInt32(hfCountry.Value);
+                int CountryID = Convert.ToInt32(hfCountry.Value);
 
                 da = JobPortal_Services.Country.CountryServices.GetUpdateData(txtCountry.Text, CountryID);
-                if (da.Rows.Count> 0)
+                if (da.Rows.Count > 0)
                 {
                     UpdateData();
                     bool IsUpdate = JobPortal_Services.Country.CountryServices.Update(countrymodel);
@@ -148,7 +147,7 @@ namespace Job_Portal_Management_System.Views.Country
                         Response.Redirect("CountryList.aspx");
                     }
                 }
-            else if(da.Rows.Count == 0)
+                else if (da.Rows.Count == 0)
                 {
                     da = JobPortal_Services.Country.CountryServices.GetData(txtCountry.Text);
                     if (da.Rows.Count > 0)

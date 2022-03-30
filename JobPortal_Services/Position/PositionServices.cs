@@ -76,11 +76,11 @@ namespace JobPortal_Services.Position
         /// <summary>
         /// Get Data
         /// </summary>
-        public static DataTable GetUpdateData(string position,int id)
+        public static DataTable GetUpdateData(string position, int id)
         {
             try
             {
-                return JobPortal_DAOs.Position.PositionDaos.GetUpdateData(position.ToString().Replace("'", "''"),id);
+                return JobPortal_DAOs.Position.PositionDaos.GetUpdateData(position.ToString().Replace("'", "''"), id);
             }
             catch (Exception ex)
             {
