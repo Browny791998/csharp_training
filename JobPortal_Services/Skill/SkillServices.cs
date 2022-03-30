@@ -95,7 +95,7 @@ namespace JobPortal_Services.Skill
         {
             try
             {
-                return JobPortal_DAOs.Skill.SkillDaos.GetUpdateData(skill.ToString().Replace("'", "''"),id);
+                return JobPortal_DAOs.Skill.SkillDaos.GetUpdateData(skill.ToString().Replace("'", "''"), id);
             }
             catch (Exception ex)
             {

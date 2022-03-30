@@ -157,8 +157,8 @@ namespace Job_Portal_Management_System.Views.Jobnature
             }
             else
             {
-                int JobNatureID=Convert.ToInt32(hfJobnature.Value);
-                da = JobPortal_Services.Jobnature.JobnatureServices.GetUpdateData(txtJobnature.Text,JobNatureID);
+                int JobNatureID = Convert.ToInt32(hfJobnature.Value);
+                da = JobPortal_Services.Jobnature.JobnatureServices.GetUpdateData(txtJobnature.Text, JobNatureID);
                 if (da.Rows.Count > 0)
                 {
                     UpdateData();
@@ -179,7 +179,7 @@ namespace Job_Portal_Management_System.Views.Jobnature
                 else if (da.Rows.Count == 0)
                 {
                     da = JobPortal_Services.Jobnature.JobnatureServices.GetData(txtJobnature.Text);
-                    if(da.Rows.Count > 0)
+                    if (da.Rows.Count > 0)
                     {
                         Session["alert"] = "Data already exist";
                         Session["alert-type"] = "warning";
@@ -201,7 +201,6 @@ namespace Job_Portal_Management_System.Views.Jobnature
                             Response.Redirect("JobnatureList.aspx");
                         }
                     }
-                   
                 }
             }
         }

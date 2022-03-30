@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;
 
 namespace Job_Portal_Management_System
 {
     public class MyCrypto
     {
         private static string Key = "ABC123DEF456GH78";
+
         private static byte[] GetByte(string data)
         {
             return Encoding.UTF8.GetBytes(data);
@@ -62,6 +60,5 @@ namespace Job_Portal_Management_System
             byte[] byteData = Convert.FromBase64String(data.Replace(" ", "+"));
             return DecryptString(byteData);
         }
-
     }
 }

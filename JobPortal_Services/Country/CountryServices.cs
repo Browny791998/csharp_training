@@ -95,7 +95,7 @@ namespace JobPortal_Services.Country
         {
             try
             {
-             return JobPortal_DAOs.Country.CountryDaos.GetUpdateData(country.ToString().Replace("'", "''"),id);
+                return JobPortal_DAOs.Country.CountryDaos.GetUpdateData(country.ToString().Replace("'", "''"), id);
             }
             catch (Exception ex)
             {

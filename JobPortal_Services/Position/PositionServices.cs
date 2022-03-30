@@ -95,7 +95,7 @@ namespace JobPortal_Services.Position
         {
             try
             {
-                return JobPortal_DAOs.Position.PositionDaos.GetUpdateData(position.ToString().Replace("'", "''"),id);
+                return JobPortal_DAOs.Position.PositionDaos.GetUpdateData(position.ToString().Replace("'", "''"), id);
             }
             catch (Exception ex)
             {

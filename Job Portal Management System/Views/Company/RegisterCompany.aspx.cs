@@ -117,6 +117,16 @@ namespace Job_Portal_Management_System.Views.Company
         }
 
         /// <summary>
+        /// clear datda
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+        }
+
+        /// <summary>
         /// encrypt password
         /// </summary>
         /// <param name="passEncrypted"></param>
@@ -129,10 +139,5 @@ namespace Job_Portal_Management_System.Views.Company
         }
 
         #endregion clear data and encrypt password
-
-        protected void btnClear_Click(object sender, EventArgs e)
-        {
-            ClearFields();
-        }
     }
 }

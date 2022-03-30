@@ -95,7 +95,7 @@ namespace JobPortal_Services.Jobnature
         {
             try
             {
-                return JobPortal_DAOs.Jobnature.JobnatureDaos.GetUpdateData(jobnature.ToString().Replace("'", "''"),id);
+                return JobPortal_DAOs.Jobnature.JobnatureDaos.GetUpdateData(jobnature.ToString().Replace("'", "''"), id);
             }
             catch (Exception ex)
             {

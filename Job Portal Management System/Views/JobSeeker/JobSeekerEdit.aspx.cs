@@ -173,7 +173,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             }
             else
             {
-                string[] validImageFileTypes = { "png", "jpg", "jpeg","PNG", "JPG", "JPEG" };
+                string[] validImageFileTypes = { "png", "jpg", "jpeg", "PNG", "JPG", "JPEG" };
                 ext = System.IO.Path.GetExtension(fuProfile.PostedFile.FileName);
                 isValidFile = false;
                 for (int i = 0; i < validImageFileTypes.Length; i++)

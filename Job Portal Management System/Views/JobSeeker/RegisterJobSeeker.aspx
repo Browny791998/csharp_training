@@ -75,31 +75,31 @@
             </div>
             <div class="col-md-5 mt-5">
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                   <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                        <ContentTemplate>
-                <div class="form-group">
-                    <label for="ddldegree">Degree</label><span class="fill">*</span>
-                 <asp:DropDownList ID="ddlDegree" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlDegree_SelectedIndexChanged" AutoPostBack="True">
-                        <asp:ListItem Value="1">Graduate</asp:ListItem>
-                        <asp:ListItem Value="2">Under Graduate</asp:ListItem>
-                         </asp:DropDownList>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlDegree" ForeColor="Red">Please select Degree</asp:RequiredFieldValidator>
-                  </div>
-                 
-                <div class="form-group">
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <div class="form-group">
+                            <label for="ddldegree">Degree</label><span class="fill">*</span>
+                            <asp:DropDownList ID="ddlDegree" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlDegree_SelectedIndexChanged" AutoPostBack="True">
+                                <asp:ListItem Value="1">Graduate</asp:ListItem>
+                                <asp:ListItem Value="2">Under Graduate</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlDegree" ForeColor="Red">Please select Degree</asp:RequiredFieldValidator>
+                        </div>
 
-                    <asp:Panel ID="pnldegree" runat="server">
-                        <label for="txtDegree">Degree Name</label>
-                        <asp:TextBox ID="txtDegree" runat="server" CssClass="form-control"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtDegree" ForeColor="Red">Degree can&#39;t be blank</asp:RequiredFieldValidator>
-                    </asp:Panel>
-                </div>
-                            </ContentTemplate>
-                       </asp:UpdatePanel>
+                        <div class="form-group">
+
+                            <asp:Panel ID="pnldegree" runat="server">
+                                <label for="txtDegree">Degree Name</label>
+                                <asp:TextBox ID="txtDegree" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtDegree" ForeColor="Red">Degree can&#39;t be blank</asp:RequiredFieldValidator>
+                            </asp:Panel>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
                 <div class="form-group">
                     <label for="fuCV">CV Form</label><span class="fill">*</span>
 
-                    <asp:FileUpload ID="fuCV" runat="server" CssClass="form-control pb-3"  ViewStateMode="Inherit" EnableTheming="True" />
+                    <asp:FileUpload ID="fuCV" runat="server" CssClass="form-control pb-3" ViewStateMode="Inherit" EnableTheming="True" />
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="fuCV" ForeColor="Red">please upload your cv</asp:RequiredFieldValidator>
                 </div>
                 <div class="form-group">

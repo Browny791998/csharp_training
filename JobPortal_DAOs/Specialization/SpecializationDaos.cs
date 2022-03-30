@@ -114,7 +114,7 @@ namespace JobPortal_DAOs.Specialization
         {
             try
             {
-                return Common.HelperDao.GetData("Select specialization from tbl_specialization where specialization ='" + specialization + "' and id='"+id+"'", CommandType.Text);
+                return Common.HelperDao.GetData("Select specialization from tbl_specialization where specialization ='" + specialization + "' and id='" + id + "'", CommandType.Text);
             }
             catch (Exception ex)
             {

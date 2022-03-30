@@ -95,14 +95,13 @@ namespace JobPortal_Services.Specialization
         {
             try
             {
-                return JobPortal_DAOs.Specialization.SpecializationDaos.GetUpdateData(specialization.ToString().Replace("'", "''"),id);
+                return JobPortal_DAOs.Specialization.SpecializationDaos.GetUpdateData(specialization.ToString().Replace("'", "''"), id);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
 
         /// <summary>
         /// Get All Data

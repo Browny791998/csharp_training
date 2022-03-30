@@ -194,47 +194,47 @@ namespace JobPortal_DAOs.Job
         {
             try
             {
-                if (positionID==0 && jobtypeID==0 && specializationID == 0 && countryID !=0)
-            {
-                   return Common.HelperDao.GetData("Select * from FilterJob where country_id='" + countryID+"'", CommandType.Text);
+                if (positionID == 0 && jobtypeID == 0 && specializationID == 0 && countryID != 0)
+                {
+                    return Common.HelperDao.GetData("Select * from FilterJob where country_id='" + countryID + "'", CommandType.Text);
                 }
-                else if (countryID==0 && positionID == 0 && specializationID == 0 && jobtypeID !=0)
+                else if (countryID == 0 && positionID == 0 && specializationID == 0 && jobtypeID != 0)
                 {
                     return Common.HelperDao.GetData("Select * from FilterJob where job_nature_id='" + jobtypeID + "'", CommandType.Text);
                 }
-                else if(countryID == 0 && jobtypeID == 0 && specializationID == 0 && positionID!=0)
+                else if (countryID == 0 && jobtypeID == 0 && specializationID == 0 && positionID != 0)
                 {
                     return Common.HelperDao.GetData("Select* from FilterJob where position_id='" + positionID + "'", CommandType.Text);
                 }
-                else if (countryID == 0 && jobtypeID == 0 && positionID == 0 && specializationID!=0)
+                else if (countryID == 0 && jobtypeID == 0 && positionID == 0 && specializationID != 0)
                 {
                     return Common.HelperDao.GetData("Select * from FilterJob where specialization_id='" + specializationID + "'", CommandType.Text);
                 }
-                else if(jobtypeID == 0 && specializationID == 0 && countryID !=0 && positionID !=0)
+                else if (jobtypeID == 0 && specializationID == 0 && countryID != 0 && positionID != 0)
                 {
                     return Common.HelperDao.GetData("Select * from FilterJob where country_id='" + countryID + "' and position_id='" + positionID + "' ", CommandType.Text);
                 }
-                else if(positionID == 0 && specializationID == 0 && countryID !=0 && jobtypeID!=0)
+                else if (positionID == 0 && specializationID == 0 && countryID != 0 && jobtypeID != 0)
                 {
                     return Common.HelperDao.GetData("Select * from FilterJob where country_id='" + countryID + "' and job_nature_id='" + jobtypeID + "'", CommandType.Text);
                 }
-                else if(positionID == 0 && jobtypeID == 0 && countryID !=0 && specializationID !=0)
+                else if (positionID == 0 && jobtypeID == 0 && countryID != 0 && specializationID != 0)
                 {
                     return Common.HelperDao.GetData("Select * from FilterJob where country_id='" + countryID + "' and specialization_id='" + specializationID + "'", CommandType.Text);
                 }
-                else if(specializationID == 0 && countryID != 0 && positionID != 0 && jobtypeID != 0)
+                else if (specializationID == 0 && countryID != 0 && positionID != 0 && jobtypeID != 0)
                 {
                     return Common.HelperDao.GetData("Select * from FilterJob where country_id='" + countryID + "' and position_id='" + positionID + "' and job_nature_id='" + jobtypeID + "'", CommandType.Text);
                 }
-                else if(positionID == 0 && countryID != 0 && jobtypeID != 0 && specializationID != 0)
+                else if (positionID == 0 && countryID != 0 && jobtypeID != 0 && specializationID != 0)
                 {
                     return Common.HelperDao.GetData("Select * from FilterJob where country_id='" + countryID + "' and job_nature_id='" + jobtypeID + "' and specialization_id='" + specializationID + "'", CommandType.Text);
                 }
-                else if(jobtypeID == 0 && countryID != 0 && positionID != 0 && specializationID != 0)
+                else if (jobtypeID == 0 && countryID != 0 && positionID != 0 && specializationID != 0)
                 {
                     return Common.HelperDao.GetData("Select * from FilterJob where country_id='" + countryID + "' and position_id='" + positionID + "' and specialization_id='" + specializationID + "'", CommandType.Text);
                 }
-                else if(countryID == 0 && positionID != 0 && specializationID != 0 && jobtypeID != 0)
+                else if (countryID == 0 && positionID != 0 && specializationID != 0 && jobtypeID != 0)
                 {
                     return Common.HelperDao.GetData("Select * from FilterJob where position_id='" + positionID + "' and job_nature_id='" + jobtypeID + "' and specialization_id='" + specializationID + "'", CommandType.Text);
                 }
@@ -246,7 +246,7 @@ namespace JobPortal_DAOs.Job
                 {
                     return Common.HelperDao.GetData("Select * from FilterJob where position_id='" + positionID + "' and specialization_id='" + specializationID + "'", CommandType.Text);
                 }
-                else if(countryID == 0 && positionID == 0 && jobtypeID != 0 && specializationID != 0)
+                else if (countryID == 0 && positionID == 0 && jobtypeID != 0 && specializationID != 0)
                 {
                     return Common.HelperDao.GetData("Select * from FilterJob where  job_nature_id='" + jobtypeID + "' and specialization_id='" + specializationID + "'", CommandType.Text);
                 }
