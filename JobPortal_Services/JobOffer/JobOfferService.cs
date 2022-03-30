@@ -39,21 +39,6 @@ namespace JobPortal_Services.JobOffer
             }
         }
 
-        ///// <summary>
-        ///// Update Data
-        ///// </summary>
-        //public static bool Update(JobPortal_Models.Job.Job job)
-        //{
-        //    try
-        //    {
-        //        return JobPortal_DAOs.Job.JobDao.Update(job);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
-
         /// <summary>
         /// Delete Data
         /// </summary>

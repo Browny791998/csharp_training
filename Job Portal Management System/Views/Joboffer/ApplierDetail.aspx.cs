@@ -62,7 +62,6 @@ namespace Job_Portal_Management_System.Views.Joboffer
                 arrIndMsg = arrMsgs[0].Split('=');
                 CID = arrIndMsg[1].ToString().Trim();
                 int id = Convert.ToInt32(CID);
-                //int id = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["applierID"]));
                 da = JobPortal_Services.JobSeeker.JobSeekerService.GetAllData(id);
                 rptApplier.DataSource = da;
                 rptApplier.DataBind();

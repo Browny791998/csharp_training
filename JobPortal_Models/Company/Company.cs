@@ -7,10 +7,9 @@ namespace JobPortal_Models.Company
         #region Local variable and Constant Declaration
 
         /// <summary>
-        /// Movie Variables
+        /// Company Variables
         /// </summary>
         private int _id;
-
         private string _name;
         private int _countryid;
         private string _address;
@@ -87,9 +86,9 @@ namespace JobPortal_Models.Company
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_name</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_name</b> attribute value.</value>
         public string Name
         {
             get
@@ -103,9 +102,9 @@ namespace JobPortal_Models.Company
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_countryid</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_countryid</b> attribute value.</value>
         public int CountryID
         {
             get
@@ -119,9 +118,9 @@ namespace JobPortal_Models.Company
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_address</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_address</b> attribute value.</value>
         public string Address
         {
             get
@@ -135,9 +134,9 @@ namespace JobPortal_Models.Company
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_contactperson</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_contactperson</b> attribute value.</value>
         public string ContactPerson
         {
             get
@@ -151,9 +150,9 @@ namespace JobPortal_Models.Company
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_mobile</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_mobile</b> attribute value.</value>
         public Int64 Mobile
         {
             get
@@ -167,9 +166,9 @@ namespace JobPortal_Models.Company
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_email</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_email</b> attribute value.</value>
         public string Email
         {
             get
@@ -183,9 +182,9 @@ namespace JobPortal_Models.Company
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_password</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_password</b> attribute value.</value>
         public string Password
         {
             get
@@ -199,9 +198,9 @@ namespace JobPortal_Models.Company
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_website</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_website</b> attribute value.</value>
         public string Website
         {
             get
@@ -215,9 +214,9 @@ namespace JobPortal_Models.Company
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_role</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_role</b> attribute value.</value>
         public string Role
         {
             get
@@ -231,9 +230,9 @@ namespace JobPortal_Models.Company
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_detail</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_detail</b> attribute value.</value>
         public string Detail
         {
             get
@@ -247,9 +246,9 @@ namespace JobPortal_Models.Company
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_createddate</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_createddate</b> attribute value.</value>
         public DateTime CreatedDate
         {
             get
@@ -263,9 +262,9 @@ namespace JobPortal_Models.Company
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_updatedddate</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_updatedddate</b> attribute value.</value>
         public DateTime UpdatedDate
         {
             get

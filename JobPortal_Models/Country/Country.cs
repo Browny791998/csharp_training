@@ -7,10 +7,9 @@ namespace JobPortal_Models.Country
         #region Local variable and Constant Declaration
 
         /// <summary>
-        /// Customer Variables
+        /// Cuountry Variables
         /// </summary>
         private int _id;
-
         private string _country;
 
         #endregion Local variable and Constant Declaration
@@ -18,7 +17,7 @@ namespace JobPortal_Models.Country
         #region Constructor and Destructor
 
         /// <summary>
-        ///Constructor and Destructor for Customer Variables
+        ///Constructor and Destructor for Country Variables
         /// </summary>
         public void PostData()
         {
@@ -37,9 +36,9 @@ namespace JobPortal_Models.Country
         #region Properties Assigning and Retrieving
 
         /// <summary>
-        /// Gets or sets the <b>_ID</b> attribute value.
+        /// Gets or sets the <b>_id</b> attribute value.
         /// </summary>
-        /// <value>The <b>_ID</b> attribute value.</value>
+        /// <value>The <b>_id</b> attribute value.</value>
         public int ID
         {
             get
@@ -54,9 +53,9 @@ namespace JobPortal_Models.Country
         }
 
         /// <summary>
-        /// Gets or sets the <b>Country</b> attribute value.
+        /// Gets or sets the <b>_country</b> attribute value.
         /// </summary>
-        /// <value>The <b>Country</b> attribute value.</value>
+        /// <value>The <b>_country</b> attribute value.</value>
         public string Country_Name
         {
             get

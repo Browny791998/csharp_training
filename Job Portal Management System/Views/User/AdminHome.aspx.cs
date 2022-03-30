@@ -21,20 +21,14 @@ namespace Job_Portal_Management_System.Views
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["email"] == null || Session["role"] == null)
-            {
-                Response.Redirect("~/Views/User/Login.aspx");
-            }
             da = JobPortal_Services.JobSeeker.JobSeekerService.GetAllJobSeeker();
             lblJobseeker.Text = da.Rows.Count.ToString();
             da = JobPortal_Services.Company.CompanyService.GetCompanyAllData();
             lblCompany.Text = da.Rows.Count.ToString();
             da = JobPortal_Services.Job.JobService.GetActiveData();
             lblJob.Text = da.Rows.Count.ToString();
-
             da = JobPortal_Services.JobSeeker.JobSeekerService.GetChartData();
-
-            if (da.Rows.Count > 0)
+              if (da.Rows.Count > 0)
             {
                 string ChartData = "";
                 string views = "";
@@ -45,13 +39,11 @@ namespace Job_Portal_Management_System.Views
                     views += da.Rows[i]["JobSeeker"] + ",";
                     sb.AppendFormat("'{0}'" + ",", da.Rows[i]["Day"]);
                 }
-
                 views = views.Substring(0, views.Length - 1);
                 ChartData += " chartLabels=[" + sb + "];chartData=[" + views + "]";
                 ChartData += "</script>";
                 ltChartData.Text = ChartData;
             }
-
             da = JobPortal_Services.Company.CompanyService.GetChartData();
             if (da.Rows.Count > 0)
             {
@@ -82,7 +74,6 @@ namespace Job_Portal_Management_System.Views
                     applier += da.Rows[i]["applier"] + ",";
                     sb.AppendFormat("'{0}'" + ",", da.Rows[i]["Company"]);
                 }
-
                 applier = applier.Substring(0, applier.Length - 1);
                 JobOfferData += "company=[" + sb + "];applier=[" + applier + "]";
                 JobOfferData += "</script>";

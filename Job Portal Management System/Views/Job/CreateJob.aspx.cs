@@ -221,7 +221,6 @@ namespace Job_Portal_Management_System.Views.Job
         /// </summary>
         private void UpdateData()
         {
-            //jobmodel.ID = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["id"]));
             jobmodel.ID = Convert.ToInt32(hfJobID.Value);
             jobmodel.Title = txtTitle.Text;
             jobmodel.Degree = ddlDegree.SelectedValue;

@@ -99,8 +99,6 @@ namespace Job_Portal_Management_System.Views.Job
         private void InsertData()
         {
             joboffermodel.JobSeekerID = Convert.ToInt32(Session["id"]);
-            //joboffermodel.CompanyID = Convert.ToInt32(Request.QueryString["ComID"]);
-            //joboffermodel.JobID = Convert.ToInt32(Request.QueryString["jobID"]); ;
             joboffermodel.CompanyID = Convert.ToInt32(hfCID.Value);
             joboffermodel.JobID = Convert.ToInt32(hfJobID.Value);
             joboffermodel.AppliedDate = DateTime.Now;

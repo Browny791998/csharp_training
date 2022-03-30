@@ -7,10 +7,9 @@ namespace JobPortal_Models.ResetPassword
         #region Local variable and Constant Declaration
 
         /// <summary>
-        /// Customer Variables
+        /// Reset Password Variables
         /// </summary>
         private int _id;
-
         private string _uid;
         private string _email;
         private DateTime _requestdate;
@@ -20,7 +19,7 @@ namespace JobPortal_Models.ResetPassword
         #region Constructor and Destructor
 
         /// <summary>
-        ///Constructor and Destructor for Customer Variables
+        ///Constructor and Destructor for Reset Password Variables
         /// </summary>
         public void PostData()
         {
@@ -43,9 +42,9 @@ namespace JobPortal_Models.ResetPassword
         #region Properties Assigning and Retrieving
 
         /// <summary>
-        /// Gets or sets the <b>_ID</b> attribute value.
+        /// Gets or sets the <b> _id</b> attribute value.
         /// </summary>
-        /// <value>The <b>_ID</b> attribute value.</value>
+        /// <value>The <b> _id</b> attribute value.</value>
         public int ID
         {
             get
@@ -60,9 +59,9 @@ namespace JobPortal_Models.ResetPassword
         }
 
         /// <summary>
-        /// Gets or sets the <b>Skill</b> attribute value.
+        /// Gets or sets the <b>_uid</b> attribute value.
         /// </summary>
-        /// <value>The <b>Skill</b> attribute value.</value>
+        /// <value>The <b>_uid</b> attribute value.</value>
         public string UID
         {
             get
@@ -76,9 +75,9 @@ namespace JobPortal_Models.ResetPassword
         }
 
         /// <summary>
-        /// Gets or sets the <b>Skill</b> attribute value.
+        /// Gets or sets the <b>_email</b> attribute value.
         /// </summary>
-        /// <value>The <b>Skill</b> attribute value.</value>
+        /// <value>The <b>_email</b> attribute value.</value>
         public string Email
         {
             get
@@ -92,9 +91,9 @@ namespace JobPortal_Models.ResetPassword
         }
 
         /// <summary>
-        /// Gets or sets the <b>Skill</b> attribute value.
+        /// Gets or sets the <b>_requestdate</b> attribute value.
         /// </summary>
-        /// <value>The <b>Skill</b> attribute value.</value>
+        /// <value>The <b>_requestdate</b> attribute value.</value>
         public DateTime Requestdate
         {
             get

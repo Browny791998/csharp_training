@@ -6,6 +6,10 @@ namespace Job_Portal_Management_System.Views.Common.Layout
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["role"] == null || Session["role"].ToString() != "Company")
+            {
+                Response.Redirect("~/Views/Login.aspx");
+            }
         }
 
         protected void btnCreateJob_Click(object sender, EventArgs e)

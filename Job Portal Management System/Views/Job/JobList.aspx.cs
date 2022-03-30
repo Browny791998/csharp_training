@@ -102,7 +102,6 @@ namespace Job_Portal_Management_System.Views.Job
             string strURLWithData = strURL +
           EncryptQueryString(string.Format("id={0}&action={1}",id, action));
             HttpContext.Current.Response.Redirect(strURLWithData);
-            //Response.Redirect("CreateJob.aspx?id=" + MyCrypto.GetEncryptedQueryString(id.ToString()) + "&action=update");
         }
 
         public string EncryptQueryString(string strQueryString)

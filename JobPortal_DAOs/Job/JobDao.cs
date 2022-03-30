@@ -45,7 +45,7 @@ namespace JobPortal_DAOs.Job
 
         /// <summary>
         /// Update Data
-        /// <paramref name="post"/>
+        /// <paramref name="job"/>
         /// </summary>
         /// <returns></returns>
         public static bool Update(JobPortal_Models.Job.Job job)

@@ -111,12 +111,10 @@ namespace Job_Portal_Management_System.Views.Skill
             dr = JobPortal_Services.Skill.SkillServices.ReadData(id);
             while (dr.Read())
             {
-                da = JobPortal_Services.Job.JobService.GetAllJObData();
-
-                for (int j = 0; j < da.Rows.Count; j++)
+               da = JobPortal_Services.Job.JobService.GetAllJObData();
+               for (int j = 0; j < da.Rows.Count; j++)
                 {
                     skillList = da.Rows[j]["skill"].ToString().Split(',');
-
                     foreach (string s in skillList)
                     {
                         if (s == dr["skill"].ToString())
@@ -128,12 +126,10 @@ namespace Job_Portal_Management_System.Views.Skill
                         }
                     }
                 }
-
                 da = JobPortal_Services.JobSeeker.JobSeekerService.GetAllJobSeeker();
                 for (int j = 0; j < da.Rows.Count; j++)
                 {
                     skillList = da.Rows[j]["skill"].ToString().Split(',');
-
                     foreach (string s in skillList)
                     {
                         if (s == dr["skill"].ToString())

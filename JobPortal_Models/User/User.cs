@@ -10,7 +10,6 @@ namespace JobPortal_Models.User
         /// User Variables
         /// </summary>
         private int _id;
-
         private string _name;
         private string _email;
         private string _password;
@@ -65,9 +64,9 @@ namespace JobPortal_Models.User
         }
 
         /// <summary>
-        /// Gets or sets the <b>Name</b> attribute value.
+        /// Gets or sets the <b>_name</b> attribute value.
         /// </summary>
-        /// <value>The <b>Name</b> attribute value.</value>
+        /// <value>The <b>_name</b> attribute value.</value>
         public string Name
         {
             get
@@ -81,9 +80,9 @@ namespace JobPortal_Models.User
         }
 
         /// <summary>
-        /// Gets or sets the <b>Email</b> attribute value.
+        /// Gets or sets the <b>_email</b> attribute value.
         /// </summary>
-        /// <value>The <b>Email</b> attribute value.</value>
+        /// <value>The <b>_email</b> attribute value.</value>
         public string Email
         {
             get
@@ -97,9 +96,9 @@ namespace JobPortal_Models.User
         }
 
         /// <summary>
-        /// Gets or sets the <b>Password</b> attribute value.
+        /// Gets or sets the <b>_password</b> attribute value.
         /// </summary>
-        /// <value>The <b>Password</b> attribute value.</value>
+        /// <value>The <b>_password</b> attribute value.</value>
         public string Password
         {
             get
@@ -113,9 +112,9 @@ namespace JobPortal_Models.User
         }
 
         /// <summary>
-        /// Gets or sets the <b>Role</b> attribute value.
+        /// Gets or sets the <b>_role</b> attribute value.
         /// </summary>
-        /// <value>The <b>Role</b> attribute value.</value>
+        /// <value>The <b>_role</b> attribute value.</value>
         public string Role
         {
             get
@@ -129,9 +128,9 @@ namespace JobPortal_Models.User
         }
 
         /// <summary>
-        /// Gets or sets the <b>Created_at</b> attribute value.
+        /// Gets or sets the <b>_created_at</b> attribute value.
         /// </summary>
-        /// <value>The <b>Role</b> attribute value.</value>
+        /// <value>The <b>_created_at</b> attribute value.</value>
         public DateTime Created_at
         {
             get
@@ -145,9 +144,9 @@ namespace JobPortal_Models.User
         }
 
         /// <summary>
-        /// Gets or sets the <b>Updated_at</b> attribute value.
+        /// Gets or sets the <b>_updated_at</b> attribute value.
         /// </summary>
-        /// <value>The <b>Role</b> attribute value.</value>
+        /// <value>The <b>_updated_at</b> attribute value.</value>
         public DateTime Updated_at
         {
             get

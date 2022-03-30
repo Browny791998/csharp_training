@@ -57,10 +57,10 @@ namespace Job_Portal_Management_System.Views
 
         #endregion bind data
 
-        #region check role
+        #region reset password
 
         /// <summary>
-        /// check role and jobseeker
+        /// reset password
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -115,7 +115,7 @@ namespace Job_Portal_Management_System.Views
             }
         }
 
-        #endregion check role
+        #endregion reset password
 
         #region encrpyt password
 

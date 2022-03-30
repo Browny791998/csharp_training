@@ -82,7 +82,7 @@ namespace JobPortal_DAOs.JobSeeker
 
         /// <summary>
         /// Update Data
-        /// <paramref name="post"/>
+        /// <paramref name="jobseeker"/>
         /// </summary>
         /// <returns></returns>
         public static bool UpdatebyEmail(JobPortal_Models.JobSeeker.JobSeeker jobseeker)

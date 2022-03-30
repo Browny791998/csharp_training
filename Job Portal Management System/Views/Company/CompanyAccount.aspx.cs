@@ -23,11 +23,7 @@ namespace Job_Portal_Management_System.Views.Company
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["email"] == null)
-            {
-                Response.Redirect("~/Views/Login.aspx");
-            }
-            GetAcc();
+           GetAcc();
         }
 
         /// <summary>

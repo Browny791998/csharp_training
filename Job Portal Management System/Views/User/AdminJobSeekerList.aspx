@@ -40,6 +40,7 @@
                 <asp:Label ID="Label2" runat="server" CssClass="font-weight-bold mr-3" Text="Label">Job Seeker Name</asp:Label>
                 <asp:TextBox ID="txtSearch" runat="server" Style="padding: 5px 35px 5px 13px; outline: none;"></asp:TextBox>
                 <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
+                 <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-info mr-2"  CausesValidation="False" OnClick="btnClear_Click" />
             </div>
         </div>
         <br />

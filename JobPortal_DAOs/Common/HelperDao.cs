@@ -13,7 +13,6 @@ namespace JobPortal_DAOs.Common
         /// Database Connection
         /// </summary>
         private static string dbConnectionString = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
-
         public static DataTable tblResult;
         public static string sInsertItem = String.Empty;
 

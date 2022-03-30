@@ -101,22 +101,7 @@ namespace JobPortal_Services.ResetPassword
             {
                 throw ex;
             }
-        }
-
-        /// <summary>
-        /// Get Search Data
-        /// </summary>
-        //public static DataTable GetSearchData(string str)
-        //{
-        //    try
-        //    {
-        //        return JobPortal_DAOs.Position.PositionDaos.GetSearchData(str.ToString().Replace("'", "''"));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        }   
 
         /// <summary>
         /// Read Data

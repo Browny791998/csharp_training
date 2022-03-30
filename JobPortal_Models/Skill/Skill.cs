@@ -7,10 +7,9 @@ namespace JobPortal_Models.Skill
         #region Local variable and Constant Declaration
 
         /// <summary>
-        /// Customer Variables
+        /// Skill Variables
         /// </summary>
         private int _id;
-
         private string _skill;
 
         #endregion Local variable and Constant Declaration
@@ -18,7 +17,7 @@ namespace JobPortal_Models.Skill
         #region Constructor and Destructor
 
         /// <summary>
-        ///Constructor and Destructor for Customer Variables
+        ///Constructor and Destructor for Skill Variables
         /// </summary>
         public void PostData()
         {
@@ -37,9 +36,9 @@ namespace JobPortal_Models.Skill
         #region Properties Assigning and Retrieving
 
         /// <summary>
-        /// Gets or sets the <b>_ID</b> attribute value.
+        /// Gets or sets the <b>_id</b> attribute value.
         /// </summary>
-        /// <value>The <b>_ID</b> attribute value.</value>
+        /// <value>The <b>_id</b> attribute value.</value>
         public int ID
         {
             get
@@ -54,9 +53,9 @@ namespace JobPortal_Models.Skill
         }
 
         /// <summary>
-        /// Gets or sets the <b>Skill</b> attribute value.
+        /// Gets or sets the <b>_skill</b> attribute value.
         /// </summary>
-        /// <value>The <b>Skill</b> attribute value.</value>
+        /// <value>The <b>_skill</b> attribute value.</value>
         public string Skill_Name
         {
             get

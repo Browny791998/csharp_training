@@ -99,7 +99,7 @@ namespace Job_Portal_Management_System.Views.Jobnature
             /// <summary>
             /// InsertData
             /// </summary>
-            private void InsertData()
+        private void InsertData()
         {
             jobnaturemodel.Job_Nature = txtJobnature.Text;
         }

@@ -7,10 +7,9 @@ namespace JobPortal_Models.JobOffer
         #region Local variable and Constant Declaration
 
         /// <summary>
-        /// Movie Variables
+        /// JobOffer Variables
         /// </summary>
         private int _id;
-
         private int _jobseekerid;
         private int _companyid;
         private int _jobid;
@@ -22,7 +21,7 @@ namespace JobPortal_Models.JobOffer
         #region Constructor and Destructor
 
         /// <summary>
-        ///Constructor and Destructor for Movie Variables
+        ///Constructor and Destructor for JobOffer Variables
         /// </summary>
         public void PostJobOffer()
         {
@@ -49,9 +48,9 @@ namespace JobPortal_Models.JobOffer
         #region Properties Assigning and Retrieving
 
         /// <summary>
-        /// Gets or sets the <b>_ID</b> attribute value.
+        /// Gets or sets the <b>_id</b> attribute value.
         /// </summary>
-        /// <value>The <b>_ID</b> attribute value.</value>
+        /// <value>The <b>_id</b> attribute value.</value>
         public int ID
         {
             get
@@ -66,9 +65,9 @@ namespace JobPortal_Models.JobOffer
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_jobseekerid</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_jobseekerid</b> attribute value.</value>
         public int JobSeekerID
         {
             get
@@ -82,9 +81,9 @@ namespace JobPortal_Models.JobOffer
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_companyid</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_companyid</b> attribute value.</value>
         public int CompanyID
         {
             get
@@ -98,9 +97,9 @@ namespace JobPortal_Models.JobOffer
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_jobid</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_jobid</b> attribute value.</value>
         public int JobID
         {
             get
@@ -114,9 +113,9 @@ namespace JobPortal_Models.JobOffer
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_applieddate</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_applieddate</b> attribute value.</value>
         public DateTime AppliedDate
         {
             get
@@ -130,9 +129,9 @@ namespace JobPortal_Models.JobOffer
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_isaccept</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_isaccept</b> attribute value.</value>
         public Int16 IsAccept
         {
             get

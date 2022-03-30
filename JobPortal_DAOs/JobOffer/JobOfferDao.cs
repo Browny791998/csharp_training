@@ -52,38 +52,6 @@ namespace JobPortal_DAOs.JobOffer
         }
 
         /// <summary>
-        /// Update Data
-        /// <paramref name="post"/>
-        /// </summary>
-        /// <returns></returns>
-        //public static bool Update(JobPortal_Models.Job.Job job)
-        //{
-        //    try
-        //    {
-        //        var arr = new object[14];
-        //        arr[0] = job.Title;
-        //        arr[1] = job.Degree;
-        //        arr[2] = job.Skill;
-        //        arr[3] = job.Experience;
-        //        arr[4] = job.Vacancy;
-        //        arr[5] = job.Company_id;
-        //        arr[6] = job.Position_id;
-        //        arr[7] = job.Jobnature_id;
-        //        arr[8] = job.Salary;
-        //        arr[9] = job.Detail;
-        //        arr[10] = job.UpdatedDate;
-        //        arr[11] = job.Active;
-        //        arr[12] = job.ID;
-        //        Common.HelperDao.Update("Update tbl_job set title=@1,degree=@2,skill=@3,experience=@4,vacancy=@5,company_id=@6,position_id=@7,job_nature_id=@8,salary=@9,detail=@10,updated_at=@11,active=@12 where id=@13", arr);
-        //        return true;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
-
-        /// <summary>
         /// Delete Data
         /// </summary>
         /// <returns></returns>

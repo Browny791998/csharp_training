@@ -202,12 +202,10 @@ namespace Job_Portal_Management_System.Views.User
         private void SendEmail(string name, string email, string company, bool accept)
         {
             DataTable dt = new DataTable();
-
             MailDefinition md = new MailDefinition();
             md.From = "test@domain.com";
             md.IsBodyHtml = true;
             md.Subject = "Job Reply";
-
             ListDictionary replacements = new ListDictionary();
             replacements.Add("{name}", name);
             replacements.Add("{company}", company);
@@ -218,7 +216,7 @@ namespace Job_Portal_Management_System.Views.User
                 body += "<h3>Hello {name} </h3>";
                 body += "<p><b>{company}</b> reviewed your cv and agree to make an appointment with you</p>";
                 body += "<p>Best Regards</p>";
-                body += "<p>🏢Brilliant Job</p>";
+                body += "<p>🏢 Brilliant Job</p>";
             }
             else
             {
@@ -229,7 +227,7 @@ namespace Job_Portal_Management_System.Views.User
                 body += "<p>Unfortunately,you are rejected</p>";
                 body += "<p>Please try again next time,Good Luck!</p>";
                 body += "<p>Best Regards</p>";
-                body += "<p>🏢Brilliant Job</p>";
+                body += "<p>🏢 Brilliant Job</p>";
             }
             MailMessage msg = md.CreateMailMessage(email, replacements, body, new System.Web.UI.Control());
             SmtpClient smtp = new SmtpClient();

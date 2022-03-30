@@ -97,5 +97,18 @@ namespace Job_Portal_Management_System.Views.User
         }
 
         #endregion search data
+
+        #region clear data
+        /// <summary>
+        /// clear data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = string.Empty;
+            this.GetData();
+        }
+        #endregion
     }
 }

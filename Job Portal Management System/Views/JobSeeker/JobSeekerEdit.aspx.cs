@@ -24,7 +24,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["email"] == null)
+            if (Session["role"] == null || Session["role"].ToString() != "Job Seeker")
             {
                 Response.Redirect("~/Views/Login.aspx");
             }

@@ -7,10 +7,9 @@ namespace JobPortal_Models.JobSeeker
         #region Local variable and Constant Declaration
 
         /// <summary>
-        /// Movie Variables
+        ///JobSeeker Variables
         /// </summary>
         private int _id;
-
         private string _name;
         private string _address;
         private Int64 _mobile;
@@ -34,7 +33,7 @@ namespace JobPortal_Models.JobSeeker
         #region Constructor and Destructor
 
         /// <summary>
-        ///Constructor and Destructor for Movie Variables
+        ///Constructor and Destructor for JobSeeker Variables
         /// </summary>
         public void PostJobSeeker()
         {
@@ -85,9 +84,9 @@ namespace JobPortal_Models.JobSeeker
         #region Properties Assigning and Retrieving
 
         /// <summary>
-        /// Gets or sets the <b>_ID</b> attribute value.
+        /// Gets or sets the <b>_id</b> attribute value.
         /// </summary>
-        /// <value>The <b>_ID</b> attribute value.</value>
+        /// <value>The <b>_id</b> attribute value.</value>
         public int ID
         {
             get
@@ -102,9 +101,9 @@ namespace JobPortal_Models.JobSeeker
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_name</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_name</b> attribute value.</value>
         public string Name
         {
             get
@@ -118,9 +117,9 @@ namespace JobPortal_Models.JobSeeker
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_address</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_address</b> attribute value.</value>
         public string Address
         {
             get
@@ -134,9 +133,9 @@ namespace JobPortal_Models.JobSeeker
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_mobile</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_mobile</b> attribute value.</value>
         public Int64 Mobile
         {
             get
@@ -150,9 +149,9 @@ namespace JobPortal_Models.JobSeeker
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_gender</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_gender</b> attribute value.</value>
         public string Gender
         {
             get
@@ -166,9 +165,9 @@ namespace JobPortal_Models.JobSeeker
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_dob</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_dob</b> attribute value.</value>
         public DateTime DOB
         {
             get
@@ -182,9 +181,9 @@ namespace JobPortal_Models.JobSeeker
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_skill</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_skill</b> attribute value.</value>
         public string Skill
         {
             get
@@ -198,9 +197,9 @@ namespace JobPortal_Models.JobSeeker
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_experience</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_experience</b> attribute value.</value>
         public string Experience
         {
             get
@@ -214,9 +213,9 @@ namespace JobPortal_Models.JobSeeker
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_degree</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_degree</b> attribute value.</value>
         public string Degree
         {
             get
@@ -230,9 +229,9 @@ namespace JobPortal_Models.JobSeeker
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_degreename</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_degreename</b> attribute value.</value>
         public string DegreeName
         {
             get
@@ -246,9 +245,9 @@ namespace JobPortal_Models.JobSeeker
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_cvform</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_cvform</b> attribute value.</value>
         public string CVForm
         {
             get
@@ -262,9 +261,9 @@ namespace JobPortal_Models.JobSeeker
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_profile</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_profile</b> attribute value.</value>
         public string Profile
         {
             get
@@ -278,9 +277,9 @@ namespace JobPortal_Models.JobSeeker
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_email</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_email</b> attribute value.</value>
         public string Email
         {
             get
@@ -294,9 +293,9 @@ namespace JobPortal_Models.JobSeeker
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_password</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_password</b> attribute value.</value>
         public string Password
         {
             get
@@ -310,9 +309,9 @@ namespace JobPortal_Models.JobSeeker
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_detail</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_detail</b> attribute value.</value>
         public string Detail
         {
             get
@@ -326,9 +325,9 @@ namespace JobPortal_Models.JobSeeker
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_role</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_role</b> attribute value.</value>
         public string Role
         {
             get
@@ -342,9 +341,9 @@ namespace JobPortal_Models.JobSeeker
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_createddate</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_createddate</b> attribute value.</value>
         public DateTime CreatedDate
         {
             get
@@ -358,9 +357,9 @@ namespace JobPortal_Models.JobSeeker
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_updatedddate</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_updatedddate</b> attribute value.</value>
         public DateTime UpdatedDate
         {
             get

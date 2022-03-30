@@ -7,10 +7,9 @@ namespace JobPortal_Models.Jobnature
         #region Local variable and Constant Declaration
 
         /// <summary>
-        /// Customer Variables
+        /// Jobnature Variables
         /// </summary>
         private int _id;
-
         private string _job_nature;
 
         #endregion Local variable and Constant Declaration
@@ -18,7 +17,7 @@ namespace JobPortal_Models.Jobnature
         #region Constructor and Destructor
 
         /// <summary>
-        ///Constructor and Destructor for Customer Variables
+        ///Constructor and Destructor for Jobnature Variables
         /// </summary>
         public void PostData()
         {
@@ -37,9 +36,9 @@ namespace JobPortal_Models.Jobnature
         #region Properties Assigning and Retrieving
 
         /// <summary>
-        /// Gets or sets the <b>_ID</b> attribute value.
+        /// Gets or sets the <b>_id</b> attribute value.
         /// </summary>
-        /// <value>The <b>_ID</b> attribute value.</value>
+        /// <value>The <b>_id</b> attribute value.</value>
         public int ID
         {
             get
@@ -54,9 +53,9 @@ namespace JobPortal_Models.Jobnature
         }
 
         /// <summary>
-        /// Gets or sets the <b>Job_Nature</b> attribute value.
+        /// Gets or sets the <b>_job_nature</b> attribute value.
         /// </summary>
-        /// <value>The <b>Job_Nature</b> attribute value.</value>
+        /// <value>The <b>_job_nature</b> attribute value.</value>
         public string Job_Nature
         {
             get

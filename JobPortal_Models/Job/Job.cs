@@ -7,10 +7,9 @@ namespace JobPortal_Models.Job
         #region Local variable and Constant Declaration
 
         /// <summary>
-        /// Movie Variables
+        /// Job Variables
         /// </summary>
         private int _id;
-
         private string _title;
         private string _degree;
         private string _skill;
@@ -31,7 +30,7 @@ namespace JobPortal_Models.Job
         #region Constructor and Destructor
 
         /// <summary>
-        ///Constructor and Destructor for Movie Variables
+        ///Constructor and Destructor for Job Variables
         /// </summary>
         public void PostCompany()
         {
@@ -75,9 +74,9 @@ namespace JobPortal_Models.Job
         #region Properties Assigning and Retrieving
 
         /// <summary>
-        /// Gets or sets the <b>_ID</b> attribute value.
+        /// Gets or sets the <b>_id</b> attribute value.
         /// </summary>
-        /// <value>The <b>_ID</b> attribute value.</value>
+        /// <value>The <b>_id</b> attribute value.</value>
         public int ID
         {
             get
@@ -92,9 +91,9 @@ namespace JobPortal_Models.Job
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_title</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_title</b> attribute value.</value>
         public string Title
         {
             get
@@ -108,9 +107,9 @@ namespace JobPortal_Models.Job
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_degree</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_degree</b> attribute value.</value>
         public string Degree
         {
             get
@@ -124,9 +123,9 @@ namespace JobPortal_Models.Job
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_skill</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_skill</b> attribute value.</value>
         public string Skill
         {
             get
@@ -140,9 +139,9 @@ namespace JobPortal_Models.Job
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_experience</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_experience</b> attribute value.</value>
         public string Experience
         {
             get
@@ -156,9 +155,9 @@ namespace JobPortal_Models.Job
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_vacancy</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_vacancy</b> attribute value.</value>
         public int Vacancy
         {
             get
@@ -172,9 +171,9 @@ namespace JobPortal_Models.Job
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_companyid</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_companyid</b> attribute value.</value>
         public int Company_id
         {
             get
@@ -188,9 +187,9 @@ namespace JobPortal_Models.Job
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_positionid</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_positionid</b> attribute value.</value>
         public int Position_id
         {
             get
@@ -204,9 +203,9 @@ namespace JobPortal_Models.Job
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_jobnatureid</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_jobnatureid</b> attribute value.</value>
         public int Jobnature_id
         {
             get
@@ -220,9 +219,9 @@ namespace JobPortal_Models.Job
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_specializationid</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_specializationid</b> attribute value.</value>
         public int Specialization_id
         {
             get
@@ -236,9 +235,9 @@ namespace JobPortal_Models.Job
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_salary</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_salary</b> attribute value.</value>
         public int Salary
         {
             get
@@ -252,9 +251,9 @@ namespace JobPortal_Models.Job
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_detail</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_detail</b> attribute value.</value>
         public string Detail
         {
             get
@@ -268,9 +267,9 @@ namespace JobPortal_Models.Job
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_active</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_active</b> attribute value.</value>
         public Int16 Active
         {
             get
@@ -284,9 +283,9 @@ namespace JobPortal_Models.Job
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_createddate</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_createddate</b> attribute value.</value>
         public DateTime CreatedDate
         {
             get
@@ -300,9 +299,9 @@ namespace JobPortal_Models.Job
         }
 
         /// <summary>
-        /// Gets or sets the <b>_movie</b> attribute value.
+        /// Gets or sets the <b>_updatedddate</b> attribute value.
         /// </summary>
-        /// <value>The <b>_movie</b> attribute value.</value>
+        /// <value>The <b>_updatedddate</b> attribute value.</value>
         public DateTime UpdatedDate
         {
             get
