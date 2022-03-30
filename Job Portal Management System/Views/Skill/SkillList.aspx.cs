@@ -83,9 +83,17 @@ namespace Job_Portal_Management_System.Views.Skill
         /// <param name="e"></param>
         protected void grvSkill_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            Session["label"] = "update";
+            Session.Remove("url");
+             Session["label"] = "update";
             int id = Convert.ToInt32(grvSkill.DataKeys[e.RowIndex].Value);
-            Response.Redirect("SkillCreate.aspx?id=" + MyCrypto.GetEncryptedQueryString(id.ToString()));
+            string strURL = "SkillCreate.aspx?";
+            string strURLWithData = strURL + EncryptQueryString(string.Format("id={0}", id));
+        }
+
+        public string EncryptQueryString(string strQueryString)
+        {
+            EncryptDecryptQueryString objEDQueryString = new EncryptDecryptQueryString();
+            return objEDQueryString.Encrypt(strQueryString, "r0b1nr0y");
         }
 
         /// <summary>

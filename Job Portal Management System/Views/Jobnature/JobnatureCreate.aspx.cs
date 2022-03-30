@@ -45,28 +45,61 @@ namespace Job_Portal_Management_System.Views.Jobnature
                     lblJobnaturebreadcrumb.Text = "Update Jobnature";
                     if (!IsPostBack)
                     {
-                        int id = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["id"]));
-                        SqlDataReader dr = JobPortal_Services.Jobnature.JobnatureServices.ReadData(id);
-                        while (dr.Read())
+                        string strReq = "";
+                        strReq = Request.RawUrl;
+                        strReq = strReq.Substring(strReq.IndexOf('?') + 1);
+                        if (Session["url"] == null)
                         {
-                            string ID = dr["id"].ToString();
-                            string jobnature = dr["job_nature"].ToString();
-                            hfJobnature.Value = ID;
-                            txtJobnature.Text = jobnature;
+                            Session["url"] = strReq;
+                        }
+                        else if (strReq != Session["url"].ToString())
+                        {
+                            Session["alert"] = "Wrong Url";
+                            Session["alert-type"] = "warning";
+                            strReq = Session["url"].ToString();
+                        }
+                        if (!strReq.Equals(""))
+                        {
+                            strReq = DecryptQueryString(strReq);
+                            string[] arrMsgs = strReq.Split('&');
+                            string[] arrIndMsg;
+                            string CID = "";
+                            arrIndMsg = arrMsgs[0].Split('=');
+                            CID = arrIndMsg[1].ToString().Trim();
+                            int id = Convert.ToInt32(CID);
+                            SqlDataReader dr = JobPortal_Services.Jobnature.JobnatureServices.ReadData(id);
+                            while (dr.Read())
+                            {
+                                string ID = dr["id"].ToString();
+                                string jobnature = dr["job_nature"].ToString();
+                                hfJobnature.Value = ID;
+                                txtJobnature.Text = jobnature;
+                            }
+                        }
+                        else
+                        {
+                            Session["alert"] = "Wrong Url";
+                            Session["alert-type"] = "warning";
                         }
                     }
                 }
             }
         }
 
-        #endregion binding data and getting data
+            private string DecryptQueryString(string strQueryString)
+            {
+                EncryptDecryptQueryString objEDQueryString = new EncryptDecryptQueryString();
+                return objEDQueryString.Decrypt(strQueryString, "r0b1nr0y");
+            }
 
-        #region InsertData
+            #endregion binding data and getting data
 
-        /// <summary>
-        /// InsertData
-        /// </summary>
-        private void InsertData()
+            #region InsertData
+
+            /// <summary>
+            /// InsertData
+            /// </summary>
+            private void InsertData()
         {
             jobnaturemodel.Job_Nature = txtJobnature.Text;
         }
@@ -97,12 +130,11 @@ namespace Job_Portal_Management_System.Views.Jobnature
         {
             if (hfJobnature.Value == "")
             {
-                da = JobPortal_Services.Jobnature.JobnatureServices.GetData(txtJobnature.Text);
+                da = JobPortal_Services.Jobnature.JobnatureServices.GetAddData(txtJobnature.Text);
                 if (da.Rows.Count > 0)
                 {
                     Session["alert"] = "Data already exist";
                     Session["alert-type"] = "warning";
-                    Response.Redirect("JobnatureList.aspx");
                 }
                 else
                 {

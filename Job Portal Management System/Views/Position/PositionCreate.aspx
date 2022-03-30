@@ -48,7 +48,7 @@
                             <span class="fill">*</span>
                             <asp:TextBox ID="txtPosition" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPosition" ErrorMessage="Please fill position" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="special charater doesn't allow" ForeColor="Red" ControlToValidate="txtPosition" ValidationExpression="^[a-zA-Z'.\s]{1,40}$" Display="Dynamic"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="special charater doesn't allow" ForeColor="Red" ControlToValidate="txtPosition" ValidationExpression="^[A-Za-z0-9_.\s]+$" Display="Dynamic"></asp:RegularExpressionValidator>
                         </div>
                     </div>
 

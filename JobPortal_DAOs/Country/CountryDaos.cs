@@ -98,6 +98,22 @@ namespace JobPortal_DAOs.Country
         /// Get Data
         /// </summary>
         /// <returns></returns>
+        public static DataTable GetAddData(string country)
+        {
+            try
+            {
+                return Common.HelperDao.GetData("Select country from tbl_country where country='" + country + "'", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Get Data
+        /// </summary>
+        /// <returns></returns>
         public static DataTable GetUpdateData(string country,int id)
         {
             try

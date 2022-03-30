@@ -76,6 +76,21 @@ namespace JobPortal_Services.Skill
         /// <summary>
         /// Get Data
         /// </summary>
+        public static DataTable GetAddData(string skill)
+        {
+            try
+            {
+                return JobPortal_DAOs.Skill.SkillDaos.GetAddData(skill.ToString().Replace("'", "''"));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Get Data
+        /// </summary>
         public static DataTable GetUpdateData(string skill,int id)
         {
             try

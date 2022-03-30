@@ -50,7 +50,8 @@
                             <span class="fill">*</span>
                             <asp:TextBox ID="txtCountry" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCountry" ErrorMessage="Please fill country" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="special charater doesn't allow" ForeColor="Red" ControlToValidate="txtCountry" ValidationExpression="^[a-zA-Z'.\s]{1,40}$" Display="Dynamic"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="special charater doesn't allow" ForeColor="Red" ControlToValidate="txtCountry" ValidationExpression="^[A-Za-z0-9_.\s]+$" Display="Dynamic"></asp:RegularExpressionValidator>
+
                         </div>
                     </div>
 

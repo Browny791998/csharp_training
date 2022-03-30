@@ -76,6 +76,21 @@ namespace JobPortal_Services.Specialization
         /// <summary>
         /// Get Data
         /// </summary>
+        public static DataTable GetAddData(string specialization)
+        {
+            try
+            {
+                return JobPortal_DAOs.Specialization.SpecializationDaos.GetAddData(specialization.ToString().Replace("'", "''"));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Get Data
+        /// </summary>
         public static DataTable GetUpdateData(string specialization,int id)
         {
             try

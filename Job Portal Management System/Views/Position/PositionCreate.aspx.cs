@@ -45,18 +45,51 @@ namespace Job_Portal_Management_System.Views.Position
                     lblPositionbreadcrumb.Text = "Update Position";
                     if (!IsPostBack)
                     {
-                        int id = Convert.ToInt32(MyCrypto.GetDecryptedQueryString(Request.QueryString["id"]));
-                        SqlDataReader dr = JobPortal_Services.Position.PositionServices.ReadData(id);
-                        while (dr.Read())
+                        string strReq = "";
+                        strReq = Request.RawUrl;
+                        strReq = strReq.Substring(strReq.IndexOf('?') + 1);
+                        if (Session["url"] == null)
                         {
-                            string ID = dr["id"].ToString();
-                            string position = dr["position"].ToString();
-                            hfPosition.Value = ID;
-                            txtPosition.Text = position;
+                            Session["url"] = strReq;
+                        }
+                        else if (strReq != Session["url"].ToString())
+                        {
+                            Session["alert"] = "Wrong Url";
+                            Session["alert-type"] = "warning";
+                            strReq = Session["url"].ToString();
+                        }
+                        if (!strReq.Equals(""))
+                        {
+                            strReq = DecryptQueryString(strReq);
+                            string[] arrMsgs = strReq.Split('&');
+                            string[] arrIndMsg;
+                            string CID = "";
+                            arrIndMsg = arrMsgs[0].Split('=');
+                            CID = arrIndMsg[1].ToString().Trim();
+                            int id = Convert.ToInt32(CID);
+                            SqlDataReader dr = JobPortal_Services.Position.PositionServices.ReadData(id);
+                            while (dr.Read())
+                            {
+                                string ID = dr["id"].ToString();
+                                string position = dr["position"].ToString();
+                                hfPosition.Value = ID;
+                                txtPosition.Text = position;
+                            }
+                        }
+                        else
+                        {
+                            Session["alert"] = "Wrong Url";
+                            Session["alert-type"] = "warning";
                         }
                     }
                 }
             }
+        }
+
+        private string DecryptQueryString(string strQueryString)
+        {
+            EncryptDecryptQueryString objEDQueryString = new EncryptDecryptQueryString();
+            return objEDQueryString.Decrypt(strQueryString, "r0b1nr0y");
         }
 
         #endregion binding data and getting data
@@ -97,12 +130,11 @@ namespace Job_Portal_Management_System.Views.Position
         {
             if (hfPosition.Value == "")
             {
-                da = JobPortal_Services.Position.PositionServices.GetData(txtPosition.Text);
+                da = JobPortal_Services.Position.PositionServices.GetAddData(txtPosition.Text);
                 if (da.Rows.Count > 0)
                 {
                     Session["alert"] = "Data already exist";
                     Session["alert-type"] = "warning";
-                    Response.Redirect("PositionList.aspx");
                 }
                 else
                 {

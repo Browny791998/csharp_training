@@ -76,6 +76,21 @@ namespace JobPortal_Services.Position
         /// <summary>
         /// Get Data
         /// </summary>
+        public static DataTable GetAddData(string position)
+        {
+            try
+            {
+                return JobPortal_DAOs.Position.PositionDaos.GetAddData(position.ToString().Replace("'", "''"));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Get Data
+        /// </summary>
         public static DataTable GetUpdateData(string position,int id)
         {
             try

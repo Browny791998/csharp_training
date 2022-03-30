@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -81,9 +82,18 @@ namespace Job_Portal_Management_System.Views.Jobnature
         /// <param name="e"></param>
         protected void grvJobnature_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            Session.Remove("url");
             Session["label"] = "update";
             int id = Convert.ToInt32(grvJobnature.DataKeys[e.RowIndex].Value);
-            Response.Redirect("JobnatureCreate.aspx?id=" + MyCrypto.GetEncryptedQueryString(id.ToString()));
+            string strURL = "JobnatureCreate.aspx?";
+            string strURLWithData = strURL + EncryptQueryString(string.Format("id={0}", id));
+            HttpContext.Current.Response.Redirect(strURLWithData);
+        }
+
+        public string EncryptQueryString(string strQueryString)
+        {
+            EncryptDecryptQueryString objEDQueryString = new EncryptDecryptQueryString();
+            return objEDQueryString.Encrypt(strQueryString, "r0b1nr0y");
         }
 
         /// <summary>

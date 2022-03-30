@@ -78,11 +78,27 @@ namespace JobPortal_DAOs.Skill
         /// Get Data
         /// </summary>
         /// <returns></returns>
-        public static DataTable GetData(string job_nature)
+        public static DataTable GetData(string skill)
         {
             try
             {
-                return Common.HelperDao.GetData("Select skill from tbl_skill where skill COLLATE Latin1_General_CS_AS='" + job_nature + "'", CommandType.Text);
+                return Common.HelperDao.GetData("Select skill from tbl_skill where skill COLLATE Latin1_General_CS_AS='" + skill + "'", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Get Data
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetAddData(string skill)
+        {
+            try
+            {
+                return Common.HelperDao.GetData("Select skill from tbl_skill where skill='" + skill + "'", CommandType.Text);
             }
             catch (Exception ex)
             {

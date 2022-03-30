@@ -78,11 +78,28 @@ namespace JobPortal_DAOs.Position
         /// Get Data
         /// </summary>
         /// <returns></returns>
-        public static DataTable GetData(string job_nature)
+        public static DataTable GetData(string position)
         {
             try
             {
-                return Common.HelperDao.GetData("Select position from tbl_position where position COLLATE Latin1_General_CS_AS='" + job_nature + "'", CommandType.Text);
+                return Common.HelperDao.GetData("Select position from tbl_position where position COLLATE Latin1_General_CS_AS='" + position + "'", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        /// <summary>
+        /// Get Data
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetAddData(string position)
+        {
+            try
+            {
+       return Common.HelperDao.GetData("Select position from tbl_position where position='" + position + "'", CommandType.Text);
             }
             catch (Exception ex)
             {

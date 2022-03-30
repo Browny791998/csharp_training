@@ -97,12 +97,11 @@ namespace Job_Portal_Management_System.Views.Specialization
         {
             if (hfSpecialization.Value == "")
             {
-                da = JobPortal_Services.Specialization.SpecializationServices.GetData(txtSpecialization.Text);
+                da = JobPortal_Services.Specialization.SpecializationServices.GetAddData(txtSpecialization.Text);
                 if (da.Rows.Count > 0)
                 {
                     Session["alert"] = "Data already exist";
                     Session["alert-type"] = "warning";
-                    Response.Redirect("SpecilizationList.aspx");
                 }
                 else
                 {

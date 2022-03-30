@@ -97,12 +97,11 @@ namespace Job_Portal_Management_System.Views.Skill
         {
             if (hfSkill.Value == "")
             {
-                da = JobPortal_Services.Skill.SkillServices.GetData(txtSkill.Text);
+                da = JobPortal_Services.Skill.SkillServices.GetAddData(txtSkill.Text);
                 if (da.Rows.Count > 0)
                 {
                     Session["alert"] = "Data already exist";
                     Session["alert-type"] = "warning";
-                    Response.Redirect("SkillList.aspx");
                 }
                 else
                 {
