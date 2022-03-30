@@ -11,7 +11,7 @@
                 <h2 class="text-danger text-center"><i class="fa-solid fa-filter text-black-50 mr-2"></i>Filter Jobs</h2>
                 <div class="row mb-2">
                     <div class="col-md-5">
-                        <p class="ml-5">Country</p>
+                        <p class="ml-md-5">Country</p>
                     </div>
                     <div class="col-md-7">
                         <asp:DropDownList ID="ddlCountry" runat="server" CssClass="form-control bg-info text-white font-weight-bold">
@@ -20,7 +20,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-md-5">
-                        <p class="ml-5">Position</p>
+                        <p class="ml-md-5">Position</p>
                     </div>
                     <div class="col-md-7">
                         <asp:DropDownList ID="ddlPosition" runat="server" CssClass="form-control bg-info text-white font-weight-bold">
@@ -29,7 +29,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-md-5">
-                        <p class="ml-5">Type</p>
+                        <p class="ml-md-5">Type</p>
                     </div>
                     <div class="col-md-7">
                         <asp:DropDownList ID="ddlJobtype" runat="server" CssClass="form-control bg-info text-white font-weight-bold">
@@ -39,7 +39,7 @@
 
                 <div class="row mb-2">
                     <div class="col-md-5">
-                        <p class="ml-2">Specialization</p>
+                        <p class="ml-md-2">Specialization</p>
                     </div>
                     <div class="col-md-7">
                         <asp:DropDownList ID="ddlspeicalization" runat="server" CssClass="form-control bg-info text-white font-weight-bold">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-7 p-2 ml-5">
+            <div class="col-12 col-md-7 p-2 ml-md-5">
                 <div class="row">
                     <asp:Repeater ID="rptJoblist" runat="server">
                         <ItemTemplate>

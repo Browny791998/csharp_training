@@ -67,9 +67,9 @@
 
         <%--What We do--%>
         <h1 class="text-center mt-5 text-warning">What We do</h1>
-        <div class="d-flex flex-row justify-content-around mt-5">
+        <div class="d-flex flex-row flex-sm-column flex-md-row flex-wrap justify-content-md-around mt-5">
 
-            <div class="card border-info mb-3" style="max-width: 18rem;">
+            <div class="card border-info align-self-center mb-3" style="max-width: 18rem;">
                 <div class="card-body text-info">
                     <i class="fas fa-network-wired fa-3x" style="margin-left: 90px;"></i>
                     <h5 class="card-title text-center mt-4 "><i class="fa-solid fa-chart-user"></i>Best Service</h5>
@@ -77,7 +77,7 @@
                 </div>
             </div>
 
-            <div class="card border-info mb-3" style="max-width: 18rem;">
+            <div class="card border-info align-self-center mb-3" style="max-width: 18rem;">
                 <div class="card-body text-info">
                     <i class="fas fa-search-dollar fa-3x" style="margin-left: 90px;"></i>
                     <h5 class="card-title text-center mt-4 "><i class="fa-solid fa-chart-user"></i>Best Job</h5>
@@ -85,7 +85,7 @@
                 </div>
             </div>
 
-            <div class="card border-info mb-3" style="max-width: 18rem;">
+            <div class="card border-info align-self-center mb-3" style="max-width: 18rem;">
                 <div class="card-body text-info">
                     <i class="fas fa-hands-helping  fa-3x" style="margin-left: 90px;"></i>
                     <h5 class="card-title text-center mt-4 "><i class="fa-solid fa-chart-user"></i>Reliable</h5>

@@ -32,10 +32,10 @@
                     <div class="col-md-7">
                         <div class="card p-5 mt-3 shadow-sm">
                             <h1 class="text-primary"><%# Eval("title") %></h1>
-                            <div class="d-flex flex-row justify-content-between mt-3">
-                                <p><i class="fas fa-building"></i><%# Eval("name") %></p>
-                                <p><i class="fas fa-map-marker-alt"></i><%# Eval("country") %></p>
-                                <p><i class="fas fa-money-bill-wave"></i><%# Eval("salary") %>/month</p>
+                            <div class="d-flex flex-md-row flex-column flex-wrap flex-sm-column justify-content-md-between ">
+                                <p><i class="fas fa-building"></i> <%# Eval("name") %></p>
+                                <p><i class="fas fa-map-marker-alt"></i> <%# Eval("country") %></p>
+                                <p><i class="fas fa-money-bill-wave"></i> <%# Eval("salary") %>/month</p>
                             </div>
                         </div>
 
@@ -58,7 +58,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 offset-md-1">
+                    <div class="col-md-4 col-sm-12 offset-md-1">
                         <div class="card p-3 mt-3 shadow-sm">
                             <h3 class="text-danger">Job Overview</h3>
                             <div class="d-flex flex-column ">
@@ -93,32 +93,32 @@
                 <ItemTemplate>
                     <div class="card p-3 mt-3 shadow-sm">
                         <h3 class="text-warning mb-2">Company information</h3>
-                        <div class="d-flex flex-column ">
-                            <div class="d-flex flex-row justify-content-between">
+                        <div class="d-flex flex-column flex-wrap ">
+                            <div class="d-flex flex-md-row  justify-content-between">
                                 <p>Name:</p>
                                 <p><%# Eval("name") %></p>
                             </div>
-                            <div class="d-flex flex-row justify-content-between">
+                            <div class="d-flex flex-md-row  justify-content-between">
                                 <p>Address:</p>
                                 <p><%# Eval("address") %></p>
                             </div>
-                            <div class="d-flex flex-row justify-content-between">
+                            <div class="d-flex flex-md-row  justify-content-between">
                                 <p>CEO:</p>
                                 <p><%# Eval("contact_person") %></p>
                             </div>
-                            <div class="d-flex flex-row justify-content-between">
+                            <div class="d-flex flex-md-row  justify-content-between">
                                 <p>Website:</p>
                                 <p><%# Eval("website") %></p>
                             </div>
-                            <div class="d-flex flex-row justify-content-between">
+                            <div class="d-flex flex-md-row  justify-content-between">
                                 <p>Email:</p>
                                 <p><%# Eval("email") %></p>
                             </div>
-                            <div class="d-flex flex-row justify-content-between">
+                            <div class="d-flex flex-md-row  justify-content-between">
                                 <p>Mobile:</p>
                                 <p><%# Eval("mobile") %></p>
                             </div>
-                            <div class="d-flex flex-row justify-content-between">
+                            <div class="d-flex flex-md-row  justify-content-between">
                                 <p>Detail:</p>
                                 <p><%# Eval("detail") %></p>
                             </div>

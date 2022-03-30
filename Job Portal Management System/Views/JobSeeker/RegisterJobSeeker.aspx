@@ -71,7 +71,7 @@
                 </div>
 
                 <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-info" OnClick="btnRegister_Click" />
-                <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" OnClick="btnClear_Click" />
+                <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" OnClick="btnClear_Click" CausesValidation="false" />
             </div>
             <div class="col-md-5 mt-5">
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
