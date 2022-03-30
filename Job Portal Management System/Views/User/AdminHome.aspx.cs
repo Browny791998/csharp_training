@@ -21,7 +21,7 @@ namespace Job_Portal_Management_System.Views
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["email"] == null)
+            if (Session["email"] == null || Session["role"] == null)
             {
                 Response.Redirect("~/Views/User/Login.aspx");
             }

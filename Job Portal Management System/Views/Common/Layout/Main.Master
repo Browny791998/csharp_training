@@ -71,6 +71,8 @@
                                             {%>
                                         <a class="dropdown-item" href="../../../Views/JobSeeker/JobSeekerProfile.aspx">My Account</a>
                                         <a class="dropdown-item" href="../../../Views/JobSeeker/AppliedJob.aspx">My applied job</a>
+                                        <%}else{ %>
+                                         <a class="dropdown-item" href="../../../Views/User/AdminHome.aspx">Admin Dashboard</a>
                                         <%} %>
                                         <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click"
                                             class="dropdown-item" CausesValidation="false"> Logout</asp:LinkButton>

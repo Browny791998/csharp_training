@@ -28,13 +28,15 @@ namespace Job_Portal_Management_System.Views.User
         {
             string email = txtEmail.Text;
             string password = txtPassword.Text;
-            string name;
+            string name,role;
             da = JobPortal_Services.User.UserServices.GetData(email, password);
             if (da.Rows.Count > 0)
             {
                 name = da.Rows[0]["name"].ToString();
+                role= da.Rows[0]["role"].ToString();
                 Session["name"] = name;
                 Session["email"] = txtEmail.Text;
+                Session["role"] = role;
                 Response.Write(Session["name"]);
                 Response.Redirect("~/Views/User/AdminHome");
             }
