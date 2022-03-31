@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-
+using Job_Portal_Management_System.Properties;
 namespace Job_Portal_Management_System.Views.Job
 {
     public partial class JobDetail : System.Web.UI.Page
@@ -33,7 +33,7 @@ namespace Job_Portal_Management_System.Views.Job
                 }
                 else if (strReq != Session["url"].ToString())
                 {
-                    Session["alert"] = "Wrong Url";
+                    Session["alert"] = Message.I0009;
                     Session["alert-type"] = "warning";
                     strReq = Session["url"].ToString();
                 }
@@ -55,7 +55,7 @@ namespace Job_Portal_Management_System.Views.Job
                 }
                 else
                 {
-                    Session["alert"] = "Wrong Url";
+                    Session["alert"] = Message.I0009;
                     Session["alert-type"] = "warning";
                 }
              }
@@ -121,7 +121,7 @@ namespace Job_Portal_Management_System.Views.Job
             }
             else if (Session["role"].ToString() == "Company" && Session["role"].ToString() != "Job Seeker")
             {
-                Session["alert"] = "Only Job Seeker can apply the job";
+                Session["alert"] = Message.I0017;
                 Session["alert-type"] = "warning";
             }
             else
@@ -129,7 +129,7 @@ namespace Job_Portal_Management_System.Views.Job
              da = JobPortal_Services.JobOffer.JobOfferService.GetJobandSeeker(Convert.ToInt32(hfJobID.Value), Convert.ToInt32(Session["id"]));
                 if (da.Rows.Count > 0)
                 {
-                    Session["alert"] = "You already applied this job!";
+                    Session["alert"] = Message.I0018;
                     Session["alert-type"] = "danger";
                 }
                 else
@@ -138,12 +138,12 @@ namespace Job_Portal_Management_System.Views.Job
                     bool success = JobPortal_Services.JobOffer.JobOfferService.Insert(joboffermodel);
                     if (success)
                     {
-                        Session["alert"] = "Successfully applied this job,we will reply you soon";
+                        Session["alert"] = Message.I0019;
                         Session["alert-type"] = "success";
                     }
                     else
                     {
-                        Session["alert"] = "Failed to apply this job";
+                        Session["alert"] = Message.I0020;
                         Session["alert-type"] = "danger";
                     }
                 }

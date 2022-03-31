@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-
+using Job_Portal_Management_System.Properties;
 namespace Job_Portal_Management_System.Views
 {
     public partial class Login : System.Web.UI.Page
@@ -69,13 +69,13 @@ namespace Job_Portal_Management_System.Views
                     }
                     else
                     {
-                        Session["alert"] = "Incorrect Password";
+                        Session["alert"] = Message.I0021;
                         Session["alert-type"] = "danger";
                     }
                 }
                 else
                 {
-                    Session["alert"] = "Incorrect Email";
+                    Session["alert"] = Message.I0022;
                     Session["alert-type"] = "danger";
                 }
             }
@@ -94,13 +94,13 @@ namespace Job_Portal_Management_System.Views
                     }
                     else
                     {
-                        Session["alert"] = "Incorrect Password";
+                        Session["alert"] = Message.I0021;
                         Session["alert-type"] = "danger";
                     }
                 }
                 else
                 {
-                    Session["alert"] = "Incorrect Email";
+                    Session["alert"] = Message.I0022;
                     Session["alert-type"] = "danger";
                 }
             }

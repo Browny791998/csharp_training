@@ -2,7 +2,7 @@
 using System.Data;
 using System.Web;
 using System.Web.UI.WebControls;
-
+using Job_Portal_Management_System.Properties;
 namespace Job_Portal_Management_System.Views.Job
 {
     public partial class JobList : System.Web.UI.Page
@@ -76,13 +76,13 @@ namespace Job_Portal_Management_System.Views.Job
             bool IsDelete = JobPortal_Services.Job.JobService.Delete(jobmodel);
             if (IsDelete)
             {
-                Session["alert"] = "Delete successfully";
+                Session["alert"] =Message.I0003;
                 Session["alert-type"] = "success";
                 GetData();
             }
             else
             {
-                Session["alert"] = "Delete failed";
+                Session["alert"] = Message.I0007;
                 Session["alert-type"] = "danger";
             }
         }

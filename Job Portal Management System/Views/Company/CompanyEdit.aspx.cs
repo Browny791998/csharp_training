@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-
+using Job_Portal_Management_System.Properties;
 namespace Job_Portal_Management_System.Views.Company
 {
     public partial class CompanyEdit : System.Web.UI.Page
@@ -124,13 +124,13 @@ namespace Job_Portal_Management_System.Views.Company
             bool IsUpdate = JobPortal_Services.Company.CompanyService.Update(companymodel);
             if (IsUpdate)
             {
-                Session["alert"] = "Successfully updated your company information";
+                Session["alert"] = Message.I0002;
                 Session["alert-type"] = "success";
                 Response.Redirect("~/Views/Company/CompanyAccount.aspx");
             }
             else
             {
-                Session["alert"] = "failed to update  your company information";
+                Session["alert"] = Message.I0006;
                 Session["alert-type"] = "danger";
             }
         }

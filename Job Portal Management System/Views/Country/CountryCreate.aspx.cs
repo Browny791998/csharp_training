@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-
+using Job_Portal_Management_System.Properties;
 namespace Job_Portal_Management_System.Views.Country
 {
     public partial class CountryCreate : System.Web.UI.Page
@@ -54,7 +54,7 @@ namespace Job_Portal_Management_System.Views.Country
                         }
                         else if(strReq != Session["url"].ToString())
                         {
-                            Session["alert"] = "Wrong Url";
+                            Session["alert"] = Message.I0009;
                             Session["alert-type"] = "warning";
                             strReq = Session["url"].ToString();
                         }
@@ -79,7 +79,7 @@ namespace Job_Portal_Management_System.Views.Country
                         }
                         else
                         {
-                            Session["alert"] = "Wrong Url";
+                            Session["alert"] = Message.I0009;
                             Session["alert-type"] = "warning";
                         }
                     }
@@ -136,7 +136,7 @@ namespace Job_Portal_Management_System.Views.Country
                 da = JobPortal_Services.Country.CountryServices.GetAddData(txtCountry.Text);
                 if (da.Rows.Count > 0)
                 {
-                    Session["alert"] = "Data already exist";
+                    Session["alert"] = Message.I0004;
                     Session["alert-type"] = "warning";
                 }
                 else
@@ -145,14 +145,14 @@ namespace Job_Portal_Management_System.Views.Country
                     bool success = JobPortal_Services.Country.CountryServices.Insert(countrymodel);
                     if (success)
                     {
-                        Session["alert"] = "Added Country Successfully";
+                        Session["alert"] = Message.I0001;
                         Session["alert-type"] = "success";
                         Response.Redirect("CountryList.aspx");
                         txtCountry.Text = string.Empty;
                     }
                     else
                     {
-                        Session["alert"] = "Adding failed. Try again!!";
+                        Session["alert"] = Message.I0005;
                         Session["alert-type"] = "danger";
                         Response.Redirect("CountryList.aspx");
                     }
@@ -168,13 +168,13 @@ namespace Job_Portal_Management_System.Views.Country
                     bool IsUpdate = JobPortal_Services.Country.CountryServices.Update(countrymodel);
                     if (IsUpdate)
                     {
-                        Session["alert"] = "Updated successfully";
+                        Session["alert"] = Message.I0002;
                         Session["alert-type"] = "success";
                         Response.Redirect("CountryList.aspx");
                     }
                     else
                     {
-                        Session["alert"] = "Updating failed";
+                        Session["alert"] = Message.I0006;
                         Session["alert-type"] = "danger";
                         Response.Redirect("CountryList.aspx");
                     }
@@ -184,7 +184,7 @@ namespace Job_Portal_Management_System.Views.Country
                     da = JobPortal_Services.Country.CountryServices.GetAddData(txtCountry.Text);
                     if (da.Rows.Count > 0)
                     {
-                        Session["alert"] = "Data already exist";
+                        Session["alert"] = Message.I0004;
                         Session["alert-type"] = "warning";
                     }
                     else
@@ -193,13 +193,13 @@ namespace Job_Portal_Management_System.Views.Country
                         bool IsUpdate = JobPortal_Services.Country.CountryServices.Update(countrymodel);
                         if (IsUpdate)
                         {
-                            Session["alert"] = "Updated successfully";
+                            Session["alert"] = Message.I0002;
                             Session["alert-type"] = "success";
                             Response.Redirect("CountryList.aspx");
                         }
                         else
                         {
-                            Session["alert"] = "Updating failed";
+                            Session["alert"] = Message.I0006;
                             Session["alert-type"] = "danger";
                             Response.Redirect("CountryList.aspx");
                         }

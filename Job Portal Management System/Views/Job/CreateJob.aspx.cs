@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
-
+using Job_Portal_Management_System.Properties;
 namespace Job_Portal_Management_System.Views.Job
 {
     public partial class CreateJob : System.Web.UI.Page
@@ -46,7 +46,7 @@ namespace Job_Portal_Management_System.Views.Job
                     }
                     else if (strReq != Session["url"].ToString())
                     {
-                        Session["alert"] = "Wrong Url";
+                        Session["alert"] = Message.I0009;
                         Session["alert-type"] = "warning";
                         strReq = Session["url"].ToString();
                     }
@@ -97,7 +97,7 @@ namespace Job_Portal_Management_System.Views.Job
                     }
                     else
                     {
-                        Session["alert"] = "Wrong Url";
+                        Session["alert"] = Message.I0009;
                         Session["alert-type"] = "warning";
                     }
                 }
@@ -265,13 +265,13 @@ namespace Job_Portal_Management_System.Views.Job
                 bool IsUpdate = JobPortal_Services.Job.JobService.Update(jobmodel);
                 if (IsUpdate)
                 {
-                    Session["alert"] = "Updated successfully";
+                    Session["alert"] = Message.I0002;
                     Session["alert-type"] = "success";
                     Response.Redirect("JobList.aspx");
                 }
                 else
                 {
-                    Session["alert"] = "Updating failed";
+                    Session["alert"] = Message.I0006;
                     Session["alert-type"] = "danger";
                     Response.Redirect("JobList.aspx");
                 }
@@ -282,13 +282,13 @@ namespace Job_Portal_Management_System.Views.Job
                 bool success = JobPortal_Services.Job.JobService.Insert(jobmodel);
                 if (success)
                 {
-                    Session["alert"] = "Successfully created";
+                    Session["alert"] = Message.I0001;
                     Session["alert-type"] = "success";
                     ClearFields();
                 }
                 else
                 {
-                    Session["alert"] = "Failed Creating";
+                    Session["alert"] = Message.I0005;
                     Session["alert-type"] = "danger";
                 }
             }

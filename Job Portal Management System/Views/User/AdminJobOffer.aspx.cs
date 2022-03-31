@@ -4,6 +4,7 @@ using System.Data;
 using System.Net;
 using System.Net.Mail;
 using System.Web.UI.WebControls;
+using Job_Portal_Management_System.Properties;
 
 namespace Job_Portal_Management_System.Views.User
 {
@@ -238,6 +239,8 @@ namespace Job_Portal_Management_System.Views.User
             smtp.Credentials = NetworkCred;
             smtp.Port = 587;
             smtp.Send(msg);
+            Session["alert"] =Message.I0010;
+            Session["alert-type"] = "warning";
         }
 
         #endregion send email

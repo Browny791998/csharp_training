@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-
+using Job_Portal_Management_System.Properties;
 namespace Job_Portal_Management_System.Views
 {
     public partial class Reset : System.Web.UI.Page
@@ -36,7 +36,7 @@ namespace Job_Portal_Management_System.Views
                 }
                 else
                 {
-                    Session["alert"] = "Your Reset Password link is expired or invalid!";
+                    Session["alert"] = Message.I0026;
                     Session["alert-type"] = "warning";
                 }
             }
@@ -81,13 +81,13 @@ namespace Job_Portal_Management_System.Views
                     success = JobPortal_Services.ResetPassword.ResetPasswordService.Delete(resetpassmodel);
                     if (success)
                     {
-                        Session["alert"] = "Your Password is successfully changed";
+                        Session["alert"] = Message.I0023;
                         Session["alert-type"] = "success";
                     }
                 }
                 else
                 {
-                    Session["alert"] = "Failed Password changing";
+                    Session["alert"] = Message.I0024;
                     Session["alert-type"] = "danger";
                 }
             }
@@ -103,13 +103,13 @@ namespace Job_Portal_Management_System.Views
                     success = JobPortal_Services.ResetPassword.ResetPasswordService.Delete(resetpassmodel);
                     if (success)
                     {
-                        Session["alert"] = "Your Password is successfully changed";
+                        Session["alert"] = Message.I0023;
                         Session["alert-type"] = "success";
                     }
                 }
                 else
                 {
-                    Session["alert"] = "Failed Password changing";
+                    Session["alert"] = Message.I0024;
                     Session["alert-type"] = "danger";
                 }
             }

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-
+using Job_Portal_Management_System.Properties;
 namespace Job_Portal_Management_System.Views.Joboffer
 {
     public partial class ApplierDetail : System.Web.UI.Page
@@ -49,7 +49,7 @@ namespace Job_Portal_Management_System.Views.Joboffer
             }
             else if (strReq != Session["url"].ToString())
             {
-                Session["alert"] = "Wrong Url";
+                Session["alert"] = Message.I0009;
                 Session["alert-type"] = "warning";
                 strReq = Session["url"].ToString();
             }
@@ -68,7 +68,7 @@ namespace Job_Portal_Management_System.Views.Joboffer
             }
             else
             {
-                Session["alert"] = "Wrong Url";
+                Session["alert"] = Message.I0009;
                 Session["alert-type"] = "warning";
             }
         }

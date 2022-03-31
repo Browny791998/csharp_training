@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-
+using Job_Portal_Management_System.Properties;
 namespace Job_Portal_Management_System.Views.Skill
 {
     public partial class SkillCreate : System.Web.UI.Page
@@ -54,7 +54,7 @@ namespace Job_Portal_Management_System.Views.Skill
                         }
                         else if (strReq != Session["url"].ToString())
                         {
-                            Session["alert"] = "Wrong Url";
+                            Session["alert"] =Message.I0009;
                             Session["alert-type"] = "warning";
                             strReq = Session["url"].ToString();
                         }
@@ -78,7 +78,7 @@ namespace Job_Portal_Management_System.Views.Skill
                         }
                         else
                         {
-                            Session["alert"] = "Wrong Url";
+                            Session["alert"] = Message.I0009;
                             Session["alert-type"] = "warning";
                         }
                     }
@@ -133,7 +133,7 @@ namespace Job_Portal_Management_System.Views.Skill
                 da = JobPortal_Services.Skill.SkillServices.GetAddData(txtSkill.Text);
                 if (da.Rows.Count > 0)
                 {
-                    Session["alert"] = "Data already exist";
+                    Session["alert"] =Message.I0004;
                     Session["alert-type"] = "warning";
                 }
                 else
@@ -142,14 +142,14 @@ namespace Job_Portal_Management_System.Views.Skill
                     bool success = JobPortal_Services.Skill.SkillServices.Insert(skillmodel);
                     if (success)
                     {
-                        Session["alert"] = "Added Skill Successfully";
+                        Session["alert"] = Message.I0001;
                         Session["alert-type"] = "success";
                         Response.Redirect("SkillList.aspx");
                         txtSkill.Text = string.Empty;
                     }
                     else
                     {
-                        Session["alert"] = "Adding failed. Try again!!";
+                        Session["alert"] =Message.I0005;
                         Session["alert-type"] = "danger";
                         Response.Redirect("SkillList.aspx");
                     }
@@ -165,13 +165,13 @@ namespace Job_Portal_Management_System.Views.Skill
                     bool IsUpdate = JobPortal_Services.Skill.SkillServices.Update(skillmodel);
                     if (IsUpdate)
                     {
-                        Session["alert"] = "Updated successfully";
+                        Session["alert"] =Message.I0002;
                         Session["alert-type"] = "success";
                         Response.Redirect("SkillList.aspx");
                     }
                     else
                     {
-                        Session["alert"] = "Updating failed";
+                        Session["alert"] = Message.I0006;
                         Session["alert-type"] = "danger";
                         Response.Redirect("SkillList.aspx");
                     }
@@ -181,7 +181,7 @@ namespace Job_Portal_Management_System.Views.Skill
                     da = JobPortal_Services.Skill.SkillServices.GetAddData(txtSkill.Text);
                     if (da.Rows.Count > 0)
                     {
-                        Session["alert"] = "Data already exist";
+                        Session["alert"] = Message.I0004;
                         Session["alert-type"] = "warning";
                     }
                     else
@@ -190,13 +190,13 @@ namespace Job_Portal_Management_System.Views.Skill
                         bool IsUpdate = JobPortal_Services.Skill.SkillServices.Update(skillmodel);
                         if (IsUpdate)
                         {
-                            Session["alert"] = "Updated successfully";
+                            Session["alert"] = Message.I0002;
                             Session["alert-type"] = "success";
                             Response.Redirect("SkillList.aspx");
                         }
                         else
                         {
-                            Session["alert"] = "Updating failed";
+                            Session["alert"] = Message.I0006;
                             Session["alert-type"] = "danger";
                             Response.Redirect("SkillList.aspx");
                         }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Web.UI.WebControls;
-
+using Job_Portal_Management_System.Properties;
 namespace Job_Portal_Management_System.Views.JobSeeker
 {
     public partial class AppliedJob : System.Web.UI.Page
@@ -86,13 +86,13 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             bool IsDelete = JobPortal_Services.JobOffer.JobOfferService.Delete(joboffermodel);
             if (IsDelete)
             {
-                Session["alert"] = "Reject this job successfully";
+                Session["alert"] = Message.I0015;
                 Session["alert-type"] = "success";
                 GetData();
             }
             else
             {
-                Session["alert"] = "Rejecting failed";
+                Session["alert"] = Message.I0016;
                 Session["alert-type"] = "danger";
             }
         }

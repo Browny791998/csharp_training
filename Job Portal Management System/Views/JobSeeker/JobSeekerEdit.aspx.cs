@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Web.UI.WebControls;
-
+using Job_Portal_Management_System.Properties;
 namespace Job_Portal_Management_System.Views.JobSeeker
 {
     public partial class JobSeekerEdit : System.Web.UI.Page
@@ -41,7 +41,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 }
                 else if (strReq != Session["url"].ToString())
                 {
-                    Session["alert"] = "Wrong Url";
+                    Session["alert"] = Message.I0009;
                     Session["alert-type"] = "warning";
                     strReq = Session["url"].ToString();
                 }
@@ -85,7 +85,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 }
                 else
                 {
-                    Session["alert"] = "Wrong Url";
+                    Session["alert"] = Message.I0009;
                     Session["alert-type"] = "warning";
                 }
             }
@@ -249,13 +249,13 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             UpdateData();
             if (jobseekermodel.CVForm == null)
             {
-                Session["alert"] = "CV Form File Type is invalid";
+                Session["alert"] = Message.I0011;
                 Session["alert-type"] = "warning";
                 return;
             }
             else if (jobseekermodel.Profile == null)
             {
-                Session["alert"] = "Profile File Type is invalid";
+                Session["alert"] = Message.I0012;
                 Session["alert-type"] = "warning";
                 return;
             }
@@ -264,13 +264,13 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 bool IsUpdate = JobPortal_Services.JobSeeker.JobSeekerService.Update(jobseekermodel);
                 if (IsUpdate)
                 {
-                    Session["alert"] = "Successfully updated your profile";
+                    Session["alert"] = Message.I0002;
                     Session["alert-type"] = "success";
                     Response.Redirect("~/Views/JobSeeker/JobSeekerProfile.aspx");
                 }
                 else
                 {
-                    Session["alert"] = "failed to update your profile";
+                    Session["alert"] = Message.I0006;
                     Session["alert-type"] = "danger";
                 }
             }

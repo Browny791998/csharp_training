@@ -2,7 +2,7 @@
 using System.Data;
 using System.Web;
 using System.Web.UI.WebControls;
-
+using Job_Portal_Management_System.Properties;
 namespace Job_Portal_Management_System.Views.Joboffer
 {
     public partial class JobOfferList : System.Web.UI.Page
@@ -83,13 +83,13 @@ namespace Job_Portal_Management_System.Views.Joboffer
                 bool IsAccept = JobPortal_Services.JobOffer.JobOfferService.Accept(joboffermodel);
                 if (IsAccept)
                 {
-                    Session["alert"] = "You accept this applier";
+                    Session["alert"] = Message.I0027;
                     Session["alert-type"] = "success";
                     GetData();
                 }
                 else
                 {
-                    Session["alert"] = "fail to accept";
+                    Session["alert"] = Message.I0028;
                     Session["alert-type"] = "danger";
                 }
             }
@@ -101,13 +101,13 @@ namespace Job_Portal_Management_System.Views.Joboffer
                 bool IsAccept = JobPortal_Services.JobOffer.JobOfferService.Accept(joboffermodel);
                 if (IsAccept)
                 {
-                    Session["alert"] = "You reject this applier";
+                    Session["alert"] =Message.I0029;
                     Session["alert-type"] = "success";
                     GetData();
                 }
                 else
                 {
-                    Session["alert"] = "fail to reject";
+                    Session["alert"] = Message.I0030;
                     Session["alert-type"] = "danger";
                 }
             }

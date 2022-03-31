@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-
+using Job_Portal_Management_System.Properties;
 namespace Job_Portal_Management_System.Views.Company
 {
     public partial class RegisterCompany : System.Web.UI.Page
@@ -75,7 +75,7 @@ namespace Job_Portal_Management_System.Views.Company
             da = JobPortal_Services.Company.CompanyService.GetData(txtEmail.Text);
             if (da.Rows.Count > 0)
             {
-                Session["alert"] = "Data already exist";
+                Session["alert"] = Message.I0004;
                 Session["alert-type"] = "warning";
             }
             else
@@ -84,13 +84,13 @@ namespace Job_Portal_Management_System.Views.Company
                 bool success = JobPortal_Services.Company.CompanyService.Insert(companymodel);
                 if (success)
                 {
-                    Session["alert"] = "Successfully registered";
+                    Session["alert"] = Message.I0013;
                     Session["alert-type"] = "success";
                     ClearFields();
                 }
                 else
                 {
-                    Session["alert"] = "Failed registering";
+                    Session["alert"] = Message.I0014;
                     Session["alert-type"] = "danger";
                 }
             }

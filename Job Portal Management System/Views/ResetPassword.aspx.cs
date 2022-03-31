@@ -2,7 +2,7 @@
 using System.Data;
 using System.Net;
 using System.Net.Mail;
-
+using Job_Portal_Management_System.Properties;
 namespace Job_Portal_Management_System.Views
 {
     public partial class ResetPassword : System.Web.UI.Page
@@ -63,13 +63,13 @@ namespace Job_Portal_Management_System.Views
                         };
                         SMTP.EnableSsl = true;
                         SMTP.Send(PassMail);
-                        Session["alert"] = "Check your Email to reset your password";
+                        Session["alert"] = Message.I0025;
                         Session["alert-type"] = "success";
                     }
                 }
                 else
                 {
-                    Session["alert"] = "Incorrect Email";
+                    Session["alert"] = Message.I0022;
                     Session["alert-type"] = "danger";
                 }
             }
@@ -103,13 +103,13 @@ namespace Job_Portal_Management_System.Views
                         };
                         SMTP.EnableSsl = true;
                         SMTP.Send(PassMail);
-                        Session["alert"] = "Check your Email to reset your password";
+                        Session["alert"] = Message.I0025;
                         Session["alert-type"] = "success";
                     }
                 }
                 else
                 {
-                    Session["alert"] = "Incorrect Email";
+                    Session["alert"] = Message.I0022;
                     Session["alert-type"] = "danger";
                 }
             }

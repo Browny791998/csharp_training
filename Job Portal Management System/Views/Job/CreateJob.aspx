@@ -106,7 +106,7 @@
                     <asp:TextBox ID="txtDetail" runat="server" CssClass="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtDetail" ForeColor="Red">Detail can&#39;t be blank</asp:RequiredFieldValidator>
                 </div>
-                <%if (Request.QueryString["action"] == "update")
+                <%if (Session["label"]!= null && Session["label"].ToString() == "update")
                     {%>
                 <div class="form-group">
                     <div class="custom-control custom-switch">

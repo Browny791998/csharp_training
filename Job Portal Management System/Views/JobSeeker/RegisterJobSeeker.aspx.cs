@@ -2,7 +2,7 @@
 using System.Data;
 using System.IO;
 using System.Web.UI.WebControls;
-
+using Job_Portal_Management_System.Properties;
 namespace Job_Portal_Management_System.Views.JobSeeker
 {
     public partial class RegisterJobSeeker : System.Web.UI.Page
@@ -162,7 +162,7 @@ namespace Job_Portal_Management_System.Views.JobSeeker
             da = JobPortal_Services.JobSeeker.JobSeekerService.GetData(txtEmail.Text);
             if (da.Rows.Count > 0)
             {
-                Session["alert"] = "Data already exist";
+                Session["alert"] = Message.I0004;
                 Session["alert-type"] = "warning";
             }
             else
@@ -170,13 +170,13 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                 InsertData();
                 if (jobseekermodel.CVForm == null)
                 {
-                    Session["alert"] = "CV Form File Type is invalid";
+                    Session["alert"] = Message.I0011;
                     Session["alert-type"] = "warning";
                     return;
                 }
                 else if (jobseekermodel.Profile == null)
                 {
-                    Session["alert"] = "Profile File Type is invalid";
+                    Session["alert"] =Message.I0012;
                     Session["alert-type"] = "warning";
                     return;
                 }
@@ -185,13 +185,13 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                     bool success = JobPortal_Services.JobSeeker.JobSeekerService.Insert(jobseekermodel);
                     if (success)
                     {
-                        Session["alert"] = "Successfully registered";
+                        Session["alert"] = Message.I0013;
                         Session["alert-type"] = "success";
                         ClearFields();
                     }
                     else
                     {
-                        Session["alert"] = "Failed registering";
+                        Session["alert"] = Message.I0014;
                         Session["alert-type"] = "danger";
                     }
                 }

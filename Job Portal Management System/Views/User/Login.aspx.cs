@@ -29,7 +29,7 @@ namespace Job_Portal_Management_System.Views.User
             string email = txtEmail.Text;
             string password = txtPassword.Text;
             string name,role;
-            da = JobPortal_Services.User.UserServices.GetData(email, password);
+            da = JobPortal_Services.User.UserServices.GetData(email.ToString().Replace("'", "''"), password);
             if (da.Rows.Count > 0)
             {
                 name = da.Rows[0]["name"].ToString();

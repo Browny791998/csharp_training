@@ -32,7 +32,7 @@
                         <div class="carousel-item">
                             <img src="../Resources/images/slide3.jpg" class="d-block w-100" height="500" alt="...">
                             <div class="carousel-caption d-none d-md-block">
-                                <button class="btn btn-info">Register Now</button>
+                                <a href="../../../Views/JobSeeker/RegisterJobSeeker.aspx" class="btn btn-info">Register Now</a>
                                 <p class="font-weight-bold text-dark">If you need the best employer.let's join us ,we will help you</p>
                             </div>
                         </div>

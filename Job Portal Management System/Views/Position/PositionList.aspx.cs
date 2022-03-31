@@ -3,7 +3,7 @@ using System.Data;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using Job_Portal_Management_System.Properties;
 namespace Job_Portal_Management_System.Views.Position
 {
     public partial class Position : System.Web.UI.Page
@@ -111,7 +111,7 @@ namespace Job_Portal_Management_System.Views.Position
                 pid = Convert.ToInt32(da.Rows[j]["position_id"]);
                 if (pid == id)
                 {
-                    Session["alert"] = "Data Exist You can't delete this";
+                    Session["alert"] = Message.I0008;
                     Session["alert-type"] = "warning";
                     GetData();
                     return;
@@ -121,13 +121,13 @@ namespace Job_Portal_Management_System.Views.Position
             bool IsDelete = JobPortal_Services.Position.PositionServices.Delete(positionmodel);
             if (IsDelete)
             {
-                Session["alert"] = "Deleted successfully";
+                Session["alert"] = Message.I0003;
                 Session["alert-type"] = "success";
                 GetData();
             }
             else
             {
-                Session["alert"] = "Deleting failed";
+                Session["alert"] = Message.I0007;
                 Session["alert-type"] = "danger";
             }
         }
