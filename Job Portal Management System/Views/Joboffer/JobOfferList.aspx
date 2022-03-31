@@ -83,9 +83,9 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="">
                         <ItemTemplate>
-                            <asp:Button ID="btnDetail" runat="server" CommandName="Detail" CssClass="btn btn-primary" Text="Detail" CommandArgument="<%#Container.DataItemIndex %>" />
-                            <asp:Button ID="btnAccept" runat="server" CommandName="Accept" CssClass="btn btn-success" Text="Accept" CommandArgument="<%#Container.DataItemIndex %>" />
-                            <asp:Button ID="btnReject" runat="server" CommandName="Reject" CssClass="btn btn-danger" Text="Reject" CommandArgument="<%#Container.DataItemIndex %>" />
+                            <asp:Button ID="btnDetail"  runat="server" CommandName="Detail" CssClass="btn btn-primary" Text="Detail" CommandArgument="<%#Container.DataItemIndex %>" />
+                            <asp:Button ID="btnAccept" OnClientClick="return confirm('Are you sure to accept this applier');" runat="server" CommandName="Accept" CssClass="btn btn-success" Text="Accept" CommandArgument="<%#Container.DataItemIndex %>" />
+                            <asp:Button ID="btnReject" OnClientClick="return confirm('Are you sure to reject this applier');" runat="server" CommandName="Reject" CssClass="btn btn-danger" Text="Reject" CommandArgument="<%#Container.DataItemIndex %>" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
