@@ -119,7 +119,7 @@ namespace Job_Portal_Management_System.Views.Job
             {
                 Response.Redirect("~/Views/Login.aspx");
             }
-            else if (Session["role"].ToString() == "Company" && Session["role"].ToString() != "Job Seeker")
+            else if (Session["role"].ToString() == "Company" || Session["role"].ToString() == "admin"  )
             {
                 Session["alert"] = Message.I0017;
                 Session["alert-type"] = "warning";

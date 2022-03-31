@@ -21,7 +21,7 @@
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="~/Views/Home.aspx">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../../Views/Home.aspx">
                     <div class="sidebar-brand-icon">
                         <img src="../../../Resources/images/Brilliant%20Job-logos_black.png" width="80" height="60" />
                     </div>
@@ -157,10 +157,29 @@
         setTimeout("HideLabel();", 3000);
 
         $(function () {
-            $(".gvJob,.gvJobOffer").DataTable(
+            $(".gvJob").DataTable(
                 {
                     'columnDefs': [{
                         'targets': [10, 11],
+                        'orderable': false,
+                    }],
+                    "dom": '<"top"i>rt<"bottom"flp><"clear">',
+                    searching: false,
+                    bLengthChange: true,
+                    lengthMenu: [[5, 10, -1], [5, 10, "All"]],
+                    bFilter: true,
+                    bSort: true,
+                    bPaginate: true,
+                    bInfo: false,
+                    language: {
+                        lengthMenu: "<span style='padding-right:15px'>Page Size</span>_MENU_"
+                    }
+                });
+
+            $(".gvJobOffer").DataTable(
+                {
+                    'columnDefs': [{
+                        'targets': [6],
                         'orderable': false,
                     }],
                     "dom": '<"top"i>rt<"bottom"flp><"clear">',

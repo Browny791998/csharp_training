@@ -96,15 +96,18 @@
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
+                
+    
                 <div class="form-group">
                     <label for="fuCV">CV Form</label><span class="fill">*</span>
-
-                    <asp:FileUpload ID="fuCV" runat="server" CssClass="form-control pb-3" ViewStateMode="Inherit" EnableTheming="True" />
+                    <br />
+                    <asp:FileUpload ID="fuCV" runat="server" CssClass="border py-1 rounded" Width="450px" ViewStateMode="Inherit" EnableTheming="True" />
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="fuCV" ForeColor="Red">please upload your cv</asp:RequiredFieldValidator>
                 </div>
                 <div class="form-group">
                     <label for="fuProfile">Profile</label><span class="fill">*</span>
-                    <asp:FileUpload ID="fuProfile" runat="server" CssClass="form-control pb-3" />
+                    <br />
+                    <asp:FileUpload ID="fuProfile" runat="server" Width="450px" CssClass="border py-1 rounded"  />
                 </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="fuProfile" ForeColor="Red">please upload your profile</asp:RequiredFieldValidator>
                 <div class="form-group">

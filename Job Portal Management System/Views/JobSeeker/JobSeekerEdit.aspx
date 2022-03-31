@@ -96,19 +96,19 @@
                     </ContentTemplate>
                 </asp:UpdatePanel>
                 <div class="form-group">
-                    <label for="fuCV">CV Form</label>
+                    <label for="fuCV">CV Form</label><br />
                     <asp:HiddenField ID="hfCV" runat="server" />
-                    <asp:FileUpload ID="fuCV" runat="server" CssClass="form-control pb-3" />
+                    <asp:FileUpload ID="fuCV" runat="server" Width="450px" CssClass="border py-1 rounded"  />
                 </div>
                 <div class="form-group">
                     <label for="currentimg">Current Profile</label>
-                    <asp:Image ID="currentimg" runat="server" Width="200" Height="200" />
+                    <asp:Image ID="currentimg" runat="server" Width="200" Height="200"  />
                 </div>
                 <div class="form-group">
 
-                    <label for="fuProfile">Profile</label>
+                    <label for="fuProfile">Profile</label><br />
 
-                    <asp:FileUpload ID="fuProfile" runat="server" CssClass="form-control pb-3" />
+                    <asp:FileUpload ID="fuProfile" runat="server" Width="450px" CssClass="border py-1 rounded" />
                 </div>
 
                 <div class="form-group">

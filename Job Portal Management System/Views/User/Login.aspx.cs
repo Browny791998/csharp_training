@@ -37,7 +37,6 @@ namespace Job_Portal_Management_System.Views.User
                 Session["name"] = name;
                 Session["email"] = txtEmail.Text;
                 Session["role"] = role;
-                Response.Write(Session["name"]);
                 Response.Redirect("~/Views/User/AdminHome");
             }
             else

@@ -240,7 +240,7 @@ namespace Job_Portal_Management_System.Views.User
             smtp.Port = 587;
             smtp.Send(msg);
             Session["alert"] =Message.I0010;
-            Session["alert-type"] = "warning";
+            Session["alert-type"] = "success";
         }
 
         #endregion send email
