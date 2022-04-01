@@ -2010,6 +2010,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\Company\SendMail.aspx" />
     <Content Include="Views\Reset.aspx" />
     <Content Include="Views\ResetPassword.aspx" />
     <Content Include="Views\User\AdminHome.aspx" />
@@ -2086,6 +2087,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Company\SendMail.aspx.cs">
+      <DependentUpon>SendMail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Company\SendMail.aspx.designer.cs">
+      <DependentUpon>SendMail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Reset.aspx.cs">
       <DependentUpon>Reset.aspx</DependentUpon>
