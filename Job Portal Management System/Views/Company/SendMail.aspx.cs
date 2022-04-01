@@ -69,7 +69,7 @@ namespace Job_Portal_Management_System.Views.Company
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
             smtp.EnableSsl = true;
-            NetworkCredential NetworkCred = new NetworkCredential(email, password);
+            NetworkCredential NetworkCred = new NetworkCredential(email,password);
             smtp.UseDefaultCredentials = true;
             smtp.Credentials = NetworkCred;
             smtp.Port = 587;
