@@ -22,6 +22,21 @@ namespace JobPortal_Services.User
             }
         }
 
+        /// <summary>
+        /// Get Data
+        /// </summary>
+        public static DataTable GetAllData()
+        {
+            try
+            {
+                return JobPortal_DAOs.User.UserDaos.GetAllData();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         #endregion Get Data
     }
 }

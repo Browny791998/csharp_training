@@ -96,6 +96,21 @@ namespace JobPortal_DAOs.User
             }
         }
 
+        /// <summary>
+        /// Get Data
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetAllData()
+        {
+            try
+            {
+                return Common.HelperDao.GetData("Select id,name,email,password,role from tbl_user", CommandType.Text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion Get Data
     }
 }
