@@ -75,7 +75,10 @@
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
-
+                 <li class="nav-item">
+                    <a class="nav-link" href="../Company/SendMail.aspx">Send Mail
+                    </a>
+                </li>
                 <!-- Heading -->
 
                 

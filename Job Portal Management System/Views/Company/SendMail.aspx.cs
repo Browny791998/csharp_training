@@ -19,6 +19,7 @@ namespace Job_Portal_Management_System.Views.Company
 
         }
 
+
         protected void btnSend_Click(object sender, EventArgs e)
         {
             string company, subject, job, email, message, password;
@@ -28,7 +29,6 @@ namespace Job_Portal_Management_System.Views.Company
             email = txtEmail.Text;
             message = txtMessage.InnerText;
             password = txtPassword.Text;
-            Response.Write(company + "<br>" + subject + "<br>" + job + "<br>" + email + "<br>" + message);
             da = JobPortal_Services.User.UserServices.GetAllData();
             for (int i = 0; i < da.Rows.Count; i++)
             {
@@ -38,14 +38,17 @@ namespace Job_Portal_Management_System.Views.Company
         }
 
         /// <summary>
-        /// send email to jobseeker
+        /// send email to admin
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="email"></param>
+        /// <param name="subject"></param>
         /// <param name="company"></param>
-        /// <param name="accept"></param>
+        /// <param name="job"></param>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <param name="message"></param>
+        /// <param name="mails"></param>
         private void SendEmail(string subject, string company, string job, string email, string password, string message, string mails)
-        {
+        {   
             DataTable dt = new DataTable();
             MailDefinition md = new MailDefinition();
             md.From = "test@domain.com";
@@ -56,14 +59,12 @@ namespace Job_Portal_Management_System.Views.Company
             replacements.Add("{job}", job);
             replacements.Add("{message}", message);
             string body;
-
             body = "<center><h1>Job Appointment</h1></center>";
             body += "<h3>Hello Admin </h3>";
             body += "<p>{message}</p>";
             body += "<p>Job Title - {job}</p>";
             body += "<p>From</p>";
             body += "<p>{company}</p>";
-
             MailMessage msg = md.CreateMailMessage(mails, replacements, body, new System.Web.UI.Control());
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
