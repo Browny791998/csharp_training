@@ -222,6 +222,15 @@ namespace Job_Portal_Management_System.Views.JobSeeker
         protected global::System.Web.UI.WebControls.Panel pnldegree;
 
         /// <summary>
+        /// lbldegreename control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbldegreename;
+
+        /// <summary>
         /// txtDegree control.
         /// </summary>
         /// <remarks>

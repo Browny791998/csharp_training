@@ -88,7 +88,7 @@
                         <div class="form-group">
 
                             <asp:Panel ID="pnldegree" runat="server">
-                                <label for="txtDegree">Degree Name</label>
+                                <label for="txtDegree" id="lbldegreename" runat="server">Degree Name</label>
                                 <asp:TextBox ID="txtDegree" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtDegree" ForeColor="Red">Degree can&#39;t be blank</asp:RequiredFieldValidator>
                             </asp:Panel>
@@ -98,7 +98,7 @@
                 <div class="form-group">
                     <label for="fuCV">CV Form</label><br />
                     <asp:HiddenField ID="hfCV" runat="server" />
-                    <asp:FileUpload ID="fuCV" runat="server" Width="450px" CssClass="border py-1 rounded"  />
+                    <asp:FileUpload ID="fuCV" runat="server" accept=".doc,.docx,.DOC,.DOCX" Width="450px" CssClass="border py-1 rounded"  />
                 </div>
                 <div class="form-group">
                     <label for="currentimg">Current Profile</label>
@@ -108,7 +108,7 @@
 
                     <label for="fuProfile">Profile</label><br />
 
-                    <asp:FileUpload ID="fuProfile" runat="server" Width="450px" CssClass="border py-1 rounded" />
+                    <asp:FileUpload ID="fuProfile" accept=".png,.jpg,.jpeg,.PNG,.JPEG,.JPG" runat="server" Width="450px" CssClass="border py-1 rounded" />
                 </div>
 
                 <div class="form-group">

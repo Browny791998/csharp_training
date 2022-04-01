@@ -66,6 +66,7 @@ var myLineChart = new Chart(ctx, {
                 time: {
                     unit: 'week'
                 },
+                
                 gridLines: {
                     display: false,
                     drawBorder: false
@@ -77,6 +78,7 @@ var myLineChart = new Chart(ctx, {
             yAxes: [{
                 ticks: {
                     max: 10,
+                    min:0,
                     padding: 10,
                     // Include a dollar sign in the ticks
                     callback: function (value, index, values) {

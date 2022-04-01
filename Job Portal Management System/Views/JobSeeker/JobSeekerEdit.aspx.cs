@@ -79,7 +79,14 @@ namespace Job_Portal_Management_System.Views.JobSeeker
                         currentimg.ImageUrl = dr["profile"].ToString();
                         txtExperience.Text = dr["experience"].ToString();
                         ddlDegree.SelectedValue = dr["degree"].ToString();
-                        txtDegree.Text = dr["degree_name"].ToString();
+                        if (dr["degree_name"].ToString() == "Student")
+                        {
+                            pnldegree.Visible = false;
+                        }
+                        else
+                        {
+                          txtDegree.Text = dr["degree_name"].ToString();
+                        }
                         txtDetail.Text = dr["detail"].ToString();
                     }
                 }

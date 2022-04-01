@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/Main.Master" AutoEventWireup="true" CodeBehind="RegisterJobSeeker.aspx.cs" Inherits="Job_Portal_Management_System.Views.JobSeeker.RegisterJobSeeker" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Common/Layout/Main.Master" AutoEventWireup="true" CodeBehind="RegisterJobSeeker.aspx.cs" Inherits="Job_Portal_Management_System.Views.JobSeeker.RegisterJobSeeker"  %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -30,47 +30,47 @@
             <div class="col-md-5 mt-5 offset-md-1">
                 <div class="form-group">
                     <label for="txtName">Name</label><span class="fill">*</span>
-                    <asp:TextBox ID="txtName" runat="server" CssClass="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" Display="Dynamic" ControlToValidate="txtName" ForeColor="Red">Name can&#39;t be blank</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ForeColor="Red" ID="RegularExpressionValidator1" ControlToValidate="txtName" Display="Dynamic" runat="server" ErrorMessage="Special characters are not allowed" ValidationExpression="^[a-zA-Z'.\s]{1,40}$"></asp:RegularExpressionValidator>
+                    <asp:TextBox ID="txtName" ValidationGroup="JobSeekerError" runat="server" CssClass="form-control" ></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="JobSeekerError" runat="server" ErrorMessage="RequiredFieldValidator" Display="Dynamic" ControlToValidate="txtName" ForeColor="Red">Name can&#39;t be blank</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ForeColor="Red" ValidationGroup="JobSeekerError" ID="RegularExpressionValidator1" ControlToValidate="txtName" Display="Dynamic" runat="server" ErrorMessage="Special characters are not allowed" ValidationExpression="^[a-zA-Z'.\s]{1,40}$"></asp:RegularExpressionValidator>
                 </div>
                 <div class="form-group">
-                    <label for="txtAddress">Address</label><span class="fill">*</span>
-                    <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAddress" ForeColor="Red">Address can&#39;t be blank</asp:RequiredFieldValidator>
+                    <label for="txtAddress" >Address</label><span class="fill">*</span>
+                    <asp:TextBox ID="txtAddress"  ValidationGroup="JobSeekerError"  runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:RequiredFieldValidator ValidationGroup="JobSeekerError"  ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAddress" ForeColor="Red">Address can&#39;t be blank</asp:RequiredFieldValidator>
                 </div>
                 <div class="form-group">
-                    <label for="txtMobile">Mobile<span class="fill">*</span></label>
-                    <asp:TextBox ID="txtMobile" runat="server" TextMode="Number" CssClass="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtMobile" ForeColor="Red">Mobile can&#39;t be blank</asp:RequiredFieldValidator>
+                    <label for="txtMobile">Mobile</label><span class="fill">*</span>
+                    <asp:TextBox ID="txtMobile" ValidationGroup="JobSeekerError"  runat="server" TextMode="Number" CssClass="form-control"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ValidationGroup="JobSeekerError" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtMobile" ForeColor="Red">Mobile can&#39;t be blank</asp:RequiredFieldValidator>
                 </div>
 
                 <div class="form-group">
                     <label for="ddlgender">Gender</label><span class="fill">*</span>
-                    <asp:DropDownList ID="ddlgender" runat="server" CssClass="form-control">
+                    <asp:DropDownList ID="ddlgender" runat="server" CssClass="form-control" ValidationGroup="JobSeekerError" >
                         <asp:ListItem>Male</asp:ListItem>
                         <asp:ListItem>Female</asp:ListItem>
                         <asp:ListItem>Other</asp:ListItem>
                     </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlgender" ForeColor="Red">Please select Gender</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ValidationGroup="JobSeekerError"  ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlgender" ForeColor="Red">Please select Gender</asp:RequiredFieldValidator>
                 </div>
                 <div class="form-group">
                     <label for="txtDate">Date of Birth</label><span class="fill">*</span>
-                    <asp:TextBox ID="txtDate" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtDate" ForeColor="Red">Please select your birth date</asp:RequiredFieldValidator>
+                    <asp:TextBox ID="txtDate" ValidationGroup="JobSeekerError"  runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"  ErrorMessage="RequiredFieldValidator" ControlToValidate="txtDate" ForeColor="Red" ValidationGroup="JobSeekerError" >Please select your birth date</asp:RequiredFieldValidator>
                 </div>
                 <div class="form-group">
                     <label for="lbSkill">Skill</label><span class="fill">*</span>
-                    <asp:ListBox ID="lbSkill" runat="server" CssClass="form-control" SelectionMode="Multiple"></asp:ListBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="lbSkill" ForeColor="Red">Please select your skill</asp:RequiredFieldValidator>
+                    <asp:ListBox ID="lbSkill" runat="server" CssClass="form-control" SelectionMode="Multiple" ValidationGroup="JobSeekerError" ></asp:ListBox>
+                    <asp:RequiredFieldValidator ValidationGroup="JobSeekerError"  ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="lbSkill" ForeColor="Red">Please select your skill</asp:RequiredFieldValidator>
                 </div>
                 <div class="form-group">
                     <label for="txtExperience">Experience</label><span class="fill">*</span>
-                    <asp:TextBox ID="txtExperience" runat="server" CssClass="form-control" ToolTip="e.g 3 years"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtExperience" ForeColor="Red">Experience can&#39;t be blank</asp:RequiredFieldValidator>
+                    <asp:TextBox ID="txtExperience" ValidationGroup="JobSeekerError" runat="server" CssClass="form-control" ToolTip="e.g 3 years"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ValidationGroup="JobSeekerError" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtExperience" ForeColor="Red">Experience can&#39;t be blank</asp:RequiredFieldValidator>
                 </div>
 
-                <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-info" OnClick="btnRegister_Click" />
+                <asp:Button ID="btnRegister" ValidationGroup="JobSeekerError" runat="server" Text="Register" CssClass="btn btn-info" OnClick="btnRegister_Click" />
                 <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" OnClick="btnClear_Click" CausesValidation="false" />
             </div>
             <div class="col-md-5 mt-5">
@@ -79,19 +79,19 @@
                     <ContentTemplate>
                         <div class="form-group">
                             <label for="ddldegree">Degree</label><span class="fill">*</span>
-                            <asp:DropDownList ID="ddlDegree" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlDegree_SelectedIndexChanged" AutoPostBack="True">
+                            <asp:DropDownList ID="ddlDegree" ValidationGroup="JobSeekerError" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlDegree_SelectedIndexChanged" AutoPostBack="True">
                                 <asp:ListItem Value="1">Graduate</asp:ListItem>
                                 <asp:ListItem Value="2">Under Graduate</asp:ListItem>
                             </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlDegree" ForeColor="Red">Please select Degree</asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ValidationGroup="JobSeekerError" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlDegree" ForeColor="Red">Please select Degree</asp:RequiredFieldValidator>
                         </div>
 
                         <div class="form-group">
 
                             <asp:Panel ID="pnldegree" runat="server">
                                 <label for="txtDegree">Degree Name</label>
-                                <asp:TextBox ID="txtDegree" runat="server" CssClass="form-control"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtDegree" ForeColor="Red">Degree can&#39;t be blank</asp:RequiredFieldValidator>
+                                <asp:TextBox ID="txtDegree" ValidationGroup="JobSeekerError" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" ValidationGroup="JobSeekerError" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtDegree" ForeColor="Red">Degree can&#39;t be blank</asp:RequiredFieldValidator>
                             </asp:Panel>
                         </div>
                     </ContentTemplate>
@@ -101,30 +101,30 @@
                 <div class="form-group">
                     <label for="fuCV">CV Form</label><span class="fill">*</span>
                     <br />
-                    <asp:FileUpload ID="fuCV" runat="server" CssClass="border py-1 rounded" Width="450px" ViewStateMode="Inherit" EnableTheming="True" />
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="fuCV" ForeColor="Red">please upload your cv</asp:RequiredFieldValidator>
+                    <asp:FileUpload ID="fuCV" accept=".doc,.docx,.DOC,.DOCX"  ValidationGroup="JobSeekerError" runat="server" CssClass="border py-1 rounded" Width="450px" ViewStateMode="Inherit" EnableTheming="True" />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" ValidationGroup="JobSeekerError" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="fuCV" ForeColor="Red">please upload your cv</asp:RequiredFieldValidator>
                 </div>
                 <div class="form-group">
                     <label for="fuProfile">Profile</label><span class="fill">*</span>
                     <br />
-                    <asp:FileUpload ID="fuProfile" runat="server" Width="450px" CssClass="border py-1 rounded"  />
+                    <asp:FileUpload accept=".png,.jpg,.jpeg,.PNG,.JPEG,.JPG"  ID="fuProfile" ValidationGroup="JobSeekerError" runat="server" Width="450px" CssClass="border py-1 rounded"  />
                 </div>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="fuProfile" ForeColor="Red">please upload your profile</asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator11" ValidationGroup="JobSeekerError" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="fuProfile" ForeColor="Red">please upload your profile</asp:RequiredFieldValidator>
                 <div class="form-group">
                     <label for="txtEmail">Email</label><span class="fill">*</span>
-                    <asp:TextBox ID="txtEmail" TextMode="Email" runat="server" CssClass="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEmail" ForeColor="Red">Email can&#39;t be blank</asp:RequiredFieldValidator>
+                    <asp:TextBox ID="txtEmail" ValidationGroup="JobSeekerError" TextMode="Email" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator12" ValidationGroup="JobSeekerError" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtEmail" ForeColor="Red">Email can&#39;t be blank</asp:RequiredFieldValidator>
                 </div>
 
                 <div class="form-group">
                     <label for="txtPassword">Password</label><span class="fill">*</span>
-                    <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPassword" ForeColor="Red">Password can&#39;t be blank</asp:RequiredFieldValidator>
+                    <asp:TextBox ID="txtPassword" ValidationGroup="JobSeekerError" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator13" ValidationGroup="JobSeekerError" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPassword" ForeColor="Red">Password can&#39;t be blank</asp:RequiredFieldValidator>
                 </div>
                 <div class="form-group">
                     <label for="txtDetail">Detail</label><span class="fill">*</span>
-                    <asp:TextBox ID="txtDetail" runat="server" CssClass="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtDetail" ForeColor="Red">Detail can&#39;t be blank</asp:RequiredFieldValidator>
+                    <asp:TextBox ID="txtDetail" ValidationGroup="JobSeekerError" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator14" ValidationGroup="JobSeekerError" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtDetail" ForeColor="Red">Detail can&#39;t be blank</asp:RequiredFieldValidator>
                 </div>
             </div>
         </div>
