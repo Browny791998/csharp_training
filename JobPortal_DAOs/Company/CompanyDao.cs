@@ -174,7 +174,7 @@ namespace JobPortal_DAOs.Company
         {
             try
             {
-                return Common.HelperDao.GetData("Select Count(id) as Company,DATENAME(WEEKDAY,created_at) as Day from tbl_company Group By DATENAME(WEEKDAY, created_at) ", CommandType.Text);
+                return Common.HelperDao.GetData("SELECT  Company,  Day FROM  (SELECT * FROM ( SELECT id ,DATENAME(WEEKDAY,created_at) as Day  from tbl_company ) t  PIVOT(COUNT(id) FOR Day IN([Monday],[Tuesday],[Wednesday],[Thursday],[Friday],[Saturday],[Sunday]))  AS pivot_table) tbl1 UNPIVOT(Company FOR Day IN  ([Monday],[Tuesday],[Wednesday],[Thursday],[Friday],[Saturday],[Sunday])) unpvt", CommandType.Text);
             }
             catch (Exception ex)
             {

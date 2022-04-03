@@ -169,7 +169,7 @@ namespace JobPortal_DAOs.JobSeeker
         {
             try
             {
-                return Common.HelperDao.GetData("Select Count(id) as JobSeeker, DATENAME(WEEKDAY, created_date) as Day from tbl_jobseeker Group By DATENAME(WEEKDAY, created_date) ORDER BY CASE WHEN DATENAME(WEEKDAY, created_date) = 'Sunday' THEN 1 WHEN DATENAME(WEEKDAY, created_date) = 'Monday' THEN 2 WHEN DATENAME(WEEKDAY, created_date) = 'Tuesday' THEN 3 WHEN DATENAME(WEEKDAY, created_date) = 'Wednesday' THEN 4 WHEN DATENAME(WEEKDAY, created_date) = 'Thursday' THEN 5 WHEN DATENAME(WEEKDAY, created_date) = 'Friday' THEN 6 WHEN DATENAME(WEEKDAY, created_date) = 'Saturday' THEN 7 END ASC", CommandType.Text);
+                return Common.HelperDao.GetData("SELECT  JobSeeker,  Day FROM  (SELECT * FROM ( SELECT id ,DATENAME(WEEKDAY,created_date) as Day  from tbl_jobseeker ) t  PIVOT(COUNT(id) FOR Day IN([Monday],[Tuesday],[Wednesday],[Thursday],[Friday],[Saturday],[Sunday]))  AS pivot_table) tbl1 UNPIVOT(JobSeeker FOR Day IN  ([Monday],[Tuesday],[Wednesday],[Thursday],[Friday],[Saturday],[Sunday])) unpvt", CommandType.Text);
             }
             catch (Exception ex)
             {
