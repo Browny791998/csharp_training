@@ -92,6 +92,7 @@
                             <ItemTemplate>
                                 <%#HttpUtility.HtmlEncode(Eval("contact_person"))%>
                             </ItemTemplate>
+                            <ItemStyle Width="200px" />
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <HeaderTemplate>

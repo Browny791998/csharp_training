@@ -326,5 +326,10 @@ namespace Job_Portal_Management_System.Views.Job
         }
 
         #endregion clear data
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/Job/JobList.aspx");
+        }
     }
 }

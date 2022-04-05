@@ -54,7 +54,7 @@
         <h1 class="text-center mt-5 text-warning">About Our Website</h1>
 
         <div class="row mt-5">
-            <div class="col-md-5">
+            <div class="col-md-5 col-12">
                 <img src="../Resources/images/job.gif" width="400" height="250" class="img-thumbnail" />
             </div>
             <div class="col-md-7">
@@ -67,7 +67,7 @@
 
         <%--What We do--%>
         <h1 class="text-center mt-5 text-warning">What We do</h1>
-        <div class="d-flex flex-row flex-md-row ml-5 justify-content-md-around mt-5">
+        <div class="d-flex flex-row flex-md-row ml-5 flex-column justify-content-md-around mt-5">
 
             <div class="card border-info align-self-center mb-3 m-4" style="max-width: 18rem;">
                 <div class="card-body text-info">

@@ -25,7 +25,7 @@
                 Session.Remove("alert-type");
             } %>
 
-        <%if (Request.QueryString["action"] == "update")
+        <%if (Session["label"]!= null && Session["label"].ToString() == "update")
             {%>
         <h1 class="text-center text-info ml-5">Edit Your Job</h1>
 
@@ -119,6 +119,7 @@
 
                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-info" OnClick="btnSubmit_Click" />
                 <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning" CausesValidation="False" OnClick="btnClear_Click" />
+                 <asp:Button ID="btnBack" runat="server" Text="Back" CssClass="btn btn-primary" CausesValidation="False" OnClick="btnBack_Click" />
             </div>
         </div>
     </div>

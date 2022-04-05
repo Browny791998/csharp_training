@@ -66,7 +66,7 @@
                             <ItemTemplate>
                                 <%#HttpUtility.HtmlEncode(Eval("name"))%>
                             </ItemTemplate>
-                            <ItemStyle Width="200px"></ItemStyle>
+                            <ItemStyle Width="250px"></ItemStyle>
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <HeaderTemplate>
@@ -75,6 +75,7 @@
                             <ItemTemplate>
                                 <%#HttpUtility.HtmlEncode(Eval("address"))%>
                             </ItemTemplate>
+                            <ItemStyle Width="150px" />
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <HeaderTemplate>
@@ -92,6 +93,7 @@
                             <ItemTemplate>
                                 <%#HttpUtility.HtmlEncode(Eval("dob"))%>
                             </ItemTemplate>
+                            <ItemStyle Width="350px" />
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <HeaderTemplate>
@@ -100,6 +102,7 @@
                             <ItemTemplate>
                                 <%#HttpUtility.HtmlEncode(Eval("skill"))%>
                             </ItemTemplate>
+                            <ItemStyle Width="30px" />
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <HeaderTemplate>
