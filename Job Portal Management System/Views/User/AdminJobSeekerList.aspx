@@ -35,7 +35,7 @@
 
         <div class="row">
 
-            <div class="col-md-7">
+            <div class="col-md-12">
 
                 <asp:Label ID="Label2" runat="server" CssClass="font-weight-bold mr-3" Text="Label">Job Seeker Name</asp:Label>
                 <asp:TextBox ID="txtSearch" runat="server" Style="padding: 5px 35px 5px 13px; outline: none;"></asp:TextBox>
@@ -46,7 +46,7 @@
         <br />
         <div class="row">
             <div class="col-md-12">
-                <asp:GridView ID="grvJobSeeker" runat="server" CssClass="gvJobSeeker table table-striped pt-5" AutoGenerateColumns="False" DataKeyNames="id" PageSize="5"
+                <asp:GridView ID="grvJobSeeker" runat="server" CssClass="gvJobSeeker table table-striped " AutoGenerateColumns="False" DataKeyNames="id" PageSize="5"
                     ShowHeaderWhenEmpty="True" OnPageIndexChanging="grvJobSeeker_PageIndexChanging">
                     <Columns>
                         <asp:TemplateField >
@@ -57,7 +57,7 @@
                                 <asp:Label ID="lblRowNumber" Text='<%# Container.DataItemIndex + 1 %>' runat="server" />
                             </ItemTemplate>
 
-                            <ItemStyle Width="5px" HorizontalAlign="Left"></ItemStyle>
+                            <ItemStyle Width="5px" HorizontalAlign="Left" Wrap="True"></ItemStyle>
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <HeaderTemplate>
@@ -75,7 +75,7 @@
                             <ItemTemplate>
                                 <%#HttpUtility.HtmlEncode(Eval("address"))%>
                             </ItemTemplate>
-                            <ItemStyle Width="150px" />
+                            <ItemStyle Width="300px" />
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <HeaderTemplate>
@@ -84,16 +84,7 @@
                             <ItemTemplate>
                                 <%#HttpUtility.HtmlEncode(Eval("mobile"))%>
                             </ItemTemplate>
-                        </asp:TemplateField>
-
-                        <asp:TemplateField>
-                            <HeaderTemplate>
-                                <asp:Label ID="Label3" runat="server" Text="Label">Birth Date</asp:Label>
-                            </HeaderTemplate>
-                            <ItemTemplate>
-                                <%#HttpUtility.HtmlEncode(Eval("dob"))%>
-                            </ItemTemplate>
-                            <ItemStyle Width="350px" />
+                            <ItemStyle Width="150px" />
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <HeaderTemplate>
@@ -111,6 +102,7 @@
                             <ItemTemplate>
                                 <%#HttpUtility.HtmlEncode(Eval("degree_name"))%>
                             </ItemTemplate>
+                            <ItemStyle Width="100px" />
                         </asp:TemplateField>
 
                         <asp:TemplateField>
@@ -124,7 +116,7 @@
 
                         <asp:TemplateField HeaderText="Profile">
                             <ItemTemplate>
-                                <asp:Image ID="Image1" runat="server" Height="100" Width="100" ImageUrl='<%# Eval("profile") %>' />
+                                <asp:Image ID="Image1" runat="server" Height="70" Width="70" ImageUrl='<%# Eval("profile") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
