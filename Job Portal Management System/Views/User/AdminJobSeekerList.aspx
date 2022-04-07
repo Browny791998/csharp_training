@@ -49,7 +49,7 @@
                 <asp:GridView ID="grvJobSeeker" runat="server" CssClass="gvJobSeeker table table-striped pt-5" AutoGenerateColumns="False" DataKeyNames="id" PageSize="5"
                     ShowHeaderWhenEmpty="True" OnPageIndexChanging="grvJobSeeker_PageIndexChanging">
                     <Columns>
-                        <asp:TemplateField ItemStyle-Width="5%">
+                        <asp:TemplateField >
                             <HeaderTemplate>
                                 <asp:Label ID="Label1" runat="server" Text="Label">No</asp:Label>
                             </HeaderTemplate>

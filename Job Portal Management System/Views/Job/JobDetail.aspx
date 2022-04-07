@@ -40,20 +40,20 @@
                         </div>
 
                         <div class="job-detail mt-3">
-                            <h2>Job Detail</h2>
+                            <h4>Job Detail</h4>
                             <p><%# Eval("detail") %></p>
                         </div>
 
                         <div class="job-desc mt-3">
-                            <h2>Required Skill</h2>
+                            <h4>Required Skill</h4>
                             <p><%# Eval("skill") %></p>
                         </div>
 
                         <div class="job-other mt-3">
-                            <h2>Degree</h2>
+                            <h4>Degree</h4>
                             <p><%# Eval("degree") %></p>
 
-                            <h2>Experience</h2>
+                            <h4>Experience</h4>
                             <p><%# Eval("experience") %></p>
                         </div>
                     </div>

@@ -32,8 +32,8 @@
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">
-                        <span><% Response.Write(Session["name"]); %></span></a>
+                    <p class="nav-link">
+                        <span><% Response.Write(Session["name"]); %></span></p>
                 </li>
 
                 <!-- Divider -->
@@ -86,9 +86,7 @@
                 <!-- Divider -->
 
                 <!-- Sidebar Toggler (Sidebar) -->
-                <div class="text-center d-none d-md-inline mt-5">
-                    <asp:HyperLink ID="sidebarToggle" runat="server" CssClass="rounded-circle border-0 p-3" NavigateUrl="~/Views/Home.aspx"></asp:HyperLink>
-                </div>
+               
             </ul>
             <!-- End of Sidebar -->
 

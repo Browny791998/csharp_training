@@ -13,7 +13,9 @@ namespace Job_Portal_Management_System.Views.Company
 {
     public partial class SendMail : System.Web.UI.Page
     {
+        #region Variable declaration
         DataTable da = new DataTable();
+        #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
 
