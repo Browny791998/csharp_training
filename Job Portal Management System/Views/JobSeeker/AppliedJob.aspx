@@ -28,7 +28,7 @@
         <div class="row mt-5 mb-5">
             <div class="col-md-12">
 
-                <asp:GridView ID="grvAppliedJob" runat="server" CssClass="gvJobOffer table table-striped table-hover" ShowHeaderWhenEmpty="True" PageSize="5" DataKeyNames="id" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" OnPageIndexChanging="grvAppliedJob_PageIndexChanging" OnRowDeleting="grvAppliedJob_RowDeleting">
+                <asp:GridView ID="grvAppliedJob" runat="server" CssClass="gvJobOffer table table-striped table-hover table-responsive-sm" ShowHeaderWhenEmpty="True" PageSize="5" DataKeyNames="id" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" OnPageIndexChanging="grvAppliedJob_PageIndexChanging" OnRowDeleting="grvAppliedJob_RowDeleting">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:TemplateField>

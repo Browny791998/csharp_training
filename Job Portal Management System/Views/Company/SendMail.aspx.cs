@@ -19,7 +19,12 @@ namespace Job_Portal_Management_System.Views.Company
 
         }
 
-
+        #region Send Email
+        /// <summary>
+        /// Send Mail function
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSend_Click(object sender, EventArgs e)
         {
             string company, subject, job, email, message, password;
@@ -77,5 +82,7 @@ namespace Job_Portal_Management_System.Views.Company
             Session["alert"] = Message.I0010;
             Session["alert-type"] = "success";
         }
+
+        #endregion
     }
 }

@@ -42,7 +42,7 @@
     </div>
     <div class="row mt-5">
         <div class="col-md-12">
-            <asp:GridView ID="grvJob" runat="server" CssClass="gvJob table table-striped " ShowHeaderWhenEmpty="True" DataKeyNames="id" PageSize="5" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" OnRowDeleting="grvJob_RowDeleting" OnRowUpdating="grvJob_RowUpdating" OnPageIndexChanging="grvJob_PageIndexChanging">
+            <asp:GridView ID="grvJob" runat="server" CssClass="gvJob table table-striped table-responsive-sm" ShowHeaderWhenEmpty="True" DataKeyNames="id" PageSize="5" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" OnRowDeleting="grvJob_RowDeleting" OnRowUpdating="grvJob_RowUpdating" OnPageIndexChanging="grvJob_PageIndexChanging">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField>

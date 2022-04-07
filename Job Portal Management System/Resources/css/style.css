@@ -157,3 +157,24 @@ footer {
         background-color: cornflowerblue;
         text-decoration: none;
     }
+
+@media screen and (max-width:767.9px) {
+    .dropdownItem {
+        background-color: Highlight;
+        display: block;
+        text-align: left;
+        width: 150px;
+        height: 80px;
+        padding:0;
+        padding-left: 10px;
+        padding-right: 10px;
+        line-height: 80px;
+        font-size:13px;
+        text-decoration: none;
+        margin: 0;
+    }
+
+    .dropdownheader{
+        font-size: 13px;
+    }
+}

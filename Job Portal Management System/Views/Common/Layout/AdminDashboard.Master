@@ -94,7 +94,7 @@
                 <!-- Divider -->
                 <hr class="sidebar-divider">
                 <li class="nav-item">
-                    <a class="nav-link" href="../User/AdminHome.aspx">Dashboard
+                    <a class="dropdownheader nav-link" href="../User/AdminHome.aspx">Dashboard
                     </a>
                 </li>
                 <!-- Heading -->
@@ -108,7 +108,7 @@
                         aria-expanded="true" aria-controls="collapseCountry">
 
                         <span>
-                            <h6 class="d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i>Country</h6>
+                            <h6 class="dropdownheader d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i> Country</h6>
                         </span>
                     </a>
                     <div id="collapseCountry" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -122,7 +122,7 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePosition"
                         aria-expanded="true" aria-controls="collapseCountry">
                         <span>
-                            <h6 class="d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i>Position</h6>
+                            <h6 class="dropdownheader d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i> Position</h6>
                         </span>
                     </a>
                     <div id="collapsePosition" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapsePosition">
@@ -136,7 +136,7 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseJobnature"
                         aria-expanded="true" aria-controls="collapseJobnature">
                         <span>
-                            <h6 class="d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i>Job Nature</h6>
+                            <h6 class="dropdownheader d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i> Job Nature</h6>
                         </span>
                     </a>
                     <div id="collapseJobnature" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapseJobnature">
@@ -150,7 +150,7 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSkill"
                         aria-expanded="true" aria-controls="collapseSkill">
                         <span>
-                            <h6 class="d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i>Skill</h6>
+                            <h6 class="dropdownheader d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i> Skill</h6>
                         </span>
                     </a>
                     <div id="collapseSkill" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapseSkill">
@@ -164,7 +164,7 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSpecialization"
                         aria-expanded="true" aria-controls="collapseSpecialization">
                         <span>
-                            <h6 class="d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i>Specialization</h6>
+                            <h6 class="dropdownheader d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i> Specialization</h6>
                         </span>
                     </a>
                     <div id="collapseSpecialization" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapseSpecialization">
@@ -178,7 +178,7 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseJob"
                         aria-expanded="true" aria-controls="collapseJob">
                         <span>
-                            <h6 class="d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i>Job Management</h6>
+                            <h6 class="dropdownheader d-inline font-weight-bold"><i class="fas fa-fw fa-cog d-inline"></i> Job Management</h6>
                         </span>
                     </a>
                     <div id="collapseJob" class="collapse p-0 m-0" aria-labelledby="headingTwo" data-parent="#collapseJob">

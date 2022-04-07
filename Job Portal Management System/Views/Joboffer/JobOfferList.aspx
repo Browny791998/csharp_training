@@ -47,7 +47,7 @@
     <div class="row mt-5">
         <div class="col-md-12">
 
-            <asp:GridView ID="grvJobOffer" runat="server" CssClass="gvJobOffer table table-striped " ShowHeaderWhenEmpty="True" PageSize="5" DataKeyNames="id" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" OnRowCommand="grvJobOffer_RowCommand" OnPageIndexChanging="grvJobOffer_PageIndexChanging" OnRowDataBound="grvJobOffer_RowDataBound">
+            <asp:GridView ID="grvJobOffer" runat="server" CssClass="gvJobOffer table table-striped table-responsive-sm" ShowHeaderWhenEmpty="True" PageSize="5" DataKeyNames="id" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" OnRowCommand="grvJobOffer_RowCommand" OnPageIndexChanging="grvJobOffer_PageIndexChanging" OnRowDataBound="grvJobOffer_RowDataBound">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField>
