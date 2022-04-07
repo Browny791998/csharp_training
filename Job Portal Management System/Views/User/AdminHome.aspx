@@ -15,7 +15,7 @@
 
             <!-- Earnings (Monthly) Card Example -->
 
-            <div class="mb-4 ml-3" style="width:330px;">
+            <div class="mb-4 ml-3" style="width:335px;">
                 <a href="../User/AdminJobSeekerList.aspx">
                     <div class="card border-left-primary shadow h-100 py-2">
                         <div class="card-body">
@@ -39,7 +39,7 @@
             </div>
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="mb-4" style="width:330px;margin-left:35px;">
+            <div class="mb-4" style="width:335px;margin-left:30px">
                 <a href="../User/AdminCompanyList.aspx">
                     <div class="card border-left-success shadow h-100 py-2">
                         <div class="card-body">
@@ -63,7 +63,7 @@
             </div>
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="mb-4" style="width:330px;margin-left:35px;">
+            <div class="mb-4" style="width:335px;margin-left:30px">
                 <a href="../User/AdminJobList.aspx">
                     <div class="card border-left-info shadow h-100 py-2">
                         <div class="card-body">
