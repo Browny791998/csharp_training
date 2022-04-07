@@ -2352,7 +2352,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="CV\" />
     <Folder Include="Download\" />
-    <Folder Include="ScriptFile\" />
     <Folder Include="Upload\" />
   </ItemGroup>
   <ItemGroup>
