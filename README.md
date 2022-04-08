@@ -1,4 +1,4 @@
-# Project Set For Job Portal Management System
+# Project Set For Movie Renting System
 
 #Install Requirement Software 
 1)Microsoft Visual Studio 2019
